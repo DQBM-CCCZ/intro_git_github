@@ -12,15 +12,15 @@
 
 # Participants
 
-| Name | Email | GitHub username |
-|------|-------|-----------------|
-| Morgane Hilaire	| morgane.hilaire@uzh.ch |	|
-| Almudena Sancha Cantero | mariadelaalmudena.sanchacantero@uzh.ch	|	|
-| Markus Vogt	| markusvogt1996@gmail.com	|	|
-| Rebecca Mikic	| Rebecca.mikic@uzh.ch	|	|
-| Lukas Schwyter | lukas.schwyter@uzh.ch	|	|
-| Takayuki Yasunaga	| takayuki.yasunaga@uzh.ch	|	|
-| Simon marechal | Simon.marechal@uzh.ch	|	|
-| Somanath Jagannath | somanath.jagannath@uzh.ch	|	|
-| Matthias Rath | matthias.rath@uzh.ch	|	|
-| Géraldine Liot | geraldine.liot@uzh.ch	|	|
+| Name | Email | GitHub username | Project |
+|------|-------|-----------------|---------|
+| Morgane Hilaire	| morgane.hilaire@uzh.ch |	| Project 1 |
+| Almudena Sancha Cantero | mariadelaalmudena.sanchacantero@uzh.ch	|	| Project 1 |
+| Markus Vogt	| markusvogt1996@gmail.com	|	| Project 1 |
+| Rebecca Mikic	| Rebecca.mikic@uzh.ch	|	| Project 2 |
+| Lukas Schwyter | lukas.schwyter@uzh.ch	|	| Project 2 |
+| Takayuki Yasunaga	| takayuki.yasunaga@uzh.ch	|	| Project 2 |
+| Simon marechal | Simon.marechal@uzh.ch	|	| Project 3 |
+| Somanath Jagannath | somanath.jagannath@uzh.ch	|	| Project 3 |
+| Matthias Rath | matthias.rath@uzh.ch	|	| Project 3 |
+| Géraldine Liot | geraldine.liot@uzh.ch	|	| Project 3 |
