@@ -19,8 +19,8 @@
 | Markus Vogt	| markusvogt1996@gmail.com	|	| Project 1 |
 | Rebecca Mikic	| Rebecca.mikic@uzh.ch	|	| Project 2 |
 | Lukas Schwyter | lukas.schwyter@uzh.ch	|	| Project 2 |
+| Simon marechal | Simon.marechal@uzh.ch	| SimonMarech	| Project 3 |
 | Takayuki Yasunaga	| takayuki.yasunaga@uzh.ch	|TakayukiYasunaga	| Project 2 |
-| Simon marechal | Simon.marechal@uzh.ch	|	| Project 3 |
 | Somanath Jagannath | somanath.jagannath@uzh.ch	| sjagannath123 	| Project 3 |
 | Matthias Rath | matthias.rath@uzh.ch	|	| Project 3 |
 | Géraldine Liot | geraldine.liot@uzh.ch	|	gliot | Project 3 |
