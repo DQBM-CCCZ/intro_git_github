@@ -16,9 +16,9 @@
 |------|-------|-----------------|---------|
 | Morgane Hilaire	| morgane.hilaire@uzh.ch |	| Project 1 |
 | Almudena Sancha Cantero | mariadelaalmudena.sanchacantero@uzh.ch	|	| Project 1 |
+| Lukas Schwyter | lukas.schwyter@uzh.ch	|SchLuk54	| Project 2 |
 | Markus Vogt	| markusvogt1996@gmail.com	|MarkusVogt96	| Project 1 |
 | Rebecca Mikic	| Rebecca.mikic@uzh.ch	|rebimasek| Project 2 |
-| Lukas Schwyter | lukas.schwyter@uzh.ch	|	| Project 2 |
 | Simon marechal | Simon.marechal@uzh.ch	| SimonMarech	| Project 3 |
 | Takayuki Yasunaga	| takayuki.yasunaga@uzh.ch	|TakayukiYasunaga	| Project 2 |
 | Somanath Jagannath | somanath.jagannath@uzh.ch	| sjagannath123 	| Project 3 |
