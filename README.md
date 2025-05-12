@@ -24,3 +24,4 @@
 | Somanath Jagannath | somanath.jagannath@uzh.ch	| sjagannath123 	| Project 3 |
 | Matthias Rath | matthias.rath@uzh.ch	|	| Project 3 |
 | Géraldine Liot | geraldine.liot@uzh.ch	|	gliot | Project 3 |
+| Sukrit Suresh | Sukrit.Suresh@uzh.ch	|	sukritsuresh | Project 1 |
