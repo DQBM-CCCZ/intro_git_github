@@ -330,39 +330,14 @@ Date:   Mon Jun 23 09:45:00 2025
 </section>
 <section id="the-staging-area-recap" class="slide level2">
 <h2>The staging area recap</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A[file on disk] --&gt;|git add| B["staging area / index\n(inspect: git diff --staged)"]
-    B --&gt;|git commit| C["repository / .git\n(permanent snapshot)"]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+
+<img data-src="../assets/images/staging-area-recap.png" class="quarto-figure quarto-figure-center r-stretch" style="width:85.0%"><p>You can inspect the staging area at any point with <code>git diff --staged</code>.</p>
 </section>
 <section id="head" class="slide level2">
 <h2>HEAD</h2>
 <p>HEAD = pointer to the <strong>latest commit</strong> on your current branch.</p>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    c1[423c584] --&gt; c2[87ec91d] --&gt; c3[3d110b0]
-    HEAD --&gt; main --&gt; c3
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>When you make a new commit, HEAD moves forward automatically.</p>
+
+<img data-src="../assets/images/head-pointer.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><p>When you make a new commit, HEAD moves forward automatically.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -380,7 +355,8 @@ Date:   Mon Jun 23 09:45:00 2025
 <section id="git-diff" class="slide level2">
 <h2>git diff</h2>
 <p>Diffing shows <strong>what changed</strong> between two states:</p>
-<div class="panel-tabset">
+
+<img data-src="../assets/images/git-diff-diagram.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div class="panel-tabset">
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Terminal</a></li><li><a href="#tabset-2-2">VS Code</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">

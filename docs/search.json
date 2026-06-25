@@ -4,7 +4,7 @@
     "href": "slides/slide_module_4.html#ssh-authentication",
     "title": "Module 4: GitHub Collaboration",
     "section": "SSH Authentication",
-    "text": "SSH Authentication\nSSH lets your computer talk to GitHub without a password.\n\n\n\n\n\nsequenceDiagram\n    participant M as Your machine&lt;br/&gt;(private key)\n    participant G as GitHub&lt;br/&gt;(public key on file)\n    M-&gt;&gt;G: git push (signed with private key)\n    G-&gt;&gt;G: verify signature using stored public key\n    G-&gt;&gt;M: accepted, no password needed\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nThe private key never leaves your machine. GitHub only ever sees the public key — that’s why it’s safe to share, and the private key is not.\n\n\n\n# Check for existing key\nls -al ~/.ssh\n\n# Generate new key\nssh-keygen -t ed25519 -C \"your.email@uzh.ch\"\n\n# Copy public key → paste into github.com/settings/keys\ncat ~/.ssh/id_ed25519.pub\n\n# Test\nssh -T git@github.com"
+    "text": "SSH Authentication\nSSH lets your computer talk to GitHub without a password.\n\n\n\n\n\n\n\nNote\n\n\nThe private key never leaves your machine. GitHub only ever sees the public key — that’s why it’s safe to share, and the private key is not.\n\n\n\n# Check for existing key\nls -al ~/.ssh\n\n# Generate new key\nssh-keygen -t ed25519 -C \"your.email@uzh.ch\"\n\n# Copy public key → paste into github.com/settings/keys\ncat ~/.ssh/id_ed25519.pub\n\n# Test\nssh -T git@github.com"
   },
   {
     "objectID": "slides/slide_module_4.html#connecting-local-to-remote",
@@ -144,21 +144,21 @@
     "href": "slides/slide_module_2.html#the-staging-area-recap",
     "title": "Module 2: Local Git",
     "section": "The staging area recap",
-    "text": "The staging area recap\n\n\n\n\n\nflowchart TD\n    A[file on disk] --&gt;|git add| B[\"staging area / index\\n(inspect: git diff --staged)\"]\n    B --&gt;|git commit| C[\"repository / .git\\n(permanent snapshot)\"]"
+    "text": "The staging area recap\n\nYou can inspect the staging area at any point with git diff --staged."
   },
   {
     "objectID": "slides/slide_module_2.html#head",
     "href": "slides/slide_module_2.html#head",
     "title": "Module 2: Local Git",
     "section": "HEAD",
-    "text": "HEAD\nHEAD = pointer to the latest commit on your current branch.\n\n\n\n\n\nflowchart LR\n    c1[423c584] --&gt; c2[87ec91d] --&gt; c3[3d110b0]\n    HEAD --&gt; main --&gt; c3\n\n\n\n\n\n\nWhen you make a new commit, HEAD moves forward automatically.\n\n\n\n\n\n\nTip\n\n\nThink of HEAD as a sticky note that says “you are here” — it always points to the tip of whichever branch you’re currently on."
+    "text": "HEAD\nHEAD = pointer to the latest commit on your current branch.\n\nWhen you make a new commit, HEAD moves forward automatically.\n\n\n\n\n\n\nTip\n\n\nThink of HEAD as a sticky note that says “you are here” — it always points to the tip of whichever branch you’re currently on."
   },
   {
     "objectID": "slides/slide_module_2.html#git-diff",
     "href": "slides/slide_module_2.html#git-diff",
     "title": "Module 2: Local Git",
     "section": "git diff",
-    "text": "git diff\nDiffing shows what changed between two states:\n\nTerminalVS Code\n\n\n# Working directory vs staging area (unstaged changes)\ngit diff\n\n# Staging area vs last commit (what will be in next commit)\ngit diff --staged\n\n# Working directory vs last commit (everything changed)\ngit diff HEAD\n\n# Two specific commits\ngit diff &lt;hash1&gt; &lt;hash2&gt;\nTerminal diffs use +/- prefixes per line — green + for added, red - for removed.\n\n\n\nIn the Source Control panel, click any modified file under “Changes”\nVS Code opens a side-by-side diff view automatically — old version on the left, new on the right, changed lines highlighted in color\nClick a file under “Staged Changes” to see exactly what’s about to be committed\n\nFor a long file, the side-by-side view is much faster to scan than reading +/- lines in the terminal."
+    "text": "git diff\nDiffing shows what changed between two states:\n\n\nTerminalVS Code\n\n\n# Working directory vs staging area (unstaged changes)\ngit diff\n\n# Staging area vs last commit (what will be in next commit)\ngit diff --staged\n\n# Working directory vs last commit (everything changed)\ngit diff HEAD\n\n# Two specific commits\ngit diff &lt;hash1&gt; &lt;hash2&gt;\nTerminal diffs use +/- prefixes per line — green + for added, red - for removed.\n\n\n\nIn the Source Control panel, click any modified file under “Changes”\nVS Code opens a side-by-side diff view automatically — old version on the left, new on the right, changed lines highlighted in color\nClick a file under “Staged Changes” to see exactly what’s about to be committed\n\nFor a long file, the side-by-side view is much faster to scan than reading +/- lines in the terminal."
   },
   {
     "objectID": "slides/slide_module_2.html#exercise-3-local-git-workflow",
@@ -823,14 +823,21 @@
     "href": "slides/slide_module_1.html#types-of-version-control",
     "title": "Module 1: Concepts & GitHub",
     "section": "Types of Version Control",
-    "text": "Types of Version Control\n\nLocalCentral (e.g. SVN)Distributed (Git)\n\n\n\n\n\n\n\nflowchart LR\n    F[Your File] &lt;--&gt; D[(Version Database\\non YOUR machine)]\n\n\n\n\n\n\nNo collaboration possible — if your laptop dies, so does the history.\n\n\n\n\n\n\n\nflowchart TB\n    S[(Central Server)] &lt;--&gt; A[Computer A]\n    S &lt;--&gt; B[Computer B]\n\n\n\n\n\n\nOne single point of failure. No internet → no work.\n\n\n\n\n\n\n\nflowchart TB\n    S[(Server / GitHub)] &lt;--&gt; A[Computer A\\nfull history]\n    S &lt;--&gt; B[Computer B\\nfull history]\n    A &lt;--&gt; B\n\n\n\n\n\n\nEvery clone is a full backup. Works offline. This is Git."
+    "text": "Types of Version Control\n\nLocalCentral (e.g. SVN)Distributed (Git)\n\n\n\n\n\n\n\nNo collaboration possible — if your laptop dies, so does the history.\n\n\n\n\n\n\n\nOne single point of failure. No internet → no work.\n\n\n\n\n\n\n\nEvery clone is a full backup. Works offline. This is Git."
+  },
+  {
+    "objectID": "slides/slide_module_1.html#svn-vs-git-how-collaboration-actually-differs",
+    "href": "slides/slide_module_1.html#svn-vs-git-how-collaboration-actually-differs",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "SVN vs Git — how collaboration actually differs",
+    "text": "SVN vs Git — how collaboration actually differs\n\nWith SVN, everyone talks to one central repo. With Git, every copy is a full repo — you can sync with a colleague directly, with no server involved."
   },
   {
     "objectID": "slides/slide_module_1.html#git-is-winning",
     "href": "slides/slide_module_1.html#git-is-winning",
     "title": "Module 1: Concepts & GitHub",
     "section": "Git is winning",
-    "text": "Git is winning\nGitHub has become the de facto home for open-source and research code — free public repositories, built-in project management, and automated testing (GitHub Actions) all in one place.\n\n\n\n\n\n\nTip\n\n\nPoll: has anyone here already used GitHub to download someone else’s code or data? You’ve been a Git user already — you just didn’t know it."
+    "text": "Git is winning\n\nGitHub has become the de facto home for open-source and research code — free public repositories, built-in project management, and automated testing (GitHub Actions) all in one place.\n\n\n\n\n\n\nTip\n\n\nPoll: has anyone here already used GitHub to download someone else’s code or data? You’ve been a Git user already — you just didn’t know it."
   },
   {
     "objectID": "slides/slide_module_1.html#github-terminologies",
@@ -886,7 +893,7 @@
     "href": "slides/slide_module_3.html#git-branch-git-checkout",
     "title": "Module 3: Branching & History",
     "section": "git branch + git checkout",
-    "text": "git branch + git checkout\n# See which branch you are on\ngit branch\n\n# Create a new branch for a new normalization approach\ngit branch try-new-normalization\n\n# Switch to it\ngit checkout try-new-normalization\n\n# Create AND switch in one step\ngit checkout -b try-new-normalization"
+    "text": "git branch + git checkout\n\n# See which branch you are on\ngit branch\n\n# Create a new branch for a new normalization approach\ngit branch try-new-normalization\n\n# Switch to it\ngit checkout try-new-normalization\n\n# Create AND switch in one step\ngit checkout -b try-new-normalization"
   },
   {
     "objectID": "slides/slide_module_3.html#making-commits-on-a-branch",

@@ -40,7 +40,7 @@ By the end of today, this will never happen to you again.
 
 ## Why are we here?
 
-![](https://phdcomics.com/comics/archive/phd101212s.gif){width="55%" fig-align="center"}
+![](../assets/images/final-doc-comic.png){width="55%" fig-align="center"}
 
 "FINAL.doc" — a story everyone knows
 
@@ -164,31 +164,19 @@ right now?"*
 
 ### Local
 
-```{mermaid}
-flowchart LR
-    F[Your File] <--> D[(Version Database\non YOUR machine)]
-```
+![](../assets/images/vcs-local.png){width="60%" fig-align="center"}
 
 No collaboration possible — if your laptop dies, so does the history.
 
 ### Central (e.g. SVN)
 
-```{mermaid}
-flowchart TB
-    S[(Central Server)] <--> A[Computer A]
-    S <--> B[Computer B]
-```
+![](../assets/images/vcs-central.png){width="75%" fig-align="center"}
 
 One single point of failure. No internet → no work.
 
 ### Distributed (Git)
 
-```{mermaid}
-flowchart TB
-    S[(Server / GitHub)] <--> A[Computer A\nfull history]
-    S <--> B[Computer B\nfull history]
-    A <--> B
-```
+![](../assets/images/vcs-distributed.png){width="60%" fig-align="center"}
 
 Every clone is a full backup. Works offline. This is Git.
 
@@ -196,7 +184,18 @@ Every clone is a full backup. Works offline. This is Git.
 
 ---
 
+## SVN vs Git — how collaboration actually differs
+
+![](../assets/images/svn-vs-git-collaboration.png){width="85%" fig-align="center"}
+
+With SVN, everyone talks to one central repo. With Git, every copy *is* a
+full repo — you can sync with a colleague directly, with no server involved.
+
+---
+
 ## Git is winning
+
+![](../assets/images/git-vs-svn-trends.png){width="75%" fig-align="center"}
 
 GitHub has become the de facto home for open-source and research code —
 free public repositories, built-in project management, and automated

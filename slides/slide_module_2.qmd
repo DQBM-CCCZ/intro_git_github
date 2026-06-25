@@ -174,11 +174,9 @@ git log --oneline   # compact view
 
 ## The staging area recap
 
-```{mermaid}
-flowchart TD
-    A[file on disk] -->|git add| B["staging area / index\n(inspect: git diff --staged)"]
-    B -->|git commit| C["repository / .git\n(permanent snapshot)"]
-```
+![](../assets/images/staging-area-recap.png){width="85%" fig-align="center"}
+
+You can inspect the staging area at any point with `git diff --staged`.
 
 ---
 
@@ -186,11 +184,7 @@ flowchart TD
 
 HEAD = pointer to the **latest commit** on your current branch.
 
-```{mermaid}
-flowchart LR
-    c1[423c584] --> c2[87ec91d] --> c3[3d110b0]
-    HEAD --> main --> c3
-```
+![](../assets/images/head-pointer.png){width="70%" fig-align="center"}
 
 When you make a new commit, HEAD moves forward automatically.
 
@@ -204,6 +198,8 @@ to the tip of whichever branch you're currently on.
 ## git diff
 
 Diffing shows **what changed** between two states:
+
+![](../assets/images/git-diff-diagram.png){width="60%" fig-align="center"}
 
 ::: {.panel-tabset}
 

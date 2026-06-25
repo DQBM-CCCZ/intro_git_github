@@ -56,6 +56,8 @@ Different reasons, same mechanism: branches are cheap, disposable, and safe.
 
 ## git branch + git checkout
 
+![](../assets/images/branch-diagram.png){width="70%" fig-align="center"}
+
 ```bash
 # See which branch you are on
 git branch

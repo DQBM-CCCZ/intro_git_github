@@ -231,7 +231,7 @@ Deepak Tanwar
 <section id="why-are-we-here" class="slide level2">
 <h2>Why are we here?</h2>
 
-<img data-src="https://phdcomics.com/comics/archive/phd101212s.gif" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>“FINAL.doc” — a story everyone knows</p>
+<img data-src="../assets/images/final-doc-comic.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>“FINAL.doc” — a story everyone knows</p>
 </section>
 <section id="the-version-control-problem" class="slide level2">
 <h2>The version control problem</h2>
@@ -382,62 +382,41 @@ Deepak Tanwar
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Local</a></li><li><a href="#tabset-1-2">Central (e.g.&nbsp;SVN)</a></li><li><a href="#tabset-1-3">Distributed (Git)</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    F[Your File] &lt;--&gt; D[(Version Database\non YOUR machine)]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/images/vcs-local.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
 </div>
 <p>No collaboration possible — if your laptop dies, so does the history.</p>
 </div>
 <div id="tabset-1-2">
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TB
-    S[(Central Server)] &lt;--&gt; A[Computer A]
-    S &lt;--&gt; B[Computer B]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/images/vcs-central.png" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
+</figure>
 </div>
 <p>One single point of failure. No internet → no work.</p>
 </div>
 <div id="tabset-1-3">
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TB
-    S[(Server / GitHub)] &lt;--&gt; A[Computer A\nfull history]
-    S &lt;--&gt; B[Computer B\nfull history]
-    A &lt;--&gt; B
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/images/vcs-distributed.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
 </div>
 <p>Every clone is a full backup. Works offline. This is Git.</p>
 </div>
 </div>
 </div>
 </section>
+<section id="svn-vs-git-how-collaboration-actually-differs" class="slide level2">
+<h2>SVN vs Git — how collaboration actually differs</h2>
+
+<img data-src="../assets/images/svn-vs-git-collaboration.png" class="quarto-figure quarto-figure-center r-stretch" style="width:85.0%"><p>With SVN, everyone talks to one central repo. With Git, every copy <em>is</em> a full repo — you can sync with a colleague directly, with no server involved.</p>
+</section>
 <section id="git-is-winning" class="slide level2">
 <h2>Git is winning</h2>
-<p>GitHub has become the de facto home for open-source and research code — free public repositories, built-in project management, and automated testing (GitHub Actions) all in one place.</p>
+
+<img data-src="../assets/images/git-vs-svn-trends.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>GitHub has become the de facto home for open-source and research code — free public repositories, built-in project management, and automated testing (GitHub Actions) all in one place.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">

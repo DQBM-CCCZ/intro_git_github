@@ -16,14 +16,7 @@ title-slide-attributes:
 
 SSH lets your computer talk to GitHub without a password.
 
-```{mermaid}
-sequenceDiagram
-    participant M as Your machine<br/>(private key)
-    participant G as GitHub<br/>(public key on file)
-    M->>G: git push (signed with private key)
-    G->>G: verify signature using stored public key
-    G->>M: accepted, no password needed
-```
+![](../assets/images/ssh-key-authentication.png){width="85%" fig-align="center"}
 
 ::: {.callout-note}
 The private key never leaves your machine. GitHub only ever sees the

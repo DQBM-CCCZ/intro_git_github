@@ -210,24 +210,8 @@ Deepak Tanwar
 <section id="ssh-authentication" class="slide level2">
 <h2>SSH Authentication</h2>
 <p>SSH lets your computer talk to GitHub without a password.</p>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">sequenceDiagram
-    participant M as Your machine&lt;br/&gt;(private key)
-    participant G as GitHub&lt;br/&gt;(public key on file)
-    M-&gt;&gt;G: git push (signed with private key)
-    G-&gt;&gt;G: verify signature using stored public key
-    G-&gt;&gt;M: accepted, no password needed
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<div class="callout callout-note callout-titled callout-style-default">
+
+<img data-src="../assets/images/ssh-key-authentication.png" class="quarto-figure quarto-figure-center r-stretch" style="width:85.0%"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
