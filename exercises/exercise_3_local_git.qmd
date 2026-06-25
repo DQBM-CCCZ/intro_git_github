@@ -54,6 +54,42 @@ git commit -m "added sample metadata for 4 samples"
 git log
 ```
 
+::: {.callout-tip collapse="true"}
+## Click to see expected output of `git status` (before staging)
+
+```
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        samples.csv
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+:::
+
+**Question:** After `git add samples.csv`, you run `git status` again.
+Before checking the answer below — what do you think the wording changes to?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+```
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   samples.csv
+```
+
+"Untracked" became "Changes to be committed" — the file moved from the
+working directory into the staging area.
+:::
+
 ---
 
 ## Part C — More commits: documenting analysis steps
@@ -118,6 +154,36 @@ Compare your first and last commit:
 git log --oneline             # note the two hashes
 git diff FIRST_HASH LAST_HASH
 ```
+
+---
+
+## Check your understanding
+
+**Question:** You ran `git diff` before staging and saw nothing printed,
+even though you definitely edited `analysis_log.md`. What did you forget?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+You probably forgot to **save the file** in `nano` before running `git diff`
+— Git can only see what's actually written to disk. (Or, less likely, you
+already ran `git add` for that change, which would move it from `git diff`
+into `git diff --staged` instead.)
+:::
+
+**Question:** What is the difference between `git diff` and `git diff --staged`?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+- `git diff` → compares your **working directory** to the **staging area**
+  (what you've changed but not yet staged).
+- `git diff --staged` → compares the **staging area** to the **last commit**
+  (what will actually go into your next commit).
+
+If you run `git add` on a file, it "moves" out of the first diff and into
+the second.
+:::
 
 ---
 

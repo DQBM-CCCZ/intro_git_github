@@ -403,6 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#part-3-push-and-pull-request-10-min" id="toc-part-3-push-and-pull-request-10-min" class="nav-link" data-scroll-target="#part-3-push-and-pull-request-10-min">Part 3 — Push and Pull Request (~10 min)</a></li>
   <li><a href="#part-4-after-all-prs-are-merged-5-min" id="toc-part-4-after-all-prs-are-merged-5-min" class="nav-link" data-scroll-target="#part-4-after-all-prs-are-merged-5-min">Part 4 — After all PRs are merged (~5 min)</a></li>
+  <li><a href="#final-challenge-no-peeking-until-youve-tried" id="toc-final-challenge-no-peeking-until-youve-tried" class="nav-link" data-scroll-target="#final-challenge-no-peeking-until-youve-tried">Final challenge — no peeking until you’ve tried</a></li>
   <li><a href="#what-you-demonstrated-today" id="toc-what-you-demonstrated-today" class="nav-link" data-scroll-target="#what-you-demonstrated-today">What you demonstrated today</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
   </ul>
@@ -500,6 +501,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span>    <span class="co"># see everyone's contributions</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="final-challenge-no-peeking-until-youve-tried" class="level2">
+<h2 class="anchored" data-anchor-id="final-challenge-no-peeking-until-youve-tried">Final challenge — no peeking until you’ve tried</h2>
+<p>Imagine: it’s three months from now. A collaborator asks “can you re-run exactly the analysis that produced the numbers in Table 2?” You don’t remember which version of your script that was.</p>
+<p><strong>Question:</strong> Using only what you learned today, how would you find and re-run that exact version?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Click to reveal one possible approach
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><code>git log --oneline</code> to scan commit messages for something like “generated Table 2” or a date near submission</li>
+<li><code>git diff &lt;hash1&gt; &lt;hash2&gt;</code> to confirm what changed between candidate commits</li>
+<li><code>git checkout &lt;hash&gt;</code> to put your working directory back exactly as it was at that commit (detached HEAD — fine for read-only inspection)</li>
+<li>Re-run your script from that exact state</li>
+<li><code>git checkout main</code> to return to the latest version when done</li>
+</ol>
+<p>This is the entire reason version control exists for research: not just backup, but <strong>exact reproducibility</strong> of any past state, on demand.</p>
+</div>
+</div>
+</div>
 <hr>
 </section>
 <section id="what-you-demonstrated-today" class="level2">

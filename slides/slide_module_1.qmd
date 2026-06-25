@@ -21,6 +21,23 @@ title-slide-attributes:
 
 ---
 
+## A true story
+
+> *"I had three weeks of analysis in one script. I 'cleaned it up' on Friday
+> afternoon, deleted what looked like dead code, and saved over the file.
+> Monday morning: the results don't reproduce. There was no Friday-morning
+> version anywhere. I had to redo it."*
+
+. . .
+
+**Show of hands:** who has lost work, or a working version of something, this way?
+
+. . .
+
+By the end of today, this will never happen to you again.
+
+---
+
 ## Why are we here?
 
 ![](https://phdcomics.com/comics/archive/phd101212s.gif){width="55%" fig-align="center"}
@@ -33,8 +50,11 @@ title-slide-attributes:
 
 A general example from manuscript revision:
 
-```
-Draft by student → Revised by PI → Revised by student → Finalized by student
+```{mermaid}
+flowchart LR
+    A[Draft by student] --> B[Revised by PI]
+    B --> C[Revised by student]
+    C --> D[Finalized by student]
 ```
 
 **How would you name these files?**
@@ -54,19 +74,28 @@ Draft by student → Revised by PI → Revised by student → Finalized by stude
 - `manuscript_20221224.docx`
 - `manuscript_final.docx`
 
+. . .
+
+::: {.callout-warning}
+Both approaches break down: which file had the figure you liked? Which
+comment thread belongs to which version? Renaming files is not version control.
+:::
+
 ---
 
 ## Version control — the better way
 
-One file. Many snapshots.
+One file. Many snapshots, each with a message explaining *why* it changed.
 
-| File | Commit message | Version ID |
-|------|---------------|------------|
-| manuscript.docx | "first draft" | `ac3eveta` |
-| manuscript.docx | "revision 1" | `a23eveta` |
-| manuscript.docx | "updated figures" | `dc3edeta` |
-| manuscript.docx | "bioRxiv submission" | `yc8evata` |
-| manuscript.docx | "published" | `zz33eeta` |
+```{mermaid}
+flowchart LR
+    v1["v1: first draft"] --> v2["v2: revision 1"]
+    v2 --> v3["v3: updated figures"]
+    v3 --> v4["v4: bioRxiv submission"]
+    v4 --> v5["v5: published"]
+```
+
+The filename never changes. The **history** does.
 
 ---
 
@@ -110,28 +139,37 @@ Writing an analysis pipeline together → Git.
 
 ## Types of Version Control
 
-::: {.columns}
+::: {.panel-tabset}
 
-::: {.column width="33%"}
-**Local**
+### Local
 
-Version database lives only on your machine.
-No collaboration possible.
-:::
+```{mermaid}
+flowchart LR
+    F[Your File] <--> D[(Version Database\non YOUR machine)]
+```
 
-::: {.column width="33%"}
-**Central**
+No collaboration possible — if your laptop dies, so does the history.
 
-One shared server. Everyone checks out from the same place.
-Example: SVN (Subversion).
-:::
+### Central (e.g. SVN)
 
-::: {.column width="33%"}
-**Distributed**
+```{mermaid}
+flowchart TB
+    S[(Central Server)] <--> A[Computer A]
+    S <--> B[Computer B]
+```
 
-Every machine has the full history.
-Example: **Git**.
-:::
+One single point of failure. No internet → no work.
+
+### Distributed (Git)
+
+```{mermaid}
+flowchart TB
+    S[(Server / GitHub)] <--> A[Computer A\nfull history]
+    S <--> B[Computer B\nfull history]
+    A <--> B
+```
+
+Every clone is a full backup. Works offline. This is Git.
 
 :::
 
@@ -139,9 +177,14 @@ Example: **Git**.
 
 ## Git is winning
 
-Google Trends: GitHub vs GitLab vs Bitbucket vs others
+GitHub has become the de facto home for open-source and research code —
+free public repositories, built-in project management, and automated
+testing (GitHub Actions) all in one place.
 
-GitHub dominates because of its network effects, free public repositories, and GitHub Actions for CI/CD.
+::: {.callout-tip}
+**Poll:** has anyone here already used GitHub to download someone else's
+code or data? You've been a Git user already — you just didn't know it.
+:::
 
 ---
 

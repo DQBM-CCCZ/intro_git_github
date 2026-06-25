@@ -90,6 +90,32 @@ git log --oneline    # see everyone's contributions
 
 ---
 
+## Final challenge — no peeking until you've tried
+
+Imagine: it's three months from now. A collaborator asks "can you re-run
+exactly the analysis that produced the numbers in Table 2?" You don't
+remember which version of your script that was.
+
+**Question:** Using only what you learned today, how would you find and
+re-run that exact version?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal one possible approach
+
+1. `git log --oneline` to scan commit messages for something like
+   "generated Table 2" or a date near submission
+2. `git diff <hash1> <hash2>` to confirm what changed between candidate commits
+3. `git checkout <hash>` to put your working directory back exactly as it
+   was at that commit (detached HEAD — fine for read-only inspection)
+4. Re-run your script from that exact state
+5. `git checkout main` to return to the latest version when done
+
+This is the entire reason version control exists for research: not just
+backup, but **exact reproducibility** of any past state, on demand.
+:::
+
+---
+
 ## What you demonstrated today
 
 | Skill | Module |

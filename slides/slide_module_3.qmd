@@ -16,16 +16,27 @@ title-slide-attributes:
 
 Branches let you work on something new without breaking what already works.
 
-```
-main  ●──●──●──────────────●  (stable)
-               \          /
-feature         ●──●──●──   (your experiment)
+```{mermaid}
+gitGraph
+   commit id: "QC done"
+   commit id: "log2 normalization"
+   branch try-new-normalization
+   commit id: "quantile attempt"
+   commit id: "compare results"
+   checkout main
+   commit id: "wrote methods section"
+   merge try-new-normalization
 ```
 
 . . .
 
 In research: use a branch to try a new analysis approach.
 If it works → merge. If not → delete without any harm to `main`.
+
+::: {.callout-tip}
+**Discussion:** what's something you've wanted to try in your own analysis,
+but were afraid to risk breaking what already works?
+:::
 
 ---
 

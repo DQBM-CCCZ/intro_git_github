@@ -113,6 +113,38 @@ git log --oneline    # see all contributions in one place
 
 ---
 
+## Check your understanding
+
+**Question:** You have both `origin` and `upstream` remotes configured now.
+What does each one point to?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+- `origin` → **your fork** (`YOUR_USERNAME/intro_git_github`) — where you
+  push your own branches.
+- `upstream` → the **original repo** (`DQBM-SIB/intro_git_github`) — where
+  everyone's pull requests get merged.
+
+This two-remote pattern is the standard way to contribute to a project you
+don't have write access to: push to your fork, pull updates from upstream.
+:::
+
+**Question:** Could you have skipped forking and just cloned
+`DQBM-SIB/intro_git_github` directly?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+You could clone it, but you wouldn't be able to `git push` your branch to
+it — you don't have write permission on someone else's repository. Forking
+creates your own writable copy on GitHub first, so `git push origin
+YOUR_BRANCH` has somewhere to go. This is exactly how open-source
+contribution works on every public GitHub project.
+:::
+
+---
+
 ## What you learned
 
 | Term | Meaning |

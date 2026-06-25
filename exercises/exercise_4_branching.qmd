@@ -120,6 +120,46 @@ git commit -m "resolved conflicting conclusions, flagged for re-analysis"
 
 ---
 
+## Check your understanding
+
+**Question:** Why did `git merge try-new-normalization` in Part C succeed
+silently, but `git merge draft-conclusion` in Part D stopped with a conflict?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+In Part C, only the `try-new-normalization` branch had changed
+`analysis_log.md` — `main` hadn't touched that file since they diverged, so
+Git could apply the change cleanly (a "fast-forward" or trivial merge).
+
+In Part D, **both** branches edited the exact same line of
+`results_summary.md` after diverging. Git has no way to know which version
+is "right," so it pauses the merge and asks you to decide.
+:::
+
+**Question:** While `results_summary.md` still has conflict markers in it,
+what does `git status` say?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+```
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   results_summary.md
+```
+
+Git refuses to let you commit until you resolve and `git add` the file —
+this is a safety net so a half-finished conflict can never accidentally
+become a permanent commit.
+:::
+
+---
+
 ## Part E — .gitignore for raw data
 
 ```bash

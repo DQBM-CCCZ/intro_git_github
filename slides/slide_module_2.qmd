@@ -63,15 +63,18 @@ The `.git` folder is where Git stores everything. Never delete it.
 
 ## Tracking changes — the three stages
 
-```
-[Working Directory] --> git add --> [Staging Area] --> git commit --> [Repository]
-     your files                       .git/index                      .git/objects
+```{mermaid}
+flowchart LR
+    A[Working Directory\nyour files] -->|git add| B[Staging Area\n.git/index]
+    B -->|git commit| C[(Repository\n.git/objects)]
 ```
 
 . . .
 
-Why a staging area?
-→ You can prepare exactly what goes into a commit, even if you changed many files.
+Why a staging area? Imagine you fixed a bug **and** started an unrelated
+experiment in the same session. The staging area lets you commit the bug
+fix alone, with its own clear message — without dragging in the half-finished
+experiment.
 
 ---
 
@@ -151,16 +154,10 @@ git log --oneline   # compact view
 
 ## The staging area recap
 
-```
-[file on disk]
-      |
-   git add
-      |
-[staging area / index]    ← you can inspect with: git diff --staged
-      |
-  git commit
-      |
-[repository / .git]       ← permanent snapshot
+```{mermaid}
+flowchart TD
+    A[file on disk] -->|git add| B["staging area / index\n(inspect: git diff --staged)"]
+    B -->|git commit| C["repository / .git\n(permanent snapshot)"]
 ```
 
 ---
@@ -169,11 +166,18 @@ git log --oneline   # compact view
 
 HEAD = pointer to the **latest commit** on your current branch.
 
-```
-HEAD → main → commit 423c584 → commit 87ec91d → commit 3d110b0
+```{mermaid}
+flowchart LR
+    c1[423c584] --> c2[87ec91d] --> c3[3d110b0]
+    HEAD --> main --> c3
 ```
 
 When you make a new commit, HEAD moves forward automatically.
+
+::: {.callout-tip}
+Think of HEAD as a sticky note that says "you are here" — it always points
+to the tip of whichever branch you're currently on.
+:::
 
 ---
 

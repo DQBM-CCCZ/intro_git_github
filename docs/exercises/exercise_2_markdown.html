@@ -397,6 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#commit-the-file" id="toc-commit-the-file" class="nav-link" data-scroll-target="#commit-the-file">Commit the file</a></li>
   <li><a href="#compare" id="toc-compare" class="nav-link" data-scroll-target="#compare">Compare</a></li>
   </ul></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
   <li><a href="#markdown-you-practiced" id="toc-markdown-you-practiced" class="nav-link" data-scroll-target="#markdown-you-practiced">Markdown you practiced</a></li>
   </ul>
 </nav>
@@ -483,6 +484,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <hr>
 </section>
+</section>
+<section id="check-your-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-understanding">Check your understanding</h2>
+<p><strong>Question:</strong> You wrote <code># Your Name</code> at the top of the file. What would happen if you used <code>###</code> instead of <code>#</code>?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Click to reveal the answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It would still render as a heading, but a much smaller one (Heading 3 instead of Heading 1). The number of <code>#</code> symbols sets the heading level — more <code>#</code> = smaller text. This matters for document structure: search engines and screen readers use heading levels to understand a page’s outline, not just its appearance.</p>
+</div>
+</div>
+</div>
+<p><strong>Question:</strong> Your education table used <code>|</code> to separate columns. What happens if a row has fewer <code>|</code> separators than the header row?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Click to reveal the answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The table breaks — Markdown table renderers expect every row to have the same number of columns as the header. A missing <code>|</code> usually causes the remaining cells in that row to merge into the last column, or the whole table to fail to render as a table at all. Always count your <code>|</code> characters when copy-pasting table rows.</p>
+</div>
+</div>
+</div>
+<hr>
 </section>
 <section id="markdown-you-practiced" class="level2">
 <h2 class="anchored" data-anchor-id="markdown-you-practiced">Markdown you practiced</h2>

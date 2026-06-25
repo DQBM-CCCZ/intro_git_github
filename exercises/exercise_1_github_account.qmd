@@ -42,6 +42,32 @@ Create your GitHub account and your first repository.
 
 ---
 
+## Check your understanding
+
+**Question:** You named your repository the exact same as your username.
+What is special about a repository with this exact name on GitHub?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+A repository named exactly like your username is special: GitHub renders
+its README.md directly on your **profile page**
+(`github.com/YOUR_USERNAME`), not just inside the repository itself. It's
+how people build a public "about me" page using nothing but Markdown.
+:::
+
+**Question:** If this repository is **Public**, who can see it?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+Anyone on the internet, including people without a GitHub account. Public
+repositories are searchable and indexed. A **Private** repository is only
+visible to you and people you explicitly invite as collaborators.
+:::
+
+---
+
 ## What you learned
 
 - How GitHub is organized: users, organizations, repositories

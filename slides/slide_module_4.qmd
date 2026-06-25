@@ -16,12 +16,19 @@ title-slide-attributes:
 
 SSH lets your computer talk to GitHub without a password.
 
+```{mermaid}
+sequenceDiagram
+    participant M as Your machine<br/>(private key)
+    participant G as GitHub<br/>(public key on file)
+    M->>G: git push (signed with private key)
+    G->>G: verify signature using stored public key
+    G->>M: accepted, no password needed
 ```
-[Your machine]                    [GitHub]
-  Private key (~/.ssh/id_ed25519)
-                  ←→
-                        Public key (stored in GitHub settings)
-```
+
+::: {.callout-note}
+The private key never leaves your machine. GitHub only ever sees the
+public key — that's why it's safe to share, and the private key is not.
+:::
 
 ```bash
 # Check for existing key
@@ -171,8 +178,11 @@ Link issues so they move automatically when a PR closes them.
 
 A proposal to merge your branch into another branch.
 
-```
-your-branch ──PR──> main
+```{mermaid}
+flowchart LR
+    A[your-branch] -->|Pull Request| B[main]
+    B -->|review + discuss| A
+    A -->|merge| B
 ```
 
 **PR workflow:**
@@ -195,9 +205,13 @@ your-branch ──PR──> main
 
 **Fork workflow:**
 
-```
-Fork on GitHub → Clone your fork → Branch →
-Edit → Push to fork → Pull Request to original
+```{mermaid}
+flowchart LR
+    A[Fork on GitHub] --> B[Clone your fork]
+    B --> C[Branch]
+    C --> D[Edit & commit]
+    D --> E[Push to your fork]
+    E --> F[Pull Request to original]
 ```
 
 ---

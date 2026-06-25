@@ -61,6 +61,36 @@ Brief description of what you are currently working on.
 
 ---
 
+## Check your understanding
+
+**Question:** You wrote `# Your Name` at the top of the file. What would
+happen if you used `###` instead of `#`?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+It would still render as a heading, but a much smaller one (Heading 3
+instead of Heading 1). The number of `#` symbols sets the heading level —
+more `#` = smaller text. This matters for document structure: search
+engines and screen readers use heading levels to understand a page's
+outline, not just its appearance.
+:::
+
+**Question:** Your education table used `|` to separate columns. What
+happens if a row has fewer `|` separators than the header row?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+The table breaks — Markdown table renderers expect every row to have the
+same number of columns as the header. A missing `|` usually causes the
+remaining cells in that row to merge into the last column, or the whole
+table to fail to render as a table at all. Always count your `|` characters
+when copy-pasting table rows.
+:::
+
+---
+
 ## Markdown you practiced
 
 | Syntax | Result |

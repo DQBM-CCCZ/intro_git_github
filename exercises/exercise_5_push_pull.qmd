@@ -79,6 +79,35 @@ cat results_summary.md    # new line is here
 
 ---
 
+## Check your understanding
+
+**Question:** What would have happened if you had a **local, uncommitted**
+edit to `results_summary.md` when you ran `git pull` just now?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+`git pull` would likely refuse, with a message like
+`error: Your local changes to the following files would be overwritten by merge`.
+Git protects you from silently losing uncommitted work. You'd need to either
+commit your changes first, or temporarily set them aside with `git stash`,
+pull, then `git stash pop` to bring them back.
+:::
+
+**Question:** You used `git push -u origin main` the first time, but just
+`git push` every time after. Why does the first push need the extra flag?
+
+::: {.callout-tip collapse="true"}
+## Click to reveal the answer
+
+`-u` (short for `--set-upstream`) tells Git "remember that my local `main`
+branch tracks `origin/main`." Once that link is recorded, plain `git push`
+and `git pull` know where to send/fetch without you specifying the remote
+and branch every time.
+:::
+
+---
+
 ## Part E — Full cycle
 
 ```bash
