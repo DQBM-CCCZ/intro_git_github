@@ -34,11 +34,18 @@ a {
   color: var(--git-orange);
 }
 
-/* Code blocks — give them a terminal feel */
-pre.sourceCode {
-  background-color: #1e1e1e !important;
-  color: #d4d4d4 !important;
+/* Code blocks — give them a terminal feel.
+   Colors for individual tokens come from highlight-style: monokai
+   (set in _quarto.yml), which is already tuned for a dark background.
+   Do not override token colors here or they go dark-on-dark in light mode. */
+div.sourceCode {
+  background-color: #272822 !important;
   border-left: 4px solid var(--git-orange);
+  border-radius: 4px;
+}
+
+pre.sourceCode {
+  background-color: transparent !important;
 }
 
 /* Inline code */
