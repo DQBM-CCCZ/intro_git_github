@@ -66,9 +66,9 @@ flowchart LR
 - `manuscript_FA_LA_FA.docx`
 - `manuscript_final.docx`
 
-. . .
+---
 
-**Or by date?**
+## Or by date?
 
 - `manuscript_20221001.docx`
 - `manuscript_20221224.docx`

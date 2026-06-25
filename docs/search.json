@@ -788,7 +788,14 @@
     "href": "slides/slide_module_1.html#the-version-control-problem",
     "title": "Module 1: Concepts & GitHub",
     "section": "The version control problem",
-    "text": "The version control problem\nA general example from manuscript revision:\n\n\n\n\n\nflowchart LR\n    A[Draft by student] --&gt; B[Revised by PI]\n    B --&gt; C[Revised by student]\n    C --&gt; D[Finalized by student]\n\n\n\n\n\n\nHow would you name these files?\n\n\nmanuscript_FA.docx\nmanuscript_FA_LA.docx\nmanuscript_FA_LA_FA.docx\nmanuscript_final.docx\n\n\n\nOr by date?\n\nmanuscript_20221001.docx\nmanuscript_20221224.docx\nmanuscript_final.docx\n\n\n\n\n\n\n\n\n\nWarning\n\n\nBoth approaches break down: which file had the figure you liked? Which comment thread belongs to which version? Renaming files is not version control."
+    "text": "The version control problem\nA general example from manuscript revision:\n\n\n\n\n\nflowchart LR\n    A[Draft by student] --&gt; B[Revised by PI]\n    B --&gt; C[Revised by student]\n    C --&gt; D[Finalized by student]\n\n\n\n\n\n\nHow would you name these files?\n\n\nmanuscript_FA.docx\nmanuscript_FA_LA.docx\nmanuscript_FA_LA_FA.docx\nmanuscript_final.docx"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#or-by-date",
+    "href": "slides/slide_module_1.html#or-by-date",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Or by date?",
+    "text": "Or by date?\n\nmanuscript_20221001.docx\nmanuscript_20221224.docx\nmanuscript_final.docx\n\n\n\n\n\n\n\n\nWarning\n\n\nBoth approaches break down: which file had the figure you liked? Which comment thread belongs to which version? Renaming files is not version control."
   },
   {
     "objectID": "slides/slide_module_1.html#what-is-git",
