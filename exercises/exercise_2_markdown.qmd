@@ -1,0 +1,73 @@
+---
+title: "Exercise 2 — Write Your README with Markdown"
+format: html
+---
+
+**Module 1 | ~20 minutes**
+
+---
+
+## Goal
+
+Edit your GitHub profile README using Markdown formatting.
+
+---
+
+## Steps
+
+### Open the README editor
+
+1. Go to your repository: `https://github.com/YOUR_USERNAME/YOUR_USERNAME`
+2. Click the **pencil icon** on the README.md file to edit it
+
+### Write your introduction
+
+3. Write at least the following sections using Markdown:
+
+```markdown
+# Your Name
+
+## About Me
+One or two sentences about your role and research.
+
+## Research Project
+Brief description of what you are currently working on.
+
+## Affiliation
+- Institution
+- Research group / lab
+
+## Education
+
+| Degree | University | Year |
+|--------|-----------|------|
+| PhD    | UZH       | 2024 |
+| MSc    | ...       | ...  |
+
+## Links
+- [LinkedIn](https://linkedin.com/in/your-profile)
+```
+
+### Commit the file
+
+4. Scroll down to **Commit changes**
+5. Write a meaningful commit message: `added introduction and education table`
+6. Click **Commit changes**
+
+### Compare
+
+7. Go to `https://github.com/YOUR_USERNAME`
+8. Compare your profile page to the screenshot from Exercise 1 — what changed?
+
+---
+
+## Markdown you practiced
+
+| Syntax | Result |
+|--------|--------|
+| `# text` | Heading 1 |
+| `## text` | Heading 2 |
+| `**text**` | **bold** |
+| `- item` | bullet list |
+| `\| col \|` | table |
+| `[text](url)` | link |

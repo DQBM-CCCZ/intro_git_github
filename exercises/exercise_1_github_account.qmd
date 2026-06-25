@@ -1,0 +1,49 @@
+---
+title: "Exercise 1 — GitHub Account & First Repository"
+format: html
+---
+
+**Module 1 | ~20 minutes**
+
+---
+
+## Goal
+
+Create your GitHub account and your first repository.
+
+---
+
+## Steps
+
+### GitHub Account
+
+1. Go to [https://github.com](https://github.com) and sign up for a free account
+2. Choose a professional username — you will share this publicly
+3. Verify your email address
+
+### Explore GitHub
+
+4. Go to your profile page: `https://github.com/YOUR_USERNAME`
+5. Find the **DQBM-SIB** organization — check if you are already a member
+
+### Create a Repository
+
+6. Click the **+** icon (top right) → **New repository**
+7. Name it exactly your GitHub username (e.g., `dktanwar`)
+8. Set it to **Public**
+9. Check **Add a README file**
+10. Click **Create repository**
+
+### Verify
+
+11. Go to `https://github.com/YOUR_USERNAME/YOUR_USERNAME`
+12. You should see your new repository with a README file
+13. Take a screenshot — we will compare it after Exercise 2
+
+---
+
+## What you learned
+
+- How GitHub is organized: users, organizations, repositories
+- The difference between public and private repositories
+- A README file is the front page of your repository

@@ -1,0 +1,14 @@
+# Quarto
+/.quarto/
+*_files/
+*.quarto_ipynb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# R
+.Rproj.user/
+*.Rhistory
+
+**/*.quarto_ipynb

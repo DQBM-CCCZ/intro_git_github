@@ -1,0 +1,66 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "qmd/*.qmd"
+    - "slides/*.qmd"
+    - "exercises/*.qmd"
+    - "!assets/**"
+
+resources:
+  - "assets/**"
+
+website:
+  title: "Introduction to Git & GitHub"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: qmd/precourse_setup.qmd
+        text: Pre-course Setup
+      - href: qmd/schedule.qmd
+        text: Schedule
+      - text: Slides
+        menu:
+          - href: slides/slide_module_1.qmd
+            text: "Module 1: Concepts & GitHub"
+          - href: slides/slide_module_2.qmd
+            text: "Module 2: Local Git"
+          - href: slides/slide_module_3.qmd
+            text: "Module 3: Branching & History"
+          - href: slides/slide_module_4.qmd
+            text: "Module 4: GitHub Collaboration"
+      - text: Exercises
+        menu:
+          - href: exercises/exercise_1_github_account.qmd
+            text: "Exercise 1: GitHub Account"
+          - href: exercises/exercise_2_markdown.qmd
+            text: "Exercise 2: Markdown"
+          - href: exercises/exercise_3_local_git.qmd
+            text: "Exercise 3: Local Git"
+          - href: exercises/exercise_4_branching.qmd
+            text: "Exercise 4: Branching"
+          - href: exercises/exercise_5_push_pull.qmd
+            text: "Exercise 5: Push & Pull"
+          - href: exercises/exercise_6_collaboration.qmd
+            text: "Exercise 6: Collaboration"
+          - href: exercises/final_exercise.qmd
+            text: "Final Exercise"
+      - href: qmd/cheatsheet.qmd
+        text: Cheat Sheet
+    right:
+      - icon: github
+        href: https://github.com/DQBM-SIB/intro_git_github
+
+  page-footer:
+    left: "This course website is inspired by the [SIB course template](https://github.com/sib-swiss/course_website_template)."
+    right: "Copyright 2025, Deepak Tanwar"
+
+format:
+  html:
+    theme:
+      light: litera
+      dark: darkly
+    css: styles.css
+    toc: true

@@ -1,0 +1,175 @@
+---
+title: "Module 3: Branching & History"
+author: "Deepak Tanwar"
+format:
+  revealjs:
+    controls-layout: bottom-right
+    controls-tutorial: true
+    footer: "Introduction to Git & GitHub — SIB/UZH"
+    theme: default
+    highlight-style: github
+title-slide-attributes:
+  data-background-color: "#F05032"
+---
+
+## Why branches?
+
+Branches let you work on something new without breaking what already works.
+
+```
+main  ●──●──●──────────────●  (stable)
+               \          /
+feature         ●──●──●──   (your experiment)
+```
+
+. . .
+
+In research: use a branch to try a new analysis approach.
+If it works → merge. If not → delete without any harm to `main`.
+
+---
+
+## git branch + git checkout
+
+```bash
+# See which branch you are on
+git branch
+
+# Create a new branch
+git branch dev
+
+# Switch to it
+git checkout dev
+
+# Create AND switch in one step
+git checkout -b dev
+```
+
+---
+
+## Making commits on a branch
+
+```bash
+# You are on branch "dev"
+nano hobbies.md    # add a new file
+
+git add hobbies.md
+git commit -m "added hobbies file"
+
+# Go back to main — hobbies.md is not here
+git checkout main
+ls
+```
+
+Branches are isolated. Changes on `dev` don't appear on `main` until you merge.
+
+---
+
+## git merge
+
+```bash
+# On main branch:
+git merge dev
+```
+
+Git replays the commits from `dev` onto `main`.
+After merging, you can delete the branch:
+
+```bash
+git branch -d dev
+```
+
+---
+
+## Merge conflicts
+
+Conflicts happen when **two branches change the same line** differently.
+
+```
+<<<<<<< HEAD
+# My title on main
+=======
+# My title on dev
+>>>>>>> dev
+```
+
+. . .
+
+**How to resolve:**
+1. Open the file
+2. Choose which version to keep (or combine them)
+3. Remove all `<<<<<<<`, `=======`, `>>>>>>>` markers
+4. `git add <file>` → `git commit`
+
+---
+
+## Exploring git history
+
+```bash
+# Full history
+git log
+
+# Compact — one line per commit
+git log --oneline
+
+# Go to a specific commit (read-only — "detached HEAD")
+git checkout a499ea4
+
+# Return to the latest
+git checkout main
+```
+
+---
+
+## Ignoring files with .gitignore
+
+Create a file called `.gitignore` in your repo root:
+
+```
+# Ignore all log files
+*.log
+
+# Ignore a whole folder
+data/raw/
+
+# Ignore a specific file
+secrets.txt
+```
+
+```bash
+git add .gitignore
+git commit -m "added gitignore"
+```
+
+Git will never ask you about these files again.
+
+---
+
+## git reset — undoing things
+
+| Command | Effect |
+|---------|--------|
+| `git reset <file>` | Unstage a file (keep changes) |
+| `git reset --soft HEAD~1` | Undo last commit, keep changes staged |
+| `git reset --hard HEAD~1` | Undo last commit, **discard** all changes |
+
+. . .
+
+::: {.callout-warning}
+`--hard` is permanent. Use with care.
+:::
+
+---
+
+## Exercise 4 — Branching & Merge Conflicts
+
+See [Exercise 4](../exercises/exercise_4_branching.qmd) for the full walkthrough.
+
+**Summary:**
+
+1. `git checkout -b YOUR_FIRST_NAME`
+2. Create `test.md`, add, commit
+3. `git checkout main` → `git merge YOUR_FIRST_NAME`
+4. Create a **conflict** by editing the same line on two branches
+5. Resolve the conflict manually
+6. Create `temp_data/`, add `.gitignore`, verify files are ignored

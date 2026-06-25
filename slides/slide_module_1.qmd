@@ -1,0 +1,192 @@
+---
+title: "Module 1: Concepts & GitHub"
+author: "Deepak Tanwar"
+format:
+  revealjs:
+    controls-layout: bottom-right
+    controls-tutorial: true
+    footer: "Introduction to Git & GitHub — SIB/UZH"
+    theme: default
+    highlight-style: github
+title-slide-attributes:
+  data-background-color: "#F05032"
+---
+
+## Introductions
+
+- Name
+- Designation & research group
+- Institution
+- Experience with Git and/or GitHub
+
+---
+
+## Why are we here?
+
+![](https://phdcomics.com/comics/archive/phd101212s.gif){width="55%" fig-align="center"}
+
+"FINAL.doc" — a story everyone knows
+
+---
+
+## The version control problem
+
+A general example from manuscript revision:
+
+```
+Draft by student → Revised by PI → Revised by student → Finalized by student
+```
+
+**How would you name these files?**
+
+. . .
+
+- `manuscript_FA.docx`
+- `manuscript_FA_LA.docx`
+- `manuscript_FA_LA_FA.docx`
+- `manuscript_final.docx`
+
+. . .
+
+**Or by date?**
+
+- `manuscript_20221001.docx`
+- `manuscript_20221224.docx`
+- `manuscript_final.docx`
+
+---
+
+## Version control — the better way
+
+One file. Many snapshots.
+
+| File | Commit message | Version ID |
+|------|---------------|------------|
+| manuscript.docx | "first draft" | `ac3eveta` |
+| manuscript.docx | "revision 1" | `a23eveta` |
+| manuscript.docx | "updated figures" | `dc3edeta` |
+| manuscript.docx | "bioRxiv submission" | `yc8evata` |
+| manuscript.docx | "published" | `zz33eeta` |
+
+---
+
+## What is Git?
+
+- A **distributed version control system** (VCS)
+- Created in 2005 by Linus Torvalds (creator of Linux)
+- Tracks changes to files over time
+- Works **locally** — no internet needed
+- Free and open source
+
+. . .
+
+**Git ≠ GitHub**
+
+- **Git** = the tool running on your machine
+- **GitHub** = a website that hosts Git repositories online
+
+---
+
+## Types of Version Control
+
+::: {.columns}
+
+::: {.column width="33%"}
+**Local**
+
+Version database lives only on your machine.
+No collaboration possible.
+:::
+
+::: {.column width="33%"}
+**Central**
+
+One shared server. Everyone checks out from the same place.
+Example: SVN (Subversion).
+:::
+
+::: {.column width="33%"}
+**Distributed**
+
+Every machine has the full history.
+Example: **Git**.
+:::
+
+:::
+
+---
+
+## Git is winning
+
+Google Trends: GitHub vs GitLab vs Bitbucket vs others
+
+GitHub dominates because of its network effects, free public repositories, and GitHub Actions for CI/CD.
+
+---
+
+## GitHub Terminologies
+
+| Term | Plain English |
+|------|--------------|
+| **Repository** | A folder tracked by Git |
+| **Commit** | A saved snapshot with a message |
+| **Branch** | A separate line of development |
+| **Fork** | Your own server-side copy of a repo |
+| **Pull Request** | A proposal to merge changes |
+| **Issue** | A task, bug report, or discussion |
+| **Organization** | A shared account for teams |
+
+---
+
+## Applications in bioinformatics
+
+- Version control of analysis scripts and pipelines
+- Full history of every change — reproducible research
+- Collaboration across institutes and time zones
+- Issues and Projects for experiment planning
+- **Genomic Data Science:** version-controlled, reproducible data analysis
+
+---
+
+## Writing on GitHub: Markdown
+
+GitHub renders `.md` files automatically. Basic syntax:
+
+```markdown
+# Heading 1
+## Heading 2
+
+**bold**   *italic*   `inline code`
+
+- list item 1
+- list item 2
+
+| Column 1 | Column 2 |
+|----------|----------|
+| row 1 a  | row 1 b  |
+
+[link text](https://github.com)
+```
+
+---
+
+## Exercise 1
+
+1. Create a GitHub account at [github.com](https://github.com)
+2. Choose a professional username
+3. Check if you belong to the **DQBM-SIB** organization
+4. Create a new **public** repository named after your username
+5. Go to `https://github.com/YOUR_USERNAME`
+6. Take a screenshot
+
+---
+
+## Exercise 2
+
+1. Open the README.md file in your repository
+2. Write your introduction using Markdown:
+   - Name as `# Heading 1`
+   - Sections: About Me, Research Project, Affiliation, Education
+   - Education as a **table** with university and year columns
+3. Commit with message: `added introduction and education table`
+4. Compare your profile to the screenshot from Exercise 1

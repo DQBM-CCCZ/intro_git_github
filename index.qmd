@@ -1,0 +1,64 @@
+---
+title: "Introduction to Git & GitHub"
+format: html
+---
+
+Welcome to the course website for **Introduction to Git and GitHub**, including project management.
+
+## Teacher & Author
+
+Deepak Tanwar <a href="https://orcid.org/0000-0001-8036-1989" target="_blank"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>
+Bioinformatics Specialist and Trainer
+Swiss Institute of Bioinformatics / University of Zurich
+[deepak.tanwar@uzh.ch](mailto:deepak.tanwar@uzh.ch) · [Bluesky](http://dktanwar.bsky.social/)
+
+## About This Course
+
+This is a hands-on 1-day workshop for researchers who want to stop emailing files back and forth and start using version control properly. By the end of the day you will be able to track changes in your own files, collaborate with others through GitHub, and contribute to shared projects via pull requests.
+
+No prior experience with Git or GitHub is required.
+
+## Learning Objectives
+
+### Module 1 — Concepts & GitHub
+
+- **Explain** what version control is and why it matters for research
+- **Identify** the difference between Git (the tool) and GitHub (the hosting platform)
+- **Use** key GitHub terminology: repository, commit, branch, fork, pull request
+- **Create** a GitHub account and first repository
+- **Write** formatted text using Markdown
+
+### Module 2 — Local Git
+
+- **Initialize** a Git repository on your machine
+- **Describe** the three-stage model: working directory → staging area → repository
+- **Execute** the core workflow: `git add`, `git commit`, `git log`
+- **Inspect** changes using `git diff` and understand HEAD
+
+### Module 3 — Branching & History
+
+- **Create** and **switch** between branches
+- **Merge** branches and **resolve** merge conflicts
+- **Navigate** commit history with `git log` and `git checkout`
+- **Exclude** files from tracking using `.gitignore`
+- **Undo** changes safely with `git reset`
+
+### Module 4 — GitHub Collaboration
+
+- **Connect** a local repository to GitHub using SSH
+- **Share** work with `git push` and **receive** updates with `git pull`
+- **Clone** an existing repository
+- **Track** tasks using GitHub Issues and Projects
+- **Contribute** to a shared repository via Fork and Pull Request
+
+## Learning Experiences
+
+To reach these objectives we combine short concept explanations, live demos, and hands-on exercises. During exercises you are welcome to discuss with other participants. All exercise steps include expected commands and output so you can check your own progress.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Copyright
+
+Copyright 2025, Deepak Tanwar

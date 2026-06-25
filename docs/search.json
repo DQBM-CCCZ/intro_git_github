@@ -1,0 +1,856 @@
+[
+  {
+    "objectID": "slides/slide_module_4.html#ssh-authentication",
+    "href": "slides/slide_module_4.html#ssh-authentication",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "SSH Authentication",
+    "text": "SSH Authentication\nSSH lets your computer talk to GitHub without a password.\n[Your machine]                    [GitHub]\n  Private key (~/.ssh/id_ed25519)\n                  ←→\n                        Public key (stored in GitHub settings)\n# Check for existing key\nls -al ~/.ssh\n\n# Generate new key\nssh-keygen -t ed25519 -C \"your.email@uzh.ch\"\n\n# Copy public key → paste into github.com/settings/keys\ncat ~/.ssh/id_ed25519.pub\n\n# Test\nssh -T git@github.com"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#connecting-local-to-remote",
+    "href": "slides/slide_module_4.html#connecting-local-to-remote",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "Connecting local to remote",
+    "text": "Connecting local to remote\n# Link your local repo to GitHub\ngit remote add origin git@github.com:USERNAME/REPO.git\n\n# Verify\ngit remote -v\norigin is just the conventional name for your primary remote."
+  },
+  {
+    "objectID": "slides/slide_module_4.html#git-push",
+    "href": "slides/slide_module_4.html#git-push",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "git push",
+    "text": "git push\nShare your commits with GitHub:\n# First time — push and set upstream\ngit push -u origin main\n\n# Every time after\ngit push\n\n\n\n\n\n\n\nNote\n\n\ngit push only uploads commits. Uncommitted changes stay local."
+  },
+  {
+    "objectID": "slides/slide_module_4.html#git-pull",
+    "href": "slides/slide_module_4.html#git-pull",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "git pull",
+    "text": "git pull\nGet the latest changes from GitHub:\ngit pull\nUnder the hood this is two steps:\ngit fetch    # download new commits\ngit merge    # merge them into your branch\n\nRun git pull at the start of every work session."
+  },
+  {
+    "objectID": "slides/slide_module_4.html#git-clone",
+    "href": "slides/slide_module_4.html#git-clone",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "git clone",
+    "text": "git clone\nCopy an entire repository to your machine:\ngit clone git@github.com:DQBM-SIB/intro_git_github.git\n\n# Into a custom folder name\ngit clone git@github.com:DQBM-SIB/intro_git_github.git my-folder\nClone includes the full history and sets up origin automatically."
+  },
+  {
+    "objectID": "slides/slide_module_4.html#the-full-remote-workflow",
+    "href": "slides/slide_module_4.html#the-full-remote-workflow",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "The full remote workflow",
+    "text": "The full remote workflow\ngit clone &lt;url&gt;           # 1. get the repo (first time only)\n# or: git pull            # 1. get latest (if you already have it)\n\ngit checkout -b feature   # 2. work on a branch\n\n# make changes...\n\ngit add --all             # 3. stage\ngit commit -m \"message\"   # 4. commit\ngit push origin feature   # 5. push branch to GitHub\n\n# 6. open Pull Request on GitHub\n# 7. after merge:\ngit checkout main\ngit pull"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#github-issues",
+    "href": "slides/slide_module_4.html#github-issues",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "GitHub Issues",
+    "text": "GitHub Issues\nTrack tasks, bugs, and discussions — all in one place.\n\nBug report: “Script crashes on paired-end input”\nFeature request: “Add support for BAM files”\nTask: “Write documentation for pipeline module”\n\n\nReference issues in commit messages:\ngit commit -m \"fixed alignment bug, closes #12\"\n→ Automatically closes issue #12 when the PR is merged."
+  },
+  {
+    "objectID": "slides/slide_module_4.html#github-projects",
+    "href": "slides/slide_module_4.html#github-projects",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "GitHub Projects",
+    "text": "GitHub Projects\nA Kanban board to track progress across issues and PRs.\n| To Do      | In Progress | Done       |\n|------------|-------------|------------|\n| Issue #1   | Issue #3    | Issue #2   |\n| Issue #4   |             |            |\nDrag cards as work progresses. Link issues so they move automatically when a PR closes them."
+  },
+  {
+    "objectID": "slides/slide_module_4.html#pull-requests",
+    "href": "slides/slide_module_4.html#pull-requests",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "Pull Requests",
+    "text": "Pull Requests\nA proposal to merge your branch into another branch.\nyour-branch ──PR──&gt; main\nPR workflow: 1. Push your branch: git push origin my-feature 2. Open PR on GitHub: Compare & pull request 3. Write a description: what changed, why, issue reference 4. Request a reviewer 5. Address review comments with new commits 6. Merge"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#fork-vs-clone",
+    "href": "slides/slide_module_4.html#fork-vs-clone",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "Fork vs Clone",
+    "text": "Fork vs Clone\n\n\n\n\n\n\n\n\n\nFork\nClone\n\n\n\n\nWhere\nGitHub (server copy)\nYour machine (local copy)\n\n\nWhen\nContributing to someone else’s repo\nWorking on any repo locally\n\n\nPush to\nYour fork → PR to original\nOriginal (if you have permission)\n\n\n\nFork workflow:\nFork on GitHub → Clone your fork → Branch →\nEdit → Push to fork → Pull Request to original"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#exercise-5-push-pull",
+    "href": "slides/slide_module_4.html#exercise-5-push-pull",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "Exercise 5 — Push & Pull",
+    "text": "Exercise 5 — Push & Pull\nSee Exercise 5\n\nCreate GitHub repo (no README)\ngit remote add origin &lt;ssh-url&gt;\ngit push -u origin main\nEdit README on GitHub → git pull locally\nEdit locally → git push → check on GitHub"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#exercise-6-fork-pull-request",
+    "href": "slides/slide_module_4.html#exercise-6-fork-pull-request",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "Exercise 6 — Fork & Pull Request",
+    "text": "Exercise 6 — Fork & Pull Request\nSee Exercise 6\n\nFork DQBM-SIB/intro_git_github\nClone your fork\ngit checkout -b YOUR_FIRST_NAME\nAdd your section to projects.md\ngit push origin YOUR_FIRST_NAME\nOpen a Pull Request → reference your issue"
+  },
+  {
+    "objectID": "slides/slide_module_2.html#getting-started",
+    "href": "slides/slide_module_2.html#getting-started",
+    "title": "Module 2: Local Git",
+    "section": "Getting started",
+    "text": "Getting started\nCheck Git is installed and configure your identity:\ngit --version\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your.email@uzh.ch\"\nThese are embedded in every commit you make."
+  },
+  {
+    "objectID": "slides/slide_module_2.html#there-are-many-git-commands",
+    "href": "slides/slide_module_2.html#there-are-many-git-commands",
+    "title": "Module 2: Local Git",
+    "section": "There are many git commands…",
+    "text": "There are many git commands…\nadd       clone     commit    diff      fetch     init\nlog       merge     pull      push      remote    reset\nbranch    checkout  stash     status    tag       ...\n\nWe will focus on about 12 of them today.\nThe rest you can look up when you need them — git help &lt;command&gt;"
+  },
+  {
+    "objectID": "slides/slide_module_2.html#creating-a-repository",
+    "href": "slides/slide_module_2.html#creating-a-repository",
+    "title": "Module 2: Local Git",
+    "section": "Creating a repository",
+    "text": "Creating a repository\n# Go somewhere sensible\ncd ~/Downloads\n\n# Make a directory and enter it\nmkdir planets\ncd planets\n\n# Initialize Git\ngit init\n\n# Confirm the hidden .git folder was created\nls -a\nThe .git folder is where Git stores everything. Never delete it."
+  },
+  {
+    "objectID": "slides/slide_module_2.html#tracking-changes-the-three-stages",
+    "href": "slides/slide_module_2.html#tracking-changes-the-three-stages",
+    "title": "Module 2: Local Git",
+    "section": "Tracking changes — the three stages",
+    "text": "Tracking changes — the three stages\n[Working Directory] --&gt; git add --&gt; [Staging Area] --&gt; git commit --&gt; [Repository]\n     your files                       .git/index                      .git/objects\n\nWhy a staging area? → You can prepare exactly what goes into a commit, even if you changed many files."
+  },
+  {
+    "objectID": "slides/slide_module_2.html#your-first-file",
+    "href": "slides/slide_module_2.html#your-first-file",
+    "title": "Module 2: Local Git",
+    "section": "Your first file",
+    "text": "Your first file\nnano planets.txt\nAdd planet names:\nMercury\nVenus\nEarth\nMars\nJupiter\nSaturn\nUranus\nNeptune\nCtrl+X → Y → Enter to save and close."
+  },
+  {
+    "objectID": "slides/slide_module_2.html#git-status",
+    "href": "slides/slide_module_2.html#git-status",
+    "title": "Module 2: Local Git",
+    "section": "git status",
+    "text": "git status\ngit status\nOn branch main\n\nNo commits yet\n\nUntracked files:\n  (use \"git add &lt;file&gt;...\" to include in what will be committed)\n        planets.txt\nGit sees the file but is not tracking it yet."
+  },
+  {
+    "objectID": "slides/slide_module_2.html#git-add-git-commit",
+    "href": "slides/slide_module_2.html#git-add-git-commit",
+    "title": "Module 2: Local Git",
+    "section": "git add → git commit",
+    "text": "git add → git commit\n# Stage the file\ngit add planets.txt\n\ngit status   # now it shows \"Changes to be committed\"\n\n# Commit\ngit commit -m \"added planets list\"\n\ngit status   # now: \"nothing to commit, working tree clean\""
+  },
+  {
+    "objectID": "slides/slide_module_2.html#git-log",
+    "href": "slides/slide_module_2.html#git-log",
+    "title": "Module 2: Local Git",
+    "section": "git log",
+    "text": "git log\ngit log\ncommit ac3eveta1234...\nAuthor: Deepak Tanwar &lt;deepak@uzh.ch&gt;\nDate:   Mon Jun 23 09:45:00 2025\n\n    added planets list\ngit log --oneline   # compact view"
+  },
+  {
+    "objectID": "slides/slide_module_2.html#the-staging-area-recap",
+    "href": "slides/slide_module_2.html#the-staging-area-recap",
+    "title": "Module 2: Local Git",
+    "section": "The staging area recap",
+    "text": "The staging area recap\n[file on disk]\n      |\n   git add\n      |\n[staging area / index]    ← you can inspect with: git diff --staged\n      |\n  git commit\n      |\n[repository / .git]       ← permanent snapshot"
+  },
+  {
+    "objectID": "slides/slide_module_2.html#head",
+    "href": "slides/slide_module_2.html#head",
+    "title": "Module 2: Local Git",
+    "section": "HEAD",
+    "text": "HEAD\nHEAD = pointer to the latest commit on your current branch.\nHEAD → main → commit 423c584 → commit 87ec91d → commit 3d110b0\nWhen you make a new commit, HEAD moves forward automatically."
+  },
+  {
+    "objectID": "slides/slide_module_2.html#git-diff",
+    "href": "slides/slide_module_2.html#git-diff",
+    "title": "Module 2: Local Git",
+    "section": "git diff",
+    "text": "git diff\nDiffing shows what changed between two states:\n# Working directory vs staging area (unstaged changes)\ngit diff\n\n# Staging area vs last commit (what will be in next commit)\ngit diff --staged\n\n# Working directory vs last commit (everything changed)\ngit diff HEAD\n\n# Two specific commits\ngit diff &lt;hash1&gt; &lt;hash2&gt;"
+  },
+  {
+    "objectID": "slides/slide_module_2.html#exercise-3-local-git-workflow",
+    "href": "slides/slide_module_2.html#exercise-3-local-git-workflow",
+    "title": "Module 2: Local Git",
+    "section": "Exercise 3 — Local Git Workflow",
+    "text": "Exercise 3 — Local Git Workflow\nSee Exercise 3 for the full walkthrough.\nSummary:\n\nmkdir YOUR_USERNAME && cd YOUR_USERNAME && git init\nCreate README.md, write introduction, git add, git commit\nCreate education.md, add, commit, merge into README, commit\ngit log --oneline — see all your commits\ngit diff before staging; git diff --staged after staging\nCompare first and last commit: git diff HASH1 HASH2"
+  },
+  {
+    "objectID": "qmd/schedule.html",
+    "href": "qmd/schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Time\nModule\nTopics\nSlides\nExercise\n\n\n\n\n09:00–09:30\nWelcome\nIntroductions, why version control, course overview\n—\n—\n\n\n09:30–10:30\nModule 1: Concepts & GitHub\nVersion control problem, Git vs others, terminologies, GitHub account, Markdown\nSlides\nEx 1 · Ex 2\n\n\n10:30–10:45\nBreak\n\n\n\n\n\n10:45–12:00\nModule 2: Local Git\ninit, status, add, commit, log, staging area, diff, HEAD\nSlides\nEx 3\n\n\n12:00–13:00\nLunch\n\n\n\n\n\n13:00–14:30\nModule 3: Branching & History\nbranch, checkout, merge, merge conflicts, .gitignore, reset\nSlides\nEx 4\n\n\n14:30–14:45\nBreak\n\n\n\n\n\n14:45–16:00\nModule 4: GitHub Collaboration\nSSH setup, remote, push, pull, clone, Issues, Projects, Pull Requests\nSlides\nEx 5 · Ex 6\n\n\n16:00–16:45\nFinal Exercise\nFull workflow: local → branch → push → PR\n—\nFinal\n\n\n16:45–17:00\nWrap-up\nQ&A, cheat sheet, next steps, feedback\n—\n—"
+  },
+  {
+    "objectID": "qmd/schedule.html#course-day-schedule",
+    "href": "qmd/schedule.html#course-day-schedule",
+    "title": "Schedule",
+    "section": "",
+    "text": "Time\nModule\nTopics\nSlides\nExercise\n\n\n\n\n09:00–09:30\nWelcome\nIntroductions, why version control, course overview\n—\n—\n\n\n09:30–10:30\nModule 1: Concepts & GitHub\nVersion control problem, Git vs others, terminologies, GitHub account, Markdown\nSlides\nEx 1 · Ex 2\n\n\n10:30–10:45\nBreak\n\n\n\n\n\n10:45–12:00\nModule 2: Local Git\ninit, status, add, commit, log, staging area, diff, HEAD\nSlides\nEx 3\n\n\n12:00–13:00\nLunch\n\n\n\n\n\n13:00–14:30\nModule 3: Branching & History\nbranch, checkout, merge, merge conflicts, .gitignore, reset\nSlides\nEx 4\n\n\n14:30–14:45\nBreak\n\n\n\n\n\n14:45–16:00\nModule 4: GitHub Collaboration\nSSH setup, remote, push, pull, clone, Issues, Projects, Pull Requests\nSlides\nEx 5 · Ex 6\n\n\n16:00–16:45\nFinal Exercise\nFull workflow: local → branch → push → PR\n—\nFinal\n\n\n16:45–17:00\nWrap-up\nQ&A, cheat sheet, next steps, feedback\n—\n—"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html",
+    "href": "qmd/cheatsheet.html",
+    "title": "Git Cheat Sheet",
+    "section": "",
+    "text": "A quick reference for all commands covered in the course."
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#setup",
+    "href": "qmd/cheatsheet.html#setup",
+    "title": "Git Cheat Sheet",
+    "section": "Setup",
+    "text": "Setup\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"email@example.com\"\ngit config --list"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#create-a-repository",
+    "href": "qmd/cheatsheet.html#create-a-repository",
+    "title": "Git Cheat Sheet",
+    "section": "Create a Repository",
+    "text": "Create a Repository\ngit init                 # new local repo in current directory\ngit clone &lt;url&gt;          # copy a remote repo to your machine"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#the-core-workflow",
+    "href": "qmd/cheatsheet.html#the-core-workflow",
+    "title": "Git Cheat Sheet",
+    "section": "The Core Workflow",
+    "text": "The Core Workflow\n[working directory] --git add--&gt; [staging area] --git commit--&gt; [repository]\ngit status               # what has changed?\ngit add &lt;file&gt;           # stage a specific file\ngit add --all            # stage all changes\ngit commit -m \"message\"  # save staged changes with a message\ngit log                  # show full commit history\ngit log --oneline        # compact one-line history"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#inspecting-changes",
+    "href": "qmd/cheatsheet.html#inspecting-changes",
+    "title": "Git Cheat Sheet",
+    "section": "Inspecting Changes",
+    "text": "Inspecting Changes\ngit diff                      # working directory vs staging area\ngit diff --staged             # staging area vs last commit\ngit diff HEAD                 # working directory vs last commit\ngit diff &lt;hash1&gt; &lt;hash2&gt;      # compare two commits"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#branching",
+    "href": "qmd/cheatsheet.html#branching",
+    "title": "Git Cheat Sheet",
+    "section": "Branching",
+    "text": "Branching\ngit branch                    # list branches\ngit branch &lt;name&gt;             # create a new branch\ngit checkout &lt;name&gt;           # switch to a branch\ngit checkout -b &lt;name&gt;        # create and switch in one step\ngit merge &lt;branch&gt;            # merge branch into current branch\ngit branch -d &lt;name&gt;          # delete a merged branch"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#undoing-things",
+    "href": "qmd/cheatsheet.html#undoing-things",
+    "title": "Git Cheat Sheet",
+    "section": "Undoing Things",
+    "text": "Undoing Things\ngit reset &lt;file&gt;              # unstage a file\ngit reset --soft HEAD~1       # undo last commit, keep changes staged\ngit reset --hard HEAD~1       # undo last commit, discard all changes\ngit checkout -- &lt;file&gt;        # discard changes in working directory"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#history-navigation",
+    "href": "qmd/cheatsheet.html#history-navigation",
+    "title": "Git Cheat Sheet",
+    "section": "History & Navigation",
+    "text": "History & Navigation\ngit log --oneline             # compact history with hashes\ngit checkout &lt;hash&gt;           # view a specific commit (detached HEAD)\ngit checkout main             # return to the latest main branch"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#connecting-to-github",
+    "href": "qmd/cheatsheet.html#connecting-to-github",
+    "title": "Git Cheat Sheet",
+    "section": "Connecting to GitHub",
+    "text": "Connecting to GitHub\ngit remote add origin &lt;url&gt;   # link local repo to GitHub\ngit remote -v                 # show remote connections\ngit push -u origin main       # push and set upstream (first time)\ngit push                      # push commits to GitHub\ngit pull                      # fetch + merge from GitHub\ngit fetch                     # download without merging"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#collaboration-workflow",
+    "href": "qmd/cheatsheet.html#collaboration-workflow",
+    "title": "Git Cheat Sheet",
+    "section": "Collaboration Workflow",
+    "text": "Collaboration Workflow\n# Fork on GitHub, then:\ngit clone &lt;your-fork-url&gt;\ngit checkout -b my-feature\n# make changes...\ngit add --all\ngit commit -m \"describe what changed\"\ngit push origin my-feature\n# Open a Pull Request on GitHub"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#gitignore",
+    "href": "qmd/cheatsheet.html#gitignore",
+    "title": "Git Cheat Sheet",
+    "section": ".gitignore",
+    "text": ".gitignore\nCreate a .gitignore file in your repo root:\n*.log           # ignore all .log files\ndata/raw/       # ignore a whole folder\nsecrets.txt     # ignore a specific file"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#quick-reference-table",
+    "href": "qmd/cheatsheet.html#quick-reference-table",
+    "title": "Git Cheat Sheet",
+    "section": "Quick Reference Table",
+    "text": "Quick Reference Table\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit status\nAlways run this first — shows what changed\n\n\ngit add --all\nStage everything\n\n\ngit commit -m \"msg\"\nSave a snapshot\n\n\ngit log --oneline\nQuick history overview\n\n\ngit diff\nWhat did I change since last stage?\n\n\ngit push\nSend commits to GitHub\n\n\ngit pull\nGet latest from GitHub\n\n\ngit checkout -b name\nNew branch + switch\n\n\ngit merge branch\nMerge into current branch\n\n\ngit stash\nTemporarily save uncommitted work\n\n\ngit stash pop\nRestore stashed work"
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#markdown-quick-reference",
+    "href": "qmd/cheatsheet.html#markdown-quick-reference",
+    "title": "Git Cheat Sheet",
+    "section": "Markdown Quick Reference",
+    "text": "Markdown Quick Reference\n# Heading 1\n## Heading 2\n\n**bold**   *italic*   `inline code`\n\n- bullet list item\n1. numbered list item\n\n[link text](https://url.com)\n\n![image alt text](path/to/image.png)\n\n| Col 1 | Col 2 |\n|-------|-------|\n| a     | b     |\n\n```python\ncode block\n```"
+  },
+  {
+    "objectID": "exercises/final_exercise.html",
+    "href": "exercises/final_exercise.html",
+    "title": "Final Exercise",
+    "section": "",
+    "text": "End of day | ~45 minutes\nThis exercise ties together everything from the course into one complete workflow."
+  },
+  {
+    "objectID": "exercises/final_exercise.html#part-1-plan-on-github-15-min",
+    "href": "exercises/final_exercise.html#part-1-plan-on-github-15-min",
+    "title": "Final Exercise",
+    "section": "Part 1 — Plan on GitHub (~15 min)",
+    "text": "Part 1 — Plan on GitHub (~15 min)\n\n1a. Create an Issue\n\nGo to https://github.com/DQBM-SIB/intro_git_github\nClick Issues → New issue\nTitle: YOUR_NAME — project description\nBody: list 3–5 things you plan to add\nAssign to yourself, add a label (e.g., documentation)\nSubmit — note your issue number (e.g., #22)\n\n\n\n1b. Add to the Project board\n\nOn the issue page, find Projects in the right sidebar\nAdd to the course project board → move it to In Progress"
+  },
+  {
+    "objectID": "exercises/final_exercise.html#part-2-work-locally-15-min",
+    "href": "exercises/final_exercise.html#part-2-work-locally-15-min",
+    "title": "Final Exercise",
+    "section": "Part 2 — Work locally (~15 min)",
+    "text": "Part 2 — Work locally (~15 min)\n\n2a. Clone the course repo\ncd ~/Downloads\ngit clone git@github.com:DQBM-SIB/intro_git_github.git course_repo\ncd course_repo\ngit log --oneline\n\n\n2b. Create a branch\ngit checkout -b YOUR_FIRST_NAME\n\n\n2c. Add your project description\nnano projects.md\n# Your Full Name\nYour project description here.\n\n\n2d. Commit with your issue number\ngit add projects.md\ngit commit -m \"added YOUR_NAME project description, closes #YOUR_ISSUE_NUMBER\""
+  },
+  {
+    "objectID": "exercises/final_exercise.html#part-3-push-and-pull-request-10-min",
+    "href": "exercises/final_exercise.html#part-3-push-and-pull-request-10-min",
+    "title": "Final Exercise",
+    "section": "Part 3 — Push and Pull Request (~10 min)",
+    "text": "Part 3 — Push and Pull Request (~10 min)\ngit push origin YOUR_FIRST_NAME\nOn GitHub:\n\nClick Compare & pull request\nBase: main ← Compare: YOUR_FIRST_NAME\nTitle: Added YOUR_NAME project description\nDescription: Closes #YOUR_ISSUE_NUMBER\nCreate pull request"
+  },
+  {
+    "objectID": "exercises/final_exercise.html#part-4-after-all-prs-are-merged-5-min",
+    "href": "exercises/final_exercise.html#part-4-after-all-prs-are-merged-5-min",
+    "title": "Final Exercise",
+    "section": "Part 4 — After all PRs are merged (~5 min)",
+    "text": "Part 4 — After all PRs are merged (~5 min)\ngit checkout main\ngit pull origin main\ngit log --oneline    # see everyone's contributions"
+  },
+  {
+    "objectID": "exercises/final_exercise.html#what-you-demonstrated-today",
+    "href": "exercises/final_exercise.html#what-you-demonstrated-today",
+    "title": "Final Exercise",
+    "section": "What you demonstrated today",
+    "text": "What you demonstrated today\n\n\n\nSkill\nModule\n\n\n\n\nVersion control concepts\n1\n\n\nMarkdown formatting\n1\n\n\ninit, add, commit, log, diff\n2\n\n\nBranching, merging, conflict resolution\n3\n\n\n.gitignore, git reset\n3\n\n\nSSH authentication\n4\n\n\npush, pull, clone, remote\n4\n\n\nIssues and Projects\n4\n\n\nFork and Pull Request\n4"
+  },
+  {
+    "objectID": "exercises/final_exercise.html#next-steps",
+    "href": "exercises/final_exercise.html#next-steps",
+    "title": "Final Exercise",
+    "section": "Next steps",
+    "text": "Next steps\n\nUse Git for your own scripts from day one\nBranch whenever you try something experimental\nWrite meaningful commit messages — your future self will thank you\nReference: Cheat Sheet"
+  },
+  {
+    "objectID": "exercises/exercise_5_push_pull.html",
+    "href": "exercises/exercise_5_push_pull.html",
+    "title": "Exercise 5 — Push Your Local Repo to GitHub",
+    "section": "",
+    "text": "Module 4 | ~25 minutes"
+  },
+  {
+    "objectID": "exercises/exercise_5_push_pull.html#goal",
+    "href": "exercises/exercise_5_push_pull.html#goal",
+    "title": "Exercise 5 — Push Your Local Repo to GitHub",
+    "section": "Goal",
+    "text": "Goal\nConnect your local repository to GitHub and push your work online."
+  },
+  {
+    "objectID": "exercises/exercise_5_push_pull.html#prerequisite",
+    "href": "exercises/exercise_5_push_pull.html#prerequisite",
+    "title": "Exercise 5 — Push Your Local Repo to GitHub",
+    "section": "Prerequisite",
+    "text": "Prerequisite\nTest your SSH key:\nssh -T git@github.com\n# Expected: Hi YOUR_USERNAME! You've successfully authenticated.\nIf this fails, see Pre-course Setup."
+  },
+  {
+    "objectID": "exercises/exercise_5_push_pull.html#part-a-create-the-github-repository",
+    "href": "exercises/exercise_5_push_pull.html#part-a-create-the-github-repository",
+    "title": "Exercise 5 — Push Your Local Repo to GitHub",
+    "section": "Part A — Create the GitHub repository",
+    "text": "Part A — Create the GitHub repository\n\nGo to https://github.com/new\nName it the same as your local folder (your GitHub username)\nSet to Public\nDo NOT initialize with a README (your local repo already has one)\nClick Create repository\n\nCopy the SSH URL shown on the next page."
+  },
+  {
+    "objectID": "exercises/exercise_5_push_pull.html#part-b-connect-and-push",
+    "href": "exercises/exercise_5_push_pull.html#part-b-connect-and-push",
+    "title": "Exercise 5 — Push Your Local Repo to GitHub",
+    "section": "Part B — Connect and push",
+    "text": "Part B — Connect and push\ncd ~/Downloads/YOUR_USERNAME\n\n# Add GitHub as the remote\ngit remote add origin git@github.com:YOUR_USERNAME/YOUR_USERNAME.git\n\n# Verify\ngit remote -v\n\n# Push (and set upstream)\ngit push -u origin main"
+  },
+  {
+    "objectID": "exercises/exercise_5_push_pull.html#part-c-verify-on-github",
+    "href": "exercises/exercise_5_push_pull.html#part-c-verify-on-github",
+    "title": "Exercise 5 — Push Your Local Repo to GitHub",
+    "section": "Part C — Verify on GitHub",
+    "text": "Part C — Verify on GitHub\n\nGo to https://github.com/YOUR_USERNAME/YOUR_USERNAME\nAll your files and commit history should be there\nClick commits to explore the history\nClick a commit hash to see exactly what changed"
+  },
+  {
+    "objectID": "exercises/exercise_5_push_pull.html#part-d-edit-on-github-pull-locally",
+    "href": "exercises/exercise_5_push_pull.html#part-d-edit-on-github-pull-locally",
+    "title": "Exercise 5 — Push Your Local Repo to GitHub",
+    "section": "Part D — Edit on GitHub, pull locally",
+    "text": "Part D — Edit on GitHub, pull locally\n\nOn GitHub, click README.md → pencil icon\nAdd a line: Updated directly on GitHub\nCommit: edited README on GitHub\n\nNow pull that change:\ngit pull\ncat README.md    # new line is here"
+  },
+  {
+    "objectID": "exercises/exercise_5_push_pull.html#part-e-full-cycle",
+    "href": "exercises/exercise_5_push_pull.html#part-e-full-cycle",
+    "title": "Exercise 5 — Push Your Local Repo to GitHub",
+    "section": "Part E — Full cycle",
+    "text": "Part E — Full cycle\nnano README.md      # add another line locally\ngit add README.md\ngit commit -m \"added line locally\"\ngit push\n\n# Check GitHub — your change appears immediately"
+  },
+  {
+    "objectID": "exercises/exercise_5_push_pull.html#what-you-learned",
+    "href": "exercises/exercise_5_push_pull.html#what-you-learned",
+    "title": "Exercise 5 — Push Your Local Repo to GitHub",
+    "section": "What you learned",
+    "text": "What you learned\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit remote add origin &lt;url&gt;\nConnect to GitHub\n\n\ngit remote -v\nShow connections\n\n\ngit push -u origin main\nPush and set upstream\n\n\ngit push\nPush new commits\n\n\ngit pull\nFetch + merge from GitHub"
+  },
+  {
+    "objectID": "exercises/exercise_3_local_git.html",
+    "href": "exercises/exercise_3_local_git.html",
+    "title": "Exercise 3 — Local Git Workflow",
+    "section": "",
+    "text": "Module 2 | ~35 minutes"
+  },
+  {
+    "objectID": "exercises/exercise_3_local_git.html#goal",
+    "href": "exercises/exercise_3_local_git.html#goal",
+    "title": "Exercise 3 — Local Git Workflow",
+    "section": "Goal",
+    "text": "Goal\nPractice the core local Git workflow: init → add → commit → log → diff."
+  },
+  {
+    "objectID": "exercises/exercise_3_local_git.html#part-a-create-a-local-repository",
+    "href": "exercises/exercise_3_local_git.html#part-a-create-a-local-repository",
+    "title": "Exercise 3 — Local Git Workflow",
+    "section": "Part A — Create a local repository",
+    "text": "Part A — Create a local repository\ncd ~/Downloads\n\nmkdir YOUR_USERNAME\ncd YOUR_USERNAME\n\ngit init\nls -a     # confirm .git was created"
+  },
+  {
+    "objectID": "exercises/exercise_3_local_git.html#part-b-first-commit",
+    "href": "exercises/exercise_3_local_git.html#part-b-first-commit",
+    "title": "Exercise 3 — Local Git Workflow",
+    "section": "Part B — First commit",
+    "text": "Part B — First commit\nnano README.md\nWrite a brief introduction about yourself. Save and close: Ctrl+X → Y → Enter\ngit status           # git sees the file but isn't tracking it\ngit add README.md\ngit status           # now it's staged\ngit commit -m \"added README with introduction\"\ngit log"
+  },
+  {
+    "objectID": "exercises/exercise_3_local_git.html#part-c-more-commits",
+    "href": "exercises/exercise_3_local_git.html#part-c-more-commits",
+    "title": "Exercise 3 — Local Git Workflow",
+    "section": "Part C — More commits",
+    "text": "Part C — More commits\nnano education.md    # list your education history\ngit add education.md\ngit commit -m \"added education history\"\n\nnano README.md       # paste the education content at the bottom\ngit add README.md\ngit commit -m \"merged education into README\"\n\nrm education.md\ngit add education.md\ngit commit -m \"removed separate education file\"\n\ngit log --oneline    # see all 4 commits"
+  },
+  {
+    "objectID": "exercises/exercise_3_local_git.html#part-d-inspect-changes-with-diff",
+    "href": "exercises/exercise_3_local_git.html#part-d-inspect-changes-with-diff",
+    "title": "Exercise 3 — Local Git Workflow",
+    "section": "Part D — Inspect changes with diff",
+    "text": "Part D — Inspect changes with diff\nnano README.md       # add your hobbies at the bottom\nBefore staging:\ngit diff             # working directory vs staging area\nAfter staging:\ngit add README.md\ngit diff --staged    # staging area vs last commit\ngit commit -m \"added hobbies section\"\nCompare first and last commit:\ngit log --oneline           # note the two hashes\ngit diff FIRST_HASH LAST_HASH"
+  },
+  {
+    "objectID": "exercises/exercise_3_local_git.html#what-you-learned",
+    "href": "exercises/exercise_3_local_git.html#what-you-learned",
+    "title": "Exercise 3 — Local Git Workflow",
+    "section": "What you learned",
+    "text": "What you learned\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit init\nCreate a repository\n\n\ngit status\nSee what has changed\n\n\ngit add &lt;file&gt;\nStage a file\n\n\ngit commit -m \"msg\"\nSave a snapshot\n\n\ngit log --oneline\nView history\n\n\ngit diff\nSee unstaged changes\n\n\ngit diff --staged\nSee staged changes"
+  },
+  {
+    "objectID": "exercises/exercise_1_github_account.html",
+    "href": "exercises/exercise_1_github_account.html",
+    "title": "Exercise 1 — GitHub Account & First Repository",
+    "section": "",
+    "text": "Module 1 | ~20 minutes"
+  },
+  {
+    "objectID": "exercises/exercise_1_github_account.html#goal",
+    "href": "exercises/exercise_1_github_account.html#goal",
+    "title": "Exercise 1 — GitHub Account & First Repository",
+    "section": "Goal",
+    "text": "Goal\nCreate your GitHub account and your first repository."
+  },
+  {
+    "objectID": "exercises/exercise_1_github_account.html#steps",
+    "href": "exercises/exercise_1_github_account.html#steps",
+    "title": "Exercise 1 — GitHub Account & First Repository",
+    "section": "Steps",
+    "text": "Steps\n\nGitHub Account\n\nGo to https://github.com and sign up for a free account\nChoose a professional username — you will share this publicly\nVerify your email address\n\n\n\nExplore GitHub\n\nGo to your profile page: https://github.com/YOUR_USERNAME\nFind the DQBM-SIB organization — check if you are already a member\n\n\n\nCreate a Repository\n\nClick the + icon (top right) → New repository\nName it exactly your GitHub username (e.g., dktanwar)\nSet it to Public\nCheck Add a README file\nClick Create repository\n\n\n\nVerify\n\nGo to https://github.com/YOUR_USERNAME/YOUR_USERNAME\nYou should see your new repository with a README file\nTake a screenshot — we will compare it after Exercise 2"
+  },
+  {
+    "objectID": "exercises/exercise_1_github_account.html#what-you-learned",
+    "href": "exercises/exercise_1_github_account.html#what-you-learned",
+    "title": "Exercise 1 — GitHub Account & First Repository",
+    "section": "What you learned",
+    "text": "What you learned\n\nHow GitHub is organized: users, organizations, repositories\nThe difference between public and private repositories\nA README file is the front page of your repository"
+  },
+  {
+    "objectID": "exercises/exercise_2_markdown.html",
+    "href": "exercises/exercise_2_markdown.html",
+    "title": "Exercise 2 — Write Your README with Markdown",
+    "section": "",
+    "text": "Module 1 | ~20 minutes"
+  },
+  {
+    "objectID": "exercises/exercise_2_markdown.html#goal",
+    "href": "exercises/exercise_2_markdown.html#goal",
+    "title": "Exercise 2 — Write Your README with Markdown",
+    "section": "Goal",
+    "text": "Goal\nEdit your GitHub profile README using Markdown formatting."
+  },
+  {
+    "objectID": "exercises/exercise_2_markdown.html#steps",
+    "href": "exercises/exercise_2_markdown.html#steps",
+    "title": "Exercise 2 — Write Your README with Markdown",
+    "section": "Steps",
+    "text": "Steps\n\nOpen the README editor\n\nGo to your repository: https://github.com/YOUR_USERNAME/YOUR_USERNAME\nClick the pencil icon on the README.md file to edit it\n\n\n\nWrite your introduction\n\nWrite at least the following sections using Markdown:\n\n# Your Name\n\n## About Me\nOne or two sentences about your role and research.\n\n## Research Project\nBrief description of what you are currently working on.\n\n## Affiliation\n- Institution\n- Research group / lab\n\n## Education\n\n| Degree | University | Year |\n|--------|-----------|------|\n| PhD    | UZH       | 2024 |\n| MSc    | ...       | ...  |\n\n## Links\n- [LinkedIn](https://linkedin.com/in/your-profile)\n\n\nCommit the file\n\nScroll down to Commit changes\nWrite a meaningful commit message: added introduction and education table\nClick Commit changes\n\n\n\nCompare\n\nGo to https://github.com/YOUR_USERNAME\nCompare your profile page to the screenshot from Exercise 1 — what changed?"
+  },
+  {
+    "objectID": "exercises/exercise_2_markdown.html#markdown-you-practiced",
+    "href": "exercises/exercise_2_markdown.html#markdown-you-practiced",
+    "title": "Exercise 2 — Write Your README with Markdown",
+    "section": "Markdown you practiced",
+    "text": "Markdown you practiced\n\n\n\nSyntax\nResult\n\n\n\n\n# text\nHeading 1\n\n\n## text\nHeading 2\n\n\n**text**\nbold\n\n\n- item\nbullet list\n\n\n\\| col \\|\ntable\n\n\n[text](url)\nlink"
+  },
+  {
+    "objectID": "exercises/exercise_4_branching.html",
+    "href": "exercises/exercise_4_branching.html",
+    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "section": "",
+    "text": "Module 3 | ~40 minutes"
+  },
+  {
+    "objectID": "exercises/exercise_4_branching.html#goal",
+    "href": "exercises/exercise_4_branching.html#goal",
+    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "section": "Goal",
+    "text": "Goal\nCreate branches, work in isolation, merge, resolve a conflict, and ignore files."
+  },
+  {
+    "objectID": "exercises/exercise_4_branching.html#part-a-create-a-branch",
+    "href": "exercises/exercise_4_branching.html#part-a-create-a-branch",
+    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "section": "Part A — Create a branch",
+    "text": "Part A — Create a branch\ncd ~/Downloads/YOUR_USERNAME\n\ngit branch                       # which branch are you on?\ngit checkout -b YOUR_FIRST_NAME  # create and switch\ngit branch                       # confirm"
+  },
+  {
+    "objectID": "exercises/exercise_4_branching.html#part-b-make-changes-on-the-branch",
+    "href": "exercises/exercise_4_branching.html#part-b-make-changes-on-the-branch",
+    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "section": "Part B — Make changes on the branch",
+    "text": "Part B — Make changes on the branch\nnano test.md    # write your favorite color and one fun fact\ngit add test.md\ngit commit -m \"added test file with favorite color\"\ngit log --oneline"
+  },
+  {
+    "objectID": "exercises/exercise_4_branching.html#part-c-merge-back-to-main",
+    "href": "exercises/exercise_4_branching.html#part-c-merge-back-to-main",
+    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "section": "Part C — Merge back to main",
+    "text": "Part C — Merge back to main\ngit checkout main\nls              # test.md is NOT here\n\ngit merge YOUR_FIRST_NAME\nls              # test.md IS here now\n\ngit log --oneline\ngit branch -d YOUR_FIRST_NAME    # clean up"
+  },
+  {
+    "objectID": "exercises/exercise_4_branching.html#part-d-simulate-a-merge-conflict",
+    "href": "exercises/exercise_4_branching.html#part-d-simulate-a-merge-conflict",
+    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "section": "Part D — Simulate a merge conflict",
+    "text": "Part D — Simulate a merge conflict\ngit checkout -b experiment\nnano README.md     # change the first heading to something new\ngit add README.md\ngit commit -m \"changed heading on experiment branch\"\n\ngit checkout main\nnano README.md     # change the SAME heading to something different\ngit add README.md\ngit commit -m \"changed heading on main\"\n\ngit merge experiment    # CONFLICT\nOpen the file and find the conflict markers:\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n# My version on main\n=======\n# My version on experiment\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; experiment\nEdit to keep the version you want. Remove all marker lines, then:\ngit add README.md\ngit commit -m \"resolved merge conflict in README heading\""
+  },
+  {
+    "objectID": "exercises/exercise_4_branching.html#part-e-.gitignore",
+    "href": "exercises/exercise_4_branching.html#part-e-.gitignore",
+    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "section": "Part E — .gitignore",
+    "text": "Part E — .gitignore\nmkdir temp_data\ntouch temp_data/run1.log temp_data/run2.log temp_data/results.csv\ngit status     # git sees all these files\nCreate .gitignore:\nnano .gitignore\nAdd:\ntemp_data/\n*.log\ngit status     # ignored files no longer appear\ngit add .gitignore\ngit commit -m \"added gitignore for temp data\""
+  },
+  {
+    "objectID": "exercises/exercise_4_branching.html#what-you-learned",
+    "href": "exercises/exercise_4_branching.html#what-you-learned",
+    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "section": "What you learned",
+    "text": "What you learned\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit branch\nList branches\n\n\ngit checkout -b &lt;name&gt;\nCreate and switch\n\n\ngit merge &lt;branch&gt;\nMerge into current branch\n\n\nresolve + git add + git commit\nFix a conflict\n\n\n.gitignore\nExclude files from tracking"
+  },
+  {
+    "objectID": "exercises/exercise_6_collaboration.html",
+    "href": "exercises/exercise_6_collaboration.html",
+    "title": "Exercise 6 — Fork, Branch & Pull Request",
+    "section": "",
+    "text": "Module 4 | ~30 minutes"
+  },
+  {
+    "objectID": "exercises/exercise_6_collaboration.html#goal",
+    "href": "exercises/exercise_6_collaboration.html#goal",
+    "title": "Exercise 6 — Fork, Branch & Pull Request",
+    "section": "Goal",
+    "text": "Goal\nContribute to the course repository using the real open-source collaboration workflow."
+  },
+  {
+    "objectID": "exercises/exercise_6_collaboration.html#the-workflow",
+    "href": "exercises/exercise_6_collaboration.html#the-workflow",
+    "title": "Exercise 6 — Fork, Branch & Pull Request",
+    "section": "The Workflow",
+    "text": "The Workflow\nDQBM-SIB/intro_git_github  (original)\n        ↓  Fork on GitHub\nYOUR_USERNAME/intro_git_github  (your copy)\n        ↓  Clone\nYour local machine\n        ↓  Branch → Edit → Commit → Push\nYOUR_USERNAME/intro_git_github  (your copy)\n        ↓  Pull Request\nDQBM-SIB/intro_git_github  (original)"
+  },
+  {
+    "objectID": "exercises/exercise_6_collaboration.html#part-a-fork",
+    "href": "exercises/exercise_6_collaboration.html#part-a-fork",
+    "title": "Exercise 6 — Fork, Branch & Pull Request",
+    "section": "Part A — Fork",
+    "text": "Part A — Fork\n\nGo to https://github.com/DQBM-SIB/intro_git_github\nClick Fork (top right) → select your account\nYou now have https://github.com/YOUR_USERNAME/intro_git_github"
+  },
+  {
+    "objectID": "exercises/exercise_6_collaboration.html#part-b-clone-your-fork",
+    "href": "exercises/exercise_6_collaboration.html#part-b-clone-your-fork",
+    "title": "Exercise 6 — Fork, Branch & Pull Request",
+    "section": "Part B — Clone your fork",
+    "text": "Part B — Clone your fork\ncd ~/Downloads\n\ngit clone git@github.com:YOUR_USERNAME/intro_git_github.git\ncd intro_git_github\ngit log --oneline    # see the existing history"
+  },
+  {
+    "objectID": "exercises/exercise_6_collaboration.html#part-c-branch",
+    "href": "exercises/exercise_6_collaboration.html#part-c-branch",
+    "title": "Exercise 6 — Fork, Branch & Pull Request",
+    "section": "Part C — Branch",
+    "text": "Part C — Branch\ngit checkout -b YOUR_FIRST_NAME\ngit branch     # confirm"
+  },
+  {
+    "objectID": "exercises/exercise_6_collaboration.html#part-d-add-your-project-description",
+    "href": "exercises/exercise_6_collaboration.html#part-d-add-your-project-description",
+    "title": "Exercise 6 — Fork, Branch & Pull Request",
+    "section": "Part D — Add your project description",
+    "text": "Part D — Add your project description\nnano projects.md\nAdd a new section:\n# Your Full Name\nBrief description of your research project.\nWhat question are you answering? What data or tools do you use?\ngit add projects.md\ngit status\ngit commit -m \"added YOUR_NAME project description\""
+  },
+  {
+    "objectID": "exercises/exercise_6_collaboration.html#part-e-push-and-open-a-pull-request",
+    "href": "exercises/exercise_6_collaboration.html#part-e-push-and-open-a-pull-request",
+    "title": "Exercise 6 — Fork, Branch & Pull Request",
+    "section": "Part E — Push and open a Pull Request",
+    "text": "Part E — Push and open a Pull Request\ngit push origin YOUR_FIRST_NAME\nOn GitHub:\n\nGo to https://github.com/YOUR_USERNAME/intro_git_github\nClick Compare & pull request\nBase: DQBM-SIB/intro_git_github → main\nTitle: Added YOUR_NAME project description\nDescription: Closes #YOUR_ISSUE_NUMBER\nClick Create pull request"
+  },
+  {
+    "objectID": "exercises/exercise_6_collaboration.html#part-f-after-all-prs-are-merged",
+    "href": "exercises/exercise_6_collaboration.html#part-f-after-all-prs-are-merged",
+    "title": "Exercise 6 — Fork, Branch & Pull Request",
+    "section": "Part F — After all PRs are merged",
+    "text": "Part F — After all PRs are merged\n# Add the original repo as upstream\ngit remote add upstream git@github.com:DQBM-SIB/intro_git_github.git\n\n# Get everyone's merged contributions\ngit fetch upstream\ngit checkout main\ngit merge upstream/main\n\ngit log --oneline    # see all contributions in one place"
+  },
+  {
+    "objectID": "exercises/exercise_6_collaboration.html#what-you-learned",
+    "href": "exercises/exercise_6_collaboration.html#what-you-learned",
+    "title": "Exercise 6 — Fork, Branch & Pull Request",
+    "section": "What you learned",
+    "text": "What you learned\n\n\n\nTerm\nMeaning\n\n\n\n\nFork\nServer-side copy of a repo under your username\n\n\nClone\nLocal copy of a repo\n\n\nUpstream\nThe original repo you forked from\n\n\nPull Request\nProposal to merge your branch"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Git & GitHub",
+    "section": "",
+    "text": "Welcome to the course website for Introduction to Git and GitHub, including project management."
+  },
+  {
+    "objectID": "index.html#teacher-author",
+    "href": "index.html#teacher-author",
+    "title": "Introduction to Git & GitHub",
+    "section": "Teacher & Author",
+    "text": "Teacher & Author\nDeepak Tanwar  Bioinformatics Specialist and Trainer Swiss Institute of Bioinformatics / University of Zurich deepak.tanwar@uzh.ch · Bluesky"
+  },
+  {
+    "objectID": "index.html#about-this-course",
+    "href": "index.html#about-this-course",
+    "title": "Introduction to Git & GitHub",
+    "section": "About This Course",
+    "text": "About This Course\nThis is a hands-on 1-day workshop for researchers who want to stop emailing files back and forth and start using version control properly. By the end of the day you will be able to track changes in your own files, collaborate with others through GitHub, and contribute to shared projects via pull requests.\nNo prior experience with Git or GitHub is required."
+  },
+  {
+    "objectID": "index.html#learning-objectives",
+    "href": "index.html#learning-objectives",
+    "title": "Introduction to Git & GitHub",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nModule 1 — Concepts & GitHub\n\nExplain what version control is and why it matters for research\nIdentify the difference between Git (the tool) and GitHub (the hosting platform)\nUse key GitHub terminology: repository, commit, branch, fork, pull request\nCreate a GitHub account and first repository\nWrite formatted text using Markdown\n\n\n\nModule 2 — Local Git\n\nInitialize a Git repository on your machine\nDescribe the three-stage model: working directory → staging area → repository\nExecute the core workflow: git add, git commit, git log\nInspect changes using git diff and understand HEAD\n\n\n\nModule 3 — Branching & History\n\nCreate and switch between branches\nMerge branches and resolve merge conflicts\nNavigate commit history with git log and git checkout\nExclude files from tracking using .gitignore\nUndo changes safely with git reset\n\n\n\nModule 4 — GitHub Collaboration\n\nConnect a local repository to GitHub using SSH\nShare work with git push and receive updates with git pull\nClone an existing repository\nTrack tasks using GitHub Issues and Projects\nContribute to a shared repository via Fork and Pull Request"
+  },
+  {
+    "objectID": "index.html#learning-experiences",
+    "href": "index.html#learning-experiences",
+    "title": "Introduction to Git & GitHub",
+    "section": "Learning Experiences",
+    "text": "Learning Experiences\nTo reach these objectives we combine short concept explanations, live demos, and hands-on exercises. During exercises you are welcome to discuss with other participants. All exercise steps include expected commands and output so you can check your own progress."
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Introduction to Git & GitHub",
+    "section": "License",
+    "text": "License\nThis project is licensed under the MIT License."
+  },
+  {
+    "objectID": "index.html#copyright",
+    "href": "index.html#copyright",
+    "title": "Introduction to Git & GitHub",
+    "section": "Copyright",
+    "text": "Copyright\nCopyright 2025, Deepak Tanwar"
+  },
+  {
+    "objectID": "qmd/precourse_setup.html",
+    "href": "qmd/precourse_setup.html",
+    "title": "Pre-course Setup",
+    "section": "",
+    "text": "Complete these steps before the course day. It will take about 20–30 minutes. If you run into problems, email deepak.tanwar@uzh.ch."
+  },
+  {
+    "objectID": "qmd/precourse_setup.html#create-a-github-account",
+    "href": "qmd/precourse_setup.html#create-a-github-account",
+    "title": "Pre-course Setup",
+    "section": "1. Create a GitHub Account",
+    "text": "1. Create a GitHub Account\nGo to https://github.com and sign up for a free account. Choose a professional username — you will share this publicly (e.g., on your CV)."
+  },
+  {
+    "objectID": "qmd/precourse_setup.html#install-git",
+    "href": "qmd/precourse_setup.html#install-git",
+    "title": "Pre-course Setup",
+    "section": "2. Install Git",
+    "text": "2. Install Git\n\nmacOSWindowsLinux (Ubuntu/Debian)\n\n\nGit is usually already installed. Open Terminal and run:\ngit --version\nIf not installed, you will be prompted to install Xcode Command Line Tools. Accept and wait.\n\n\nDownload and install Git for Windows. Use all default options. This also installs Git Bash — use that as your terminal during the course.\n\n\nsudo apt update && sudo apt install git"
+  },
+  {
+    "objectID": "qmd/precourse_setup.html#configure-git",
+    "href": "qmd/precourse_setup.html#configure-git",
+    "title": "Pre-course Setup",
+    "section": "3. Configure Git",
+    "text": "3. Configure Git\nOpen Terminal (macOS/Linux) or Git Bash (Windows):\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your.email@uzh.ch\"\ngit config --global core.editor \"nano\"\nUse the same email as your GitHub account. Verify:\ngit config --list"
+  },
+  {
+    "objectID": "qmd/precourse_setup.html#set-up-an-ssh-key",
+    "href": "qmd/precourse_setup.html#set-up-an-ssh-key",
+    "title": "Pre-course Setup",
+    "section": "4. Set Up an SSH Key",
+    "text": "4. Set Up an SSH Key\nSSH lets your computer talk to GitHub without typing a password every time.\n\nStep 1 — Check for an existing key\nls -al ~/.ssh\nIf you see id_ed25519.pub or id_rsa.pub, skip to Step 3.\n\n\nStep 2 — Generate a new key\nssh-keygen -t ed25519 -C \"your.email@uzh.ch\"\nPress Enter to accept all defaults (no passphrase needed for the course).\n\n\nStep 3 — Copy the public key\ncat ~/.ssh/id_ed25519.pub\nSelect and copy the entire output (starts with ssh-ed25519).\n\n\nStep 4 — Add the key to GitHub\n\nGo to github.com/settings/keys\nClick New SSH key\nTitle: My Laptop\nPaste the key → Add SSH key\n\n\n\nStep 5 — Test the connection\nssh -T git@github.com\nExpected output:\nHi YOUR_USERNAME! You've successfully authenticated, but GitHub does not provide shell access."
+  },
+  {
+    "objectID": "qmd/precourse_setup.html#verify-everything-works",
+    "href": "qmd/precourse_setup.html#verify-everything-works",
+    "title": "Pre-course Setup",
+    "section": "5. Verify Everything Works",
+    "text": "5. Verify Everything Works\nRun these three checks — all should succeed before the course day:\ngit --version        # git version 2.x.x or higher\ngit config user.name # your name\nssh -T git@github.com # Hi YOUR_USERNAME! ...\n\n\n\n\n\n\nNote\n\n\n\nIf any step fails, email deepak.tanwar@uzh.ch with the error message and your operating system."
+  },
+  {
+    "objectID": "slides/slide_module_1.html#introductions",
+    "href": "slides/slide_module_1.html#introductions",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Introductions",
+    "text": "Introductions\n\nName\nDesignation & research group\nInstitution\nExperience with Git and/or GitHub"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#why-are-we-here",
+    "href": "slides/slide_module_1.html#why-are-we-here",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Why are we here?",
+    "text": "Why are we here?\n\n“FINAL.doc” — a story everyone knows"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#the-version-control-problem",
+    "href": "slides/slide_module_1.html#the-version-control-problem",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "The version control problem",
+    "text": "The version control problem\nA general example from manuscript revision:\nDraft by student → Revised by PI → Revised by student → Finalized by student\nHow would you name these files?\n\n\nmanuscript_FA.docx\nmanuscript_FA_LA.docx\nmanuscript_FA_LA_FA.docx\nmanuscript_final.docx\n\n\n\nOr by date?\n\nmanuscript_20221001.docx\nmanuscript_20221224.docx\nmanuscript_final.docx"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#version-control-the-better-way",
+    "href": "slides/slide_module_1.html#version-control-the-better-way",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Version control — the better way",
+    "text": "Version control — the better way\nOne file. Many snapshots.\n\n\n\nFile\nCommit message\nVersion ID\n\n\n\n\nmanuscript.docx\n“first draft”\nac3eveta\n\n\nmanuscript.docx\n“revision 1”\na23eveta\n\n\nmanuscript.docx\n“updated figures”\ndc3edeta\n\n\nmanuscript.docx\n“bioRxiv submission”\nyc8evata\n\n\nmanuscript.docx\n“published”\nzz33eeta"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#what-is-git",
+    "href": "slides/slide_module_1.html#what-is-git",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "What is Git?",
+    "text": "What is Git?\n\nA distributed version control system (VCS)\nCreated in 2005 by Linus Torvalds (creator of Linux)\nTracks changes to files over time\nWorks locally — no internet needed\nFree and open source\n\n\nGit ≠ GitHub\n\nGit = the tool running on your machine\nGitHub = a website that hosts Git repositories online"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#types-of-version-control",
+    "href": "slides/slide_module_1.html#types-of-version-control",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Types of Version Control",
+    "text": "Types of Version Control\n\n\nLocal\nVersion database lives only on your machine. No collaboration possible.\n\nCentral\nOne shared server. Everyone checks out from the same place. Example: SVN (Subversion).\n\nDistributed\nEvery machine has the full history. Example: Git."
+  },
+  {
+    "objectID": "slides/slide_module_1.html#git-is-winning",
+    "href": "slides/slide_module_1.html#git-is-winning",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Git is winning",
+    "text": "Git is winning\nGoogle Trends: GitHub vs GitLab vs Bitbucket vs others\nGitHub dominates because of its network effects, free public repositories, and GitHub Actions for CI/CD."
+  },
+  {
+    "objectID": "slides/slide_module_1.html#github-terminologies",
+    "href": "slides/slide_module_1.html#github-terminologies",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "GitHub Terminologies",
+    "text": "GitHub Terminologies\n\n\n\nTerm\nPlain English\n\n\n\n\nRepository\nA folder tracked by Git\n\n\nCommit\nA saved snapshot with a message\n\n\nBranch\nA separate line of development\n\n\nFork\nYour own server-side copy of a repo\n\n\nPull Request\nA proposal to merge changes\n\n\nIssue\nA task, bug report, or discussion\n\n\nOrganization\nA shared account for teams"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#applications-in-bioinformatics",
+    "href": "slides/slide_module_1.html#applications-in-bioinformatics",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Applications in bioinformatics",
+    "text": "Applications in bioinformatics\n\nVersion control of analysis scripts and pipelines\nFull history of every change — reproducible research\nCollaboration across institutes and time zones\nIssues and Projects for experiment planning\nGenomic Data Science: version-controlled, reproducible data analysis"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#writing-on-github-markdown",
+    "href": "slides/slide_module_1.html#writing-on-github-markdown",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Writing on GitHub: Markdown",
+    "text": "Writing on GitHub: Markdown\nGitHub renders .md files automatically. Basic syntax:\n# Heading 1\n## Heading 2\n\n**bold**   *italic*   `inline code`\n\n- list item 1\n- list item 2\n\n| Column 1 | Column 2 |\n|----------|----------|\n| row 1 a  | row 1 b  |\n\n[link text](https://github.com)"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#exercise-1",
+    "href": "slides/slide_module_1.html#exercise-1",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Exercise 1",
+    "text": "Exercise 1\n\nCreate a GitHub account at github.com\nChoose a professional username\nCheck if you belong to the DQBM-SIB organization\nCreate a new public repository named after your username\nGo to https://github.com/YOUR_USERNAME\nTake a screenshot"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#exercise-2",
+    "href": "slides/slide_module_1.html#exercise-2",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Exercise 2",
+    "text": "Exercise 2\n\nOpen the README.md file in your repository\nWrite your introduction using Markdown:\n\nName as # Heading 1\nSections: About Me, Research Project, Affiliation, Education\nEducation as a table with university and year columns\n\nCommit with message: added introduction and education table\nCompare your profile to the screenshot from Exercise 1"
+  },
+  {
+    "objectID": "slides/slide_module_3.html#why-branches",
+    "href": "slides/slide_module_3.html#why-branches",
+    "title": "Module 3: Branching & History",
+    "section": "Why branches?",
+    "text": "Why branches?\nBranches let you work on something new without breaking what already works.\nmain  ●──●──●──────────────●  (stable)\n               \\          /\nfeature         ●──●──●──   (your experiment)\n\nIn research: use a branch to try a new analysis approach. If it works → merge. If not → delete without any harm to main."
+  },
+  {
+    "objectID": "slides/slide_module_3.html#git-branch-git-checkout",
+    "href": "slides/slide_module_3.html#git-branch-git-checkout",
+    "title": "Module 3: Branching & History",
+    "section": "git branch + git checkout",
+    "text": "git branch + git checkout\n# See which branch you are on\ngit branch\n\n# Create a new branch\ngit branch dev\n\n# Switch to it\ngit checkout dev\n\n# Create AND switch in one step\ngit checkout -b dev"
+  },
+  {
+    "objectID": "slides/slide_module_3.html#making-commits-on-a-branch",
+    "href": "slides/slide_module_3.html#making-commits-on-a-branch",
+    "title": "Module 3: Branching & History",
+    "section": "Making commits on a branch",
+    "text": "Making commits on a branch\n# You are on branch \"dev\"\nnano hobbies.md    # add a new file\n\ngit add hobbies.md\ngit commit -m \"added hobbies file\"\n\n# Go back to main — hobbies.md is not here\ngit checkout main\nls\nBranches are isolated. Changes on dev don’t appear on main until you merge."
+  },
+  {
+    "objectID": "slides/slide_module_3.html#git-merge",
+    "href": "slides/slide_module_3.html#git-merge",
+    "title": "Module 3: Branching & History",
+    "section": "git merge",
+    "text": "git merge\n# On main branch:\ngit merge dev\nGit replays the commits from dev onto main. After merging, you can delete the branch:\ngit branch -d dev"
+  },
+  {
+    "objectID": "slides/slide_module_3.html#merge-conflicts",
+    "href": "slides/slide_module_3.html#merge-conflicts",
+    "title": "Module 3: Branching & History",
+    "section": "Merge conflicts",
+    "text": "Merge conflicts\nConflicts happen when two branches change the same line differently.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n# My title on main\n=======\n# My title on dev\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dev\n\nHow to resolve: 1. Open the file 2. Choose which version to keep (or combine them) 3. Remove all &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers 4. git add &lt;file&gt; → git commit"
+  },
+  {
+    "objectID": "slides/slide_module_3.html#exploring-git-history",
+    "href": "slides/slide_module_3.html#exploring-git-history",
+    "title": "Module 3: Branching & History",
+    "section": "Exploring git history",
+    "text": "Exploring git history\n# Full history\ngit log\n\n# Compact — one line per commit\ngit log --oneline\n\n# Go to a specific commit (read-only — \"detached HEAD\")\ngit checkout a499ea4\n\n# Return to the latest\ngit checkout main"
+  },
+  {
+    "objectID": "slides/slide_module_3.html#ignoring-files-with-.gitignore",
+    "href": "slides/slide_module_3.html#ignoring-files-with-.gitignore",
+    "title": "Module 3: Branching & History",
+    "section": "Ignoring files with .gitignore",
+    "text": "Ignoring files with .gitignore\nCreate a file called .gitignore in your repo root:\n# Ignore all log files\n*.log\n\n# Ignore a whole folder\ndata/raw/\n\n# Ignore a specific file\nsecrets.txt\ngit add .gitignore\ngit commit -m \"added gitignore\"\nGit will never ask you about these files again."
+  },
+  {
+    "objectID": "slides/slide_module_3.html#git-reset-undoing-things",
+    "href": "slides/slide_module_3.html#git-reset-undoing-things",
+    "title": "Module 3: Branching & History",
+    "section": "git reset — undoing things",
+    "text": "git reset — undoing things\n\n\n\n\n\n\n\nCommand\nEffect\n\n\n\n\ngit reset &lt;file&gt;\nUnstage a file (keep changes)\n\n\ngit reset --soft HEAD~1\nUndo last commit, keep changes staged\n\n\ngit reset --hard HEAD~1\nUndo last commit, discard all changes\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n--hard is permanent. Use with care."
+  },
+  {
+    "objectID": "slides/slide_module_3.html#exercise-4-branching-merge-conflicts",
+    "href": "slides/slide_module_3.html#exercise-4-branching-merge-conflicts",
+    "title": "Module 3: Branching & History",
+    "section": "Exercise 4 — Branching & Merge Conflicts",
+    "text": "Exercise 4 — Branching & Merge Conflicts\nSee Exercise 4 for the full walkthrough.\nSummary:\n\ngit checkout -b YOUR_FIRST_NAME\nCreate test.md, add, commit\ngit checkout main → git merge YOUR_FIRST_NAME\nCreate a conflict by editing the same line on two branches\nResolve the conflict manually\nCreate temp_data/, add .gitignore, verify files are ignored"
+  }
+]

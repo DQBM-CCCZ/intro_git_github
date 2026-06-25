@@ -1,0 +1,123 @@
+---
+title: "Exercise 6 — Fork, Branch & Pull Request"
+format: html
+---
+
+**Module 4 | ~30 minutes**
+
+---
+
+## Goal
+
+Contribute to the course repository using the real open-source collaboration workflow.
+
+---
+
+## The Workflow
+
+```
+DQBM-SIB/intro_git_github  (original)
+        ↓  Fork on GitHub
+YOUR_USERNAME/intro_git_github  (your copy)
+        ↓  Clone
+Your local machine
+        ↓  Branch → Edit → Commit → Push
+YOUR_USERNAME/intro_git_github  (your copy)
+        ↓  Pull Request
+DQBM-SIB/intro_git_github  (original)
+```
+
+---
+
+## Part A — Fork
+
+1. Go to `https://github.com/DQBM-SIB/intro_git_github`
+2. Click **Fork** (top right) → select your account
+3. You now have `https://github.com/YOUR_USERNAME/intro_git_github`
+
+---
+
+## Part B — Clone your fork
+
+```bash
+cd ~/Downloads
+
+git clone git@github.com:YOUR_USERNAME/intro_git_github.git
+cd intro_git_github
+git log --oneline    # see the existing history
+```
+
+---
+
+## Part C — Branch
+
+```bash
+git checkout -b YOUR_FIRST_NAME
+git branch     # confirm
+```
+
+---
+
+## Part D — Add your project description
+
+```bash
+nano projects.md
+```
+
+Add a new section:
+
+```markdown
+# Your Full Name
+Brief description of your research project.
+What question are you answering? What data or tools do you use?
+```
+
+```bash
+git add projects.md
+git status
+git commit -m "added YOUR_NAME project description"
+```
+
+---
+
+## Part E — Push and open a Pull Request
+
+```bash
+git push origin YOUR_FIRST_NAME
+```
+
+On GitHub:
+
+1. Go to `https://github.com/YOUR_USERNAME/intro_git_github`
+2. Click **Compare & pull request**
+3. Base: `DQBM-SIB/intro_git_github` → `main`
+4. Title: `Added YOUR_NAME project description`
+5. Description: `Closes #YOUR_ISSUE_NUMBER`
+6. Click **Create pull request**
+
+---
+
+## Part F — After all PRs are merged
+
+```bash
+# Add the original repo as upstream
+git remote add upstream git@github.com:DQBM-SIB/intro_git_github.git
+
+# Get everyone's merged contributions
+git fetch upstream
+git checkout main
+git merge upstream/main
+
+git log --oneline    # see all contributions in one place
+```
+
+---
+
+## What you learned
+
+| Term | Meaning |
+|------|---------|
+| Fork | Server-side copy of a repo under your username |
+| Clone | Local copy of a repo |
+| Upstream | The original repo you forked from |
+| Pull Request | Proposal to merge your branch |

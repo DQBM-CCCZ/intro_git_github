@@ -1,0 +1,171 @@
+---
+title: "Git Cheat Sheet"
+format: html
+---
+
+A quick reference for all commands covered in the course.
+
+---
+
+## Setup
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+git config --list
+```
+
+---
+
+## Create a Repository
+
+```bash
+git init                 # new local repo in current directory
+git clone <url>          # copy a remote repo to your machine
+```
+
+---
+
+## The Core Workflow
+
+```
+[working directory] --git add--> [staging area] --git commit--> [repository]
+```
+
+```bash
+git status               # what has changed?
+git add <file>           # stage a specific file
+git add --all            # stage all changes
+git commit -m "message"  # save staged changes with a message
+git log                  # show full commit history
+git log --oneline        # compact one-line history
+```
+
+---
+
+## Inspecting Changes
+
+```bash
+git diff                      # working directory vs staging area
+git diff --staged             # staging area vs last commit
+git diff HEAD                 # working directory vs last commit
+git diff <hash1> <hash2>      # compare two commits
+```
+
+---
+
+## Branching
+
+```bash
+git branch                    # list branches
+git branch <name>             # create a new branch
+git checkout <name>           # switch to a branch
+git checkout -b <name>        # create and switch in one step
+git merge <branch>            # merge branch into current branch
+git branch -d <name>          # delete a merged branch
+```
+
+---
+
+## Undoing Things
+
+```bash
+git reset <file>              # unstage a file
+git reset --soft HEAD~1       # undo last commit, keep changes staged
+git reset --hard HEAD~1       # undo last commit, discard all changes
+git checkout -- <file>        # discard changes in working directory
+```
+
+---
+
+## History & Navigation
+
+```bash
+git log --oneline             # compact history with hashes
+git checkout <hash>           # view a specific commit (detached HEAD)
+git checkout main             # return to the latest main branch
+```
+
+---
+
+## Connecting to GitHub
+
+```bash
+git remote add origin <url>   # link local repo to GitHub
+git remote -v                 # show remote connections
+git push -u origin main       # push and set upstream (first time)
+git push                      # push commits to GitHub
+git pull                      # fetch + merge from GitHub
+git fetch                     # download without merging
+```
+
+---
+
+## Collaboration Workflow
+
+```bash
+# Fork on GitHub, then:
+git clone <your-fork-url>
+git checkout -b my-feature
+# make changes...
+git add --all
+git commit -m "describe what changed"
+git push origin my-feature
+# Open a Pull Request on GitHub
+```
+
+---
+
+## .gitignore
+
+Create a `.gitignore` file in your repo root:
+
+```
+*.log           # ignore all .log files
+data/raw/       # ignore a whole folder
+secrets.txt     # ignore a specific file
+```
+
+---
+
+## Quick Reference Table
+
+| Command | What it does |
+|---------|-------------|
+| `git status` | Always run this first — shows what changed |
+| `git add --all` | Stage everything |
+| `git commit -m "msg"` | Save a snapshot |
+| `git log --oneline` | Quick history overview |
+| `git diff` | What did I change since last stage? |
+| `git push` | Send commits to GitHub |
+| `git pull` | Get latest from GitHub |
+| `git checkout -b name` | New branch + switch |
+| `git merge branch` | Merge into current branch |
+| `git stash` | Temporarily save uncommitted work |
+| `git stash pop` | Restore stashed work |
+
+---
+
+## Markdown Quick Reference
+
+```markdown
+# Heading 1
+## Heading 2
+
+**bold**   *italic*   `inline code`
+
+- bullet list item
+1. numbered list item
+
+[link text](https://url.com)
+
+![image alt text](path/to/image.png)
+
+| Col 1 | Col 2 |
+|-------|-------|
+| a     | b     |
+
+```python
+code block
+```
+```

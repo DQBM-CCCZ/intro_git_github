@@ -1,0 +1,126 @@
+---
+title: "Pre-course Setup"
+format: html
+---
+
+Complete these steps **before the course day**. It will take about 20–30 minutes.
+If you run into problems, email [deepak.tanwar@uzh.ch](mailto:deepak.tanwar@uzh.ch).
+
+---
+
+## 1. Create a GitHub Account
+
+Go to [https://github.com](https://github.com) and sign up for a free account.
+Choose a professional username — you will share this publicly (e.g., on your CV).
+
+---
+
+## 2. Install Git
+
+::: {.panel-tabset}
+
+### macOS
+
+Git is usually already installed. Open **Terminal** and run:
+
+```bash
+git --version
+```
+
+If not installed, you will be prompted to install Xcode Command Line Tools. Accept and wait.
+
+### Windows
+
+Download and install [Git for Windows](https://git-scm.com/download/win).
+Use all default options. This also installs **Git Bash** — use that as your terminal during the course.
+
+### Linux (Ubuntu/Debian)
+
+```bash
+sudo apt update && sudo apt install git
+```
+
+:::
+
+---
+
+## 3. Configure Git
+
+Open Terminal (macOS/Linux) or Git Bash (Windows):
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your.email@uzh.ch"
+git config --global core.editor "nano"
+```
+
+Use the **same email** as your GitHub account. Verify:
+
+```bash
+git config --list
+```
+
+---
+
+## 4. Set Up an SSH Key
+
+SSH lets your computer talk to GitHub without typing a password every time.
+
+### Step 1 — Check for an existing key
+
+```bash
+ls -al ~/.ssh
+```
+
+If you see `id_ed25519.pub` or `id_rsa.pub`, skip to Step 3.
+
+### Step 2 — Generate a new key
+
+```bash
+ssh-keygen -t ed25519 -C "your.email@uzh.ch"
+```
+
+Press **Enter** to accept all defaults (no passphrase needed for the course).
+
+### Step 3 — Copy the public key
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Select and copy the entire output (starts with `ssh-ed25519`).
+
+### Step 4 — Add the key to GitHub
+
+1. Go to [github.com/settings/keys](https://github.com/settings/keys)
+2. Click **New SSH key**
+3. Title: `My Laptop`
+4. Paste the key → **Add SSH key**
+
+### Step 5 — Test the connection
+
+```bash
+ssh -T git@github.com
+```
+
+Expected output:
+
+```
+Hi YOUR_USERNAME! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+---
+
+## 5. Verify Everything Works
+
+Run these three checks — all should succeed before the course day:
+
+```bash
+git --version        # git version 2.x.x or higher
+git config user.name # your name
+ssh -T git@github.com # Hi YOUR_USERNAME! ...
+```
+
+::: {.callout-note}
+If any step fails, email [deepak.tanwar@uzh.ch](mailto:deepak.tanwar@uzh.ch) with the error message and your operating system.
+:::

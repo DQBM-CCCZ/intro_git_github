@@ -1,0 +1,103 @@
+---
+title: "Exercise 5 — Push Your Local Repo to GitHub"
+format: html
+---
+
+**Module 4 | ~25 minutes**
+
+---
+
+## Goal
+
+Connect your local repository to GitHub and push your work online.
+
+---
+
+## Prerequisite
+
+Test your SSH key:
+
+```bash
+ssh -T git@github.com
+# Expected: Hi YOUR_USERNAME! You've successfully authenticated.
+```
+
+If this fails, see [Pre-course Setup](../qmd/precourse_setup.qmd).
+
+---
+
+## Part A — Create the GitHub repository
+
+1. Go to [https://github.com/new](https://github.com/new)
+2. Name it the same as your local folder (your GitHub username)
+3. Set to **Public**
+4. **Do NOT** initialize with a README (your local repo already has one)
+5. Click **Create repository**
+
+Copy the **SSH** URL shown on the next page.
+
+---
+
+## Part B — Connect and push
+
+```bash
+cd ~/Downloads/YOUR_USERNAME
+
+# Add GitHub as the remote
+git remote add origin git@github.com:YOUR_USERNAME/YOUR_USERNAME.git
+
+# Verify
+git remote -v
+
+# Push (and set upstream)
+git push -u origin main
+```
+
+---
+
+## Part C — Verify on GitHub
+
+1. Go to `https://github.com/YOUR_USERNAME/YOUR_USERNAME`
+2. All your files and commit history should be there
+3. Click **commits** to explore the history
+4. Click a commit hash to see exactly what changed
+
+---
+
+## Part D — Edit on GitHub, pull locally
+
+1. On GitHub, click **README.md** → pencil icon
+2. Add a line: `Updated directly on GitHub`
+3. Commit: `edited README on GitHub`
+
+Now pull that change:
+
+```bash
+git pull
+cat README.md    # new line is here
+```
+
+---
+
+## Part E — Full cycle
+
+```bash
+nano README.md      # add another line locally
+git add README.md
+git commit -m "added line locally"
+git push
+
+# Check GitHub — your change appears immediately
+```
+
+---
+
+## What you learned
+
+| Command | What it does |
+|---------|-------------|
+| `git remote add origin <url>` | Connect to GitHub |
+| `git remote -v` | Show connections |
+| `git push -u origin main` | Push and set upstream |
+| `git push` | Push new commits |
+| `git pull` | Fetch + merge from GitHub |

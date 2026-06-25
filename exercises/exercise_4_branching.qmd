@@ -1,0 +1,126 @@
+---
+title: "Exercise 4 — Branching, Merging & .gitignore"
+format: html
+---
+
+**Module 3 | ~40 minutes**
+
+---
+
+## Goal
+
+Create branches, work in isolation, merge, resolve a conflict, and ignore files.
+
+---
+
+## Part A — Create a branch
+
+```bash
+cd ~/Downloads/YOUR_USERNAME
+
+git branch                       # which branch are you on?
+git checkout -b YOUR_FIRST_NAME  # create and switch
+git branch                       # confirm
+```
+
+---
+
+## Part B — Make changes on the branch
+
+```bash
+nano test.md    # write your favorite color and one fun fact
+git add test.md
+git commit -m "added test file with favorite color"
+git log --oneline
+```
+
+---
+
+## Part C — Merge back to main
+
+```bash
+git checkout main
+ls              # test.md is NOT here
+
+git merge YOUR_FIRST_NAME
+ls              # test.md IS here now
+
+git log --oneline
+git branch -d YOUR_FIRST_NAME    # clean up
+```
+
+---
+
+## Part D — Simulate a merge conflict
+
+```bash
+git checkout -b experiment
+nano README.md     # change the first heading to something new
+git add README.md
+git commit -m "changed heading on experiment branch"
+
+git checkout main
+nano README.md     # change the SAME heading to something different
+git add README.md
+git commit -m "changed heading on main"
+
+git merge experiment    # CONFLICT
+```
+
+Open the file and find the conflict markers:
+
+```
+<<<<<<< HEAD
+# My version on main
+=======
+# My version on experiment
+>>>>>>> experiment
+```
+
+Edit to keep the version you want. Remove all marker lines, then:
+
+```bash
+git add README.md
+git commit -m "resolved merge conflict in README heading"
+```
+
+---
+
+## Part E — .gitignore
+
+```bash
+mkdir temp_data
+touch temp_data/run1.log temp_data/run2.log temp_data/results.csv
+git status     # git sees all these files
+```
+
+Create `.gitignore`:
+
+```bash
+nano .gitignore
+```
+
+Add:
+
+```
+temp_data/
+*.log
+```
+
+```bash
+git status     # ignored files no longer appear
+git add .gitignore
+git commit -m "added gitignore for temp data"
+```
+
+---
+
+## What you learned
+
+| Command | What it does |
+|---------|-------------|
+| `git branch` | List branches |
+| `git checkout -b <name>` | Create and switch |
+| `git merge <branch>` | Merge into current branch |
+| resolve + `git add` + `git commit` | Fix a conflict |
+| `.gitignore` | Exclude files from tracking |

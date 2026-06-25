@@ -1,0 +1,218 @@
+---
+title: "Module 2: Local Git"
+author: "Deepak Tanwar"
+format:
+  revealjs:
+    controls-layout: bottom-right
+    controls-tutorial: true
+    footer: "Introduction to Git & GitHub — SIB/UZH"
+    theme: default
+    highlight-style: github
+title-slide-attributes:
+  data-background-color: "#F05032"
+---
+
+## Getting started
+
+Check Git is installed and configure your identity:
+
+```bash
+git --version
+
+git config --global user.name "Your Name"
+git config --global user.email "your.email@uzh.ch"
+```
+
+These are embedded in every commit you make.
+
+---
+
+## There are many git commands...
+
+```
+add       clone     commit    diff      fetch     init
+log       merge     pull      push      remote    reset
+branch    checkout  stash     status    tag       ...
+```
+
+. . .
+
+**We will focus on about 12 of them today.**
+
+The rest you can look up when you need them — `git help <command>`
+
+---
+
+## Creating a repository
+
+```bash
+# Go somewhere sensible
+cd ~/Downloads
+
+# Make a directory and enter it
+mkdir planets
+cd planets
+
+# Initialize Git
+git init
+
+# Confirm the hidden .git folder was created
+ls -a
+```
+
+The `.git` folder is where Git stores everything. Never delete it.
+
+---
+
+## Tracking changes — the three stages
+
+```
+[Working Directory] --> git add --> [Staging Area] --> git commit --> [Repository]
+     your files                       .git/index                      .git/objects
+```
+
+. . .
+
+Why a staging area?
+→ You can prepare exactly what goes into a commit, even if you changed many files.
+
+---
+
+## Your first file
+
+```bash
+nano planets.txt
+```
+
+Add planet names:
+```
+Mercury
+Venus
+Earth
+Mars
+Jupiter
+Saturn
+Uranus
+Neptune
+```
+
+`Ctrl+X → Y → Enter` to save and close.
+
+---
+
+## git status
+
+```bash
+git status
+```
+
+```
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        planets.txt
+```
+
+Git sees the file but is not tracking it yet.
+
+---
+
+## git add → git commit
+
+```bash
+# Stage the file
+git add planets.txt
+
+git status   # now it shows "Changes to be committed"
+
+# Commit
+git commit -m "added planets list"
+
+git status   # now: "nothing to commit, working tree clean"
+```
+
+---
+
+## git log
+
+```bash
+git log
+```
+
+```
+commit ac3eveta1234...
+Author: Deepak Tanwar <deepak@uzh.ch>
+Date:   Mon Jun 23 09:45:00 2025
+
+    added planets list
+```
+
+```bash
+git log --oneline   # compact view
+```
+
+---
+
+## The staging area recap
+
+```
+[file on disk]
+      |
+   git add
+      |
+[staging area / index]    ← you can inspect with: git diff --staged
+      |
+  git commit
+      |
+[repository / .git]       ← permanent snapshot
+```
+
+---
+
+## HEAD
+
+HEAD = pointer to the **latest commit** on your current branch.
+
+```
+HEAD → main → commit 423c584 → commit 87ec91d → commit 3d110b0
+```
+
+When you make a new commit, HEAD moves forward automatically.
+
+---
+
+## git diff
+
+Diffing shows **what changed** between two states:
+
+```bash
+# Working directory vs staging area (unstaged changes)
+git diff
+
+# Staging area vs last commit (what will be in next commit)
+git diff --staged
+
+# Working directory vs last commit (everything changed)
+git diff HEAD
+
+# Two specific commits
+git diff <hash1> <hash2>
+```
+
+---
+
+## Exercise 3 — Local Git Workflow
+
+See [Exercise 3](../exercises/exercise_3_local_git.qmd) for the full walkthrough.
+
+**Summary:**
+
+1. `mkdir YOUR_USERNAME && cd YOUR_USERNAME && git init`
+2. Create `README.md`, write introduction, `git add`, `git commit`
+3. Create `education.md`, add, commit, merge into README, commit
+4. `git log --oneline` — see all your commits
+5. `git diff` before staging; `git diff --staged` after staging
+6. Compare first and last commit: `git diff HASH1 HASH2`

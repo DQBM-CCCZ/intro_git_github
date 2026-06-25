@@ -1,0 +1,107 @@
+---
+title: "Exercise 3 — Local Git Workflow"
+format: html
+---
+
+**Module 2 | ~35 minutes**
+
+---
+
+## Goal
+
+Practice the core local Git workflow: `init` → `add` → `commit` → `log` → `diff`.
+
+---
+
+## Part A — Create a local repository
+
+```bash
+cd ~/Downloads
+
+mkdir YOUR_USERNAME
+cd YOUR_USERNAME
+
+git init
+ls -a     # confirm .git was created
+```
+
+---
+
+## Part B — First commit
+
+```bash
+nano README.md
+```
+
+Write a brief introduction about yourself. Save and close: `Ctrl+X → Y → Enter`
+
+```bash
+git status           # git sees the file but isn't tracking it
+git add README.md
+git status           # now it's staged
+git commit -m "added README with introduction"
+git log
+```
+
+---
+
+## Part C — More commits
+
+```bash
+nano education.md    # list your education history
+git add education.md
+git commit -m "added education history"
+
+nano README.md       # paste the education content at the bottom
+git add README.md
+git commit -m "merged education into README"
+
+rm education.md
+git add education.md
+git commit -m "removed separate education file"
+
+git log --oneline    # see all 4 commits
+```
+
+---
+
+## Part D — Inspect changes with diff
+
+```bash
+nano README.md       # add your hobbies at the bottom
+```
+
+Before staging:
+
+```bash
+git diff             # working directory vs staging area
+```
+
+After staging:
+
+```bash
+git add README.md
+git diff --staged    # staging area vs last commit
+git commit -m "added hobbies section"
+```
+
+Compare first and last commit:
+
+```bash
+git log --oneline           # note the two hashes
+git diff FIRST_HASH LAST_HASH
+```
+
+---
+
+## What you learned
+
+| Command | What it does |
+|---------|-------------|
+| `git init` | Create a repository |
+| `git status` | See what has changed |
+| `git add <file>` | Stage a file |
+| `git commit -m "msg"` | Save a snapshot |
+| `git log --oneline` | View history |
+| `git diff` | See unstaged changes |
+| `git diff --staged` | See staged changes |

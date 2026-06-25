@@ -1,0 +1,114 @@
+---
+title: "Final Exercise"
+format: html
+---
+
+**End of day | ~45 minutes**
+
+This exercise ties together everything from the course into one complete workflow.
+
+---
+
+## Part 1 — Plan on GitHub (~15 min)
+
+### 1a. Create an Issue
+
+1. Go to `https://github.com/DQBM-SIB/intro_git_github`
+2. Click **Issues** → **New issue**
+3. Title: `YOUR_NAME — project description`
+4. Body: list 3–5 things you plan to add
+5. Assign to yourself, add a label (e.g., `documentation`)
+6. Submit — note your **issue number** (e.g., `#22`)
+
+### 1b. Add to the Project board
+
+1. On the issue page, find **Projects** in the right sidebar
+2. Add to the course project board → move it to **In Progress**
+
+---
+
+## Part 2 — Work locally (~15 min)
+
+### 2a. Clone the course repo
+
+```bash
+cd ~/Downloads
+git clone git@github.com:DQBM-SIB/intro_git_github.git course_repo
+cd course_repo
+git log --oneline
+```
+
+### 2b. Create a branch
+
+```bash
+git checkout -b YOUR_FIRST_NAME
+```
+
+### 2c. Add your project description
+
+```bash
+nano projects.md
+```
+
+```markdown
+# Your Full Name
+Your project description here.
+```
+
+### 2d. Commit with your issue number
+
+```bash
+git add projects.md
+git commit -m "added YOUR_NAME project description, closes #YOUR_ISSUE_NUMBER"
+```
+
+---
+
+## Part 3 — Push and Pull Request (~10 min)
+
+```bash
+git push origin YOUR_FIRST_NAME
+```
+
+On GitHub:
+
+1. Click **Compare & pull request**
+2. Base: `main` ← Compare: `YOUR_FIRST_NAME`
+3. Title: `Added YOUR_NAME project description`
+4. Description: `Closes #YOUR_ISSUE_NUMBER`
+5. **Create pull request**
+
+---
+
+## Part 4 — After all PRs are merged (~5 min)
+
+```bash
+git checkout main
+git pull origin main
+git log --oneline    # see everyone's contributions
+```
+
+---
+
+## What you demonstrated today
+
+| Skill | Module |
+|-------|--------|
+| Version control concepts | 1 |
+| Markdown formatting | 1 |
+| `init`, `add`, `commit`, `log`, `diff` | 2 |
+| Branching, merging, conflict resolution | 3 |
+| `.gitignore`, `git reset` | 3 |
+| SSH authentication | 4 |
+| `push`, `pull`, `clone`, `remote` | 4 |
+| Issues and Projects | 4 |
+| Fork and Pull Request | 4 |
+
+---
+
+## Next steps
+
+- Use Git for your own scripts from day one
+- Branch whenever you try something experimental
+- Write meaningful commit messages — your future self will thank you
+- Reference: [Cheat Sheet](../qmd/cheatsheet.qmd)
