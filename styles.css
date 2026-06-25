@@ -4,6 +4,16 @@
   --git-orange: #F05032;   /* Git brand color */
   --github-dark: #24292F;  /* GitHub dark */
   --sib-blue: #0072B2;
+
+  /* Okabe-Ito colorblind-safe palette, used for code syntax highlighting */
+  --cvd-orange: #E69F00;
+  --cvd-sky-blue: #56B4E9;
+  --cvd-green: #2EBD8E;     /* lightened bluish-green #009E73 for contrast on dark bg */
+  --cvd-yellow: #F0E442;
+  --cvd-blue: #0072B2;
+  --cvd-vermillion: #D55E00;
+  --cvd-gray: #9099A2;      /* achromatic — always distinguishable */
+  --cvd-fg: #F8F8F2;        /* off-white default text on dark code bg */
 }
 
 /* Navbar */
@@ -48,12 +58,46 @@ pre.sourceCode {
   background-color: transparent !important;
 }
 
-/* Inline code */
+/* Syntax highlighting — override Pandoc's per-token hex colors with an
+   Okabe-Ito colorblind-safe palette, tuned for the dark code background
+   above. Critical tokens (errors/alerts) also get bold/underline so they
+   don't rely on hue alone. */
+code span.kw, code span.cf, code span.im, code span.pp, code span.at {
+  color: var(--cvd-sky-blue) !important;
+}
+code span.dt {
+  color: var(--cvd-sky-blue) !important;
+  font-style: italic;
+}
+code span.st, code span.ss, code span.vs, code span.ch {
+  color: var(--cvd-yellow) !important;
+}
+code span.fu, code span.ex {
+  color: var(--cvd-green) !important;
+}
+code span.dv, code span.bn, code span.fl, code span.cn, code span.sc {
+  color: var(--cvd-orange) !important;
+}
+code span.co, code span.cv, code span.an, code span.do, code span.re {
+  color: var(--cvd-gray) !important;
+}
+code span.al, code span.er, code span.wa {
+  color: var(--cvd-vermillion) !important;
+  font-weight: bold;
+  text-decoration: underline;
+}
+code span.op, code span.va, code span.in {
+  color: var(--cvd-fg) !important;
+}
+
+/* Inline code (not fenced blocks) — fixed light/dark pair with !important
+   so it can never lose a specificity fight with bootstrap's defaults. */
 code:not(.sourceCode) {
-  background-color: #f3f3f3;
-  color: var(--github-dark);
-  padding: 0.1em 0.3em;
+  background-color: #eceff1 !important;
+  color: #1a1a1a !important;
+  padding: 0.1em 0.4em;
   border-radius: 3px;
+  font-weight: 500;
 }
 
 /* Callout note — override to use git orange */
