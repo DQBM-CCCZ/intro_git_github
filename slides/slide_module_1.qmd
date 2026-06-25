@@ -120,6 +120,27 @@ Writing an analysis pipeline together → Git.
 
 ---
 
+## The 6 core concepts — your map for today
+
+Git has hundreds of commands. You only need **6 ideas** to be effective:
+
+1. **Repository** — a folder Git is watching
+2. **Working directory** — your files, right now, as you edit them
+3. **Staging area** — a holding pen for what goes into the next snapshot
+4. **Commit** — a saved snapshot with a message
+5. **Branch** — an independent line of commits
+6. **Remote** — a copy of the repository living somewhere else (GitHub)
+
+. . .
+
+::: {.callout-tip}
+Everything we do today is one of these 6 things, or a relationship between
+two of them. If you ever feel lost, ask: *"which of the 6 am I touching
+right now?"*
+:::
+
+---
+
 ## What is Git?
 
 - A **distributed version control system** (VCS)

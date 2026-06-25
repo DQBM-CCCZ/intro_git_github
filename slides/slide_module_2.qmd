@@ -118,6 +118,10 @@ Git sees the file but is not tracking it yet.
 
 ## git add → git commit
 
+::: {.panel-tabset}
+
+### Terminal
+
 ```bash
 # Stage the file
 git add samples.csv
@@ -129,6 +133,22 @@ git commit -m "added sample metadata for 4 samples"
 
 git status   # now: "nothing to commit, working tree clean"
 ```
+
+### VS Code (Source Control panel)
+
+1. Open the **Source Control** icon in the left sidebar (or `Ctrl+Shift+G`)
+2. Under "Changes," hover `samples.csv` → click **+** to stage it
+   (it moves up to "Staged Changes" — this IS `git add`)
+3. Type your commit message in the box at the top
+4. Click the **✓ Commit** button — this IS `git commit -m`
+
+::: {.callout-tip}
+The CLI and the GUI do the exact same thing underneath. Use whichever helps
+you *see* what's happening — many people find staging easier to understand
+visually before they trust it from the terminal.
+:::
+
+:::
 
 ---
 
@@ -185,6 +205,10 @@ to the tip of whichever branch you're currently on.
 
 Diffing shows **what changed** between two states:
 
+::: {.panel-tabset}
+
+### Terminal
+
 ```bash
 # Working directory vs staging area (unstaged changes)
 git diff
@@ -198,6 +222,21 @@ git diff HEAD
 # Two specific commits
 git diff <hash1> <hash2>
 ```
+
+Terminal diffs use `+`/`-` prefixes per line — green `+` for added, red `-`
+for removed.
+
+### VS Code
+
+1. In the **Source Control** panel, click any modified file under "Changes"
+2. VS Code opens a **side-by-side diff view** automatically — old version on
+   the left, new on the right, changed lines highlighted in color
+3. Click a file under "Staged Changes" to see exactly what's about to be committed
+
+For a long file, the side-by-side view is much faster to scan than reading
+`+`/`-` lines in the terminal.
+
+:::
 
 ---
 

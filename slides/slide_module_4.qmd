@@ -99,6 +99,12 @@ git merge    # merge them into your branch
 
 **Run `git pull` at the start of every work session.**
 
+::: {.callout-tip}
+**VS Code equivalent:** the bottom-left status bar shows your branch name
+with up/down arrow counts (e.g. `main ↑2 ↓1`) — 2 commits to push, 1 to
+pull. Click the **sync icon** next to it to pull then push in one click.
+:::
+
 ---
 
 ## git clone

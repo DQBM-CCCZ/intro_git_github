@@ -247,6 +247,19 @@ Deepak Tanwar
 </div>
 </div>
 </section>
+<section id="reasons-to-branch" class="slide level2">
+<h2>5 reasons to branch</h2>
+<ol type="1">
+<li><strong>Experiment</strong> — try a different method without risking what works</li>
+<li><strong>Feature</strong> — build something new in isolation (e.g.&nbsp;a new plotting function)</li>
+<li><strong>Bug fix</strong> — fix something urgent without mixing in unrelated work-in-progress</li>
+<li><strong>Collaboration</strong> — you and a labmate work on the same project without colliding</li>
+<li><strong>Review</strong> — let a colleague review your changes before they reach <code>main</code></li>
+</ol>
+<div class="fragment">
+<p>Different reasons, same mechanism: branches are cheap, disposable, and safe.</p>
+</div>
+</section>
 <section id="git-branch-git-checkout" class="slide level2">
 <h2>git branch + git checkout</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="co"># See which branch you are on</span></span>
@@ -290,7 +303,40 @@ Treated samples show a 2-fold increase in expression.
 Treated samples show no significant change in expression.
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; try-new-normalization</code></pre>
 <div class="fragment">
-<p><strong>How to resolve:</strong> 1. Open the file 2. Choose which version to keep (or combine them) 3. Remove all <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers 4. <code>git add &lt;file&gt;</code> → <code>git commit</code></p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Resolve by hand</a></li><li><a href="#tabset-1-2">Resolve in VS Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<ol type="1">
+<li>Open the file</li>
+<li>Choose which version to keep (or combine them)</li>
+<li>Remove all <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers</li>
+<li><code>git add &lt;file&gt;</code> → <code>git commit</code></li>
+</ol>
+</div>
+<div id="tabset-1-2">
+<ol type="1">
+<li>VS Code highlights conflicted files in the Source Control panel</li>
+<li>Open the file — it shows <strong>“Current Change” / “Incoming Change”</strong> as colored blocks with clickable buttons above each one</li>
+<li>Click <strong>Accept Current</strong>, <strong>Accept Incoming</strong>, <strong>Accept Both</strong>, or edit the merged text directly — no markers to manually delete</li>
+<li>Save the file, then stage and commit as usual</li>
+</ol>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>For anything beyond a one-line conflict, the visual 3-way merge view is far less error-prone than manually deleting <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> markers by hand.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="exploring-git-history" class="slide level2">

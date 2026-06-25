@@ -7,6 +7,22 @@ A quick reference for all commands covered in the course.
 
 ---
 
+## CLI ↔ VS Code Equivalents
+
+You don't have to choose one or the other — most people mix both.
+
+| Terminal | VS Code (Source Control panel, `Ctrl+Shift+G`) |
+|----------|------------------------------------------------|
+| `git status` | "Changes" list, updates live |
+| `git add <file>` | Hover file → click **+** |
+| `git diff` | Click a file under "Changes" → side-by-side view |
+| `git commit -m "msg"` | Type message in the box → click **✓ Commit** |
+| `git push` / `git pull` | Click the **sync icon** in the status bar |
+| `git checkout -b <name>` | Click branch name (bottom-left) → **Create new branch** |
+| resolve conflict markers | Click **Accept Current / Incoming / Both** buttons |
+
+---
+
 ## Setup
 
 ```bash

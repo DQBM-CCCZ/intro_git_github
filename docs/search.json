@@ -25,7 +25,7 @@
     "href": "slides/slide_module_4.html#git-pull",
     "title": "Module 4: GitHub Collaboration",
     "section": "git pull",
-    "text": "git pull\nGet the latest changes from GitHub:\ngit pull\nUnder the hood this is two steps:\ngit fetch    # download new commits\ngit merge    # merge them into your branch\n\nRun git pull at the start of every work session."
+    "text": "git pull\nGet the latest changes from GitHub:\ngit pull\nUnder the hood this is two steps:\ngit fetch    # download new commits\ngit merge    # merge them into your branch\n\nRun git pull at the start of every work session.\n\n\n\n\n\n\nTip\n\n\nVS Code equivalent: the bottom-left status bar shows your branch name with up/down arrow counts (e.g. main ↑2 ↓1) — 2 commits to push, 1 to pull. Click the sync icon next to it to pull then push in one click."
   },
   {
     "objectID": "slides/slide_module_4.html#git-clone",
@@ -130,7 +130,7 @@
     "href": "slides/slide_module_2.html#git-add-git-commit",
     "title": "Module 2: Local Git",
     "section": "git add → git commit",
-    "text": "git add → git commit\n# Stage the file\ngit add samples.csv\n\ngit status   # now it shows \"Changes to be committed\"\n\n# Commit\ngit commit -m \"added sample metadata for 4 samples\"\n\ngit status   # now: \"nothing to commit, working tree clean\""
+    "text": "git add → git commit\n\nTerminalVS Code (Source Control panel)\n\n\n# Stage the file\ngit add samples.csv\n\ngit status   # now it shows \"Changes to be committed\"\n\n# Commit\ngit commit -m \"added sample metadata for 4 samples\"\n\ngit status   # now: \"nothing to commit, working tree clean\"\n\n\n\nOpen the Source Control icon in the left sidebar (or Ctrl+Shift+G)\nUnder “Changes,” hover samples.csv → click + to stage it (it moves up to “Staged Changes” — this IS git add)\nType your commit message in the box at the top\nClick the ✓ Commit button — this IS git commit -m\n\n\n\n\n\n\n\nTip\n\n\nThe CLI and the GUI do the exact same thing underneath. Use whichever helps you see what’s happening — many people find staging easier to understand visually before they trust it from the terminal."
   },
   {
     "objectID": "slides/slide_module_2.html#git-log",
@@ -158,7 +158,7 @@
     "href": "slides/slide_module_2.html#git-diff",
     "title": "Module 2: Local Git",
     "section": "git diff",
-    "text": "git diff\nDiffing shows what changed between two states:\n# Working directory vs staging area (unstaged changes)\ngit diff\n\n# Staging area vs last commit (what will be in next commit)\ngit diff --staged\n\n# Working directory vs last commit (everything changed)\ngit diff HEAD\n\n# Two specific commits\ngit diff &lt;hash1&gt; &lt;hash2&gt;"
+    "text": "git diff\nDiffing shows what changed between two states:\n\nTerminalVS Code\n\n\n# Working directory vs staging area (unstaged changes)\ngit diff\n\n# Staging area vs last commit (what will be in next commit)\ngit diff --staged\n\n# Working directory vs last commit (everything changed)\ngit diff HEAD\n\n# Two specific commits\ngit diff &lt;hash1&gt; &lt;hash2&gt;\nTerminal diffs use +/- prefixes per line — green + for added, red - for removed.\n\n\n\nIn the Source Control panel, click any modified file under “Changes”\nVS Code opens a side-by-side diff view automatically — old version on the left, new on the right, changed lines highlighted in color\nClick a file under “Staged Changes” to see exactly what’s about to be committed\n\nFor a long file, the side-by-side view is much faster to scan than reading +/- lines in the terminal."
   },
   {
     "objectID": "slides/slide_module_2.html#exercise-3-local-git-workflow",
@@ -187,6 +187,13 @@
     "title": "Git Cheat Sheet",
     "section": "",
     "text": "A quick reference for all commands covered in the course."
+  },
+  {
+    "objectID": "qmd/cheatsheet.html#cli-vs-code-equivalents",
+    "href": "qmd/cheatsheet.html#cli-vs-code-equivalents",
+    "title": "Git Cheat Sheet",
+    "section": "CLI ↔︎ VS Code Equivalents",
+    "text": "CLI ↔︎ VS Code Equivalents\nYou don’t have to choose one or the other — most people mix both.\n\n\n\n\n\n\n\nTerminal\nVS Code (Source Control panel, Ctrl+Shift+G)\n\n\n\n\ngit status\n“Changes” list, updates live\n\n\ngit add &lt;file&gt;\nHover file → click +\n\n\ngit diff\nClick a file under “Changes” → side-by-side view\n\n\ngit commit -m \"msg\"\nType message in the box → click ✓ Commit\n\n\ngit push / git pull\nClick the sync icon in the status bar\n\n\ngit checkout -b &lt;name&gt;\nClick branch name (bottom-left) → Create new branch\n\n\nresolve conflict markers\nClick Accept Current / Incoming / Both buttons"
   },
   {
     "objectID": "qmd/cheatsheet.html#setup",
@@ -798,6 +805,13 @@
     "text": "“Why not just use Google Docs?”\nA fair question — for a single shared document, Google Docs works fine.\nGit earns its complexity when you have:\n\nCode and scripts, not prose — line-by-line diffs that mean something\nMany files together — data, scripts, figures, docs as one versioned unit\nParallel experiments — try a new analysis approach without breaking the working one (branches)\nExact reproducibility — re-run the exact code that produced Figure 2 in your paper, six months later\nNo internet required — full history available offline, on your machine\n\n\n\n\n\n\n\n\nNote\n\n\nRule of thumb: writing a manuscript together → Google Docs. Writing an analysis pipeline together → Git."
   },
   {
+    "objectID": "slides/slide_module_1.html#the-6-core-concepts-your-map-for-today",
+    "href": "slides/slide_module_1.html#the-6-core-concepts-your-map-for-today",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "The 6 core concepts — your map for today",
+    "text": "The 6 core concepts — your map for today\nGit has hundreds of commands. You only need 6 ideas to be effective:\n\nRepository — a folder Git is watching\nWorking directory — your files, right now, as you edit them\nStaging area — a holding pen for what goes into the next snapshot\nCommit — a saved snapshot with a message\nBranch — an independent line of commits\nRemote — a copy of the repository living somewhere else (GitHub)\n\n\n\n\n\n\n\n\nTip\n\n\nEverything we do today is one of these 6 things, or a relationship between two of them. If you ever feel lost, ask: “which of the 6 am I touching right now?”"
+  },
+  {
     "objectID": "slides/slide_module_1.html#what-is-git",
     "href": "slides/slide_module_1.html#what-is-git",
     "title": "Module 1: Concepts & GitHub",
@@ -861,6 +875,13 @@
     "text": "Why branches?\nBranches let you work on something new without breaking what already works.\n\n\n\n\n\ngitGraph\n   commit id: \"QC done\"\n   commit id: \"log2 normalization\"\n   branch try-new-normalization\n   commit id: \"quantile attempt\"\n   commit id: \"compare results\"\n   checkout main\n   commit id: \"wrote methods section\"\n   merge try-new-normalization\n\n\n\n\n\n\n\nIn research: use a branch to try a new analysis approach. If it works → merge. If not → delete without any harm to main.\n\n\n\n\n\n\nTip\n\n\nDiscussion: what’s something you’ve wanted to try in your own analysis, but were afraid to risk breaking what already works?"
   },
   {
+    "objectID": "slides/slide_module_3.html#reasons-to-branch",
+    "href": "slides/slide_module_3.html#reasons-to-branch",
+    "title": "Module 3: Branching & History",
+    "section": "5 reasons to branch",
+    "text": "5 reasons to branch\n\nExperiment — try a different method without risking what works\nFeature — build something new in isolation (e.g. a new plotting function)\nBug fix — fix something urgent without mixing in unrelated work-in-progress\nCollaboration — you and a labmate work on the same project without colliding\nReview — let a colleague review your changes before they reach main\n\n\nDifferent reasons, same mechanism: branches are cheap, disposable, and safe."
+  },
+  {
     "objectID": "slides/slide_module_3.html#git-branch-git-checkout",
     "href": "slides/slide_module_3.html#git-branch-git-checkout",
     "title": "Module 3: Branching & History",
@@ -886,7 +907,7 @@
     "href": "slides/slide_module_3.html#merge-conflicts",
     "title": "Module 3: Branching & History",
     "section": "Merge conflicts",
-    "text": "Merge conflicts\nConflicts happen when two branches change the same line differently — e.g. you and a labmate both edit the conclusion in results_summary.md.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nTreated samples show a 2-fold increase in expression.\n=======\nTreated samples show no significant change in expression.\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; try-new-normalization\n\nHow to resolve: 1. Open the file 2. Choose which version to keep (or combine them) 3. Remove all &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers 4. git add &lt;file&gt; → git commit"
+    "text": "Merge conflicts\nConflicts happen when two branches change the same line differently — e.g. you and a labmate both edit the conclusion in results_summary.md.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nTreated samples show a 2-fold increase in expression.\n=======\nTreated samples show no significant change in expression.\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; try-new-normalization\n\n\nResolve by handResolve in VS Code\n\n\n\nOpen the file\nChoose which version to keep (or combine them)\nRemove all &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers\ngit add &lt;file&gt; → git commit\n\n\n\n\nVS Code highlights conflicted files in the Source Control panel\nOpen the file — it shows “Current Change” / “Incoming Change” as colored blocks with clickable buttons above each one\nClick Accept Current, Accept Incoming, Accept Both, or edit the merged text directly — no markers to manually delete\nSave the file, then stage and commit as usual\n\n\n\n\n\n\n\nTip\n\n\nFor anything beyond a one-line conflict, the visual 3-way merge view is far less error-prone than manually deleting &lt;&lt;&lt;&lt;&lt;&lt;&lt; markers by hand."
   },
   {
     "objectID": "slides/slide_module_3.html#exploring-git-history",

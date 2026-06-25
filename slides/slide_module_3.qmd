@@ -40,6 +40,20 @@ but were afraid to risk breaking what already works?
 
 ---
 
+## 5 reasons to branch
+
+1. **Experiment** — try a different method without risking what works
+2. **Feature** — build something new in isolation (e.g. a new plotting function)
+3. **Bug fix** — fix something urgent without mixing in unrelated work-in-progress
+4. **Collaboration** — you and a labmate work on the same project without colliding
+5. **Review** — let a colleague review your changes before they reach `main`
+
+. . .
+
+Different reasons, same mechanism: branches are cheap, disposable, and safe.
+
+---
+
 ## git branch + git checkout
 
 ```bash
@@ -107,11 +121,30 @@ Treated samples show no significant change in expression.
 
 . . .
 
-**How to resolve:**
+::: {.panel-tabset}
+
+### Resolve by hand
+
 1. Open the file
 2. Choose which version to keep (or combine them)
 3. Remove all `<<<<<<<`, `=======`, `>>>>>>>` markers
 4. `git add <file>` → `git commit`
+
+### Resolve in VS Code
+
+1. VS Code highlights conflicted files in the Source Control panel
+2. Open the file — it shows **"Current Change" / "Incoming Change"** as
+   colored blocks with clickable buttons above each one
+3. Click **Accept Current**, **Accept Incoming**, **Accept Both**, or edit
+   the merged text directly — no markers to manually delete
+4. Save the file, then stage and commit as usual
+
+::: {.callout-tip}
+For anything beyond a one-line conflict, the visual 3-way merge view is far
+less error-prone than manually deleting `<<<<<<<` markers by hand.
+:::
+
+:::
 
 ---
 

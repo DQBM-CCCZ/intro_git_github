@@ -389,7 +389,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#cli-vs-code-equivalents" id="toc-cli-vs-code-equivalents" class="nav-link active" data-scroll-target="#cli-vs-code-equivalents">CLI ↔︎ VS Code Equivalents</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
   <li><a href="#create-a-repository" id="toc-create-a-repository" class="nav-link" data-scroll-target="#create-a-repository">Create a Repository</a></li>
   <li><a href="#the-core-workflow" id="toc-the-core-workflow" class="nav-link" data-scroll-target="#the-core-workflow">The Core Workflow</a></li>
   <li><a href="#inspecting-changes" id="toc-inspecting-changes" class="nav-link" data-scroll-target="#inspecting-changes">Inspecting Changes</a></li>
@@ -429,6 +430,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>A quick reference for all commands covered in the course.</p>
 <hr>
+<section id="cli-vs-code-equivalents" class="level2">
+<h2 class="anchored" data-anchor-id="cli-vs-code-equivalents">CLI ↔︎ VS Code Equivalents</h2>
+<p>You don’t have to choose one or the other — most people mix both.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Terminal</th>
+<th>VS Code (Source Control panel, <code>Ctrl+Shift+G</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>git status</code></td>
+<td>“Changes” list, updates live</td>
+</tr>
+<tr class="even">
+<td><code>git add &lt;file&gt;</code></td>
+<td>Hover file → click <strong>+</strong></td>
+</tr>
+<tr class="odd">
+<td><code>git diff</code></td>
+<td>Click a file under “Changes” → side-by-side view</td>
+</tr>
+<tr class="even">
+<td><code>git commit -m "msg"</code></td>
+<td>Type message in the box → click <strong>✓ Commit</strong></td>
+</tr>
+<tr class="odd">
+<td><code>git push</code> / <code>git pull</code></td>
+<td>Click the <strong>sync icon</strong> in the status bar</td>
+</tr>
+<tr class="even">
+<td><code>git checkout -b &lt;name&gt;</code></td>
+<td>Click branch name (bottom-left) → <strong>Create new branch</strong></td>
+</tr>
+<tr class="odd">
+<td>resolve conflict markers</td>
+<td>Click <strong>Accept Current / Incoming / Both</strong> buttons</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
