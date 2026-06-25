@@ -4,7 +4,7 @@
     "href": "slides/slide_module_4.html#ssh-authentication",
     "title": "Module 4: GitHub Collaboration",
     "section": "SSH Authentication",
-    "text": "SSH Authentication\nSSH lets your computer talk to GitHub without a password.\n\n\n\n\n\n\n\nNote\n\n\nThe private key never leaves your machine. GitHub only ever sees the public key — that’s why it’s safe to share, and the private key is not.\n\n\n\n# Check for existing key\nls -al ~/.ssh\n\n# Generate new key\nssh-keygen -t ed25519 -C \"your.email@uzh.ch\"\n\n# Copy public key → paste into github.com/settings/keys\ncat ~/.ssh/id_ed25519.pub\n\n# Test\nssh -T git@github.com"
+    "text": "SSH Authentication\nEverything so far has lived only on your machine — concept 6 from this morning, remote, is what we’re missing. Before connecting to GitHub, it needs to know it’s really you. SSH lets your computer talk to GitHub without typing a password every time.\n\n\n\n\n\n\n\nNote\n\n\nThe private key never leaves your machine. GitHub only ever sees the public key — that’s why it’s safe to share, and the private key is not.\n\n\n\n# Check for existing key\nls -al ~/.ssh\n\n# Generate new key\nssh-keygen -t ed25519 -C \"your.email@uzh.ch\"\n\n# Copy public key → paste into github.com/settings/keys\ncat ~/.ssh/id_ed25519.pub\n\n# Test\nssh -T git@github.com"
   },
   {
     "objectID": "slides/slide_module_4.html#connecting-local-to-remote",
@@ -39,7 +39,7 @@
     "href": "slides/slide_module_4.html#the-full-remote-workflow",
     "title": "Module 4: GitHub Collaboration",
     "section": "The full remote workflow",
-    "text": "The full remote workflow\ngit clone &lt;url&gt;           # 1. get the repo (first time only)\n# or: git pull            # 1. get latest (if you already have it)\n\ngit checkout -b feature   # 2. work on a branch\n\n# make changes...\n\ngit add --all             # 3. stage\ngit commit -m \"message\"   # 4. commit\ngit push origin feature   # 5. push branch to GitHub\n\n# 6. open Pull Request on GitHub\n# 7. after merge:\ngit checkout main\ngit pull"
+    "text": "The full remote workflow\nEvery command you’ve seen today, in the order you’ll actually use them:\ngit clone &lt;url&gt;           # 1. get the repo (first time only)\n# or: git pull            # 1. get latest (if you already have it)\n\ngit checkout -b feature   # 2. work on a branch\n\n# make changes...\n\ngit add --all             # 3. stage\ngit commit -m \"message\"   # 4. commit\ngit push origin feature   # 5. push branch to GitHub\n\n# 6. open Pull Request on GitHub\n# 7. after merge:\ngit checkout main\ngit pull\nSteps 6 and 7 mention things we haven’t covered yet — Issues, Projects, and Pull Requests. That’s the rest of this module."
   },
   {
     "objectID": "slides/slide_module_4.html#github-issues",
@@ -53,14 +53,14 @@
     "href": "slides/slide_module_4.html#github-projects",
     "title": "Module 4: GitHub Collaboration",
     "section": "GitHub Projects",
-    "text": "GitHub Projects\nA Kanban board to track progress across issues and PRs.\n| To Do      | In Progress | Done       |\n|------------|-------------|------------|\n| Issue #1   | Issue #3    | Issue #2   |\n| Issue #4   |             |            |\nDrag cards as work progresses. Link issues so they move automatically when a PR closes them."
+    "text": "GitHub Projects\nIssues are individual cards. A Project is the board that organizes them.\n| To Do      | In Progress | Done       |\n|------------|-------------|------------|\n| Issue #1   | Issue #3    | Issue #2   |\n| Issue #4   |             |            |\nDrag cards as work progresses. Link issues so they move automatically when a PR closes them."
   },
   {
     "objectID": "slides/slide_module_4.html#pull-requests",
     "href": "slides/slide_module_4.html#pull-requests",
     "title": "Module 4: GitHub Collaboration",
     "section": "Pull Requests",
-    "text": "Pull Requests\nA proposal to merge your branch into another branch.\n\n\n\n\n\nflowchart LR\n    A[your-branch] --&gt;|Pull Request| B[main]\n    B --&gt;|review + discuss| A\n    A --&gt;|merge| B\n\n\n\n\n\n\nPR workflow: 1. Push your branch: git push origin my-feature 2. Open PR on GitHub: Compare & pull request 3. Write a description: what changed, why, issue reference 4. Request a reviewer 5. Address review comments with new commits 6. Merge"
+    "text": "Pull Requests\nWe planned the work with Issues and Projects. Now the actual code change: a Pull Request is a proposal to merge your branch into another branch.\n\n\n\n\n\nflowchart LR\n    A[your-branch] --&gt;|Pull Request| B[main]\n    B --&gt;|review + discuss| A\n    A --&gt;|merge| B\n\n\n\n\n\n\nPR workflow: 1. Push your branch: git push origin my-feature 2. Open PR on GitHub: Compare & pull request 3. Write a description: what changed, why, issue reference 4. Request a reviewer 5. Address review comments with new commits 6. Merge"
   },
   {
     "objectID": "slides/slide_module_4.html#fork-vs-clone",
@@ -88,42 +88,42 @@
     "href": "slides/slide_module_2.html#getting-started",
     "title": "Module 2: Local Git",
     "section": "Getting started",
-    "text": "Getting started\nCheck Git is installed and configure your identity:\ngit --version\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your.email@uzh.ch\"\nThese are embedded in every commit you make."
+    "text": "Getting started\nYou know why Git matters now — time to actually use it. First, check it’s installed and tell it who you are:\ngit --version\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your.email@uzh.ch\"\nThese are embedded in every commit you make."
   },
   {
     "objectID": "slides/slide_module_2.html#there-are-many-git-commands",
     "href": "slides/slide_module_2.html#there-are-many-git-commands",
     "title": "Module 2: Local Git",
     "section": "There are many git commands…",
-    "text": "There are many git commands…\nadd       clone     commit    diff      fetch     init\nlog       merge     pull      push      remote    reset\nbranch    checkout  stash     status    tag       ...\n\nWe will focus on about 12 of them today.\nThe rest you can look up when you need them — git help &lt;command&gt;"
+    "text": "There are many git commands…\nBefore diving in, a reality check — Git is a big tool:\nadd       clone     commit    diff      fetch     init\nlog       merge     pull      push      remote    reset\nbranch    checkout  stash     status    tag       ...\n\nWe will focus on about 12 of them today.\nThe rest you can look up when you need them — git help &lt;command&gt;"
   },
   {
     "objectID": "slides/slide_module_2.html#a-running-example-tracking-an-experiment",
     "href": "slides/slide_module_2.html#a-running-example-tracking-an-experiment",
     "title": "Module 2: Local Git",
     "section": "A running example: tracking an experiment",
-    "text": "A running example: tracking an experiment\nThroughout today we will build one realistic project — experiment-tracker — the kind of folder you might keep next to a real experiment: sample metadata, analysis notes, and a results summary. No programming language required.\ncd ~/Downloads\nmkdir experiment-tracker\ncd experiment-tracker\ngit init\nls -a    # confirm the hidden .git folder was created\nThe .git folder is where Git stores everything. Never delete it."
+    "text": "A running example: tracking an experiment\nLet’s make those 12 commands concrete. Throughout today we will build one realistic project — experiment-tracker — the kind of folder you might keep next to a real experiment: sample metadata, analysis notes, and a results summary. No programming language required.\ncd ~/Downloads\nmkdir experiment-tracker\ncd experiment-tracker\ngit init\nls -a    # confirm the hidden .git folder was created\nThe .git folder is where Git stores everything. Never delete it."
   },
   {
     "objectID": "slides/slide_module_2.html#tracking-changes-the-three-stages",
     "href": "slides/slide_module_2.html#tracking-changes-the-three-stages",
     "title": "Module 2: Local Git",
     "section": "Tracking changes — the three stages",
-    "text": "Tracking changes — the three stages\n\n\n\n\n\nflowchart LR\n    A[Working Directory\\nyour files] --&gt;|git add| B[Staging Area\\n.git/index]\n    B --&gt;|git commit| C[(Repository\\n.git/objects)]\n\n\n\n\n\n\n\nWhy a staging area? Imagine you fixed a bug and started an unrelated experiment in the same session. The staging area lets you commit the bug fix alone, with its own clear message — without dragging in the half-finished experiment."
+    "text": "Tracking changes — the three stages\nEvery change you make moves through three places, in order:\nWorking Directory → (git add) → Staging Area → (git commit) → Repository\n\nWhy a staging area? Imagine you fixed a bug and started an unrelated experiment in the same session. The staging area lets you commit the bug fix alone, with its own clear message — without dragging in the half-finished experiment. We’ll see this as a diagram once you’ve done it by hand."
   },
   {
     "objectID": "slides/slide_module_2.html#your-first-file-sample-metadata",
     "href": "slides/slide_module_2.html#your-first-file-sample-metadata",
     "title": "Module 2: Local Git",
     "section": "Your first file: sample metadata",
-    "text": "Your first file: sample metadata\nnano samples.csv\nsample_id,condition,replicate\nS01,control,1\nS02,control,2\nS03,treated,1\nS04,treated,2\nCtrl+X → Y → Enter to save and close."
+    "text": "Your first file: sample metadata\nYour repository exists but is empty. Let’s put something in the working directory — step 1 of the three stages:\nnano samples.csv\nsample_id,condition,replicate\nS01,control,1\nS02,control,2\nS03,treated,1\nS04,treated,2\nCtrl+X → Y → Enter to save and close."
   },
   {
     "objectID": "slides/slide_module_2.html#git-status",
     "href": "slides/slide_module_2.html#git-status",
     "title": "Module 2: Local Git",
     "section": "git status",
-    "text": "git status\ngit status\nOn branch main\n\nNo commits yet\n\nUntracked files:\n  (use \"git add &lt;file&gt;...\" to include in what will be committed)\n        samples.csv\nGit sees the file but is not tracking it yet."
+    "text": "git status\nThe file exists, but Git hasn’t been told to track it. Check what Git sees:\ngit status\nOn branch main\n\nNo commits yet\n\nUntracked files:\n  (use \"git add &lt;file&gt;...\" to include in what will be committed)\n        samples.csv\nGit sees the file but is not tracking it yet."
   },
   {
     "objectID": "slides/slide_module_2.html#git-add-git-commit",
@@ -791,6 +791,13 @@
     "text": "The version control problem\nA general example from manuscript revision:\n\n\n\n\n\nflowchart LR\n    A[Draft by student] --&gt; B[Revised by PI]\n    B --&gt; C[Revised by student]\n    C --&gt; D[Finalized by student]\n\n\n\n\n\n\nHow would you name these files?\n\n\nmanuscript_FA.docx\nmanuscript_FA_LA.docx\nmanuscript_FA_LA_FA.docx\nmanuscript_final.docx\n\n\n\nOr by date?\n\nmanuscript_20221001.docx\nmanuscript_20221224.docx\nmanuscript_final.docx\n\n\n\n\n\n\n\n\n\nWarning\n\n\nBoth approaches break down: which file had the figure you liked? Which comment thread belongs to which version? Renaming files is not version control."
   },
   {
+    "objectID": "slides/slide_module_1.html#what-is-git",
+    "href": "slides/slide_module_1.html#what-is-git",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "What is Git?",
+    "text": "What is Git?\nThis is exactly the problem Git was built to solve.\n\nA distributed version control system (VCS)\nTracks changes to files over time, with a message explaining why\nWorks locally — no internet needed\nFree and open source\n\n\nGit ≠ GitHub\n\nGit = the tool running on your machine\nGitHub = a website that hosts Git repositories online — we’ll get there in Module 4"
+  },
+  {
     "objectID": "slides/slide_module_1.html#version-control-the-better-way",
     "href": "slides/slide_module_1.html#version-control-the-better-way",
     "title": "Module 1: Concepts & GitHub",
@@ -802,63 +809,56 @@
     "href": "slides/slide_module_1.html#why-not-just-use-google-docs",
     "title": "Module 1: Concepts & GitHub",
     "section": "“Why not just use Google Docs?”",
-    "text": "“Why not just use Google Docs?”\nA fair question — for a single shared document, Google Docs works fine.\nGit earns its complexity when you have:\n\nCode and scripts, not prose — line-by-line diffs that mean something\nMany files together — data, scripts, figures, docs as one versioned unit\nParallel experiments — try a new analysis approach without breaking the working one (branches)\nExact reproducibility — re-run the exact code that produced Figure 2 in your paper, six months later\nNo internet required — full history available offline, on your machine\n\n\n\n\n\n\n\n\nNote\n\n\nRule of thumb: writing a manuscript together → Google Docs. Writing an analysis pipeline together → Git."
-  },
-  {
-    "objectID": "slides/slide_module_1.html#the-6-core-concepts-your-map-for-today",
-    "href": "slides/slide_module_1.html#the-6-core-concepts-your-map-for-today",
-    "title": "Module 1: Concepts & GitHub",
-    "section": "The 6 core concepts — your map for today",
-    "text": "The 6 core concepts — your map for today\nGit has hundreds of commands. You only need 6 ideas to be effective:\n\nRepository — a folder Git is watching\nWorking directory — your files, right now, as you edit them\nStaging area — a holding pen for what goes into the next snapshot\nCommit — a saved snapshot with a message\nBranch — an independent line of commits\nRemote — a copy of the repository living somewhere else (GitHub)\n\n\n\n\n\n\n\n\nTip\n\n\nEverything we do today is one of these 6 things, or a relationship between two of them. If you ever feel lost, ask: “which of the 6 am I touching right now?”"
-  },
-  {
-    "objectID": "slides/slide_module_1.html#what-is-git",
-    "href": "slides/slide_module_1.html#what-is-git",
-    "title": "Module 1: Concepts & GitHub",
-    "section": "What is Git?",
-    "text": "What is Git?\n\nA distributed version control system (VCS)\nCreated in 2005 by Linus Torvalds (creator of Linux)\nTracks changes to files over time\nWorks locally — no internet needed\nFree and open source\n\n\nGit ≠ GitHub\n\nGit = the tool running on your machine\nGitHub = a website that hosts Git repositories online"
+    "text": "“Why not just use Google Docs?”\nA fair question — for a single shared document, Google Docs works fine. Git earns its complexity when you have:\n\nCode and scripts, not prose — line-by-line diffs that mean something\nParallel experiments — try a new analysis approach without breaking the working one (branches)\nExact reproducibility — re-run the exact code that produced Figure 2, six months later\nNo internet required — full history available offline, on your machine\n\n\n\n\n\n\n\n\nNote\n\n\nRule of thumb: writing a manuscript together → Google Docs. Writing an analysis pipeline together → Git."
   },
   {
     "objectID": "slides/slide_module_1.html#types-of-version-control",
     "href": "slides/slide_module_1.html#types-of-version-control",
     "title": "Module 1: Concepts & GitHub",
     "section": "Types of Version Control",
-    "text": "Types of Version Control\n\nLocalCentral (e.g. SVN)Distributed (Git)\n\n\n\n\n\n\n\nNo collaboration possible — if your laptop dies, so does the history.\n\n\n\n\n\n\n\nOne single point of failure. No internet → no work.\n\n\n\n\n\n\n\nEvery clone is a full backup. Works offline. This is Git."
-  },
-  {
-    "objectID": "slides/slide_module_1.html#svn-vs-git-how-collaboration-actually-differs",
-    "href": "slides/slide_module_1.html#svn-vs-git-how-collaboration-actually-differs",
-    "title": "Module 1: Concepts & GitHub",
-    "section": "SVN vs Git — how collaboration actually differs",
-    "text": "SVN vs Git — how collaboration actually differs\n\nWith SVN, everyone talks to one central repo. With Git, every copy is a full repo — you can sync with a colleague directly, with no server involved."
+    "text": "Types of Version Control\nGit is one kind of version control system — here’s how it compares to the alternatives.\n\nLocalCentral (e.g. SVN)Distributed (Git)\n\n\n\n\n\n\n\nNo collaboration possible — if your laptop dies, so does the history.\n\n\n\n\n\n\n\nOne single point of failure. No internet → no work.\n\n\n\n\n\n\n\nEvery clone is a full backup. Works offline. This is Git."
   },
   {
     "objectID": "slides/slide_module_1.html#git-is-winning",
     "href": "slides/slide_module_1.html#git-is-winning",
     "title": "Module 1: Concepts & GitHub",
     "section": "Git is winning",
-    "text": "Git is winning\n\nGitHub has become the de facto home for open-source and research code — free public repositories, built-in project management, and automated testing (GitHub Actions) all in one place.\n\n\n\n\n\n\nTip\n\n\nPoll: has anyone here already used GitHub to download someone else’s code or data? You’ve been a Git user already — you just didn’t know it."
+    "text": "Git is winning\nThat “every copy is a full repo” idea isn’t just theoretical — it’s why Git overtook the central model in practice:\n\nGitHub built a free hosting platform on top of Git, with project management and automated testing built in.\n\n\n\n\n\n\nTip\n\n\nPoll: has anyone here already used GitHub to download someone else’s code or data? You’ve been a Git user already — you just didn’t know it."
+  },
+  {
+    "objectID": "slides/slide_module_1.html#the-6-core-concepts-your-map-for-today",
+    "href": "slides/slide_module_1.html#the-6-core-concepts-your-map-for-today",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "The 6 core concepts — your map for today",
+    "text": "The 6 core concepts — your map for today\nGit has hundreds of commands. You only need 6 ideas to be effective:\n\nRepository — a folder Git is watching\nWorking directory — your files, right now, as you edit them\nStaging area — a holding pen for what goes into the next snapshot\nCommit — a saved snapshot with a message\nBranch — an independent line of commits\nRemote — a copy of the repository living somewhere else (GitHub)\n\n\n\n\n\n\n\n\nTip\n\n\nEverything from here on is one of these 6 things, or a relationship between two of them. If you ever feel lost, ask: “which of the 6 am I touching right now?”"
   },
   {
     "objectID": "slides/slide_module_1.html#github-terminologies",
     "href": "slides/slide_module_1.html#github-terminologies",
     "title": "Module 1: Concepts & GitHub",
     "section": "GitHub Terminologies",
-    "text": "GitHub Terminologies\n\n\n\nTerm\nPlain English\n\n\n\n\nRepository\nA folder tracked by Git\n\n\nCommit\nA saved snapshot with a message\n\n\nBranch\nA separate line of development\n\n\nFork\nYour own server-side copy of a repo\n\n\nPull Request\nA proposal to merge changes\n\n\nIssue\nA task, bug report, or discussion\n\n\nOrganization\nA shared account for teams"
+    "text": "GitHub Terminologies\nNow that you have the 6 concepts, here’s the vocabulary GitHub specifically adds:\n\n\n\nTerm\nPlain English\n\n\n\n\nRepository\nA folder tracked by Git\n\n\nCommit\nA saved snapshot with a message\n\n\nBranch\nA separate line of development\n\n\nFork\nYour own server-side copy of a repo\n\n\nPull Request\nA proposal to merge changes\n\n\nIssue\nA task, bug report, or discussion\n\n\nOrganization\nA shared account for teams"
   },
   {
     "objectID": "slides/slide_module_1.html#applications-in-bioinformatics",
     "href": "slides/slide_module_1.html#applications-in-bioinformatics",
     "title": "Module 1: Concepts & GitHub",
     "section": "Applications in bioinformatics",
-    "text": "Applications in bioinformatics\n\nVersion control of analysis scripts and pipelines\nFull history of every change — reproducible research\nCollaboration across institutes and time zones\nIssues and Projects for experiment planning\nGenomic Data Science: version-controlled, reproducible data analysis"
+    "text": "Applications in bioinformatics\nWith the concepts and vocabulary in place, here’s what they actually buy you:\n\nVersion control of analysis scripts and pipelines\nFull history of every change — reproducible research\nCollaboration across institutes and time zones\nIssues and Projects for experiment planning\nGenomic Data Science: version-controlled, reproducible data analysis"
   },
   {
     "objectID": "slides/slide_module_1.html#writing-on-github-markdown",
     "href": "slides/slide_module_1.html#writing-on-github-markdown",
     "title": "Module 1: Concepts & GitHub",
     "section": "Writing on GitHub: Markdown",
-    "text": "Writing on GitHub: Markdown\nGitHub renders .md files automatically. Basic syntax:\n# Heading 1\n## Heading 2\n\n**bold**   *italic*   `inline code`\n\n- list item 1\n- list item 2\n\n| Column 1 | Column 2 |\n|----------|----------|\n| row 1 a  | row 1 b  |\n\n[link text](https://github.com)"
+    "text": "Writing on GitHub: Markdown\nBefore we open GitHub for real, one last tool: GitHub renders .md files as formatted text automatically. Structure first:\n# Heading 1\n## Heading 2\n\n**bold**   *italic*   `inline code`\n\n- list item 1\n- list item 2"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#markdown-tables-links",
+    "href": "slides/slide_module_1.html#markdown-tables-links",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Markdown: tables & links",
+    "text": "Markdown: tables & links\n| Column 1 | Column 2 |\n|----------|----------|\n| row 1 a  | row 1 b  |\n\n[link text](https://github.com)\nYou’ll use exactly this much Markdown in the next two exercises — nothing more."
   },
   {
     "objectID": "slides/slide_module_1.html#exercise-1",
@@ -893,21 +893,21 @@
     "href": "slides/slide_module_3.html#git-branch-git-checkout",
     "title": "Module 3: Branching & History",
     "section": "git branch + git checkout",
-    "text": "git branch + git checkout\n\n# See which branch you are on\ngit branch\n\n# Create a new branch for a new normalization approach\ngit branch try-new-normalization\n\n# Switch to it\ngit checkout try-new-normalization\n\n# Create AND switch in one step\ngit checkout -b try-new-normalization"
+    "text": "git branch + git checkout\nTime to do what the diagram a moment ago showed, for real:\n# See which branch you are on\ngit branch\n\n# Create a new branch for a new normalization approach\ngit branch try-new-normalization\n\n# Switch to it\ngit checkout try-new-normalization\n\n# Create AND switch in one step\ngit checkout -b try-new-normalization"
   },
   {
     "objectID": "slides/slide_module_3.html#making-commits-on-a-branch",
     "href": "slides/slide_module_3.html#making-commits-on-a-branch",
     "title": "Module 3: Branching & History",
     "section": "Making commits on a branch",
-    "text": "Making commits on a branch\n# You are on branch \"try-new-normalization\"\nnano analysis_log.md    # document the alternative approach\n\ngit add analysis_log.md\ngit commit -m \"tried quantile normalization instead of log2\"\n\n# Go back to main — this note does not exist here\ngit checkout main\ncat analysis_log.md\nBranches are isolated. Changes on a branch don’t appear on main until you merge."
+    "text": "Making commits on a branch\nYou’re now on the new branch. Commits here behave exactly like before — they just don’t exist anywhere else yet:\n# You are on branch \"try-new-normalization\"\nnano analysis_log.md    # document the alternative approach\n\ngit add analysis_log.md\ngit commit -m \"tried quantile normalization instead of log2\"\n\n# Go back to main — this note does not exist here\ngit checkout main\ncat analysis_log.md\nBranches are isolated. Changes on a branch don’t appear on main until you merge."
   },
   {
     "objectID": "slides/slide_module_3.html#git-merge",
     "href": "slides/slide_module_3.html#git-merge",
     "title": "Module 3: Branching & History",
     "section": "git merge",
-    "text": "git merge\n# On main branch, once you decide the new approach is good:\ngit merge try-new-normalization\nGit replays the commits from the branch onto main. After merging, you can delete the branch:\ngit branch -d try-new-normalization"
+    "text": "git merge\n# On main branch, once you decide the new approach is good:\ngit merge try-new-normalization\nGit replays the commits from the branch onto main. After merging, you can delete the branch:\ngit branch -d try-new-normalization\nThat merge went smoothly because nothing else on main had touched the same file. Merges aren’t always this clean."
   },
   {
     "objectID": "slides/slide_module_3.html#merge-conflicts",

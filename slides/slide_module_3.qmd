@@ -56,7 +56,7 @@ Different reasons, same mechanism: branches are cheap, disposable, and safe.
 
 ## git branch + git checkout
 
-![](../assets/images/branch-diagram.png){width="70%" fig-align="center"}
+Time to do what the diagram a moment ago showed, for real:
 
 ```bash
 # See which branch you are on
@@ -75,6 +75,9 @@ git checkout -b try-new-normalization
 ---
 
 ## Making commits on a branch
+
+You're now on the new branch. Commits here behave exactly like before —
+they just don't exist anywhere else yet:
 
 ```bash
 # You are on branch "try-new-normalization"
@@ -105,6 +108,9 @@ After merging, you can delete the branch:
 ```bash
 git branch -d try-new-normalization
 ```
+
+That merge went smoothly because nothing else on `main` had touched the
+same file. Merges aren't always this clean.
 
 ---
 

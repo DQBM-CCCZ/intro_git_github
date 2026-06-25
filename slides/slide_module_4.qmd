@@ -14,7 +14,10 @@ title-slide-attributes:
 
 ## SSH Authentication
 
-SSH lets your computer talk to GitHub without a password.
+Everything so far has lived only on your machine — concept 6 from this
+morning, **remote**, is what we're missing. Before connecting to GitHub, it
+needs to know it's really you. SSH lets your computer talk to GitHub
+without typing a password every time.
 
 ![](../assets/images/ssh-key-authentication.png){width="85%" fig-align="center"}
 
@@ -117,6 +120,8 @@ Clone includes the full history and sets up `origin` automatically.
 
 ## The full remote workflow
 
+Every command you've seen today, in the order you'll actually use them:
+
 ```bash
 git clone <url>           # 1. get the repo (first time only)
 # or: git pull            # 1. get latest (if you already have it)
@@ -134,6 +139,9 @@ git push origin feature   # 5. push branch to GitHub
 git checkout main
 git pull
 ```
+
+Steps 6 and 7 mention things we haven't covered yet — Issues, Projects,
+and Pull Requests. That's the rest of this module.
 
 ---
 
@@ -159,7 +167,7 @@ git commit -m "fixed alignment bug, closes #12"
 
 ## GitHub Projects
 
-A Kanban board to track progress across issues and PRs.
+Issues are individual cards. A Project is the board that organizes them.
 
 ```
 | To Do      | In Progress | Done       |
@@ -175,7 +183,8 @@ Link issues so they move automatically when a PR closes them.
 
 ## Pull Requests
 
-A proposal to merge your branch into another branch.
+We planned the work with Issues and Projects. Now the actual code change:
+a Pull Request is a proposal to merge your branch into another branch.
 
 ```{mermaid}
 flowchart LR

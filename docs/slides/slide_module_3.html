@@ -262,8 +262,8 @@ Deepak Tanwar
 </section>
 <section id="git-branch-git-checkout" class="slide level2">
 <h2>git branch + git checkout</h2>
-
-<img data-src="../assets/images/branch-diagram.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="co"># See which branch you are on</span></span>
+<p>Time to do what the diagram a moment ago showed, for real:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="co"># See which branch you are on</span></span>
 <span id="cb1-2"><a></a><span class="fu">git</span> branch</span>
 <span id="cb1-3"><a></a></span>
 <span id="cb1-4"><a></a><span class="co"># Create a new branch for a new normalization approach</span></span>
@@ -277,6 +277,7 @@ Deepak Tanwar
 </section>
 <section id="making-commits-on-a-branch" class="slide level2">
 <h2>Making commits on a branch</h2>
+<p>You’re now on the new branch. Commits here behave exactly like before — they just don’t exist anywhere else yet:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="co"># You are on branch "try-new-normalization"</span></span>
 <span id="cb2-2"><a></a><span class="fu">nano</span> analysis_log.md    <span class="co"># document the alternative approach</span></span>
 <span id="cb2-3"><a></a></span>
@@ -294,6 +295,7 @@ Deepak Tanwar
 <span id="cb3-2"><a></a><span class="fu">git</span> merge try-new-normalization</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Git replays the commits from the branch onto <code>main</code>. After merging, you can delete the branch:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">git</span> branch <span class="at">-d</span> try-new-normalization</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>That merge went smoothly because nothing else on <code>main</code> had touched the same file. Merges aren’t always this clean.</p>
 </section>
 <section id="merge-conflicts" class="slide level2">
 <h2>Merge conflicts</h2>

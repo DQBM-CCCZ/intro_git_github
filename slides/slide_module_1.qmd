@@ -83,6 +83,24 @@ comment thread belongs to which version? Renaming files is not version control.
 
 ---
 
+## What is Git?
+
+This is exactly the problem Git was built to solve.
+
+- A **distributed version control system** (VCS)
+- Tracks changes to files over time, with a message explaining *why*
+- Works **locally** — no internet needed
+- Free and open source
+
+. . .
+
+**Git ≠ GitHub**
+
+- **Git** = the tool running on your machine
+- **GitHub** = a website that hosts Git repositories online — we'll get there in Module 4
+
+---
+
 ## Version control — the better way
 
 One file. Many snapshots, each with a message explaining *why* it changed.
@@ -102,13 +120,11 @@ The filename never changes. The **history** does.
 ## "Why not just use Google Docs?"
 
 A fair question — for a single shared document, Google Docs works fine.
-
 Git earns its complexity when you have:
 
 - **Code and scripts**, not prose — line-by-line diffs that mean something
-- **Many files together** — data, scripts, figures, docs as one versioned unit
 - **Parallel experiments** — try a new analysis approach without breaking the working one (branches)
-- **Exact reproducibility** — re-run the *exact* code that produced Figure 2 in your paper, six months later
+- **Exact reproducibility** — re-run the *exact* code that produced Figure 2, six months later
 - **No internet required** — full history available offline, on your machine
 
 . . .
@@ -120,45 +136,9 @@ Writing an analysis pipeline together → Git.
 
 ---
 
-## The 6 core concepts — your map for today
-
-Git has hundreds of commands. You only need **6 ideas** to be effective:
-
-1. **Repository** — a folder Git is watching
-2. **Working directory** — your files, right now, as you edit them
-3. **Staging area** — a holding pen for what goes into the next snapshot
-4. **Commit** — a saved snapshot with a message
-5. **Branch** — an independent line of commits
-6. **Remote** — a copy of the repository living somewhere else (GitHub)
-
-. . .
-
-::: {.callout-tip}
-Everything we do today is one of these 6 things, or a relationship between
-two of them. If you ever feel lost, ask: *"which of the 6 am I touching
-right now?"*
-:::
-
----
-
-## What is Git?
-
-- A **distributed version control system** (VCS)
-- Created in 2005 by Linus Torvalds (creator of Linux)
-- Tracks changes to files over time
-- Works **locally** — no internet needed
-- Free and open source
-
-. . .
-
-**Git ≠ GitHub**
-
-- **Git** = the tool running on your machine
-- **GitHub** = a website that hosts Git repositories online
-
----
-
 ## Types of Version Control
+
+Git is one *kind* of version control system — here's how it compares to the alternatives.
 
 ::: {.panel-tabset}
 
@@ -184,22 +164,15 @@ Every clone is a full backup. Works offline. This is Git.
 
 ---
 
-## SVN vs Git — how collaboration actually differs
-
-![](../assets/images/svn-vs-git-collaboration.png){width="85%" fig-align="center"}
-
-With SVN, everyone talks to one central repo. With Git, every copy *is* a
-full repo — you can sync with a colleague directly, with no server involved.
-
----
-
 ## Git is winning
+
+That "every copy is a full repo" idea isn't just theoretical — it's why Git
+overtook the central model in practice:
 
 ![](../assets/images/git-vs-svn-trends.png){width="75%" fig-align="center"}
 
-GitHub has become the de facto home for open-source and research code —
-free public repositories, built-in project management, and automated
-testing (GitHub Actions) all in one place.
+GitHub built a free hosting platform on top of Git, with project management
+and automated testing built in.
 
 ::: {.callout-tip}
 **Poll:** has anyone here already used GitHub to download someone else's
@@ -208,7 +181,30 @@ code or data? You've been a Git user already — you just didn't know it.
 
 ---
 
+## The 6 core concepts — your map for today
+
+Git has hundreds of commands. You only need **6 ideas** to be effective:
+
+1. **Repository** — a folder Git is watching
+2. **Working directory** — your files, right now, as you edit them
+3. **Staging area** — a holding pen for what goes into the next snapshot
+4. **Commit** — a saved snapshot with a message
+5. **Branch** — an independent line of commits
+6. **Remote** — a copy of the repository living somewhere else (GitHub)
+
+. . .
+
+::: {.callout-tip}
+Everything from here on is one of these 6 things, or a relationship between
+two of them. If you ever feel lost, ask: *"which of the 6 am I touching
+right now?"*
+:::
+
+---
+
 ## GitHub Terminologies
+
+Now that you have the 6 concepts, here's the vocabulary GitHub specifically adds:
 
 | Term | Plain English |
 |------|--------------|
@@ -224,6 +220,8 @@ code or data? You've been a Git user already — you just didn't know it.
 
 ## Applications in bioinformatics
 
+With the concepts and vocabulary in place, here's what they actually buy you:
+
 - Version control of analysis scripts and pipelines
 - Full history of every change — reproducible research
 - Collaboration across institutes and time zones
@@ -234,7 +232,8 @@ code or data? You've been a Git user already — you just didn't know it.
 
 ## Writing on GitHub: Markdown
 
-GitHub renders `.md` files automatically. Basic syntax:
+Before we open GitHub for real, one last tool: GitHub renders `.md` files
+as formatted text automatically. Structure first:
 
 ```markdown
 # Heading 1
@@ -244,13 +243,21 @@ GitHub renders `.md` files automatically. Basic syntax:
 
 - list item 1
 - list item 2
+```
 
+---
+
+## Markdown: tables & links
+
+```markdown
 | Column 1 | Column 2 |
 |----------|----------|
 | row 1 a  | row 1 b  |
 
 [link text](https://github.com)
 ```
+
+You'll use exactly this much Markdown in the next two exercises — nothing more.
 
 ---
 

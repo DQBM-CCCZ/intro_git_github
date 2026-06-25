@@ -209,7 +209,7 @@ Deepak Tanwar
 </section>
 <section id="ssh-authentication" class="slide level2">
 <h2>SSH Authentication</h2>
-<p>SSH lets your computer talk to GitHub without a password.</p>
+<p>Everything so far has lived only on your machine — concept 6 from this morning, <strong>remote</strong>, is what we’re missing. Before connecting to GitHub, it needs to know it’s really you. SSH lets your computer talk to GitHub without typing a password every time.</p>
 
 <img data-src="../assets/images/ssh-key-authentication.png" class="quarto-figure quarto-figure-center r-stretch" style="width:85.0%"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -304,6 +304,7 @@ Deepak Tanwar
 </section>
 <section id="the-full-remote-workflow" class="slide level2">
 <h2>The full remote workflow</h2>
+<p>Every command you’ve seen today, in the order you’ll actually use them:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="fu">git</span> clone <span class="op">&lt;</span>url<span class="op">&gt;</span>           <span class="co"># 1. get the repo (first time only)</span></span>
 <span id="cb7-2"><a></a><span class="co"># or: git pull            # 1. get latest (if you already have it)</span></span>
 <span id="cb7-3"><a></a></span>
@@ -319,6 +320,7 @@ Deepak Tanwar
 <span id="cb7-13"><a></a><span class="co"># 7. after merge:</span></span>
 <span id="cb7-14"><a></a><span class="fu">git</span> checkout main</span>
 <span id="cb7-15"><a></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Steps 6 and 7 mention things we haven’t covered yet — Issues, Projects, and Pull Requests. That’s the rest of this module.</p>
 </section>
 <section id="github-issues" class="slide level2">
 <h2>GitHub Issues</h2>
@@ -336,7 +338,7 @@ Deepak Tanwar
 </section>
 <section id="github-projects" class="slide level2">
 <h2>GitHub Projects</h2>
-<p>A Kanban board to track progress across issues and PRs.</p>
+<p>Issues are individual cards. A Project is the board that organizes them.</p>
 <pre><code>| To Do      | In Progress | Done       |
 |------------|-------------|------------|
 | Issue #1   | Issue #3    | Issue #2   |
@@ -345,7 +347,7 @@ Deepak Tanwar
 </section>
 <section id="pull-requests" class="slide level2">
 <h2>Pull Requests</h2>
-<p>A proposal to merge your branch into another branch.</p>
+<p>We planned the work with Issues and Projects. Now the actual code change: a Pull Request is a proposal to merge your branch into another branch.</p>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>

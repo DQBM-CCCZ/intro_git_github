@@ -187,9 +187,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -209,7 +206,7 @@ Deepak Tanwar
 </section>
 <section id="getting-started" class="slide level2">
 <h2>Getting started</h2>
-<p>Check Git is installed and configure your identity:</p>
+<p>You know <em>why</em> Git matters now — time to actually use it. First, check it’s installed and tell it who you are:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="fu">git</span> <span class="at">--version</span></span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
@@ -218,6 +215,7 @@ Deepak Tanwar
 </section>
 <section id="there-are-many-git-commands" class="slide level2">
 <h2>There are many git commands…</h2>
+<p>Before diving in, a reality check — Git is a big tool:</p>
 <pre><code>add       clone     commit    diff      fetch     init
 log       merge     pull      push      remote    reset
 branch    checkout  stash     status    tag       ...</code></pre>
@@ -228,7 +226,7 @@ branch    checkout  stash     status    tag       ...</code></pre>
 </section>
 <section id="a-running-example-tracking-an-experiment" class="slide level2">
 <h2>A running example: tracking an experiment</h2>
-<p>Throughout today we will build one realistic project — <code>experiment-tracker</code> — the kind of folder you might keep next to a real experiment: sample metadata, analysis notes, and a results summary. No programming language required.</p>
+<p>Let’s make those 12 commands concrete. Throughout today we will build one realistic project — <code>experiment-tracker</code> — the kind of folder you might keep next to a real experiment: sample metadata, analysis notes, and a results summary. No programming language required.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="bu">cd</span> ~/Downloads</span>
 <span id="cb3-2"><a></a><span class="fu">mkdir</span> experiment-tracker</span>
 <span id="cb3-3"><a></a><span class="bu">cd</span> experiment-tracker</span>
@@ -238,26 +236,15 @@ branch    checkout  stash     status    tag       ...</code></pre>
 </section>
 <section id="tracking-changes-the-three-stages" class="slide level2">
 <h2>Tracking changes — the three stages</h2>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    A[Working Directory\nyour files] --&gt;|git add| B[Staging Area\n.git/index]
-    B --&gt;|git commit| C[(Repository\n.git/objects)]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<p>Every change you make moves through three places, in order:</p>
+<p><strong>Working Directory</strong> → (<code>git add</code>) → <strong>Staging Area</strong> → (<code>git commit</code>) → <strong>Repository</strong></p>
 <div class="fragment">
-<p>Why a staging area? Imagine you fixed a bug <strong>and</strong> started an unrelated experiment in the same session. The staging area lets you commit the bug fix alone, with its own clear message — without dragging in the half-finished experiment.</p>
+<p>Why a staging area? Imagine you fixed a bug <strong>and</strong> started an unrelated experiment in the same session. The staging area lets you commit the bug fix alone, with its own clear message — without dragging in the half-finished experiment. We’ll see this as a diagram once you’ve done it by hand.</p>
 </div>
 </section>
 <section id="your-first-file-sample-metadata" class="slide level2">
 <h2>Your first file: sample metadata</h2>
+<p>Your repository exists but is empty. Let’s put something in the working directory — step 1 of the three stages:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">nano</span> samples.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>sample_id,condition,replicate
 S01,control,1
@@ -268,6 +255,7 @@ S04,treated,2</code></pre>
 </section>
 <section id="git-status" class="slide level2">
 <h2>git status</h2>
+<p>The file exists, but Git hasn’t been told to track it. Check what Git sees:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="fu">git</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>On branch main
 

@@ -14,7 +14,8 @@ title-slide-attributes:
 
 ## Getting started
 
-Check Git is installed and configure your identity:
+You know *why* Git matters now — time to actually use it. First, check it's
+installed and tell it who you are:
 
 ```bash
 git --version
@@ -28,6 +29,8 @@ These are embedded in every commit you make.
 ---
 
 ## There are many git commands...
+
+Before diving in, a reality check — Git is a big tool:
 
 ```
 add       clone     commit    diff      fetch     init
@@ -45,7 +48,8 @@ The rest you can look up when you need them — `git help <command>`
 
 ## A running example: tracking an experiment
 
-Throughout today we will build one realistic project — `experiment-tracker` —
+Let's make those 12 commands concrete. Throughout today we will build one
+realistic project — `experiment-tracker` —
 the kind of folder you might keep next to a real experiment: sample metadata,
 analysis notes, and a results summary. No programming language required.
 
@@ -63,22 +67,23 @@ The `.git` folder is where Git stores everything. Never delete it.
 
 ## Tracking changes — the three stages
 
-```{mermaid}
-flowchart LR
-    A[Working Directory\nyour files] -->|git add| B[Staging Area\n.git/index]
-    B -->|git commit| C[(Repository\n.git/objects)]
-```
+Every change you make moves through three places, in order:
+
+**Working Directory** → (`git add`) → **Staging Area** → (`git commit`) → **Repository**
 
 . . .
 
 Why a staging area? Imagine you fixed a bug **and** started an unrelated
 experiment in the same session. The staging area lets you commit the bug
 fix alone, with its own clear message — without dragging in the half-finished
-experiment.
+experiment. We'll see this as a diagram once you've done it by hand.
 
 ---
 
 ## Your first file: sample metadata
+
+Your repository exists but is empty. Let's put something in the working
+directory — step 1 of the three stages:
 
 ```bash
 nano samples.csv
@@ -97,6 +102,8 @@ S04,treated,2
 ---
 
 ## git status
+
+The file exists, but Git hasn't been told to track it. Check what Git sees:
 
 ```bash
 git status

@@ -284,6 +284,23 @@ Deepak Tanwar
 </div>
 </div>
 </section>
+<section id="what-is-git" class="slide level2">
+<h2>What is Git?</h2>
+<p>This is exactly the problem Git was built to solve.</p>
+<ul>
+<li>A <strong>distributed version control system</strong> (VCS)</li>
+<li>Tracks changes to files over time, with a message explaining <em>why</em></li>
+<li>Works <strong>locally</strong> — no internet needed</li>
+<li>Free and open source</li>
+</ul>
+<div class="fragment">
+<p><strong>Git ≠ GitHub</strong></p>
+<ul>
+<li><strong>Git</strong> = the tool running on your machine</li>
+<li><strong>GitHub</strong> = a website that hosts Git repositories online — we’ll get there in Module 4</li>
+</ul>
+</div>
+</section>
 <section id="version-control-the-better-way" class="slide level2">
 <h2>Version control — the better way</h2>
 <p>One file. Many snapshots, each with a message explaining <em>why</em> it changed.</p>
@@ -307,13 +324,11 @@ Deepak Tanwar
 </section>
 <section id="why-not-just-use-google-docs" class="slide level2">
 <h2>“Why not just use Google Docs?”</h2>
-<p>A fair question — for a single shared document, Google Docs works fine.</p>
-<p>Git earns its complexity when you have:</p>
+<p>A fair question — for a single shared document, Google Docs works fine. Git earns its complexity when you have:</p>
 <ul>
 <li><strong>Code and scripts</strong>, not prose — line-by-line diffs that mean something</li>
-<li><strong>Many files together</strong> — data, scripts, figures, docs as one versioned unit</li>
 <li><strong>Parallel experiments</strong> — try a new analysis approach without breaking the working one (branches)</li>
-<li><strong>Exact reproducibility</strong> — re-run the <em>exact</em> code that produced Figure 2 in your paper, six months later</li>
+<li><strong>Exact reproducibility</strong> — re-run the <em>exact</em> code that produced Figure 2, six months later</li>
 <li><strong>No internet required</strong> — full history available offline, on your machine</li>
 </ul>
 <div class="fragment">
@@ -332,52 +347,9 @@ Deepak Tanwar
 </div>
 </div>
 </section>
-<section id="the-6-core-concepts-your-map-for-today" class="slide level2">
-<h2>The 6 core concepts — your map for today</h2>
-<p>Git has hundreds of commands. You only need <strong>6 ideas</strong> to be effective:</p>
-<ol type="1">
-<li><strong>Repository</strong> — a folder Git is watching</li>
-<li><strong>Working directory</strong> — your files, right now, as you edit them</li>
-<li><strong>Staging area</strong> — a holding pen for what goes into the next snapshot</li>
-<li><strong>Commit</strong> — a saved snapshot with a message</li>
-<li><strong>Branch</strong> — an independent line of commits</li>
-<li><strong>Remote</strong> — a copy of the repository living somewhere else (GitHub)</li>
-</ol>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<p>Everything we do today is one of these 6 things, or a relationship between two of them. If you ever feel lost, ask: <em>“which of the 6 am I touching right now?”</em></p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="what-is-git" class="slide level2">
-<h2>What is Git?</h2>
-<ul>
-<li>A <strong>distributed version control system</strong> (VCS)</li>
-<li>Created in 2005 by Linus Torvalds (creator of Linux)</li>
-<li>Tracks changes to files over time</li>
-<li>Works <strong>locally</strong> — no internet needed</li>
-<li>Free and open source</li>
-</ul>
-<div class="fragment">
-<p><strong>Git ≠ GitHub</strong></p>
-<ul>
-<li><strong>Git</strong> = the tool running on your machine</li>
-<li><strong>GitHub</strong> = a website that hosts Git repositories online</li>
-</ul>
-</div>
-</section>
 <section id="types-of-version-control" class="slide level2">
 <h2>Types of Version Control</h2>
+<p>Git is one <em>kind</em> of version control system — here’s how it compares to the alternatives.</p>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Local</a></li><li><a href="#tabset-1-2">Central (e.g.&nbsp;SVN)</a></li><li><a href="#tabset-1-3">Distributed (Git)</a></li></ul>
 <div class="tab-content">
@@ -408,15 +380,11 @@ Deepak Tanwar
 </div>
 </div>
 </section>
-<section id="svn-vs-git-how-collaboration-actually-differs" class="slide level2">
-<h2>SVN vs Git — how collaboration actually differs</h2>
-
-<img data-src="../assets/images/svn-vs-git-collaboration.png" class="quarto-figure quarto-figure-center r-stretch" style="width:85.0%"><p>With SVN, everyone talks to one central repo. With Git, every copy <em>is</em> a full repo — you can sync with a colleague directly, with no server involved.</p>
-</section>
 <section id="git-is-winning" class="slide level2">
 <h2>Git is winning</h2>
+<p>That “every copy is a full repo” idea isn’t just theoretical — it’s why Git overtook the central model in practice:</p>
 
-<img data-src="../assets/images/git-vs-svn-trends.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>GitHub has become the de facto home for open-source and research code — free public repositories, built-in project management, and automated testing (GitHub Actions) all in one place.</p>
+<img data-src="../assets/images/git-vs-svn-trends.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>GitHub built a free hosting platform on top of Git, with project management and automated testing built in.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -431,8 +399,36 @@ Deepak Tanwar
 </div>
 </div>
 </section>
+<section id="the-6-core-concepts-your-map-for-today" class="slide level2">
+<h2>The 6 core concepts — your map for today</h2>
+<p>Git has hundreds of commands. You only need <strong>6 ideas</strong> to be effective:</p>
+<ol type="1">
+<li><strong>Repository</strong> — a folder Git is watching</li>
+<li><strong>Working directory</strong> — your files, right now, as you edit them</li>
+<li><strong>Staging area</strong> — a holding pen for what goes into the next snapshot</li>
+<li><strong>Commit</strong> — a saved snapshot with a message</li>
+<li><strong>Branch</strong> — an independent line of commits</li>
+<li><strong>Remote</strong> — a copy of the repository living somewhere else (GitHub)</li>
+</ol>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Everything from here on is one of these 6 things, or a relationship between two of them. If you ever feel lost, ask: <em>“which of the 6 am I touching right now?”</em></p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="github-terminologies" class="slide level2">
 <h2>GitHub Terminologies</h2>
+<p>Now that you have the 6 concepts, here’s the vocabulary GitHub specifically adds:</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -474,6 +470,7 @@ Deepak Tanwar
 </section>
 <section id="applications-in-bioinformatics" class="slide level2">
 <h2>Applications in bioinformatics</h2>
+<p>With the concepts and vocabulary in place, here’s what they actually buy you:</p>
 <ul>
 <li>Version control of analysis scripts and pipelines</li>
 <li>Full history of every change — reproducible research</li>
@@ -484,20 +481,23 @@ Deepak Tanwar
 </section>
 <section id="writing-on-github-markdown" class="slide level2">
 <h2>Writing on GitHub: Markdown</h2>
-<p>GitHub renders <code>.md</code> files automatically. Basic syntax:</p>
+<p>Before we open GitHub for real, one last tool: GitHub renders <code>.md</code> files as formatted text automatically. Structure first:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a></a><span class="fu"># Heading 1</span></span>
 <span id="cb1-2"><a></a><span class="fu">## Heading 2</span></span>
 <span id="cb1-3"><a></a></span>
 <span id="cb1-4"><a></a>**bold**   *italic*   <span class="in">`inline code`</span></span>
 <span id="cb1-5"><a></a></span>
 <span id="cb1-6"><a></a><span class="ss">- </span>list item 1</span>
-<span id="cb1-7"><a></a><span class="ss">- </span>list item 2</span>
-<span id="cb1-8"><a></a></span>
-<span id="cb1-9"><a></a><span class="pp">|</span> Column 1 <span class="pp">|</span> Column 2 <span class="pp">|</span></span>
-<span id="cb1-10"><a></a><span class="pp">|----------|----------|</span></span>
-<span id="cb1-11"><a></a><span class="pp">|</span> row 1 a  <span class="pp">|</span> row 1 b  <span class="pp">|</span></span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a><span class="co">[</span><span class="ot">link text</span><span class="co">](https://github.com)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a></a><span class="ss">- </span>list item 2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="markdown-tables-links" class="slide level2">
+<h2>Markdown: tables &amp; links</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a><span class="pp">|</span> Column 1 <span class="pp">|</span> Column 2 <span class="pp">|</span></span>
+<span id="cb2-2"><a></a><span class="pp">|----------|----------|</span></span>
+<span id="cb2-3"><a></a><span class="pp">|</span> row 1 a  <span class="pp">|</span> row 1 b  <span class="pp">|</span></span>
+<span id="cb2-4"><a></a></span>
+<span id="cb2-5"><a></a><span class="co">[</span><span class="ot">link text</span><span class="co">](https://github.com)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You’ll use exactly this much Markdown in the next two exercises — nothing more.</p>
 </section>
 <section id="exercise-1" class="slide level2">
 <h2>Exercise 1</h2>
