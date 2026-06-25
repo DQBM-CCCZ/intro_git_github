@@ -9,17 +9,20 @@ format: html
 
 ## Goal
 
-Practice the core local Git workflow: `init` → `add` → `commit` → `log` → `diff`.
+Build a small, realistic project — `experiment-tracker` — and practice the core
+local Git workflow: `init` → `add` → `commit` → `log` → `diff`.
+
+This is the running example we will keep extending for the rest of the day.
 
 ---
 
-## Part A — Create a local repository
+## Part A — Create the repository
 
 ```bash
 cd ~/Downloads
 
-mkdir YOUR_USERNAME
-cd YOUR_USERNAME
+mkdir experiment-tracker
+cd experiment-tracker
 
 git init
 ls -a     # confirm .git was created
@@ -27,40 +30,64 @@ ls -a     # confirm .git was created
 
 ---
 
-## Part B — First commit
+## Part B — First commit: sample metadata
 
 ```bash
-nano README.md
+nano samples.csv
 ```
 
-Write a brief introduction about yourself. Save and close: `Ctrl+X → Y → Enter`
+```
+sample_id,condition,replicate
+S01,control,1
+S02,control,2
+S03,treated,1
+S04,treated,2
+```
+
+Save and close: `Ctrl+X → Y → Enter`
 
 ```bash
-git status           # git sees the file but isn't tracking it
-git add README.md
-git status           # now it's staged
-git commit -m "added README with introduction"
+git status              # git sees the file but isn't tracking it
+git add samples.csv
+git status              # now it's staged
+git commit -m "added sample metadata for 4 samples"
 git log
 ```
 
 ---
 
-## Part C — More commits
+## Part C — More commits: documenting analysis steps
 
 ```bash
-nano education.md    # list your education history
-git add education.md
-git commit -m "added education history"
+nano analysis_log.md
+```
 
-nano README.md       # paste the education content at the bottom
-git add README.md
-git commit -m "merged education into README"
+```markdown
+# Analysis Log
 
-rm education.md
-git add education.md
-git commit -m "removed separate education file"
+## Step 1 — Quality control
+Checked all 4 samples for read quality. All passed QC thresholds.
+```
 
-git log --oneline    # see all 4 commits
+```bash
+git add analysis_log.md
+git commit -m "added analysis log with QC step"
+
+nano analysis_log.md
+```
+
+Append:
+
+```markdown
+## Step 2 — Normalization
+Applied log2 normalization to raw counts before comparison.
+```
+
+```bash
+git add analysis_log.md
+git commit -m "documented normalization step"
+
+git log --oneline    # see all 3 commits
 ```
 
 ---
@@ -68,27 +95,27 @@ git log --oneline    # see all 4 commits
 ## Part D — Inspect changes with diff
 
 ```bash
-nano README.md       # add your hobbies at the bottom
+nano analysis_log.md   # add a "Step 3 — Differential expression" section
 ```
 
 Before staging:
 
 ```bash
-git diff             # working directory vs staging area
+git diff               # working directory vs staging area
 ```
 
 After staging:
 
 ```bash
-git add README.md
-git diff --staged    # staging area vs last commit
-git commit -m "added hobbies section"
+git add analysis_log.md
+git diff --staged      # staging area vs last commit
+git commit -m "documented differential expression step"
 ```
 
-Compare first and last commit:
+Compare your first and last commit:
 
 ```bash
-git log --oneline           # note the two hashes
+git log --oneline             # note the two hashes
 git diff FIRST_HASH LAST_HASH
 ```
 

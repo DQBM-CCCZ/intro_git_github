@@ -219,43 +219,43 @@ feature         ●──●──●──   (your experiment)</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="co"># See which branch you are on</span></span>
 <span id="cb2-2"><a></a><span class="fu">git</span> branch</span>
 <span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="co"># Create a new branch</span></span>
-<span id="cb2-5"><a></a><span class="fu">git</span> branch dev</span>
+<span id="cb2-4"><a></a><span class="co"># Create a new branch for a new normalization approach</span></span>
+<span id="cb2-5"><a></a><span class="fu">git</span> branch try-new-normalization</span>
 <span id="cb2-6"><a></a></span>
 <span id="cb2-7"><a></a><span class="co"># Switch to it</span></span>
-<span id="cb2-8"><a></a><span class="fu">git</span> checkout dev</span>
+<span id="cb2-8"><a></a><span class="fu">git</span> checkout try-new-normalization</span>
 <span id="cb2-9"><a></a></span>
 <span id="cb2-10"><a></a><span class="co"># Create AND switch in one step</span></span>
-<span id="cb2-11"><a></a><span class="fu">git</span> checkout <span class="at">-b</span> dev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-11"><a></a><span class="fu">git</span> checkout <span class="at">-b</span> try-new-normalization</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="making-commits-on-a-branch" class="slide level2">
 <h2>Making commits on a branch</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="co"># You are on branch "dev"</span></span>
-<span id="cb3-2"><a></a><span class="fu">nano</span> hobbies.md    <span class="co"># add a new file</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="co"># You are on branch "try-new-normalization"</span></span>
+<span id="cb3-2"><a></a><span class="fu">nano</span> analysis_log.md    <span class="co"># document the alternative approach</span></span>
 <span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a><span class="fu">git</span> add hobbies.md</span>
-<span id="cb3-5"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"added hobbies file"</span></span>
+<span id="cb3-4"><a></a><span class="fu">git</span> add analysis_log.md</span>
+<span id="cb3-5"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"tried quantile normalization instead of log2"</span></span>
 <span id="cb3-6"><a></a></span>
-<span id="cb3-7"><a></a><span class="co"># Go back to main — hobbies.md is not here</span></span>
+<span id="cb3-7"><a></a><span class="co"># Go back to main — this note does not exist here</span></span>
 <span id="cb3-8"><a></a><span class="fu">git</span> checkout main</span>
-<span id="cb3-9"><a></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Branches are isolated. Changes on <code>dev</code> don’t appear on <code>main</code> until you merge.</p>
+<span id="cb3-9"><a></a><span class="fu">cat</span> analysis_log.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Branches are isolated. Changes on a branch don’t appear on <code>main</code> until you merge.</p>
 </section>
 <section id="git-merge" class="slide level2">
 <h2>git merge</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="co"># On main branch:</span></span>
-<span id="cb4-2"><a></a><span class="fu">git</span> merge dev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Git replays the commits from <code>dev</code> onto <code>main</code>. After merging, you can delete the branch:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="fu">git</span> branch <span class="at">-d</span> dev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="co"># On main branch, once you decide the new approach is good:</span></span>
+<span id="cb4-2"><a></a><span class="fu">git</span> merge try-new-normalization</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Git replays the commits from the branch onto <code>main</code>. After merging, you can delete the branch:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="fu">git</span> branch <span class="at">-d</span> try-new-normalization</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="merge-conflicts" class="slide level2">
 <h2>Merge conflicts</h2>
-<p>Conflicts happen when <strong>two branches change the same line</strong> differently.</p>
+<p>Conflicts happen when <strong>two branches change the same line</strong> differently — e.g. you and a labmate both edit the conclusion in <code>results_summary.md</code>.</p>
 <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-# My title on main
+Treated samples show a 2-fold increase in expression.
 =======
-# My title on dev
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; dev</code></pre>
+Treated samples show no significant change in expression.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; try-new-normalization</code></pre>
 <div class="fragment">
 <p><strong>How to resolve:</strong> 1. Open the file 2. Choose which version to keep (or combine them) 3. Remove all <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers 4. <code>git add &lt;file&gt;</code> → <code>git commit</code></p>
 </div>
@@ -277,11 +277,11 @@ feature         ●──●──●──   (your experiment)</code></pre>
 <section id="ignoring-files-with-.gitignore" class="slide level2">
 <h2>Ignoring files with .gitignore</h2>
 <p>Create a file called <code>.gitignore</code> in your repo root:</p>
-<pre><code># Ignore all log files
-*.log
+<pre><code># Ignore raw instrument output (too large/sensitive for GitHub)
+raw_data/
 
-# Ignore a whole folder
-data/raw/
+# Ignore temporary analysis files
+*.tmp
 
 # Ignore a specific file
 secrets.txt</code></pre>
@@ -338,12 +338,12 @@ secrets.txt</code></pre>
 <p>See <a href="../exercises/exercise_4_branching.html">Exercise 4</a> for the full walkthrough.</p>
 <p><strong>Summary:</strong></p>
 <ol type="1">
-<li><code>git checkout -b YOUR_FIRST_NAME</code></li>
-<li>Create <code>test.md</code>, add, commit</li>
-<li><code>git checkout main</code> → <code>git merge YOUR_FIRST_NAME</code></li>
-<li>Create a <strong>conflict</strong> by editing the same line on two branches</li>
+<li><code>git checkout -b try-new-normalization</code></li>
+<li>Edit <code>analysis_log.md</code> and <code>results_summary.md</code>, add, commit</li>
+<li><code>git checkout main</code> → <code>git merge try-new-normalization</code></li>
+<li>Create a <strong>conflict</strong> by editing the same conclusion on two branches</li>
 <li>Resolve the conflict manually</li>
-<li>Create <code>temp_data/</code>, add <code>.gitignore</code>, verify files are ignored</li>
+<li>Create <code>raw_data/</code>, add <code>.gitignore</code>, verify files are ignored</li>
 </ol>
 
 

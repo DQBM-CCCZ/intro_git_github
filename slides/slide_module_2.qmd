@@ -43,21 +43,18 @@ The rest you can look up when you need them — `git help <command>`
 
 ---
 
-## Creating a repository
+## A running example: tracking an experiment
+
+Throughout today we will build one realistic project — `experiment-tracker` —
+the kind of folder you might keep next to a real experiment: sample metadata,
+analysis notes, and a results summary. No programming language required.
 
 ```bash
-# Go somewhere sensible
 cd ~/Downloads
-
-# Make a directory and enter it
-mkdir planets
-cd planets
-
-# Initialize Git
+mkdir experiment-tracker
+cd experiment-tracker
 git init
-
-# Confirm the hidden .git folder was created
-ls -a
+ls -a    # confirm the hidden .git folder was created
 ```
 
 The `.git` folder is where Git stores everything. Never delete it.
@@ -78,22 +75,18 @@ Why a staging area?
 
 ---
 
-## Your first file
+## Your first file: sample metadata
 
 ```bash
-nano planets.txt
+nano samples.csv
 ```
 
-Add planet names:
 ```
-Mercury
-Venus
-Earth
-Mars
-Jupiter
-Saturn
-Uranus
-Neptune
+sample_id,condition,replicate
+S01,control,1
+S02,control,2
+S03,treated,1
+S04,treated,2
 ```
 
 `Ctrl+X → Y → Enter` to save and close.
@@ -113,7 +106,7 @@ No commits yet
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-        planets.txt
+        samples.csv
 ```
 
 Git sees the file but is not tracking it yet.
@@ -124,12 +117,12 @@ Git sees the file but is not tracking it yet.
 
 ```bash
 # Stage the file
-git add planets.txt
+git add samples.csv
 
 git status   # now it shows "Changes to be committed"
 
 # Commit
-git commit -m "added planets list"
+git commit -m "added sample metadata for 4 samples"
 
 git status   # now: "nothing to commit, working tree clean"
 ```
@@ -147,7 +140,7 @@ commit ac3eveta1234...
 Author: Deepak Tanwar <deepak@uzh.ch>
 Date:   Mon Jun 23 09:45:00 2025
 
-    added planets list
+    added sample metadata for 4 samples
 ```
 
 ```bash
@@ -210,9 +203,9 @@ See [Exercise 3](../exercises/exercise_3_local_git.qmd) for the full walkthrough
 
 **Summary:**
 
-1. `mkdir YOUR_USERNAME && cd YOUR_USERNAME && git init`
-2. Create `README.md`, write introduction, `git add`, `git commit`
-3. Create `education.md`, add, commit, merge into README, commit
+1. `mkdir experiment-tracker && cd experiment-tracker && git init`
+2. Create `samples.csv` with sample metadata, `git add`, `git commit`
+3. Create `analysis_log.md`, document a step, add, commit
 4. `git log --oneline` — see all your commits
 5. `git diff` before staging; `git diff --staged` after staging
 6. Compare first and last commit: `git diff HASH1 HASH2`

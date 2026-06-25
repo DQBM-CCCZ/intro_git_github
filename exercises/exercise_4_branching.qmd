@@ -9,18 +9,21 @@ format: html
 
 ## Goal
 
-Create branches, work in isolation, merge, resolve a conflict, and ignore files.
+Try an alternative analysis approach on a branch, merge it back, resolve a
+realistic merge conflict, and exclude raw data files from tracking.
+
+Continues the `experiment-tracker` project from Exercise 3.
 
 ---
 
-## Part A — Create a branch
+## Part A — Create a branch for a new approach
 
 ```bash
-cd ~/Downloads/YOUR_USERNAME
+cd ~/Downloads/experiment-tracker
 
-git branch                       # which branch are you on?
-git checkout -b YOUR_FIRST_NAME  # create and switch
-git branch                       # confirm
+git branch                              # which branch are you on?
+git checkout -b try-new-normalization   # create and switch
+git branch                              # confirm
 ```
 
 ---
@@ -28,9 +31,19 @@ git branch                       # confirm
 ## Part B — Make changes on the branch
 
 ```bash
-nano test.md    # write your favorite color and one fun fact
-git add test.md
-git commit -m "added test file with favorite color"
+nano analysis_log.md
+```
+
+Append:
+
+```markdown
+## Step 2b — Alternative: quantile normalization
+Tried quantile normalization instead of log2. Compare results before merging.
+```
+
+```bash
+git add analysis_log.md
+git commit -m "tried quantile normalization instead of log2"
 git log --oneline
 ```
 
@@ -40,13 +53,13 @@ git log --oneline
 
 ```bash
 git checkout main
-ls              # test.md is NOT here
+cat analysis_log.md      # the quantile normalization note is NOT here
 
-git merge YOUR_FIRST_NAME
-ls              # test.md IS here now
+git merge try-new-normalization
+cat analysis_log.md      # now it IS here
 
 git log --oneline
-git branch -d YOUR_FIRST_NAME    # clean up
+git branch -d try-new-normalization    # clean up
 ```
 
 ---
@@ -54,43 +67,64 @@ git branch -d YOUR_FIRST_NAME    # clean up
 ## Part D — Simulate a merge conflict
 
 ```bash
-git checkout -b experiment
-nano README.md     # change the first heading to something new
-git add README.md
-git commit -m "changed heading on experiment branch"
+git checkout -b draft-conclusion
+nano results_summary.md
+```
+
+Write:
+
+```markdown
+# Results Summary
+Treated samples show a 2-fold increase in expression compared to control.
+```
+
+```bash
+git add results_summary.md
+git commit -m "drafted conclusion: 2-fold increase"
 
 git checkout main
-nano README.md     # change the SAME heading to something different
-git add README.md
-git commit -m "changed heading on main"
+nano results_summary.md
+```
 
-git merge experiment    # CONFLICT
+Write a **different** conclusion on `main`:
+
+```markdown
+# Results Summary
+Treated samples show no significant change in expression compared to control.
+```
+
+```bash
+git add results_summary.md
+git commit -m "drafted conclusion: no significant change"
+
+git merge draft-conclusion    # CONFLICT
 ```
 
 Open the file and find the conflict markers:
 
 ```
 <<<<<<< HEAD
-# My version on main
+Treated samples show no significant change in expression compared to control.
 =======
-# My version on experiment
->>>>>>> experiment
+Treated samples show a 2-fold increase in expression compared to control.
+>>>>>>> draft-conclusion
 ```
 
-Edit to keep the version you want. Remove all marker lines, then:
+Edit to keep the conclusion you actually want (or merge both into one sentence
+noting the discrepancy needs investigation). Remove all marker lines, then:
 
 ```bash
-git add README.md
-git commit -m "resolved merge conflict in README heading"
+git add results_summary.md
+git commit -m "resolved conflicting conclusions, flagged for re-analysis"
 ```
 
 ---
 
-## Part E — .gitignore
+## Part E — .gitignore for raw data
 
 ```bash
-mkdir temp_data
-touch temp_data/run1.log temp_data/run2.log temp_data/results.csv
+mkdir raw_data
+touch raw_data/run1.fastq raw_data/run2.fastq raw_data/instrument.log
 git status     # git sees all these files
 ```
 
@@ -100,17 +134,15 @@ Create `.gitignore`:
 nano .gitignore
 ```
 
-Add:
-
 ```
-temp_data/
+raw_data/
 *.log
 ```
 
 ```bash
 git status     # ignored files no longer appear
 git add .gitignore
-git commit -m "added gitignore for temp data"
+git commit -m "added gitignore for raw instrument data"
 ```
 
 ---
@@ -124,3 +156,10 @@ git commit -m "added gitignore for temp data"
 | `git merge <branch>` | Merge into current branch |
 | resolve + `git add` + `git commit` | Fix a conflict |
 | `.gitignore` | Exclude files from tracking |
+
+::: {.callout-note}
+**Why this matters for real work:** raw sequencing files, large datasets, and
+instrument logs don't belong in Git history — they're huge and usually
+already backed up elsewhere. `.gitignore` keeps your repository focused on
+code, scripts, and small text files that benefit from version control.
+:::

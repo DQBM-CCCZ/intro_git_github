@@ -442,9 +442,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="part-a-create-the-github-repository">Part A — Create the GitHub repository</h2>
 <ol type="1">
 <li>Go to <a href="https://github.com/new">https://github.com/new</a></li>
-<li>Name it the same as your local folder (your GitHub username)</li>
+<li>Name it <code>experiment-tracker</code> (same as your local folder)</li>
 <li>Set to <strong>Public</strong></li>
-<li><strong>Do NOT</strong> initialize with a README (your local repo already has one)</li>
+<li><strong>Do NOT</strong> initialize with a README (your local repo already has files)</li>
 <li>Click <strong>Create repository</strong></li>
 </ol>
 <p>Copy the <strong>SSH</strong> URL shown on the next page.</p>
@@ -452,10 +452,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="part-b-connect-and-push" class="level2">
 <h2 class="anchored" data-anchor-id="part-b-connect-and-push">Part B — Connect and push</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Downloads/YOUR_USERNAME</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Downloads/experiment-tracker</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add GitHub as the remote</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com:YOUR_USERNAME/YOUR_USERNAME.git</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com:YOUR_USERNAME/experiment-tracker.git</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
@@ -467,8 +467,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="part-c-verify-on-github" class="level2">
 <h2 class="anchored" data-anchor-id="part-c-verify-on-github">Part C — Verify on GitHub</h2>
 <ol type="1">
-<li>Go to <code>https://github.com/YOUR_USERNAME/YOUR_USERNAME</code></li>
-<li>All your files and commit history should be there</li>
+<li>Go to <code>https://github.com/YOUR_USERNAME/experiment-tracker</code></li>
+<li><code>samples.csv</code>, <code>analysis_log.md</code>, <code>results_summary.md</code> and their commit history should be there</li>
 <li>Click <strong>commits</strong> to explore the history</li>
 <li>Click a commit hash to see exactly what changed</li>
 </ol>
@@ -477,20 +477,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="part-d-edit-on-github-pull-locally" class="level2">
 <h2 class="anchored" data-anchor-id="part-d-edit-on-github-pull-locally">Part D — Edit on GitHub, pull locally</h2>
 <ol type="1">
-<li>On GitHub, click <strong>README.md</strong> → pencil icon</li>
-<li>Add a line: <code>Updated directly on GitHub</code></li>
-<li>Commit: <code>edited README on GitHub</code></li>
+<li>On GitHub, click <strong>results_summary.md</strong> → pencil icon</li>
+<li>Add a line: <code>Reviewed by collaborator on GitHub.</code></li>
+<li>Commit: <code>added review note on GitHub</code></li>
 </ol>
 <p>Now pull that change:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> README.md    <span class="co"># new line is here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> results_summary.md    <span class="co"># new line is here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="part-e-full-cycle" class="level2">
 <h2 class="anchored" data-anchor-id="part-e-full-cycle">Part E — Full cycle</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> README.md      <span class="co"># add another line locally</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"added line locally"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> analysis_log.md      <span class="co"># add a "Step 4 — Visualization" note locally</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add analysis_log.md</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"added visualization step"</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Check GitHub — your change appears immediately</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

@@ -35,14 +35,14 @@ If it works → merge. If not → delete without any harm to `main`.
 # See which branch you are on
 git branch
 
-# Create a new branch
-git branch dev
+# Create a new branch for a new normalization approach
+git branch try-new-normalization
 
 # Switch to it
-git checkout dev
+git checkout try-new-normalization
 
 # Create AND switch in one step
-git checkout -b dev
+git checkout -b try-new-normalization
 ```
 
 ---
@@ -50,47 +50,48 @@ git checkout -b dev
 ## Making commits on a branch
 
 ```bash
-# You are on branch "dev"
-nano hobbies.md    # add a new file
+# You are on branch "try-new-normalization"
+nano analysis_log.md    # document the alternative approach
 
-git add hobbies.md
-git commit -m "added hobbies file"
+git add analysis_log.md
+git commit -m "tried quantile normalization instead of log2"
 
-# Go back to main — hobbies.md is not here
+# Go back to main — this note does not exist here
 git checkout main
-ls
+cat analysis_log.md
 ```
 
-Branches are isolated. Changes on `dev` don't appear on `main` until you merge.
+Branches are isolated. Changes on a branch don't appear on `main` until you merge.
 
 ---
 
 ## git merge
 
 ```bash
-# On main branch:
-git merge dev
+# On main branch, once you decide the new approach is good:
+git merge try-new-normalization
 ```
 
-Git replays the commits from `dev` onto `main`.
+Git replays the commits from the branch onto `main`.
 After merging, you can delete the branch:
 
 ```bash
-git branch -d dev
+git branch -d try-new-normalization
 ```
 
 ---
 
 ## Merge conflicts
 
-Conflicts happen when **two branches change the same line** differently.
+Conflicts happen when **two branches change the same line** differently — e.g.
+you and a labmate both edit the conclusion in `results_summary.md`.
 
 ```
 <<<<<<< HEAD
-# My title on main
+Treated samples show a 2-fold increase in expression.
 =======
-# My title on dev
->>>>>>> dev
+Treated samples show no significant change in expression.
+>>>>>>> try-new-normalization
 ```
 
 . . .
@@ -126,11 +127,11 @@ git checkout main
 Create a file called `.gitignore` in your repo root:
 
 ```
-# Ignore all log files
-*.log
+# Ignore raw instrument output (too large/sensitive for GitHub)
+raw_data/
 
-# Ignore a whole folder
-data/raw/
+# Ignore temporary analysis files
+*.tmp
 
 # Ignore a specific file
 secrets.txt
@@ -167,9 +168,9 @@ See [Exercise 4](../exercises/exercise_4_branching.qmd) for the full walkthrough
 
 **Summary:**
 
-1. `git checkout -b YOUR_FIRST_NAME`
-2. Create `test.md`, add, commit
-3. `git checkout main` → `git merge YOUR_FIRST_NAME`
-4. Create a **conflict** by editing the same line on two branches
+1. `git checkout -b try-new-normalization`
+2. Edit `analysis_log.md` and `results_summary.md`, add, commit
+3. `git checkout main` → `git merge try-new-normalization`
+4. Create a **conflict** by editing the same conclusion on two branches
 5. Resolve the conflict manually
-6. Create `temp_data/`, add `.gitignore`, verify files are ignored
+6. Create `raw_data/`, add `.gitignore`, verify files are ignored

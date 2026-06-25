@@ -70,6 +70,27 @@ One file. Many snapshots.
 
 ---
 
+## "Why not just use Google Docs?"
+
+A fair question — for a single shared document, Google Docs works fine.
+
+Git earns its complexity when you have:
+
+- **Code and scripts**, not prose — line-by-line diffs that mean something
+- **Many files together** — data, scripts, figures, docs as one versioned unit
+- **Parallel experiments** — try a new analysis approach without breaking the working one (branches)
+- **Exact reproducibility** — re-run the *exact* code that produced Figure 2 in your paper, six months later
+- **No internet required** — full history available offline, on your machine
+
+. . .
+
+::: {.callout-note}
+Rule of thumb: writing a manuscript together → Google Docs.
+Writing an analysis pipeline together → Git.
+:::
+
+---
+
 ## What is Git?
 
 - A **distributed version control system** (VCS)

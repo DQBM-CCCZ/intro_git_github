@@ -223,20 +223,14 @@ branch    checkout  stash     status    tag       ...</code></pre>
 <p>The rest you can look up when you need them — <code>git help &lt;command&gt;</code></p>
 </div>
 </section>
-<section id="creating-a-repository" class="slide level2">
-<h2>Creating a repository</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="co"># Go somewhere sensible</span></span>
-<span id="cb3-2"><a></a><span class="bu">cd</span> ~/Downloads</span>
-<span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a><span class="co"># Make a directory and enter it</span></span>
-<span id="cb3-5"><a></a><span class="fu">mkdir</span> planets</span>
-<span id="cb3-6"><a></a><span class="bu">cd</span> planets</span>
-<span id="cb3-7"><a></a></span>
-<span id="cb3-8"><a></a><span class="co"># Initialize Git</span></span>
-<span id="cb3-9"><a></a><span class="fu">git</span> init</span>
-<span id="cb3-10"><a></a></span>
-<span id="cb3-11"><a></a><span class="co"># Confirm the hidden .git folder was created</span></span>
-<span id="cb3-12"><a></a><span class="fu">ls</span> <span class="at">-a</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="a-running-example-tracking-an-experiment" class="slide level2">
+<h2>A running example: tracking an experiment</h2>
+<p>Throughout today we will build one realistic project — <code>experiment-tracker</code> — the kind of folder you might keep next to a real experiment: sample metadata, analysis notes, and a results summary. No programming language required.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="bu">cd</span> ~/Downloads</span>
+<span id="cb3-2"><a></a><span class="fu">mkdir</span> experiment-tracker</span>
+<span id="cb3-3"><a></a><span class="bu">cd</span> experiment-tracker</span>
+<span id="cb3-4"><a></a><span class="fu">git</span> init</span>
+<span id="cb3-5"><a></a><span class="fu">ls</span> <span class="at">-a</span>    <span class="co"># confirm the hidden .git folder was created</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <code>.git</code> folder is where Git stores everything. Never delete it.</p>
 </section>
 <section id="tracking-changes-the-three-stages" class="slide level2">
@@ -247,18 +241,14 @@ branch    checkout  stash     status    tag       ...</code></pre>
 <p>Why a staging area? → You can prepare exactly what goes into a commit, even if you changed many files.</p>
 </div>
 </section>
-<section id="your-first-file" class="slide level2">
-<h2>Your first file</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="fu">nano</span> planets.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Add planet names:</p>
-<pre><code>Mercury
-Venus
-Earth
-Mars
-Jupiter
-Saturn
-Uranus
-Neptune</code></pre>
+<section id="your-first-file-sample-metadata" class="slide level2">
+<h2>Your first file: sample metadata</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="fu">nano</span> samples.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>sample_id,condition,replicate
+S01,control,1
+S02,control,2
+S03,treated,1
+S04,treated,2</code></pre>
 <p><code>Ctrl+X → Y → Enter</code> to save and close.</p>
 </section>
 <section id="git-status" class="slide level2">
@@ -270,18 +260,18 @@ No commits yet
 
 Untracked files:
   (use "git add &lt;file&gt;..." to include in what will be committed)
-        planets.txt</code></pre>
+        samples.csv</code></pre>
 <p>Git sees the file but is not tracking it yet.</p>
 </section>
 <section id="git-add-git-commit" class="slide level2">
 <h2>git add → git commit</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="co"># Stage the file</span></span>
-<span id="cb9-2"><a></a><span class="fu">git</span> add planets.txt</span>
+<span id="cb9-2"><a></a><span class="fu">git</span> add samples.csv</span>
 <span id="cb9-3"><a></a></span>
 <span id="cb9-4"><a></a><span class="fu">git</span> status   <span class="co"># now it shows "Changes to be committed"</span></span>
 <span id="cb9-5"><a></a></span>
 <span id="cb9-6"><a></a><span class="co"># Commit</span></span>
-<span id="cb9-7"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"added planets list"</span></span>
+<span id="cb9-7"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"added sample metadata for 4 samples"</span></span>
 <span id="cb9-8"><a></a></span>
 <span id="cb9-9"><a></a><span class="fu">git</span> status   <span class="co"># now: "nothing to commit, working tree clean"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
@@ -292,7 +282,7 @@ Untracked files:
 Author: Deepak Tanwar &lt;deepak@uzh.ch&gt;
 Date:   Mon Jun 23 09:45:00 2025
 
-    added planets list</code></pre>
+    added sample metadata for 4 samples</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="fu">git</span> log <span class="at">--oneline</span>   <span class="co"># compact view</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="the-staging-area-recap" class="slide level2">
@@ -333,9 +323,9 @@ Date:   Mon Jun 23 09:45:00 2025
 <p>See <a href="../exercises/exercise_3_local_git.html">Exercise 3</a> for the full walkthrough.</p>
 <p><strong>Summary:</strong></p>
 <ol type="1">
-<li><code>mkdir YOUR_USERNAME &amp;&amp; cd YOUR_USERNAME &amp;&amp; git init</code></li>
-<li>Create <code>README.md</code>, write introduction, <code>git add</code>, <code>git commit</code></li>
-<li>Create <code>education.md</code>, add, commit, merge into README, commit</li>
+<li><code>mkdir experiment-tracker &amp;&amp; cd experiment-tracker &amp;&amp; git init</code></li>
+<li>Create <code>samples.csv</code> with sample metadata, <code>git add</code>, <code>git commit</code></li>
+<li>Create <code>analysis_log.md</code>, document a step, add, commit</li>
 <li><code>git log --oneline</code> — see all your commits</li>
 <li><code>git diff</code> before staging; <code>git diff --staged</code> after staging</li>
 <li>Compare first and last commit: <code>git diff HASH1 HASH2</code></li>

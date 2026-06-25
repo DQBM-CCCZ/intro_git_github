@@ -29,9 +29,9 @@ If this fails, see [Pre-course Setup](../qmd/precourse_setup.qmd).
 ## Part A — Create the GitHub repository
 
 1. Go to [https://github.com/new](https://github.com/new)
-2. Name it the same as your local folder (your GitHub username)
+2. Name it `experiment-tracker` (same as your local folder)
 3. Set to **Public**
-4. **Do NOT** initialize with a README (your local repo already has one)
+4. **Do NOT** initialize with a README (your local repo already has files)
 5. Click **Create repository**
 
 Copy the **SSH** URL shown on the next page.
@@ -41,10 +41,10 @@ Copy the **SSH** URL shown on the next page.
 ## Part B — Connect and push
 
 ```bash
-cd ~/Downloads/YOUR_USERNAME
+cd ~/Downloads/experiment-tracker
 
 # Add GitHub as the remote
-git remote add origin git@github.com:YOUR_USERNAME/YOUR_USERNAME.git
+git remote add origin git@github.com:YOUR_USERNAME/experiment-tracker.git
 
 # Verify
 git remote -v
@@ -57,8 +57,8 @@ git push -u origin main
 
 ## Part C — Verify on GitHub
 
-1. Go to `https://github.com/YOUR_USERNAME/YOUR_USERNAME`
-2. All your files and commit history should be there
+1. Go to `https://github.com/YOUR_USERNAME/experiment-tracker`
+2. `samples.csv`, `analysis_log.md`, `results_summary.md` and their commit history should be there
 3. Click **commits** to explore the history
 4. Click a commit hash to see exactly what changed
 
@@ -66,15 +66,15 @@ git push -u origin main
 
 ## Part D — Edit on GitHub, pull locally
 
-1. On GitHub, click **README.md** → pencil icon
-2. Add a line: `Updated directly on GitHub`
-3. Commit: `edited README on GitHub`
+1. On GitHub, click **results_summary.md** → pencil icon
+2. Add a line: `Reviewed by collaborator on GitHub.`
+3. Commit: `added review note on GitHub`
 
 Now pull that change:
 
 ```bash
 git pull
-cat README.md    # new line is here
+cat results_summary.md    # new line is here
 ```
 
 ---
@@ -82,9 +82,9 @@ cat README.md    # new line is here
 ## Part E — Full cycle
 
 ```bash
-nano README.md      # add another line locally
-git add README.md
-git commit -m "added line locally"
+nano analysis_log.md      # add a "Step 4 — Visualization" note locally
+git add analysis_log.md
+git commit -m "added visualization step"
 git push
 
 # Check GitHub — your change appears immediately

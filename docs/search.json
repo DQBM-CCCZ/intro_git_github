@@ -98,11 +98,11 @@
     "text": "There are many git commands…\nadd       clone     commit    diff      fetch     init\nlog       merge     pull      push      remote    reset\nbranch    checkout  stash     status    tag       ...\n\nWe will focus on about 12 of them today.\nThe rest you can look up when you need them — git help &lt;command&gt;"
   },
   {
-    "objectID": "slides/slide_module_2.html#creating-a-repository",
-    "href": "slides/slide_module_2.html#creating-a-repository",
+    "objectID": "slides/slide_module_2.html#a-running-example-tracking-an-experiment",
+    "href": "slides/slide_module_2.html#a-running-example-tracking-an-experiment",
     "title": "Module 2: Local Git",
-    "section": "Creating a repository",
-    "text": "Creating a repository\n# Go somewhere sensible\ncd ~/Downloads\n\n# Make a directory and enter it\nmkdir planets\ncd planets\n\n# Initialize Git\ngit init\n\n# Confirm the hidden .git folder was created\nls -a\nThe .git folder is where Git stores everything. Never delete it."
+    "section": "A running example: tracking an experiment",
+    "text": "A running example: tracking an experiment\nThroughout today we will build one realistic project — experiment-tracker — the kind of folder you might keep next to a real experiment: sample metadata, analysis notes, and a results summary. No programming language required.\ncd ~/Downloads\nmkdir experiment-tracker\ncd experiment-tracker\ngit init\nls -a    # confirm the hidden .git folder was created\nThe .git folder is where Git stores everything. Never delete it."
   },
   {
     "objectID": "slides/slide_module_2.html#tracking-changes-the-three-stages",
@@ -112,32 +112,32 @@
     "text": "Tracking changes — the three stages\n[Working Directory] --&gt; git add --&gt; [Staging Area] --&gt; git commit --&gt; [Repository]\n     your files                       .git/index                      .git/objects\n\nWhy a staging area? → You can prepare exactly what goes into a commit, even if you changed many files."
   },
   {
-    "objectID": "slides/slide_module_2.html#your-first-file",
-    "href": "slides/slide_module_2.html#your-first-file",
+    "objectID": "slides/slide_module_2.html#your-first-file-sample-metadata",
+    "href": "slides/slide_module_2.html#your-first-file-sample-metadata",
     "title": "Module 2: Local Git",
-    "section": "Your first file",
-    "text": "Your first file\nnano planets.txt\nAdd planet names:\nMercury\nVenus\nEarth\nMars\nJupiter\nSaturn\nUranus\nNeptune\nCtrl+X → Y → Enter to save and close."
+    "section": "Your first file: sample metadata",
+    "text": "Your first file: sample metadata\nnano samples.csv\nsample_id,condition,replicate\nS01,control,1\nS02,control,2\nS03,treated,1\nS04,treated,2\nCtrl+X → Y → Enter to save and close."
   },
   {
     "objectID": "slides/slide_module_2.html#git-status",
     "href": "slides/slide_module_2.html#git-status",
     "title": "Module 2: Local Git",
     "section": "git status",
-    "text": "git status\ngit status\nOn branch main\n\nNo commits yet\n\nUntracked files:\n  (use \"git add &lt;file&gt;...\" to include in what will be committed)\n        planets.txt\nGit sees the file but is not tracking it yet."
+    "text": "git status\ngit status\nOn branch main\n\nNo commits yet\n\nUntracked files:\n  (use \"git add &lt;file&gt;...\" to include in what will be committed)\n        samples.csv\nGit sees the file but is not tracking it yet."
   },
   {
     "objectID": "slides/slide_module_2.html#git-add-git-commit",
     "href": "slides/slide_module_2.html#git-add-git-commit",
     "title": "Module 2: Local Git",
     "section": "git add → git commit",
-    "text": "git add → git commit\n# Stage the file\ngit add planets.txt\n\ngit status   # now it shows \"Changes to be committed\"\n\n# Commit\ngit commit -m \"added planets list\"\n\ngit status   # now: \"nothing to commit, working tree clean\""
+    "text": "git add → git commit\n# Stage the file\ngit add samples.csv\n\ngit status   # now it shows \"Changes to be committed\"\n\n# Commit\ngit commit -m \"added sample metadata for 4 samples\"\n\ngit status   # now: \"nothing to commit, working tree clean\""
   },
   {
     "objectID": "slides/slide_module_2.html#git-log",
     "href": "slides/slide_module_2.html#git-log",
     "title": "Module 2: Local Git",
     "section": "git log",
-    "text": "git log\ngit log\ncommit ac3eveta1234...\nAuthor: Deepak Tanwar &lt;deepak@uzh.ch&gt;\nDate:   Mon Jun 23 09:45:00 2025\n\n    added planets list\ngit log --oneline   # compact view"
+    "text": "git log\ngit log\ncommit ac3eveta1234...\nAuthor: Deepak Tanwar &lt;deepak@uzh.ch&gt;\nDate:   Mon Jun 23 09:45:00 2025\n\n    added sample metadata for 4 samples\ngit log --oneline   # compact view"
   },
   {
     "objectID": "slides/slide_module_2.html#the-staging-area-recap",
@@ -165,7 +165,7 @@
     "href": "slides/slide_module_2.html#exercise-3-local-git-workflow",
     "title": "Module 2: Local Git",
     "section": "Exercise 3 — Local Git Workflow",
-    "text": "Exercise 3 — Local Git Workflow\nSee Exercise 3 for the full walkthrough.\nSummary:\n\nmkdir YOUR_USERNAME && cd YOUR_USERNAME && git init\nCreate README.md, write introduction, git add, git commit\nCreate education.md, add, commit, merge into README, commit\ngit log --oneline — see all your commits\ngit diff before staging; git diff --staged after staging\nCompare first and last commit: git diff HASH1 HASH2"
+    "text": "Exercise 3 — Local Git Workflow\nSee Exercise 3 for the full walkthrough.\nSummary:\n\nmkdir experiment-tracker && cd experiment-tracker && git init\nCreate samples.csv with sample metadata, git add, git commit\nCreate analysis_log.md, document a step, add, commit\ngit log --oneline — see all your commits\ngit diff before staging; git diff --staged after staging\nCompare first and last commit: git diff HASH1 HASH2"
   },
   {
     "objectID": "qmd/schedule.html",
@@ -347,35 +347,35 @@
     "href": "exercises/exercise_5_push_pull.html#part-a-create-the-github-repository",
     "title": "Exercise 5 — Push Your Local Repo to GitHub",
     "section": "Part A — Create the GitHub repository",
-    "text": "Part A — Create the GitHub repository\n\nGo to https://github.com/new\nName it the same as your local folder (your GitHub username)\nSet to Public\nDo NOT initialize with a README (your local repo already has one)\nClick Create repository\n\nCopy the SSH URL shown on the next page."
+    "text": "Part A — Create the GitHub repository\n\nGo to https://github.com/new\nName it experiment-tracker (same as your local folder)\nSet to Public\nDo NOT initialize with a README (your local repo already has files)\nClick Create repository\n\nCopy the SSH URL shown on the next page."
   },
   {
     "objectID": "exercises/exercise_5_push_pull.html#part-b-connect-and-push",
     "href": "exercises/exercise_5_push_pull.html#part-b-connect-and-push",
     "title": "Exercise 5 — Push Your Local Repo to GitHub",
     "section": "Part B — Connect and push",
-    "text": "Part B — Connect and push\ncd ~/Downloads/YOUR_USERNAME\n\n# Add GitHub as the remote\ngit remote add origin git@github.com:YOUR_USERNAME/YOUR_USERNAME.git\n\n# Verify\ngit remote -v\n\n# Push (and set upstream)\ngit push -u origin main"
+    "text": "Part B — Connect and push\ncd ~/Downloads/experiment-tracker\n\n# Add GitHub as the remote\ngit remote add origin git@github.com:YOUR_USERNAME/experiment-tracker.git\n\n# Verify\ngit remote -v\n\n# Push (and set upstream)\ngit push -u origin main"
   },
   {
     "objectID": "exercises/exercise_5_push_pull.html#part-c-verify-on-github",
     "href": "exercises/exercise_5_push_pull.html#part-c-verify-on-github",
     "title": "Exercise 5 — Push Your Local Repo to GitHub",
     "section": "Part C — Verify on GitHub",
-    "text": "Part C — Verify on GitHub\n\nGo to https://github.com/YOUR_USERNAME/YOUR_USERNAME\nAll your files and commit history should be there\nClick commits to explore the history\nClick a commit hash to see exactly what changed"
+    "text": "Part C — Verify on GitHub\n\nGo to https://github.com/YOUR_USERNAME/experiment-tracker\nsamples.csv, analysis_log.md, results_summary.md and their commit history should be there\nClick commits to explore the history\nClick a commit hash to see exactly what changed"
   },
   {
     "objectID": "exercises/exercise_5_push_pull.html#part-d-edit-on-github-pull-locally",
     "href": "exercises/exercise_5_push_pull.html#part-d-edit-on-github-pull-locally",
     "title": "Exercise 5 — Push Your Local Repo to GitHub",
     "section": "Part D — Edit on GitHub, pull locally",
-    "text": "Part D — Edit on GitHub, pull locally\n\nOn GitHub, click README.md → pencil icon\nAdd a line: Updated directly on GitHub\nCommit: edited README on GitHub\n\nNow pull that change:\ngit pull\ncat README.md    # new line is here"
+    "text": "Part D — Edit on GitHub, pull locally\n\nOn GitHub, click results_summary.md → pencil icon\nAdd a line: Reviewed by collaborator on GitHub.\nCommit: added review note on GitHub\n\nNow pull that change:\ngit pull\ncat results_summary.md    # new line is here"
   },
   {
     "objectID": "exercises/exercise_5_push_pull.html#part-e-full-cycle",
     "href": "exercises/exercise_5_push_pull.html#part-e-full-cycle",
     "title": "Exercise 5 — Push Your Local Repo to GitHub",
     "section": "Part E — Full cycle",
-    "text": "Part E — Full cycle\nnano README.md      # add another line locally\ngit add README.md\ngit commit -m \"added line locally\"\ngit push\n\n# Check GitHub — your change appears immediately"
+    "text": "Part E — Full cycle\nnano analysis_log.md      # add a \"Step 4 — Visualization\" note locally\ngit add analysis_log.md\ngit commit -m \"added visualization step\"\ngit push\n\n# Check GitHub — your change appears immediately"
   },
   {
     "objectID": "exercises/exercise_5_push_pull.html#what-you-learned",
@@ -396,35 +396,35 @@
     "href": "exercises/exercise_3_local_git.html#goal",
     "title": "Exercise 3 — Local Git Workflow",
     "section": "Goal",
-    "text": "Goal\nPractice the core local Git workflow: init → add → commit → log → diff."
+    "text": "Goal\nBuild a small, realistic project — experiment-tracker — and practice the core local Git workflow: init → add → commit → log → diff.\nThis is the running example we will keep extending for the rest of the day."
   },
   {
-    "objectID": "exercises/exercise_3_local_git.html#part-a-create-a-local-repository",
-    "href": "exercises/exercise_3_local_git.html#part-a-create-a-local-repository",
+    "objectID": "exercises/exercise_3_local_git.html#part-a-create-the-repository",
+    "href": "exercises/exercise_3_local_git.html#part-a-create-the-repository",
     "title": "Exercise 3 — Local Git Workflow",
-    "section": "Part A — Create a local repository",
-    "text": "Part A — Create a local repository\ncd ~/Downloads\n\nmkdir YOUR_USERNAME\ncd YOUR_USERNAME\n\ngit init\nls -a     # confirm .git was created"
+    "section": "Part A — Create the repository",
+    "text": "Part A — Create the repository\ncd ~/Downloads\n\nmkdir experiment-tracker\ncd experiment-tracker\n\ngit init\nls -a     # confirm .git was created"
   },
   {
-    "objectID": "exercises/exercise_3_local_git.html#part-b-first-commit",
-    "href": "exercises/exercise_3_local_git.html#part-b-first-commit",
+    "objectID": "exercises/exercise_3_local_git.html#part-b-first-commit-sample-metadata",
+    "href": "exercises/exercise_3_local_git.html#part-b-first-commit-sample-metadata",
     "title": "Exercise 3 — Local Git Workflow",
-    "section": "Part B — First commit",
-    "text": "Part B — First commit\nnano README.md\nWrite a brief introduction about yourself. Save and close: Ctrl+X → Y → Enter\ngit status           # git sees the file but isn't tracking it\ngit add README.md\ngit status           # now it's staged\ngit commit -m \"added README with introduction\"\ngit log"
+    "section": "Part B — First commit: sample metadata",
+    "text": "Part B — First commit: sample metadata\nnano samples.csv\nsample_id,condition,replicate\nS01,control,1\nS02,control,2\nS03,treated,1\nS04,treated,2\nSave and close: Ctrl+X → Y → Enter\ngit status              # git sees the file but isn't tracking it\ngit add samples.csv\ngit status              # now it's staged\ngit commit -m \"added sample metadata for 4 samples\"\ngit log"
   },
   {
-    "objectID": "exercises/exercise_3_local_git.html#part-c-more-commits",
-    "href": "exercises/exercise_3_local_git.html#part-c-more-commits",
+    "objectID": "exercises/exercise_3_local_git.html#part-c-more-commits-documenting-analysis-steps",
+    "href": "exercises/exercise_3_local_git.html#part-c-more-commits-documenting-analysis-steps",
     "title": "Exercise 3 — Local Git Workflow",
-    "section": "Part C — More commits",
-    "text": "Part C — More commits\nnano education.md    # list your education history\ngit add education.md\ngit commit -m \"added education history\"\n\nnano README.md       # paste the education content at the bottom\ngit add README.md\ngit commit -m \"merged education into README\"\n\nrm education.md\ngit add education.md\ngit commit -m \"removed separate education file\"\n\ngit log --oneline    # see all 4 commits"
+    "section": "Part C — More commits: documenting analysis steps",
+    "text": "Part C — More commits: documenting analysis steps\nnano analysis_log.md\n# Analysis Log\n\n## Step 1 — Quality control\nChecked all 4 samples for read quality. All passed QC thresholds.\ngit add analysis_log.md\ngit commit -m \"added analysis log with QC step\"\n\nnano analysis_log.md\nAppend:\n## Step 2 — Normalization\nApplied log2 normalization to raw counts before comparison.\ngit add analysis_log.md\ngit commit -m \"documented normalization step\"\n\ngit log --oneline    # see all 3 commits"
   },
   {
     "objectID": "exercises/exercise_3_local_git.html#part-d-inspect-changes-with-diff",
     "href": "exercises/exercise_3_local_git.html#part-d-inspect-changes-with-diff",
     "title": "Exercise 3 — Local Git Workflow",
     "section": "Part D — Inspect changes with diff",
-    "text": "Part D — Inspect changes with diff\nnano README.md       # add your hobbies at the bottom\nBefore staging:\ngit diff             # working directory vs staging area\nAfter staging:\ngit add README.md\ngit diff --staged    # staging area vs last commit\ngit commit -m \"added hobbies section\"\nCompare first and last commit:\ngit log --oneline           # note the two hashes\ngit diff FIRST_HASH LAST_HASH"
+    "text": "Part D — Inspect changes with diff\nnano analysis_log.md   # add a \"Step 3 — Differential expression\" section\nBefore staging:\ngit diff               # working directory vs staging area\nAfter staging:\ngit add analysis_log.md\ngit diff --staged      # staging area vs last commit\ngit commit -m \"documented differential expression step\"\nCompare your first and last commit:\ngit log --oneline             # note the two hashes\ngit diff FIRST_HASH LAST_HASH"
   },
   {
     "objectID": "exercises/exercise_3_local_git.html#what-you-learned",
@@ -501,49 +501,49 @@
     "href": "exercises/exercise_4_branching.html#goal",
     "title": "Exercise 4 — Branching, Merging & .gitignore",
     "section": "Goal",
-    "text": "Goal\nCreate branches, work in isolation, merge, resolve a conflict, and ignore files."
+    "text": "Goal\nTry an alternative analysis approach on a branch, merge it back, resolve a realistic merge conflict, and exclude raw data files from tracking.\nContinues the experiment-tracker project from Exercise 3."
   },
   {
-    "objectID": "exercises/exercise_4_branching.html#part-a-create-a-branch",
-    "href": "exercises/exercise_4_branching.html#part-a-create-a-branch",
+    "objectID": "exercises/exercise_4_branching.html#part-a-create-a-branch-for-a-new-approach",
+    "href": "exercises/exercise_4_branching.html#part-a-create-a-branch-for-a-new-approach",
     "title": "Exercise 4 — Branching, Merging & .gitignore",
-    "section": "Part A — Create a branch",
-    "text": "Part A — Create a branch\ncd ~/Downloads/YOUR_USERNAME\n\ngit branch                       # which branch are you on?\ngit checkout -b YOUR_FIRST_NAME  # create and switch\ngit branch                       # confirm"
+    "section": "Part A — Create a branch for a new approach",
+    "text": "Part A — Create a branch for a new approach\ncd ~/Downloads/experiment-tracker\n\ngit branch                              # which branch are you on?\ngit checkout -b try-new-normalization   # create and switch\ngit branch                              # confirm"
   },
   {
     "objectID": "exercises/exercise_4_branching.html#part-b-make-changes-on-the-branch",
     "href": "exercises/exercise_4_branching.html#part-b-make-changes-on-the-branch",
     "title": "Exercise 4 — Branching, Merging & .gitignore",
     "section": "Part B — Make changes on the branch",
-    "text": "Part B — Make changes on the branch\nnano test.md    # write your favorite color and one fun fact\ngit add test.md\ngit commit -m \"added test file with favorite color\"\ngit log --oneline"
+    "text": "Part B — Make changes on the branch\nnano analysis_log.md\nAppend:\n## Step 2b — Alternative: quantile normalization\nTried quantile normalization instead of log2. Compare results before merging.\ngit add analysis_log.md\ngit commit -m \"tried quantile normalization instead of log2\"\ngit log --oneline"
   },
   {
     "objectID": "exercises/exercise_4_branching.html#part-c-merge-back-to-main",
     "href": "exercises/exercise_4_branching.html#part-c-merge-back-to-main",
     "title": "Exercise 4 — Branching, Merging & .gitignore",
     "section": "Part C — Merge back to main",
-    "text": "Part C — Merge back to main\ngit checkout main\nls              # test.md is NOT here\n\ngit merge YOUR_FIRST_NAME\nls              # test.md IS here now\n\ngit log --oneline\ngit branch -d YOUR_FIRST_NAME    # clean up"
+    "text": "Part C — Merge back to main\ngit checkout main\ncat analysis_log.md      # the quantile normalization note is NOT here\n\ngit merge try-new-normalization\ncat analysis_log.md      # now it IS here\n\ngit log --oneline\ngit branch -d try-new-normalization    # clean up"
   },
   {
     "objectID": "exercises/exercise_4_branching.html#part-d-simulate-a-merge-conflict",
     "href": "exercises/exercise_4_branching.html#part-d-simulate-a-merge-conflict",
     "title": "Exercise 4 — Branching, Merging & .gitignore",
     "section": "Part D — Simulate a merge conflict",
-    "text": "Part D — Simulate a merge conflict\ngit checkout -b experiment\nnano README.md     # change the first heading to something new\ngit add README.md\ngit commit -m \"changed heading on experiment branch\"\n\ngit checkout main\nnano README.md     # change the SAME heading to something different\ngit add README.md\ngit commit -m \"changed heading on main\"\n\ngit merge experiment    # CONFLICT\nOpen the file and find the conflict markers:\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n# My version on main\n=======\n# My version on experiment\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; experiment\nEdit to keep the version you want. Remove all marker lines, then:\ngit add README.md\ngit commit -m \"resolved merge conflict in README heading\""
+    "text": "Part D — Simulate a merge conflict\ngit checkout -b draft-conclusion\nnano results_summary.md\nWrite:\n# Results Summary\nTreated samples show a 2-fold increase in expression compared to control.\ngit add results_summary.md\ngit commit -m \"drafted conclusion: 2-fold increase\"\n\ngit checkout main\nnano results_summary.md\nWrite a different conclusion on main:\n# Results Summary\nTreated samples show no significant change in expression compared to control.\ngit add results_summary.md\ngit commit -m \"drafted conclusion: no significant change\"\n\ngit merge draft-conclusion    # CONFLICT\nOpen the file and find the conflict markers:\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nTreated samples show no significant change in expression compared to control.\n=======\nTreated samples show a 2-fold increase in expression compared to control.\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; draft-conclusion\nEdit to keep the conclusion you actually want (or merge both into one sentence noting the discrepancy needs investigation). Remove all marker lines, then:\ngit add results_summary.md\ngit commit -m \"resolved conflicting conclusions, flagged for re-analysis\""
   },
   {
-    "objectID": "exercises/exercise_4_branching.html#part-e-.gitignore",
-    "href": "exercises/exercise_4_branching.html#part-e-.gitignore",
+    "objectID": "exercises/exercise_4_branching.html#part-e-.gitignore-for-raw-data",
+    "href": "exercises/exercise_4_branching.html#part-e-.gitignore-for-raw-data",
     "title": "Exercise 4 — Branching, Merging & .gitignore",
-    "section": "Part E — .gitignore",
-    "text": "Part E — .gitignore\nmkdir temp_data\ntouch temp_data/run1.log temp_data/run2.log temp_data/results.csv\ngit status     # git sees all these files\nCreate .gitignore:\nnano .gitignore\nAdd:\ntemp_data/\n*.log\ngit status     # ignored files no longer appear\ngit add .gitignore\ngit commit -m \"added gitignore for temp data\""
+    "section": "Part E — .gitignore for raw data",
+    "text": "Part E — .gitignore for raw data\nmkdir raw_data\ntouch raw_data/run1.fastq raw_data/run2.fastq raw_data/instrument.log\ngit status     # git sees all these files\nCreate .gitignore:\nnano .gitignore\nraw_data/\n*.log\ngit status     # ignored files no longer appear\ngit add .gitignore\ngit commit -m \"added gitignore for raw instrument data\""
   },
   {
     "objectID": "exercises/exercise_4_branching.html#what-you-learned",
     "href": "exercises/exercise_4_branching.html#what-you-learned",
     "title": "Exercise 4 — Branching, Merging & .gitignore",
     "section": "What you learned",
-    "text": "What you learned\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit branch\nList branches\n\n\ngit checkout -b &lt;name&gt;\nCreate and switch\n\n\ngit merge &lt;branch&gt;\nMerge into current branch\n\n\nresolve + git add + git commit\nFix a conflict\n\n\n.gitignore\nExclude files from tracking"
+    "text": "What you learned\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit branch\nList branches\n\n\ngit checkout -b &lt;name&gt;\nCreate and switch\n\n\ngit merge &lt;branch&gt;\nMerge into current branch\n\n\nresolve + git add + git commit\nFix a conflict\n\n\n.gitignore\nExclude files from tracking\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhy this matters for real work: raw sequencing files, large datasets, and instrument logs don’t belong in Git history — they’re huge and usually already backed up elsewhere. .gitignore keeps your repository focused on code, scripts, and small text files that benefit from version control."
   },
   {
     "objectID": "exercises/exercise_6_collaboration.html",
@@ -735,6 +735,13 @@
     "text": "Version control — the better way\nOne file. Many snapshots.\n\n\n\nFile\nCommit message\nVersion ID\n\n\n\n\nmanuscript.docx\n“first draft”\nac3eveta\n\n\nmanuscript.docx\n“revision 1”\na23eveta\n\n\nmanuscript.docx\n“updated figures”\ndc3edeta\n\n\nmanuscript.docx\n“bioRxiv submission”\nyc8evata\n\n\nmanuscript.docx\n“published”\nzz33eeta"
   },
   {
+    "objectID": "slides/slide_module_1.html#why-not-just-use-google-docs",
+    "href": "slides/slide_module_1.html#why-not-just-use-google-docs",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "“Why not just use Google Docs?”",
+    "text": "“Why not just use Google Docs?”\nA fair question — for a single shared document, Google Docs works fine.\nGit earns its complexity when you have:\n\nCode and scripts, not prose — line-by-line diffs that mean something\nMany files together — data, scripts, figures, docs as one versioned unit\nParallel experiments — try a new analysis approach without breaking the working one (branches)\nExact reproducibility — re-run the exact code that produced Figure 2 in your paper, six months later\nNo internet required — full history available offline, on your machine\n\n\n\n\n\n\n\n\nNote\n\n\nRule of thumb: writing a manuscript together → Google Docs. Writing an analysis pipeline together → Git."
+  },
+  {
     "objectID": "slides/slide_module_1.html#what-is-git",
     "href": "slides/slide_module_1.html#what-is-git",
     "title": "Module 1: Concepts & GitHub",
@@ -802,28 +809,28 @@
     "href": "slides/slide_module_3.html#git-branch-git-checkout",
     "title": "Module 3: Branching & History",
     "section": "git branch + git checkout",
-    "text": "git branch + git checkout\n# See which branch you are on\ngit branch\n\n# Create a new branch\ngit branch dev\n\n# Switch to it\ngit checkout dev\n\n# Create AND switch in one step\ngit checkout -b dev"
+    "text": "git branch + git checkout\n# See which branch you are on\ngit branch\n\n# Create a new branch for a new normalization approach\ngit branch try-new-normalization\n\n# Switch to it\ngit checkout try-new-normalization\n\n# Create AND switch in one step\ngit checkout -b try-new-normalization"
   },
   {
     "objectID": "slides/slide_module_3.html#making-commits-on-a-branch",
     "href": "slides/slide_module_3.html#making-commits-on-a-branch",
     "title": "Module 3: Branching & History",
     "section": "Making commits on a branch",
-    "text": "Making commits on a branch\n# You are on branch \"dev\"\nnano hobbies.md    # add a new file\n\ngit add hobbies.md\ngit commit -m \"added hobbies file\"\n\n# Go back to main — hobbies.md is not here\ngit checkout main\nls\nBranches are isolated. Changes on dev don’t appear on main until you merge."
+    "text": "Making commits on a branch\n# You are on branch \"try-new-normalization\"\nnano analysis_log.md    # document the alternative approach\n\ngit add analysis_log.md\ngit commit -m \"tried quantile normalization instead of log2\"\n\n# Go back to main — this note does not exist here\ngit checkout main\ncat analysis_log.md\nBranches are isolated. Changes on a branch don’t appear on main until you merge."
   },
   {
     "objectID": "slides/slide_module_3.html#git-merge",
     "href": "slides/slide_module_3.html#git-merge",
     "title": "Module 3: Branching & History",
     "section": "git merge",
-    "text": "git merge\n# On main branch:\ngit merge dev\nGit replays the commits from dev onto main. After merging, you can delete the branch:\ngit branch -d dev"
+    "text": "git merge\n# On main branch, once you decide the new approach is good:\ngit merge try-new-normalization\nGit replays the commits from the branch onto main. After merging, you can delete the branch:\ngit branch -d try-new-normalization"
   },
   {
     "objectID": "slides/slide_module_3.html#merge-conflicts",
     "href": "slides/slide_module_3.html#merge-conflicts",
     "title": "Module 3: Branching & History",
     "section": "Merge conflicts",
-    "text": "Merge conflicts\nConflicts happen when two branches change the same line differently.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\n# My title on main\n=======\n# My title on dev\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; dev\n\nHow to resolve: 1. Open the file 2. Choose which version to keep (or combine them) 3. Remove all &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers 4. git add &lt;file&gt; → git commit"
+    "text": "Merge conflicts\nConflicts happen when two branches change the same line differently — e.g. you and a labmate both edit the conclusion in results_summary.md.\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nTreated samples show a 2-fold increase in expression.\n=======\nTreated samples show no significant change in expression.\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; try-new-normalization\n\nHow to resolve: 1. Open the file 2. Choose which version to keep (or combine them) 3. Remove all &lt;&lt;&lt;&lt;&lt;&lt;&lt;, =======, &gt;&gt;&gt;&gt;&gt;&gt;&gt; markers 4. git add &lt;file&gt; → git commit"
   },
   {
     "objectID": "slides/slide_module_3.html#exploring-git-history",
@@ -837,7 +844,7 @@
     "href": "slides/slide_module_3.html#ignoring-files-with-.gitignore",
     "title": "Module 3: Branching & History",
     "section": "Ignoring files with .gitignore",
-    "text": "Ignoring files with .gitignore\nCreate a file called .gitignore in your repo root:\n# Ignore all log files\n*.log\n\n# Ignore a whole folder\ndata/raw/\n\n# Ignore a specific file\nsecrets.txt\ngit add .gitignore\ngit commit -m \"added gitignore\"\nGit will never ask you about these files again."
+    "text": "Ignoring files with .gitignore\nCreate a file called .gitignore in your repo root:\n# Ignore raw instrument output (too large/sensitive for GitHub)\nraw_data/\n\n# Ignore temporary analysis files\n*.tmp\n\n# Ignore a specific file\nsecrets.txt\ngit add .gitignore\ngit commit -m \"added gitignore\"\nGit will never ask you about these files again."
   },
   {
     "objectID": "slides/slide_module_3.html#git-reset-undoing-things",
@@ -851,6 +858,6 @@
     "href": "slides/slide_module_3.html#exercise-4-branching-merge-conflicts",
     "title": "Module 3: Branching & History",
     "section": "Exercise 4 — Branching & Merge Conflicts",
-    "text": "Exercise 4 — Branching & Merge Conflicts\nSee Exercise 4 for the full walkthrough.\nSummary:\n\ngit checkout -b YOUR_FIRST_NAME\nCreate test.md, add, commit\ngit checkout main → git merge YOUR_FIRST_NAME\nCreate a conflict by editing the same line on two branches\nResolve the conflict manually\nCreate temp_data/, add .gitignore, verify files are ignored"
+    "text": "Exercise 4 — Branching & Merge Conflicts\nSee Exercise 4 for the full walkthrough.\nSummary:\n\ngit checkout -b try-new-normalization\nEdit analysis_log.md and results_summary.md, add, commit\ngit checkout main → git merge try-new-normalization\nCreate a conflict by editing the same conclusion on two branches\nResolve the conflict manually\nCreate raw_data/, add .gitignore, verify files are ignored"
   }
 ]
