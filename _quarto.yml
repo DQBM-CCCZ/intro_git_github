@@ -49,6 +49,8 @@ website:
             text: "Final Exercise"
       - href: qmd/cheatsheet.qmd
         text: Cheat Sheet
+      - href: qmd/exam.qmd
+        text: Final Exam
     right:
       - icon: github
         href: https://github.com/DQBM-SIB/intro_git_github

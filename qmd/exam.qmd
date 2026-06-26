@@ -1,0 +1,52 @@
+---
+title: "Final Exam"
+format: html
+---
+
+## Introduction to Git & GitHub — Final Exam
+
+A 20-question multiple-choice exam covering everything from today's course:
+concepts & GitHub basics, local Git, branching & history, and GitHub
+collaboration.
+
+::: {.callout-important}
+## Exam window
+
+**Opens:** Tuesday, 8 July 2025, 17:00 (Europe/Zurich)
+**Closes:** Tuesday, 15 July 2025, 23:59 (Europe/Zurich)
+
+The exam link will only accept submissions during this window. You have
+**one attempt**. Make sure you're ready before you start.
+:::
+
+---
+
+## Before you start
+
+- Have your name and email ready — these are required to identify your submission
+- You do **not** need any reference material, but the [Cheat Sheet](cheatsheet.qmd) covers everything fairly
+- There is no time limit once you open the form, but don't leave it open indefinitely — submit when done
+
+---
+
+## Take the exam
+
+<div style="text-align: center; margin: 2em 0;">
+<a href="REPLACE_WITH_FORMS_URL" target="_blank" class="btn btn-lg" style="background-color: #F05032; color: white; padding: 0.75em 2em; border-radius: 6px; text-decoration: none; font-weight: bold;">
+Open the Exam (Microsoft Forms)
+</a>
+</div>
+
+::: {.callout-note}
+The exam opens in a new tab. If you arrive before 8 July 17:00 or after
+15 July, Microsoft Forms will tell you the form is not currently accepting
+responses — this is expected.
+:::
+
+---
+
+## After the exam
+
+Results are reviewed by the instructor after the window closes on 15 July.
+If you have questions about your result, contact
+[deepak.tanwar@uzh.ch](mailto:deepak.tanwar@uzh.ch).
