@@ -7,8 +7,9 @@ format: html
 
 ::: {.callout-note}
 This exam is **only required if you want to obtain 0.25 ECTS credits** for
-this course. If you're not seeking ECTS credit, you're welcome to skip it —
-attending the course and completing the exercises is enough.
+this course, **or if you'd simply like to test your own knowledge** from
+today. If neither applies to you, you're welcome to skip it — attending
+the course and completing the exercises is enough.
 :::
 
 A 20-question multiple-choice exam covering everything from today's course:
