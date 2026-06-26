@@ -40,7 +40,7 @@ Open the Exam (Microsoft Forms)
 Or scan with your phone:
 
 <div style="text-align: center; margin: 1.5em 0;">
-![](../assets/images/exam-qr-code.png){width="220px"}
+![](../assets/images/exam_qr.png){width="220px"}
 </div>
 
 ::: {.callout-note}
