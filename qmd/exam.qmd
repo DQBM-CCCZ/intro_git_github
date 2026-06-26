@@ -32,9 +32,15 @@ The exam link will only accept submissions during this window. You have
 ## Take the exam
 
 <div style="text-align: center; margin: 2em 0;">
-<a href="REPLACE_WITH_FORMS_URL" target="_blank" class="btn btn-lg" style="background-color: #F05032; color: white; padding: 0.75em 2em; border-radius: 6px; text-decoration: none; font-weight: bold;">
+<a href="https://forms.office.com/e/Z8yAUvtWkA" target="_blank" class="btn btn-lg" style="background-color: #F05032; color: white; padding: 0.75em 2em; border-radius: 6px; text-decoration: none; font-weight: bold;">
 Open the Exam (Microsoft Forms)
 </a>
+</div>
+
+Or scan with your phone:
+
+<div style="text-align: center; margin: 1.5em 0;">
+![](../assets/images/exam-qr-code.png){width="220px"}
 </div>
 
 ::: {.callout-note}
