@@ -137,4 +137,4 @@ backup, but **exact reproducibility** of any past state, on demand.
 - Use Git for your own scripts from day one
 - Branch whenever you try something experimental
 - Write meaningful commit messages — your future self will thank you
-- Reference: [Cheat Sheet](../qmd/cheatsheet.qmd)
+- Reference: [Git Cheat Sheet](../qmd/git_cheatsheet.qmd) · [Markdown Cheat Sheet](../qmd/markdown_cheatsheet.qmd)

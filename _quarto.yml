@@ -47,8 +47,12 @@ website:
             text: "Exercise 6: Collaboration"
           - href: exercises/final_exercise.qmd
             text: "Final Exercise"
-      - href: qmd/cheatsheet.qmd
-        text: Cheat Sheet
+      - text: Cheat Sheets
+        menu:
+          - href: qmd/git_cheatsheet.qmd
+            text: "Git"
+          - href: qmd/markdown_cheatsheet.qmd
+            text: "Markdown"
       - href: qmd/exam.qmd
         text: "Final Exam (ECTS)"
     right:

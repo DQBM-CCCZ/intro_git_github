@@ -1,0 +1,431 @@
+---
+title: "Markdown Cheat Sheet"
+format: html
+---
+
+Every Markdown feature you're likely to need on GitHub, with the raw
+syntax on the left and how it actually renders on the right.
+
+---
+
+## Headings
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+:::
+:::
+
+---
+
+## Emphasis
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+**bold text**
+*italic text*
+***bold and italic***
+~~strikethrough~~
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+**bold text**
+
+*italic text*
+
+***bold and italic***
+
+~~strikethrough~~
+:::
+:::
+
+---
+
+## Blockquotes
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+> This is a quote.
+>
+> It can span multiple lines.
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+> This is a quote.
+>
+> It can span multiple lines.
+:::
+:::
+
+---
+
+## Unordered lists
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+- First item
+- Second item
+- Third item
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+- First item
+- Second item
+- Third item
+:::
+:::
+
+---
+
+## Ordered lists
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+1. First step
+2. Second step
+3. Third step
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+1. First step
+2. Second step
+3. Third step
+:::
+:::
+
+---
+
+## Nested lists
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+- Module 1
+  - Concepts
+  - GitHub basics
+- Module 2
+  - Local Git
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+- Module 1
+  - Concepts
+  - GitHub basics
+- Module 2
+  - Local Git
+:::
+:::
+
+---
+
+## Task lists (GitHub-flavored)
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+- [x] Create GitHub account
+- [x] Write README
+- [ ] Open a Pull Request
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+- [x] Create GitHub account
+- [x] Write README
+- [ ] Open a Pull Request
+:::
+:::
+
+---
+
+## Links
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+[link text](https://github.com)
+
+[link with title](https://github.com "GitHub")
+
+<https://github.com>
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+[link text](https://github.com)
+
+[link with title](https://github.com "GitHub")
+
+<https://github.com>
+:::
+:::
+
+---
+
+## Reference-style links
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+Check out [GitHub][gh] for more.
+
+[gh]: https://github.com
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+Check out [GitHub][gh] for more.
+
+[gh]: https://github.com
+:::
+:::
+
+---
+
+## Images
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+![Git logo](../assets/images/head-pointer.png)
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+![Git logo](../assets/images/head-pointer.png){width="60%"}
+:::
+:::
+
+---
+
+## Inline code
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+Run `git status` to check your repository.
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+Run `git status` to check your repository.
+:::
+:::
+
+---
+
+## Fenced code blocks
+
+::::: {.columns}
+:::: {.column width="50%"}
+**Raw**
+
+`````markdown
+```python
+def hello():
+    print("hello")
+```
+`````
+::::
+:::: {.column width="50%"}
+**Rendered**
+
+```python
+def hello():
+    print("hello")
+```
+::::
+:::::
+
+---
+
+## Tables
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+| Module | Topic       |
+|--------|-------------|
+| 1      | Concepts    |
+| 2      | Local Git   |
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+| Module | Topic       |
+|--------|-------------|
+| 1      | Concepts    |
+| 2      | Local Git   |
+:::
+:::
+
+---
+
+## Table alignment
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+| Left | Center | Right |
+|:-----|:------:|------:|
+| a    | b      | c     |
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+| Left | Center | Right |
+|:-----|:------:|------:|
+| a    | b      | c     |
+:::
+:::
+
+---
+
+## Horizontal rule
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+Above the line
+
+---
+
+Below the line
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+Above the line
+
+---
+
+Below the line
+:::
+:::
+
+---
+
+## Line breaks
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+First line.\
+Second line, no blank line between.
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+First line.\
+Second line, no blank line between.
+:::
+:::
+
+---
+
+## Footnotes (GitHub-flavored)
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+Git was created in 2005[^1].
+
+[^1]: By Linus Torvalds.
+```
+:::
+::: {.column width="50%"}
+**Rendered**
+
+Git was created in 2005[^1].
+
+[^1]: By Linus Torvalds.
+:::
+:::
+
+---
+
+## Emoji shortcodes (GitHub-flavored)
+
+::: {.columns}
+::: {.column width="50%"}
+**Raw**
+```markdown
+Nice work! :tada: :rocket:
+```
+:::
+::: {.column width="50%"}
+**Rendered** (as GitHub displays it)
+
+Nice work! 🎉 🚀
+:::
+:::
+
+---
+
+## Mentions and issue references (GitHub only)
+
+These only become clickable links when viewed **on GitHub.com** — they
+render as plain text everywhere else (including this page).
+
+```markdown
+@dktanwar please review
+
+See issue #12 for details
+```
+
+::: {.callout-note}
+On GitHub, `@username` notifies that person, and `#12` automatically links
+to issue or PR number 12 in the same repository.
+:::

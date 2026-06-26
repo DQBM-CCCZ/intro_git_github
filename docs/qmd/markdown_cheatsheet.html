@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Git Cheat Sheet – Introduction to Git &amp; GitHub</title>
+<title>Markdown Cheat Sheet – Introduction to Git &amp; GitHub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -361,10 +361,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="../qmd/cheatsheet.html" aria-current="page"> 
-<span class="menu-text">Cheat Sheet</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheat-sheets" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Cheat Sheets</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cheat-sheets">    
+        <li>
+    <a class="dropdown-item" href="../qmd/git_cheatsheet.html">
+ <span class="dropdown-text">Git</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../qmd/markdown_cheatsheet.html">
+ <span class="dropdown-text">Markdown</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../qmd/exam.html"> 
 <span class="menu-text">Final Exam (ECTS)</span></a>
@@ -393,19 +404,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cli-vs-code-equivalents" id="toc-cli-vs-code-equivalents" class="nav-link active" data-scroll-target="#cli-vs-code-equivalents">CLI ↔︎ VS Code Equivalents</a></li>
-  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
-  <li><a href="#create-a-repository" id="toc-create-a-repository" class="nav-link" data-scroll-target="#create-a-repository">Create a Repository</a></li>
-  <li><a href="#the-core-workflow" id="toc-the-core-workflow" class="nav-link" data-scroll-target="#the-core-workflow">The Core Workflow</a></li>
-  <li><a href="#inspecting-changes" id="toc-inspecting-changes" class="nav-link" data-scroll-target="#inspecting-changes">Inspecting Changes</a></li>
-  <li><a href="#branching" id="toc-branching" class="nav-link" data-scroll-target="#branching">Branching</a></li>
-  <li><a href="#undoing-things" id="toc-undoing-things" class="nav-link" data-scroll-target="#undoing-things">Undoing Things</a></li>
-  <li><a href="#history-navigation" id="toc-history-navigation" class="nav-link" data-scroll-target="#history-navigation">History &amp; Navigation</a></li>
-  <li><a href="#connecting-to-github" id="toc-connecting-to-github" class="nav-link" data-scroll-target="#connecting-to-github">Connecting to GitHub</a></li>
-  <li><a href="#collaboration-workflow" id="toc-collaboration-workflow" class="nav-link" data-scroll-target="#collaboration-workflow">Collaboration Workflow</a></li>
-  <li><a href="#gitignore" id="toc-gitignore" class="nav-link" data-scroll-target="#gitignore">.gitignore</a></li>
-  <li><a href="#quick-reference-table" id="toc-quick-reference-table" class="nav-link" data-scroll-target="#quick-reference-table">Quick Reference Table</a></li>
-  <li><a href="#markdown-quick-reference" id="toc-markdown-quick-reference" class="nav-link" data-scroll-target="#markdown-quick-reference">Markdown Quick Reference</a></li>
+  <li><a href="#headings" id="toc-headings" class="nav-link active" data-scroll-target="#headings">Headings</a></li>
+  <li><a href="#emphasis" id="toc-emphasis" class="nav-link" data-scroll-target="#emphasis">Emphasis</a></li>
+  <li><a href="#blockquotes" id="toc-blockquotes" class="nav-link" data-scroll-target="#blockquotes">Blockquotes</a></li>
+  <li><a href="#unordered-lists" id="toc-unordered-lists" class="nav-link" data-scroll-target="#unordered-lists">Unordered lists</a></li>
+  <li><a href="#ordered-lists" id="toc-ordered-lists" class="nav-link" data-scroll-target="#ordered-lists">Ordered lists</a></li>
+  <li><a href="#nested-lists" id="toc-nested-lists" class="nav-link" data-scroll-target="#nested-lists">Nested lists</a></li>
+  <li><a href="#task-lists-github-flavored" id="toc-task-lists-github-flavored" class="nav-link" data-scroll-target="#task-lists-github-flavored">Task lists (GitHub-flavored)</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  <li><a href="#reference-style-links" id="toc-reference-style-links" class="nav-link" data-scroll-target="#reference-style-links">Reference-style links</a></li>
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images">Images</a></li>
+  <li><a href="#inline-code" id="toc-inline-code" class="nav-link" data-scroll-target="#inline-code">Inline code</a></li>
+  <li><a href="#fenced-code-blocks" id="toc-fenced-code-blocks" class="nav-link" data-scroll-target="#fenced-code-blocks">Fenced code blocks</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a></li>
+  <li><a href="#table-alignment" id="toc-table-alignment" class="nav-link" data-scroll-target="#table-alignment">Table alignment</a></li>
+  <li><a href="#horizontal-rule" id="toc-horizontal-rule" class="nav-link" data-scroll-target="#horizontal-rule">Horizontal rule</a></li>
+  <li><a href="#line-breaks" id="toc-line-breaks" class="nav-link" data-scroll-target="#line-breaks">Line breaks</a></li>
+  <li><a href="#footnotes-github-flavored" id="toc-footnotes-github-flavored" class="nav-link" data-scroll-target="#footnotes-github-flavored">Footnotes (GitHub-flavored)</a></li>
+  <li><a href="#emoji-shortcodes-github-flavored" id="toc-emoji-shortcodes-github-flavored" class="nav-link" data-scroll-target="#emoji-shortcodes-github-flavored">Emoji shortcodes (GitHub-flavored)</a></li>
+  <li><a href="#mentions-and-issue-references-github-only" id="toc-mentions-and-issue-references-github-only" class="nav-link" data-scroll-target="#mentions-and-issue-references-github-only">Mentions and issue references (GitHub only)</a></li>
   </ul>
 </nav>
     </div>
@@ -415,7 +432,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git Cheat Sheet</h1>
+<h1 class="title">Markdown Cheat Sheet</h1>
 </div>
 
 
@@ -432,226 +449,393 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>A quick reference for all commands covered in the course.</p>
+<p>Every Markdown feature you’re likely to need on GitHub, with the raw syntax on the left and how it actually renders on the right.</p>
 <hr>
-<section id="cli-vs-code-equivalents" class="level2">
-<h2 class="anchored" data-anchor-id="cli-vs-code-equivalents">CLI ↔︎ VS Code Equivalents</h2>
-<p>You don’t have to choose one or the other — most people mix both.</p>
+<section id="headings" class="level2">
+<h2 class="anchored" data-anchor-id="headings">Headings</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Heading 1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Heading 2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Heading 3</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Heading 4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<section id="heading-1" class="level1">
+<h1>Heading 1</h1>
+<section id="heading-2" class="level2">
+<h2 class="anchored" data-anchor-id="heading-2">Heading 2</h2>
+<section id="heading-3" class="level3">
+<h3 class="anchored" data-anchor-id="heading-3">Heading 3</h3>
+<section id="heading-4" class="level4">
+<h4 class="anchored" data-anchor-id="heading-4">Heading 4</h4>
+</section>
+</section>
+</section>
+</section>
+</div>
+</div>
+<hr>
+</section>
+<section id="emphasis" class="level2">
+<h2 class="anchored" data-anchor-id="emphasis">Emphasis</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>**bold text**</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>*italic text*</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>***bold and italic***</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>~~strikethrough~~</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<p><strong>bold text</strong></p>
+<p><em>italic text</em></p>
+<p><strong><em>bold and italic</em></strong></p>
+<p><del>strikethrough</del></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="blockquotes" class="level2">
+<h2 class="anchored" data-anchor-id="blockquotes">Blockquotes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; This is a quote.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; It can span multiple lines.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<blockquote class="blockquote">
+<p>This is a quote.</p>
+<p>It can span multiple lines.</p>
+</blockquote>
+</div>
+</div>
+<hr>
+</section>
+<section id="unordered-lists" class="level2">
+<h2 class="anchored" data-anchor-id="unordered-lists">Unordered lists</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>First item</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Second item</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Third item</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<ul>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="ordered-lists" class="level2">
+<h2 class="anchored" data-anchor-id="ordered-lists">Ordered lists</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>First step</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Second step</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Third step</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<ol type="1">
+<li>First step</li>
+<li>Second step</li>
+<li>Third step</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="nested-lists" class="level2">
+<h2 class="anchored" data-anchor-id="nested-lists">Nested lists</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Module 1</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Concepts</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>GitHub basics</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Module 2</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Local Git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<ul>
+<li>Module 1
+<ul>
+<li>Concepts</li>
+<li>GitHub basics</li>
+</ul></li>
+<li>Module 2
+<ul>
+<li>Local Git</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="task-lists-github-flavored" class="level2">
+<h2 class="anchored" data-anchor-id="task-lists-github-flavored">Task lists (GitHub-flavored)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Create GitHub account</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Write README</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Open a Pull Request</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Create GitHub account</label></li>
+<li><label><input type="checkbox" checked="">Write README</label></li>
+<li><label><input type="checkbox">Open a Pull Request</label></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">link text</span><span class="co">](https://github.com)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">link with title</span><span class="co">](https://github.com "GitHub")</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://github.com&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<p><a href="https://github.com">link text</a></p>
+<p><a href="https://github.com" title="GitHub">link with title</a></p>
+<p><a href="https://github.com" class="uri">https://github.com</a></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="reference-style-links" class="level2">
+<h2 class="anchored" data-anchor-id="reference-style-links">Reference-style links</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Check out <span class="co">[</span><span class="ot">GitHub</span><span class="co">][gh]</span> for more.</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[gh]: https://github.com</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<p>Check out <a href="https://github.com">GitHub</a> for more.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="images" class="level2">
+<h2 class="anchored" data-anchor-id="images">Images</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Git logo](../assets/images/head-pointer.png)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/images/head-pointer.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Git logo</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="inline-code" class="level2">
+<h2 class="anchored" data-anchor-id="inline-code">Inline code</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Run <span class="in">`git status`</span> to check your repository.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<p>Run <code>git status</code> to check your repository.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="fenced-code-blocks" class="level2">
+<h2 class="anchored" data-anchor-id="fenced-code-blocks">Fenced code blocks</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"hello"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"hello"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<hr>
+</section>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables">Tables</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Module <span class="pp">|</span> Topic       <span class="pp">|</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------|-------------|</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1      <span class="pp">|</span> Concepts    <span class="pp">|</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2      <span class="pp">|</span> Local Git   <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 82%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Terminal</th>
-<th>VS Code (Source Control panel, <code>Ctrl+Shift+G</code>)</th>
+<th>Module</th>
+<th>Topic</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>git status</code></td>
-<td>“Changes” list, updates live</td>
+<td>1</td>
+<td>Concepts</td>
 </tr>
 <tr class="even">
-<td><code>git add &lt;file&gt;</code></td>
-<td>Hover file → click <strong>+</strong></td>
-</tr>
-<tr class="odd">
-<td><code>git diff</code></td>
-<td>Click a file under “Changes” → side-by-side view</td>
-</tr>
-<tr class="even">
-<td><code>git commit -m "msg"</code></td>
-<td>Type message in the box → click <strong>✓ Commit</strong></td>
-</tr>
-<tr class="odd">
-<td><code>git push</code> / <code>git pull</code></td>
-<td>Click the <strong>sync icon</strong> in the status bar</td>
-</tr>
-<tr class="even">
-<td><code>git checkout -b &lt;name&gt;</code></td>
-<td>Click branch name (bottom-left) → <strong>Create new branch</strong></td>
-</tr>
-<tr class="odd">
-<td>resolve conflict markers</td>
-<td>Click <strong>Accept Current / Incoming / Both</strong> buttons</td>
+<td>2</td>
+<td>Local Git</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <hr>
 </section>
-<section id="setup" class="level2">
-<h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"email@example.com"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--list</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="create-a-repository" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-repository">Create a Repository</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init                 <span class="co"># new local repo in current directory</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>url<span class="op">&gt;</span>          <span class="co"># copy a remote repo to your machine</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="the-core-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="the-core-workflow">The Core Workflow</h2>
-<pre><code>[working directory] --git add--&gt; [staging area] --git commit--&gt; [repository]</code></pre>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status               <span class="co"># what has changed?</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>file<span class="op">&gt;</span>           <span class="co"># stage a specific file</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span>            <span class="co"># stage all changes</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"message"</span>  <span class="co"># save staged changes with a message</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log                  <span class="co"># show full commit history</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span>        <span class="co"># compact one-line history</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="inspecting-changes" class="level2">
-<h2 class="anchored" data-anchor-id="inspecting-changes">Inspecting Changes</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff                      <span class="co"># working directory vs staging area</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="at">--staged</span>             <span class="co"># staging area vs last commit</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff HEAD                 <span class="co"># working directory vs last commit</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff <span class="op">&lt;</span>hash1<span class="op">&gt;</span> <span class="op">&lt;</span>hash2<span class="op">&gt;</span>      <span class="co"># compare two commits</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="branching" class="level2">
-<h2 class="anchored" data-anchor-id="branching">Branching</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch                    <span class="co"># list branches</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="op">&lt;</span>name<span class="op">&gt;</span>             <span class="co"># create a new branch</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>name<span class="op">&gt;</span>           <span class="co"># switch to a branch</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> <span class="op">&lt;</span>name<span class="op">&gt;</span>        <span class="co"># create and switch in one step</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>branch<span class="op">&gt;</span>            <span class="co"># merge branch into current branch</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>name<span class="op">&gt;</span>          <span class="co"># delete a merged branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="undoing-things" class="level2">
-<h2 class="anchored" data-anchor-id="undoing-things">Undoing Things</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="op">&lt;</span>file<span class="op">&gt;</span>              <span class="co"># unstage a file</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--soft</span> HEAD~1       <span class="co"># undo last commit, keep changes staged</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD~1       <span class="co"># undo last commit, discard all changes</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--</span> <span class="op">&lt;</span>file<span class="op">&gt;</span>        <span class="co"># discard changes in working directory</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="history-navigation" class="level2">
-<h2 class="anchored" data-anchor-id="history-navigation">History &amp; Navigation</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span>             <span class="co"># compact history with hashes</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>hash<span class="op">&gt;</span>           <span class="co"># view a specific commit (detached HEAD)</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main             <span class="co"># return to the latest main branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="connecting-to-github" class="level2">
-<h2 class="anchored" data-anchor-id="connecting-to-github">Connecting to GitHub</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin <span class="op">&lt;</span>url<span class="op">&gt;</span>   <span class="co"># link local repo to GitHub</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span>                 <span class="co"># show remote connections</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main       <span class="co"># push and set upstream (first time)</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push                      <span class="co"># push commits to GitHub</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull                      <span class="co"># fetch + merge from GitHub</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch                     <span class="co"># download without merging</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="collaboration-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="collaboration-workflow">Collaboration Workflow</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fork on GitHub, then:</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>your-fork-url<span class="op">&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> my-feature</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># make changes...</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">--all</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"describe what changed"</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin my-feature</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Open a Pull Request on GitHub</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
-</section>
-<section id="gitignore" class="level2">
-<h2 class="anchored" data-anchor-id="gitignore">.gitignore</h2>
-<p>Create a <code>.gitignore</code> file in your repo root:</p>
-<pre><code>*.log           # ignore all .log files
-data/raw/       # ignore a whole folder
-secrets.txt     # ignore a specific file</code></pre>
-<hr>
-</section>
-<section id="quick-reference-table" class="level2">
-<h2 class="anchored" data-anchor-id="quick-reference-table">Quick Reference Table</h2>
+<section id="table-alignment" class="level2">
+<h2 class="anchored" data-anchor-id="table-alignment">Table alignment</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Left <span class="pp">|</span> Center <span class="pp">|</span> Right <span class="pp">|</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="pp">|:-----|:------:|------:|</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> a    <span class="pp">|</span> b      <span class="pp">|</span> c     <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Command</th>
-<th>What it does</th>
+<th style="text-align: left;">Left</th>
+<th style="text-align: center;">Center</th>
+<th style="text-align: right;">Right</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>git status</code></td>
-<td>Always run this first — shows what changed</td>
-</tr>
-<tr class="even">
-<td><code>git add --all</code></td>
-<td>Stage everything</td>
-</tr>
-<tr class="odd">
-<td><code>git commit -m "msg"</code></td>
-<td>Save a snapshot</td>
-</tr>
-<tr class="even">
-<td><code>git log --oneline</code></td>
-<td>Quick history overview</td>
-</tr>
-<tr class="odd">
-<td><code>git diff</code></td>
-<td>What did I change since last stage?</td>
-</tr>
-<tr class="even">
-<td><code>git push</code></td>
-<td>Send commits to GitHub</td>
-</tr>
-<tr class="odd">
-<td><code>git pull</code></td>
-<td>Get latest from GitHub</td>
-</tr>
-<tr class="even">
-<td><code>git checkout -b name</code></td>
-<td>New branch + switch</td>
-</tr>
-<tr class="odd">
-<td><code>git merge branch</code></td>
-<td>Merge into current branch</td>
-</tr>
-<tr class="even">
-<td><code>git stash</code></td>
-<td>Temporarily save uncommitted work</td>
-</tr>
-<tr class="odd">
-<td><code>git stash pop</code></td>
-<td>Restore stashed work</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: center;">b</td>
+<td style="text-align: right;">c</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <hr>
 </section>
-<section id="markdown-quick-reference" class="level2">
-<h2 class="anchored" data-anchor-id="markdown-quick-reference">Markdown Quick Reference</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Heading 1</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Heading 2</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>**bold**   *italic*   <span class="in">`inline code`</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>bullet list item</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>numbered list item</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">link text</span><span class="co">](https://url.com)</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="al">![image alt text](path/to/image.png)</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Col 1 <span class="pp">|</span> Col 2 <span class="pp">|</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------|-------|</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> a     <span class="pp">|</span> b     <span class="pp">|</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>code block</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>```</p>
+<section id="horizontal-rule" class="level2">
+<h2 class="anchored" data-anchor-id="horizontal-rule">Horizontal rule</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Above the line</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>Below the line</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<p>Above the line</p>
+<hr>
+<p>Below the line</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="line-breaks" class="level2">
+<h2 class="anchored" data-anchor-id="line-breaks">Line breaks</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>First line.\</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Second line, no blank line between.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<p>First line.<br>
+Second line, no blank line between.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="footnotes-github-flavored" class="level2">
+<h2 class="anchored" data-anchor-id="footnotes-github-flavored">Footnotes (GitHub-flavored)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Git was created in 2005<span class="ot">[^1]</span>.</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>By Linus Torvalds.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong></p>
+<p>Git was created in 2005<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="emoji-shortcodes-github-flavored" class="level2">
+<h2 class="anchored" data-anchor-id="emoji-shortcodes-github-flavored">Emoji shortcodes (GitHub-flavored)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Raw</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Nice work! <span class="sc">:tada:</span> <span class="sc">:rocket:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Rendered</strong> (as GitHub displays it)</p>
+<p>Nice work! 🎉 🚀</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="mentions-and-issue-references-github-only" class="level2">
+<h2 class="anchored" data-anchor-id="mentions-and-issue-references-github-only">Mentions and issue references (GitHub only)</h2>
+<p>These only become clickable links when viewed <strong>on GitHub.com</strong> — they render as plain text everywhere else (including this page).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>@dktanwar please review</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>See issue #12 for details</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On GitHub, <code>@username</code> notifies that person, and <code>#12</code> automatically links to issue or PR number 12 in the same repository.</p>
+</div>
+</div>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>By Linus Torvalds.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

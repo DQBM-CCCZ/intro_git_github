@@ -3,7 +3,7 @@ title: "Git Cheat Sheet"
 format: html
 ---
 
-A quick reference for all commands covered in the course.
+A quick reference for all Git commands covered in the course.
 
 ---
 
@@ -159,29 +159,3 @@ secrets.txt     # ignore a specific file
 | `git merge branch` | Merge into current branch |
 | `git stash` | Temporarily save uncommitted work |
 | `git stash pop` | Restore stashed work |
-
----
-
-## Markdown Quick Reference
-
-```markdown
-# Heading 1
-## Heading 2
-
-**bold**   *italic*   `inline code`
-
-- bullet list item
-1. numbered list item
-
-[link text](https://url.com)
-
-![image alt text](path/to/image.png)
-
-| Col 1 | Col 2 |
-|-------|-------|
-| a     | b     |
-
-```python
-code block
-```
-```

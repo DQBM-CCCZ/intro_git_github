@@ -31,7 +31,7 @@ The exam link will only accept submissions during this window. You have
 ## Before you start
 
 - Have your name and email ready — these are required to identify your submission
-- You do **not** need any reference material, but the [Cheat Sheet](cheatsheet.qmd) covers everything fairly
+- You do **not** need any reference material, but the [Git Cheat Sheet](git_cheatsheet.qmd) covers everything fairly
 - There is no time limit once you open the form, but don't leave it open indefinitely — submit when done
 
 ---
