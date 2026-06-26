@@ -50,7 +50,7 @@ website:
       - href: qmd/cheatsheet.qmd
         text: Cheat Sheet
       - href: qmd/exam.qmd
-        text: Final Exam
+        text: "Final Exam (ECTS)"
     right:
       - icon: github
         href: https://github.com/DQBM-SIB/intro_git_github

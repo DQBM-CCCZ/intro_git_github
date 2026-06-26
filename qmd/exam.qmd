@@ -5,6 +5,12 @@ format: html
 
 ## Introduction to Git & GitHub — Final Exam
 
+::: {.callout-note}
+This exam is **only required if you want to obtain 0.25 ECTS credits** for
+this course. If you're not seeking ECTS credit, you're welcome to skip it —
+attending the course and completing the exercises is enough.
+:::
+
 A 20-question multiple-choice exam covering everything from today's course:
 concepts & GitHub basics, local Git, branching & history, and GitHub
 collaboration.
