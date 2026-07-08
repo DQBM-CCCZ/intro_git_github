@@ -256,13 +256,12 @@ Decide and complete:
 
 ```{mermaid}
 graph TD
-    A["Choose: Keep<br/>yours, theirs,<br/>or both?"] --> B["Delete unwanted<br/>sections &<br/>remove markers"]
-    B --> C["git add"]
-    C --> D["git commit<br/>-m 'resolved'"]
-    D --> E["✅ Merge<br/>complete"]
+    A["Choose: Keep<br/>yours/theirs/both?"] --> B["Remove markers"]
+    B --> C["git add &<br/>git commit"]
+    C --> D["✅ Complete"]
     
     style A fill:#fff9c4
-    style E fill:#c8e6c9
+    style D fill:#c8e6c9
 ```
 
 ---

@@ -102,7 +102,7 @@
     "href": "slides/slide_module_4.html#merge-conflict-resolution-part-2",
     "title": "Module 4: GitHub Collaboration",
     "section": "Merge conflict resolution (Part 2)",
-    "text": "Merge conflict resolution (Part 2)\nDecide and complete:\n\n\n\n\n\ngraph TD\n    A[\"Choose: Keep&lt;br/&gt;yours, theirs,&lt;br/&gt;or both?\"] --&gt; B[\"Delete unwanted&lt;br/&gt;sections &&lt;br/&gt;remove markers\"]\n    B --&gt; C[\"git add\"]\n    C --&gt; D[\"git commit&lt;br/&gt;-m 'resolved'\"]\n    D --&gt; E[\"✅ Merge&lt;br/&gt;complete\"]\n    \n    style A fill:#fff9c4\n    style E fill:#c8e6c9"
+    "text": "Merge conflict resolution (Part 2)\nDecide and complete:\n\n\n\n\n\ngraph TD\n    A[\"Choose: Keep&lt;br/&gt;yours/theirs/both?\"] --&gt; B[\"Remove markers\"]\n    B --&gt; C[\"git add &&lt;br/&gt;git commit\"]\n    C --&gt; D[\"✅ Complete\"]\n    \n    style A fill:#fff9c4\n    style D fill:#c8e6c9"
   },
   {
     "objectID": "slides/slide_module_4.html#github-issues",
