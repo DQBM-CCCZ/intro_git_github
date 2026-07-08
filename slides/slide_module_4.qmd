@@ -5,7 +5,7 @@ format:
   revealjs:
     controls-layout: bottom-right
     controls-tutorial: true
-    footer: "Introduction to Git & GitHub — SIB/UZH"
+    footer: "Introduction to Git & GitHub"
     theme: default
     highlight-style: github
     title-slide-attributes:
