@@ -205,16 +205,14 @@ Planning and setup:
 
 ```{mermaid}
 graph TD
-    A["🆕 Create Issue<br/>Title + Description"] --> B["📋 Issue Backlog"]
-    B --> C["👤 Assign to<br/>yourself"]
-    C --> D["🔖 Add labels<br/>bug, feature, docs"]
-    D --> E["🏗️ In Progress"]
-    E --> F["💻 Create branch<br/>git checkout -b fix-X"]
+    A["🆕 Create Issue"] --> B["👤 Assign &<br/>Add labels"]
+    B --> C["🏗️ In Progress"]
+    C --> D["💻 Create branch<br/>git checkout -b fix-X"]
     
     style A fill:#ffebee
     style B fill:#fff9c4
-    style E fill:#fff3e0
-    style F fill:#e1f5fe
+    style C fill:#fff3e0
+    style D fill:#e1f5fe
 ```
 
 ---
