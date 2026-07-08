@@ -1377,5 +1377,47 @@
     "title": "Module 3: Branching & History",
     "section": "Ready for Module 4?",
     "text": "Ready for Module 4?\nYou’ve mastered local workflows and branches. Everything so far is on your machine.\nNext: move to GitHub. Share your work online, collaborate with others, and learn the professional Pull Request workflow.\nYour code is about to meet the world. 🌐"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#pull-request-workflow-part-1",
+    "href": "slides/slide_module_4.html#pull-request-workflow-part-1",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "Pull Request workflow (Part 1)",
+    "text": "Pull Request workflow (Part 1)\nSetup and branch:\n\n\n\n\n\ngraph LR\n    A[\"Your Fork&lt;br/&gt;on GitHub\"] --&gt;|git clone| B[\"Local Machine\"]\n    B --&gt;|git checkout&lt;br/&gt;-b feature| C[\"Feature Branch\"]\n    C --&gt;|edit files&lt;br/&gt;git add&lt;br/&gt;git commit| D[\"Commits ready\"]\n    D --&gt;|git push&lt;br/&gt;origin feature| E[\"Push to Fork\"]\n    \n    style A fill:#e3f2fd\n    style B fill:#f3e5f5\n    style C fill:#e8f5e9\n    style E fill:#fff3e0"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#pull-request-workflow-part-2",
+    "href": "slides/slide_module_4.html#pull-request-workflow-part-2",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "Pull Request workflow (Part 2)",
+    "text": "Pull Request workflow (Part 2)\nReview and merge:\n\n\n\n\n\ngraph LR\n    A[\"Pull Request&lt;br/&gt;on Main Repo\"] --&gt;|Code Review| B{\"Approved?\"}\n    B --&gt;|Yes| C[\"Merge to main\"]\n    B --&gt;|No| D[\"Revise & push&lt;br/&gt;to feature\"]\n    D --&gt;|Updates show&lt;br/&gt;in PR| A\n    C --&gt;|git checkout main&lt;br/&gt;git pull| E[\"Local&lt;br/&gt;up-to-date\"]\n    \n    style A fill:#fff3e0\n    style C fill:#c8e6c9\n    style E fill:#bbdefb"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#github-issues-workflow-part-1",
+    "href": "slides/slide_module_4.html#github-issues-workflow-part-1",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "GitHub Issues workflow (Part 1)",
+    "text": "GitHub Issues workflow (Part 1)\nPlanning and setup:\n\n\n\n\n\ngraph TD\n    A[\"🆕 Create Issue&lt;br/&gt;Title + Description\"] --&gt; B[\"📋 Issue Backlog\"]\n    B --&gt; C[\"👤 Assign to&lt;br/&gt;yourself\"]\n    C --&gt; D[\"🔖 Add labels&lt;br/&gt;bug, feature, docs\"]\n    D --&gt; E[\"🏗️ In Progress\"]\n    E --&gt; F[\"💻 Create branch&lt;br/&gt;git checkout -b fix-X\"]\n    \n    style A fill:#ffebee\n    style B fill:#fff9c4\n    style E fill:#fff3e0\n    style F fill:#e1f5fe"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#github-issues-workflow-part-2",
+    "href": "slides/slide_module_4.html#github-issues-workflow-part-2",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "GitHub Issues workflow (Part 2)",
+    "text": "GitHub Issues workflow (Part 2)\nCode and closure:\n\n\n\n\n\ngraph TD\n    A[\"✅ Commit work&lt;br/&gt;closes #issue-number\"] --&gt; B[\"🔀 Create PR\"]\n    B --&gt; C[\"✔️ Review&lt;br/&gt;& Merge\"]\n    C --&gt; D[\"🎯 Issue&lt;br/&gt;Auto-closes\"]\n    \n    style A fill:#e1f5fe\n    style D fill:#c8e6c9"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#merge-conflict-resolution-part-1",
+    "href": "slides/slide_module_4.html#merge-conflict-resolution-part-1",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "Merge conflict resolution (Part 1)",
+    "text": "Merge conflict resolution (Part 1)\nDetect and inspect:\n\n\n\n\n\ngraph TD\n    A[\"⚠️ Two branches&lt;br/&gt;changed same lines\"] --&gt; B[\"❌ git merge fails\"]\n    B --&gt; C[\"📖 Open conflicted&lt;br/&gt;file\"]\n    C --&gt; D[\"See conflict markers:&lt;br/&gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD&lt;br/&gt;your changes&lt;br/&gt;=======&lt;br/&gt;their changes&lt;br/&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\"]\n    \n    style A fill:#ffcdd2\n    style B fill:#ffcdd2\n    style D fill:#fff9c4"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#merge-conflict-resolution-part-2",
+    "href": "slides/slide_module_4.html#merge-conflict-resolution-part-2",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "Merge conflict resolution (Part 2)",
+    "text": "Merge conflict resolution (Part 2)\nDecide and complete:\n\n\n\n\n\ngraph TD\n    A[\"Choose: Keep&lt;br/&gt;yours, theirs,&lt;br/&gt;or both?\"] --&gt; B[\"Delete unwanted&lt;br/&gt;sections &&lt;br/&gt;remove markers\"]\n    B --&gt; C[\"git add\"]\n    C --&gt; D[\"git commit&lt;br/&gt;-m 'resolved'\"]\n    D --&gt; E[\"✅ Merge&lt;br/&gt;complete\"]\n    \n    style A fill:#fff9c4\n    style E fill:#c8e6c9"
   }
 ]

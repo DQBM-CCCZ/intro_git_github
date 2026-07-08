@@ -352,9 +352,9 @@ Deepak Tanwar
 <span id="cb8-8"><a></a><span class="co"># 7. after merge: git checkout main &amp;&amp; git pull</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This is the complete workflow for collaborating on GitHub.</p>
 </section>
-<section id="pull-request-workflow" class="slide level2">
-<h2>Pull Request workflow</h2>
-<p>Visual guide to the Fork → Branch → PR → Merge cycle:</p>
+<section id="pull-request-workflow-part-1" class="slide level2">
+<h2>Pull Request workflow (Part 1)</h2>
+<p>Setup and branch:</p>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -362,21 +362,14 @@ Deepak Tanwar
 <div>
 <pre class="mermaid mermaid-js">graph LR
     A["Your Fork&lt;br/&gt;on GitHub"] --&gt;|git clone| B["Local Machine"]
-    B --&gt;|git checkout -b feature| C["Feature Branch"]
-    C --&gt;|make changes| D["Committed Changes"]
-    D --&gt;|git push origin feature| E["Push to Fork"]
-    E --&gt;|Create PR| F["Pull Request&lt;br/&gt;on Main Repo"]
-    F --&gt;|Code Review| G{"Approved?"}
-    G --&gt;|Yes| H["Merge to main"]
-    G --&gt;|No| C
-    H --&gt;|git pull| I["Update Your Local"]
+    B --&gt;|git checkout&lt;br/&gt;-b feature| C["Feature Branch"]
+    C --&gt;|edit files&lt;br/&gt;git add&lt;br/&gt;git commit| D["Commits ready"]
+    D --&gt;|git push&lt;br/&gt;origin feature| E["Push to Fork"]
     
     style A fill:#e3f2fd
     style B fill:#f3e5f5
     style C fill:#e8f5e9
-    style F fill:#fff3e0
-    style H fill:#c8e6c9
-    style I fill:#bbdefb
+    style E fill:#fff3e0
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -384,9 +377,34 @@ Deepak Tanwar
 </div>
 </div>
 </section>
-<section id="github-issues-workflow" class="slide level2">
-<h2>GitHub Issues workflow</h2>
-<p>Track, assign, and close work:</p>
+<section id="pull-request-workflow-part-2" class="slide level2">
+<h2>Pull Request workflow (Part 2)</h2>
+<p>Review and merge:</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    A["Pull Request&lt;br/&gt;on Main Repo"] --&gt;|Code Review| B{"Approved?"}
+    B --&gt;|Yes| C["Merge to main"]
+    B --&gt;|No| D["Revise &amp; push&lt;br/&gt;to feature"]
+    D --&gt;|Updates show&lt;br/&gt;in PR| A
+    C --&gt;|git checkout main&lt;br/&gt;git pull| E["Local&lt;br/&gt;up-to-date"]
+    
+    style A fill:#fff3e0
+    style C fill:#c8e6c9
+    style E fill:#bbdefb
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="github-issues-workflow-part-1" class="slide level2">
+<h2>GitHub Issues workflow (Part 1)</h2>
+<p>Planning and setup:</p>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -394,20 +412,15 @@ Deepak Tanwar
 <div>
 <pre class="mermaid mermaid-js">graph TD
     A["🆕 Create Issue&lt;br/&gt;Title + Description"] --&gt; B["📋 Issue Backlog"]
-    B --&gt; C["👤 Assign to yourself&lt;br/&gt;or teammate"]
-    C --&gt; D["🔖 Add labels&lt;br/&gt;bug, feature, docs, etc"]
+    B --&gt; C["👤 Assign to&lt;br/&gt;yourself"]
+    C --&gt; D["🔖 Add labels&lt;br/&gt;bug, feature, docs"]
     D --&gt; E["🏗️ In Progress"]
     E --&gt; F["💻 Create branch&lt;br/&gt;git checkout -b fix-X"]
-    F --&gt; G["✅ Commit work&lt;br/&gt;closes #issue-number"]
-    G --&gt; H["🔀 Create PR"]
-    H --&gt; I["✔️ Review &amp; Merge"]
-    I --&gt; J["🎯 Issue Auto-closes"]
     
     style A fill:#ffebee
     style B fill:#fff9c4
     style E fill:#fff3e0
-    style H fill:#e1f5fe
-    style J fill:#c8e6c9
+    style F fill:#e1f5fe
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -415,33 +428,67 @@ Deepak Tanwar
 </div>
 </div>
 </section>
-<section id="merge-conflict-resolution" class="slide level2">
-<h2>Merge conflict resolution</h2>
-<p>Step-by-step visual guide:</p>
+<section id="github-issues-workflow-part-2" class="slide level2">
+<h2>GitHub Issues workflow (Part 2)</h2>
+<p>Code and closure:</p>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
 <pre class="mermaid mermaid-js">graph TD
-    A["Conflict: Two branches&lt;br/&gt;changed same lines"] --&gt; B["❌ git merge fails"]
-    B --&gt; C["📖 Open conflicted file"]
-    C --&gt; D["See conflict markers:&lt;br/&gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD&lt;br/&gt;your changes&lt;br/&gt;=======&lt;br/&gt;their changes&lt;br/&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-name"]
-    D --&gt; E{"Decide: Keep&lt;br/&gt;yours, theirs,&lt;br/&gt;or both?"}
-    E --&gt;|Keep yours| F["Delete their section"]
-    E --&gt;|Keep theirs| G["Delete your section"]
-    E --&gt;|Keep both| H["Keep both, remove markers"]
-    F --&gt; I["Remove conflict markers&lt;br/&gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; ======= &gt;&gt;&gt;&gt;&gt;&gt;&gt;"]
-    G --&gt; I
-    H --&gt; I
-    I --&gt; J["git add resolved_file"]
-    J --&gt; K["git commit -m 'resolved conflict'"]
-    K --&gt; L["✅ Merge complete"]
+    A["✅ Commit work&lt;br/&gt;closes #issue-number"] --&gt; B["🔀 Create PR"]
+    B --&gt; C["✔️ Review&lt;br/&gt;&amp; Merge"]
+    C --&gt; D["🎯 Issue&lt;br/&gt;Auto-closes"]
+    
+    style A fill:#e1f5fe
+    style D fill:#c8e6c9
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="merge-conflict-resolution-part-1" class="slide level2">
+<h2>Merge conflict resolution (Part 1)</h2>
+<p>Detect and inspect:</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    A["⚠️ Two branches&lt;br/&gt;changed same lines"] --&gt; B["❌ git merge fails"]
+    B --&gt; C["📖 Open conflicted&lt;br/&gt;file"]
+    C --&gt; D["See conflict markers:&lt;br/&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD&lt;br/&gt;your changes&lt;br/&gt;=======&lt;br/&gt;their changes&lt;br/&gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;"]
     
     style A fill:#ffcdd2
     style B fill:#ffcdd2
     style D fill:#fff9c4
-    style L fill:#c8e6c9
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="merge-conflict-resolution-part-2" class="slide level2">
+<h2>Merge conflict resolution (Part 2)</h2>
+<p>Decide and complete:</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    A["Choose: Keep&lt;br/&gt;yours, theirs,&lt;br/&gt;or both?"] --&gt; B["Delete unwanted&lt;br/&gt;sections &amp;&lt;br/&gt;remove markers"]
+    B --&gt; C["git add"]
+    C --&gt; D["git commit&lt;br/&gt;-m 'resolved'"]
+    D --&gt; E["✅ Merge&lt;br/&gt;complete"]
+    
+    style A fill:#fff9c4
+    style E fill:#c8e6c9
 </pre>
 </div>
 <p></p></figure><p></p>
