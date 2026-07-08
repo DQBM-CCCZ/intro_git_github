@@ -99,6 +99,6 @@ Access slides, exercises, cheat sheets, and schedule there.
 
 We thank [Prof. Michael Krauthammer](https://krauthammerlab.ch/authors/michaelkrauthammer/) for supporting this course.
 
-Special thanks to **CCCZ** for providing coffee breaks.
+Special thanks to **CCCZ** — Dr. Maja Zenz and Ms Silke Uflacker — for providing coffee breaks.
 
 ![CCCZ Logo](assets/images/cccz.jpg){width="100px"}

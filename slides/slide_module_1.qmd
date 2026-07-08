@@ -125,6 +125,8 @@ The filename never changes. The **history** does.
 
 A fair question — for a single shared document, Google Docs works fine.
 
+. . .
+
 Git earns its complexity when you have:
 
 - **Code and scripts**, not prose — line-by-line diffs that mean something
@@ -238,7 +240,7 @@ These are the "actions" you take with those places.
 ## Your navigation tool
 
 ::: {.callout-tip}
-Everything from here on is one of these 6 things, or a relationship between two of them. If you ever feel lost, ask: *"which of the 6 am I touching right now?"*
+Everything from here on is one of these 6 things, or a relationship between two of them. If you ever feel lost, ask: *"which of the 6 actions am I touching right now?"*
 :::
 
 ---

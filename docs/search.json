@@ -907,7 +907,7 @@
     "href": "index.html#acknowledgements",
     "title": "Introduction to Git & GitHub",
     "section": "Acknowledgements",
-    "text": "Acknowledgements\n\n\n\n\n\n\n\nWe thank Prof. Michael Krauthammer for supporting this course.\n\n\n\n\n\n\nSpecial thanks to CCCZ for providing coffee breaks."
+    "text": "Acknowledgements\n\n\n\n\n\n\n\nWe thank Prof. Michael Krauthammer for supporting this course.\n\n\n\n\n\n\nSpecial thanks to CCCZ — Dr. Maja Zenz and Ms Silke Uflacker — for providing coffee breaks.\n\n\n:::"
   },
   {
     "objectID": "index.html#teacher-author",
@@ -1145,7 +1145,7 @@
     "href": "slides/slide_module_1.html#why-not-just-use-google-docs",
     "title": "Module 1: Concepts & GitHub",
     "section": "“Why not just use Google Docs?”",
-    "text": "“Why not just use Google Docs?”\nA fair question — for a single shared document, Google Docs works fine.\nGit earns its complexity when you have:\n\nCode and scripts, not prose — line-by-line diffs that mean something\nParallel experiments — try a new analysis approach without breaking the working one (branches)\nExact reproducibility — re-run the exact code that produced Figure 2, six months later"
+    "text": "“Why not just use Google Docs?”\nA fair question — for a single shared document, Google Docs works fine.\n\nGit earns its complexity when you have:\n\nCode and scripts, not prose — line-by-line diffs that mean something\nParallel experiments — try a new analysis approach without breaking the working one (branches)\nExact reproducibility — re-run the exact code that produced Figure 2, six months later"
   },
   {
     "objectID": "slides/slide_module_1.html#why-git-shines",
@@ -1208,7 +1208,7 @@
     "href": "slides/slide_module_1.html#your-navigation-tool",
     "title": "Module 1: Concepts & GitHub",
     "section": "Your navigation tool",
-    "text": "Your navigation tool\n\n\n\n\n\n\nTip\n\n\nEverything from here on is one of these 6 things, or a relationship between two of them. If you ever feel lost, ask: “which of the 6 am I touching right now?”"
+    "text": "Your navigation tool\n\n\n\n\n\n\nTip\n\n\nEverything from here on is one of these 6 things, or a relationship between two of them. If you ever feel lost, ask: “which of the 6 actions am I touching right now?”"
   },
   {
     "objectID": "slides/slide_module_1.html#github-terminologies-core",
