@@ -161,81 +161,110 @@ This is the complete workflow for collaborating on GitHub.
 
 ---
 
-## Pull Request workflow
+## Pull Request workflow (Part 1)
 
-Visual guide to the Fork → Branch → PR → Merge cycle:
+Setup and branch:
 
 ```{mermaid}
 graph LR
     A["Your Fork<br/>on GitHub"] -->|git clone| B["Local Machine"]
-    B -->|git checkout -b feature| C["Feature Branch"]
-    C -->|make changes| D["Committed Changes"]
-    D -->|git push origin feature| E["Push to Fork"]
-    E -->|Create PR| F["Pull Request<br/>on Main Repo"]
-    F -->|Code Review| G{"Approved?"}
-    G -->|Yes| H["Merge to main"]
-    G -->|No| C
-    H -->|git pull| I["Update Your Local"]
+    B -->|git checkout<br/>-b feature| C["Feature Branch"]
+    C -->|edit files<br/>git add<br/>git commit| D["Commits ready"]
+    D -->|git push<br/>origin feature| E["Push to Fork"]
     
     style A fill:#e3f2fd
     style B fill:#f3e5f5
     style C fill:#e8f5e9
-    style F fill:#fff3e0
-    style H fill:#c8e6c9
-    style I fill:#bbdefb
+    style E fill:#fff3e0
 ```
 
 ---
 
-## GitHub Issues workflow
+## Pull Request workflow (Part 2)
 
-Track, assign, and close work:
+Review and merge:
+
+```{mermaid}
+graph LR
+    A["Pull Request<br/>on Main Repo"] -->|Code Review| B{"Approved?"}
+    B -->|Yes| C["Merge to main"]
+    B -->|No| D["Revise & push<br/>to feature"]
+    D -->|Updates show<br/>in PR| A
+    C -->|git checkout main<br/>git pull| E["Local<br/>up-to-date"]
+    
+    style A fill:#fff3e0
+    style C fill:#c8e6c9
+    style E fill:#bbdefb
+```
+
+---
+
+## GitHub Issues workflow (Part 1)
+
+Planning and setup:
 
 ```{mermaid}
 graph TD
     A["🆕 Create Issue<br/>Title + Description"] --> B["📋 Issue Backlog"]
-    B --> C["👤 Assign to yourself<br/>or teammate"]
-    C --> D["🔖 Add labels<br/>bug, feature, docs, etc"]
+    B --> C["👤 Assign to<br/>yourself"]
+    C --> D["🔖 Add labels<br/>bug, feature, docs"]
     D --> E["🏗️ In Progress"]
     E --> F["💻 Create branch<br/>git checkout -b fix-X"]
-    F --> G["✅ Commit work<br/>closes #issue-number"]
-    G --> H["🔀 Create PR"]
-    H --> I["✔️ Review & Merge"]
-    I --> J["🎯 Issue Auto-closes"]
     
     style A fill:#ffebee
     style B fill:#fff9c4
     style E fill:#fff3e0
-    style H fill:#e1f5fe
-    style J fill:#c8e6c9
+    style F fill:#e1f5fe
 ```
 
 ---
 
-## Merge conflict resolution
+## GitHub Issues workflow (Part 2)
 
-Step-by-step visual guide:
+Code and closure:
 
 ```{mermaid}
 graph TD
-    A["Conflict: Two branches<br/>changed same lines"] --> B["❌ git merge fails"]
-    B --> C["📖 Open conflicted file"]
-    C --> D["See conflict markers:<br/><<<<<<< HEAD<br/>your changes<br/>=======<br/>their changes<br/>>>>>>>> branch-name"]
-    D --> E{"Decide: Keep<br/>yours, theirs,<br/>or both?"}
-    E -->|Keep yours| F["Delete their section"]
-    E -->|Keep theirs| G["Delete your section"]
-    E -->|Keep both| H["Keep both, remove markers"]
-    F --> I["Remove conflict markers<br/><<<<<<< ======= >>>>>>>"]
-    G --> I
-    H --> I
-    I --> J["git add resolved_file"]
-    J --> K["git commit -m 'resolved conflict'"]
-    K --> L["✅ Merge complete"]
+    A["✅ Commit work<br/>closes #issue-number"] --> B["🔀 Create PR"]
+    B --> C["✔️ Review<br/>& Merge"]
+    C --> D["🎯 Issue<br/>Auto-closes"]
+    
+    style A fill:#e1f5fe
+    style D fill:#c8e6c9
+```
+
+---
+
+## Merge conflict resolution (Part 1)
+
+Detect and inspect:
+
+```{mermaid}
+graph TD
+    A["⚠️ Two branches<br/>changed same lines"] --> B["❌ git merge fails"]
+    B --> C["📖 Open conflicted<br/>file"]
+    C --> D["See conflict markers:<br/>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br/>your changes<br/>=======<br/>their changes<br/>&gt;&gt;&gt;&gt;&gt;&gt;&gt;"]
     
     style A fill:#ffcdd2
     style B fill:#ffcdd2
     style D fill:#fff9c4
-    style L fill:#c8e6c9
+```
+
+---
+
+## Merge conflict resolution (Part 2)
+
+Decide and complete:
+
+```{mermaid}
+graph TD
+    A["Choose: Keep<br/>yours, theirs,<br/>or both?"] --> B["Delete unwanted<br/>sections &<br/>remove markers"]
+    B --> C["git add"]
+    C --> D["git commit<br/>-m 'resolved'"]
+    D --> E["✅ Merge<br/>complete"]
+    
+    style A fill:#fff9c4
+    style E fill:#c8e6c9
 ```
 
 ---
