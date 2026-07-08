@@ -57,9 +57,18 @@ The private key never leaves your machine. GitHub only ever sees the public key 
 | `Agent refused operation` | SSH agent not running | `eval "$(ssh-agent -s)"` then `ssh-add ~/.ssh/id_ed25519` |
 | Public key not on GitHub | Key not uploaded | Copy public key, paste in [github.com/settings/keys](https://github.com/settings/keys) |
 
-::: {.callout-tip}
-**If none of these work:** Try using HTTPS instead of SSH (`https://github.com/USERNAME/REPO.git`). HTTPS is simpler for first-time users and doesn't require SSH key setup.
-:::
+---
+
+## SSH troubleshooting — fallback
+
+If SSH still doesn't work, use HTTPS instead:
+
+```bash
+git clone https://github.com/USERNAME/REPO.git
+git remote add origin https://github.com/USERNAME/REPO.git
+```
+
+HTTPS is simpler for first-time users and doesn't require SSH key setup.
 
 ---
 

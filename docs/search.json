@@ -18,7 +18,7 @@
     "href": "slides/slide_module_4.html#ssh-troubleshooting",
     "title": "Module 4: GitHub Collaboration",
     "section": "SSH troubleshooting",
-    "text": "SSH troubleshooting\n\n\n\nError\nLikely cause\nSolution\n\n\n\n\nPermission denied\nPrivate key not found\nRun ssh-keygen to create one\n\n\nConnection refused\nFirewall blocking\nTry HTTPS instead: git config --global url.\"https://\".insteadOf git://\n\n\nAgent refused operation\nSSH agent not running\neval \"$(ssh-agent -s)\" then ssh-add ~/.ssh/id_ed25519\n\n\nPublic key not on GitHub\nKey not uploaded\nCopy public key, paste in github.com/settings/keys\n\n\n\n\n\n\n\n\n\nTip\n\n\nIf none of these work: Try using HTTPS instead of SSH (https://github.com/USERNAME/REPO.git). HTTPS is simpler for first-time users and doesn’t require SSH key setup."
+    "text": "SSH troubleshooting\n\n\n\nError\nLikely cause\nSolution\n\n\n\n\nPermission denied\nPrivate key not found\nRun ssh-keygen to create one\n\n\nConnection refused\nFirewall blocking\nTry HTTPS instead: git config --global url.\"https://\".insteadOf git://\n\n\nAgent refused operation\nSSH agent not running\neval \"$(ssh-agent -s)\" then ssh-add ~/.ssh/id_ed25519\n\n\nPublic key not on GitHub\nKey not uploaded\nCopy public key, paste in github.com/settings/keys"
   },
   {
     "objectID": "slides/slide_module_4.html#connecting-local-to-remote",
@@ -1370,5 +1370,12 @@
     "title": "Module 3: Branching & History",
     "section": "Ready for Module 4?",
     "text": "Ready for Module 4?\nYou’ve mastered local workflows and branches. Everything so far is on your machine.\nNext: move to GitHub. Share your work online, collaborate with others, and learn the professional Pull Request workflow.\nYour code is about to meet the world. 🌐"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#ssh-troubleshooting-fallback",
+    "href": "slides/slide_module_4.html#ssh-troubleshooting-fallback",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "SSH troubleshooting — fallback",
+    "text": "SSH troubleshooting — fallback\nIf SSH still doesn’t work, use HTTPS instead:\ngit clone https://github.com/USERNAME/REPO.git\ngit remote add origin https://github.com/USERNAME/REPO.git\nHTTPS is simpler for first-time users and doesn’t require SSH key setup."
   }
 ]

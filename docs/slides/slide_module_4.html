@@ -278,37 +278,31 @@ Deepak Tanwar
 </tr>
 </tbody>
 </table>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>If none of these work:</strong> Try using HTTPS instead of SSH (<code>https://github.com/USERNAME/REPO.git</code>). HTTPS is simpler for first-time users and doesn’t require SSH key setup.</p>
-</div>
-</div>
-</div>
+</section>
+<section id="ssh-troubleshooting-fallback" class="slide level2">
+<h2>SSH troubleshooting — fallback</h2>
+<p>If SSH still doesn’t work, use HTTPS instead:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="fu">git</span> clone https://github.com/USERNAME/REPO.git</span>
+<span id="cb2-2"><a></a><span class="fu">git</span> remote add origin https://github.com/USERNAME/REPO.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>HTTPS is simpler for first-time users and doesn’t require SSH key setup.</p>
 </section>
 <section id="connecting-local-to-remote" class="slide level2">
 <h2>Connecting local to remote</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="co"># Link your local repo to GitHub</span></span>
-<span id="cb2-2"><a></a><span class="fu">git</span> remote add origin git@github.com:USERNAME/REPO.git</span>
-<span id="cb2-3"><a></a></span>
-<span id="cb2-4"><a></a><span class="co"># Verify</span></span>
-<span id="cb2-5"><a></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="co"># Link your local repo to GitHub</span></span>
+<span id="cb3-2"><a></a><span class="fu">git</span> remote add origin git@github.com:USERNAME/REPO.git</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="co"># Verify</span></span>
+<span id="cb3-5"><a></a><span class="fu">git</span> remote <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>origin</code> is just the conventional name for your primary remote.</p>
 </section>
 <section id="git-push" class="slide level2">
 <h2>git push</h2>
 <p>Share your commits with GitHub:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="co"># First time — push and set upstream</span></span>
-<span id="cb3-2"><a></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span>
-<span id="cb3-3"><a></a></span>
-<span id="cb3-4"><a></a><span class="co"># Every time after</span></span>
-<span id="cb3-5"><a></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="co"># First time — push and set upstream</span></span>
+<span id="cb4-2"><a></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a><span class="co"># Every time after</span></span>
+<span id="cb4-5"><a></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -328,10 +322,10 @@ Deepak Tanwar
 <section id="git-pull" class="slide level2">
 <h2>git pull</h2>
 <p>Get the latest changes from GitHub:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Under the hood this is two steps:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="fu">git</span> fetch    <span class="co"># download new commits</span></span>
-<span id="cb5-2"><a></a><span class="fu">git</span> merge    <span class="co"># merge them into your branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="fu">git</span> fetch    <span class="co"># download new commits</span></span>
+<span id="cb6-2"><a></a><span class="fu">git</span> merge    <span class="co"># merge them into your branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <p><strong>Run <code>git pull</code> at the start of every work session.</strong></p>
 </div>
@@ -339,23 +333,23 @@ Deepak Tanwar
 <section id="git-clone" class="slide level2">
 <h2>git clone</h2>
 <p>Copy an entire repository to your machine:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="fu">git</span> clone git@github.com:DQBM-CCCZ/intro_git_github.git</span>
-<span id="cb6-2"><a></a></span>
-<span id="cb6-3"><a></a><span class="co"># Into a custom folder name</span></span>
-<span id="cb6-4"><a></a><span class="fu">git</span> clone git@github.com:DQBM-CCCZ/intro_git_github.git my-folder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="fu">git</span> clone git@github.com:DQBM-CCCZ/intro_git_github.git</span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="co"># Into a custom folder name</span></span>
+<span id="cb7-4"><a></a><span class="fu">git</span> clone git@github.com:DQBM-CCCZ/intro_git_github.git my-folder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Clone includes the full history and sets up <code>origin</code> automatically.</p>
 </section>
 <section id="the-full-remote-workflow" class="slide level2">
 <h2>The full remote workflow</h2>
 <p>Every command you’ll actually use them, in order:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="fu">git</span> clone <span class="op">&lt;</span>url<span class="op">&gt;</span>           <span class="co"># 1. get the repo (first time only)</span></span>
-<span id="cb7-2"><a></a><span class="fu">git</span> checkout <span class="at">-b</span> feature   <span class="co"># 2. work on a branch</span></span>
-<span id="cb7-3"><a></a><span class="co"># make changes...</span></span>
-<span id="cb7-4"><a></a><span class="fu">git</span> add <span class="at">--all</span>             <span class="co"># 3. stage</span></span>
-<span id="cb7-5"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"message"</span>   <span class="co"># 4. commit</span></span>
-<span id="cb7-6"><a></a><span class="fu">git</span> push origin feature   <span class="co"># 5. push to GitHub</span></span>
-<span id="cb7-7"><a></a><span class="co"># 6. open Pull Request on GitHub</span></span>
-<span id="cb7-8"><a></a><span class="co"># 7. after merge: git checkout main &amp;&amp; git pull</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="fu">git</span> clone <span class="op">&lt;</span>url<span class="op">&gt;</span>           <span class="co"># 1. get the repo (first time only)</span></span>
+<span id="cb8-2"><a></a><span class="fu">git</span> checkout <span class="at">-b</span> feature   <span class="co"># 2. work on a branch</span></span>
+<span id="cb8-3"><a></a><span class="co"># make changes...</span></span>
+<span id="cb8-4"><a></a><span class="fu">git</span> add <span class="at">--all</span>             <span class="co"># 3. stage</span></span>
+<span id="cb8-5"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"message"</span>   <span class="co"># 4. commit</span></span>
+<span id="cb8-6"><a></a><span class="fu">git</span> push origin feature   <span class="co"># 5. push to GitHub</span></span>
+<span id="cb8-7"><a></a><span class="co"># 6. open Pull Request on GitHub</span></span>
+<span id="cb8-8"><a></a><span class="co"># 7. after merge: git checkout main &amp;&amp; git pull</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This is the complete workflow for collaborating on GitHub.</p>
 </section>
 <section id="pull-request-workflow" class="slide level2">
@@ -465,7 +459,7 @@ Deepak Tanwar
 </ul>
 <div class="fragment">
 <p>Reference issues in commit messages:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"fixed alignment bug, closes #12"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"fixed alignment bug, closes #12"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>→ Automatically closes issue #12 when the PR is merged.</p>
 </div>
 </section>
