@@ -11,7 +11,8 @@ format: html
 | 09:30–10:30 | [Module 1: Concepts & GitHub](../slides/slide_module_1.qmd) | Version control problem, Git vs others, terminologies, GitHub account, Markdown | [Slides](../slides/slide_module_1.qmd) | [Ex 1](../exercises/exercise_1_github_account.qmd) · [Ex 2](../exercises/exercise_2_markdown.qmd) |
 | 10:30–10:45 | *Break* | | | |
 | 10:45–12:00 | [Module 2: Local Git](../slides/slide_module_2.qmd) | `init`, `status`, `add`, `commit`, `log`, staging area, `diff`, HEAD | [Slides](../slides/slide_module_2.qmd) | [Ex 3](../exercises/exercise_3_local_git.qmd) |
-| 12:00–13:00 | *Lunch* | | | |
+| 12:00–12:30 | *Coffee Break* | | | |
+| 12:30–13:00 | *Lunch* | | | |
 | 13:00–14:30 | [Module 3: Branching & History](../slides/slide_module_3.qmd) | `branch`, `checkout`, `merge`, merge conflicts, `.gitignore`, `reset` | [Slides](../slides/slide_module_3.qmd) | [Ex 4](../exercises/exercise_4_branching.qmd) |
 | 14:30–14:45 | *Break* | | | |
 | 14:45–16:00 | [Module 4: GitHub Collaboration](../slides/slide_module_4.qmd) | SSH setup, `remote`, `push`, `pull`, `clone`, Issues, Projects, Pull Requests | [Slides](../slides/slide_module_4.qmd) | [Ex 5](../exercises/exercise_5_push_pull.qmd) · [Ex 6](../exercises/exercise_6_collaboration.qmd) |

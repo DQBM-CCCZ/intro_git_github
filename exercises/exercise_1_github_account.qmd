@@ -24,7 +24,7 @@ Create your GitHub account and your first repository.
 ### Explore GitHub
 
 4. Go to your profile page: `https://github.com/YOUR_USERNAME`
-5. Find the **DQBM-SIB** organization — check if you are already a member
+5. Find the **DQBM-CCCZ** organization — check if you are already a member
 
 ### Create a Repository
 

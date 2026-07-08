@@ -13,7 +13,7 @@ This exercise ties together everything from the course into one complete workflo
 
 ### 1a. Create an Issue
 
-1. Go to `https://github.com/DQBM-SIB/intro_git_github`
+1. Go to `https://github.com/DQBM-CCCZ/intro_git_github`
 2. Click **Issues** → **New issue**
 3. Title: `YOUR_NAME — project description`
 4. Body: list 3–5 things you plan to add
@@ -33,7 +33,7 @@ This exercise ties together everything from the course into one complete workflo
 
 ```bash
 cd ~/Downloads
-git clone git@github.com:DQBM-SIB/intro_git_github.git course_repo
+git clone git@github.com:DQBM-CCCZ/intro_git_github.git course_repo
 cd course_repo
 git log --oneline
 ```

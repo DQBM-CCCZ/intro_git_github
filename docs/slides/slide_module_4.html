@@ -207,11 +207,32 @@ Deepak Tanwar
 </div>
 
 </section>
-<section id="ssh-authentication" class="slide level2">
-<h2>SSH Authentication</h2>
-<p>Everything so far has lived only on your machine — concept 6 from this morning, <strong>remote</strong>, is what we’re missing. Before connecting to GitHub, it needs to know it’s really you. SSH lets your computer talk to GitHub without typing a password every time.</p>
-
-<img data-src="../assets/images/ssh-key-authentication.png" class="quarto-figure quarto-figure-center r-stretch" style="width:85.0%"><div class="callout callout-note callout-titled callout-style-default">
+<section id="module-4-moving-to-github" class="slide level2">
+<h2>Module 4: Moving to GitHub</h2>
+<p>Your local repository is powerful, but it’s only on your machine. GitHub brings three things:</p>
+<ol type="1">
+<li><strong>Backup</strong> — your history lives online</li>
+<li><strong>Collaboration</strong> — multiple people can contribute</li>
+<li><strong>Public sharing</strong> — others can use your code</li>
+</ol>
+<p>First: connect securely. That’s SSH.</p>
+</section>
+<section id="ssh-authentication-setup-troubleshooting" class="slide level2">
+<h2>SSH Authentication — setup &amp; troubleshooting</h2>
+<p>SSH lets your machine authenticate to GitHub without passwords:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="co"># Check for existing key</span></span>
+<span id="cb1-2"><a></a><span class="fu">ls</span> <span class="at">-al</span> ~/.ssh</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="co"># Generate new key (if needed)</span></span>
+<span id="cb1-5"><a></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"your.email@uzh.ch"</span></span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a><span class="co"># Copy public key → paste into github.com/settings/keys</span></span>
+<span id="cb1-8"><a></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># Test connection</span></span>
+<span id="cb1-11"><a></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -220,21 +241,45 @@ Deepak Tanwar
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>The private key never leaves your machine. GitHub only ever sees the public key — that’s why it’s safe to share, and the private key is not.</p>
+<p>The private key never leaves your machine. GitHub only ever sees the public key — that’s why it’s safe to share the public key, and the private key is not.</p>
 </div>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="co"># Check for existing key</span></span>
-<span id="cb1-2"><a></a><span class="fu">ls</span> <span class="at">-al</span> ~/.ssh</span>
-<span id="cb1-3"><a></a></span>
-<span id="cb1-4"><a></a><span class="co"># Generate new key</span></span>
-<span id="cb1-5"><a></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"your.email@uzh.ch"</span></span>
-<span id="cb1-6"><a></a></span>
-<span id="cb1-7"><a></a><span class="co"># Copy public key → paste into github.com/settings/keys</span></span>
-<span id="cb1-8"><a></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span>
-<span id="cb1-9"><a></a></span>
-<span id="cb1-10"><a></a><span class="co"># Test</span></span>
-<span id="cb1-11"><a></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="if-ssh-connection-fails" class="slide level2">
+<h2>If SSH connection fails…</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Error</th>
+<th>Likely cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Permission denied</code></td>
+<td>Private key not found</td>
+<td>Run <code>ssh-keygen</code> to create one</td>
+</tr>
+<tr class="even">
+<td><code>Connection refused</code></td>
+<td>Firewall blocking</td>
+<td>Try HTTPS instead: <code>git config --global url."https://".insteadOf git://</code></td>
+</tr>
+<tr class="odd">
+<td><code>Agent refused operation</code></td>
+<td>SSH agent not running</td>
+<td><code>eval "$(ssh-agent -s)"</code> then <code>ssh-add ~/.ssh/id_ed25519</code></td>
+</tr>
+<tr class="even">
+<td>Public key not on GitHub</td>
+<td>Key not uploaded</td>
+<td>Copy output of <code>cat ~/.ssh/id_ed25519.pub</code>, paste in <a href="https://github.com/settings/keys">github.com/settings/keys</a></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="connecting-local-to-remote" class="slide level2">
 <h2>Connecting local to remote</h2>
@@ -296,10 +341,10 @@ Deepak Tanwar
 <section id="git-clone" class="slide level2">
 <h2>git clone</h2>
 <p>Copy an entire repository to your machine:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="fu">git</span> clone git@github.com:DQBM-SIB/intro_git_github.git</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="fu">git</span> clone git@github.com:DQBM-CCCZ/intro_git_github.git</span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a><span class="co"># Into a custom folder name</span></span>
-<span id="cb6-4"><a></a><span class="fu">git</span> clone git@github.com:DQBM-SIB/intro_git_github.git my-folder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-4"><a></a><span class="fu">git</span> clone git@github.com:DQBM-CCCZ/intro_git_github.git my-folder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Clone includes the full history and sets up <code>origin</code> automatically.</p>
 </section>
 <section id="the-full-remote-workflow" class="slide level2">
@@ -432,13 +477,30 @@ Deepak Tanwar
 <h2>Exercise 6 — Fork &amp; Pull Request</h2>
 <p>See <a href="../exercises/exercise_6_collaboration.html">Exercise 6</a></p>
 <ol type="1">
-<li>Fork <code>DQBM-SIB/intro_git_github</code></li>
+<li>Fork <code>DQBM-CCCZ/intro_git_github</code></li>
 <li>Clone your fork</li>
 <li><code>git checkout -b YOUR_FIRST_NAME</code></li>
 <li>Add your section to <code>projects.md</code></li>
 <li><code>git push origin YOUR_FIRST_NAME</code></li>
 <li>Open a Pull Request → reference your issue</li>
 </ol>
+</section>
+<section id="youre-done" class="slide level2">
+<h2>You’re done! 🎉</h2>
+<p>You’ve learned:</p>
+<ul>
+<li><strong>Why</strong> version control matters (Module 1)</li>
+<li><strong>How</strong> to use Git locally (Module 2)</li>
+<li><strong>How</strong> to work safely with branches (Module 3)</li>
+<li><strong>How</strong> to collaborate on GitHub (Module 4)</li>
+</ul>
+<p>You now have the skills to:</p>
+<p>✅ Version-control your analysis and code<br>
+✅ Try new approaches without breaking what works<br>
+✅ Collaborate with colleagues<br>
+✅ Contribute to open-source projects</p>
+<p><strong>Next:</strong> These skills apply to everything. Take them forward.</p>
+<p><strong>Questions?</strong> 🙋</p>
 
 
 </section>

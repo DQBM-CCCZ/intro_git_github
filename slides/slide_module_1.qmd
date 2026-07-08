@@ -8,8 +8,8 @@ format:
     footer: "Introduction to Git & GitHub — SIB/UZH"
     theme: default
     highlight-style: github
-title-slide-attributes:
-  data-background-color: "#F05032"
+    title-slide-attributes:
+      data-background-color: "#F05032"
 ---
 
 ## Introductions
@@ -140,27 +140,27 @@ Writing an analysis pipeline together → Git.
 
 Git is one *kind* of version control system — here's how it compares to the alternatives.
 
-::: {.panel-tabset}
+### Local VCS
 
-### Local
-
-![](../assets/images/vcs-local.png){width="60%" fig-align="center"}
+![](../assets/images/vcs-local.png){width="50%" fig-align="center"}
 
 No collaboration possible — if your laptop dies, so does the history.
 
-### Central (e.g. SVN)
+---
 
-![](../assets/images/vcs-central.png){width="75%" fig-align="center"}
+### Central VCS (e.g. SVN)
+
+![](../assets/images/vcs-central.png){width="65%" fig-align="center"}
 
 One single point of failure. No internet → no work.
 
-### Distributed (Git)
+---
 
-![](../assets/images/vcs-distributed.png){width="60%" fig-align="center"}
+### Distributed VCS (Git)
+
+![](../assets/images/vcs-distributed.png){width="50%" fig-align="center"}
 
 Every clone is a full backup. Works offline. This is Git.
-
-:::
 
 ---
 
@@ -265,7 +265,7 @@ You'll use exactly this much Markdown in the next two exercises — nothing more
 
 1. Create a GitHub account at [github.com](https://github.com)
 2. Choose a professional username
-3. Check if you belong to the **DQBM-SIB** organization
+3. Check if you belong to the **DQBM-CCCZ** organization
 4. Create a new **public** repository named after your username
 5. Go to `https://github.com/YOUR_USERNAME`
 6. Take a screenshot
@@ -281,3 +281,13 @@ You'll use exactly this much Markdown in the next two exercises — nothing more
    - Education as a **table** with university and year columns
 3. Commit with message: `added introduction and education table`
 4. Compare your profile to the screenshot from Exercise 1
+
+---
+
+## Ready for Module 2?
+
+You now understand *why* Git exists and the core vocabulary.
+
+Next: you'll actually *use* Git on your machine. We'll build a realistic project step-by-step: init → add → commit → log → diff.
+
+**Come back ready to type some commands.** ⌨️

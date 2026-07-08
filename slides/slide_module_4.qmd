@@ -8,37 +8,56 @@ format:
     footer: "Introduction to Git & GitHub — SIB/UZH"
     theme: default
     highlight-style: github
-title-slide-attributes:
-  data-background-color: "#F05032"
+    title-slide-attributes:
+      data-background-color: "#F05032"
 ---
 
-## SSH Authentication
+## Module 4: Moving to GitHub
 
-Everything so far has lived only on your machine — concept 6 from this
-morning, **remote**, is what we're missing. Before connecting to GitHub, it
-needs to know it's really you. SSH lets your computer talk to GitHub
-without typing a password every time.
+Your local repository is powerful, but it's only on your machine. GitHub brings three things:
 
-![](../assets/images/ssh-key-authentication.png){width="85%" fig-align="center"}
+1. **Backup** — your history lives online
+2. **Collaboration** — multiple people can contribute
+3. **Public sharing** — others can use your code
 
-::: {.callout-note}
-The private key never leaves your machine. GitHub only ever sees the
-public key — that's why it's safe to share, and the private key is not.
-:::
+First: connect securely. That's SSH.
+
+---
+
+## SSH Authentication — setup & troubleshooting
+
+SSH lets your machine authenticate to GitHub without passwords:
 
 ```bash
 # Check for existing key
 ls -al ~/.ssh
 
-# Generate new key
+# Generate new key (if needed)
 ssh-keygen -t ed25519 -C "your.email@uzh.ch"
 
 # Copy public key → paste into github.com/settings/keys
 cat ~/.ssh/id_ed25519.pub
 
-# Test
+# Test connection
 ssh -T git@github.com
 ```
+
+. . .
+
+::: {.callout-note}
+The private key never leaves your machine. GitHub only ever sees the public key — that's why it's safe to share the public key, and the private key is not.
+:::
+
+---
+
+## If SSH connection fails...
+
+| Error | Likely cause | Solution |
+|-------|---|---|
+| `Permission denied` | Private key not found | Run `ssh-keygen` to create one |
+| `Connection refused` | Firewall blocking | Try HTTPS instead: `git config --global url."https://".insteadOf git://` |
+| `Agent refused operation` | SSH agent not running | `eval "$(ssh-agent -s)"` then `ssh-add ~/.ssh/id_ed25519` |
+| Public key not on GitHub | Key not uploaded | Copy output of `cat ~/.ssh/id_ed25519.pub`, paste in [github.com/settings/keys](https://github.com/settings/keys) |
 
 ---
 
@@ -108,10 +127,10 @@ pull. Click the **sync icon** next to it to pull then push in one click.
 Copy an entire repository to your machine:
 
 ```bash
-git clone git@github.com:DQBM-SIB/intro_git_github.git
+git clone git@github.com:DQBM-CCCZ/intro_git_github.git
 
 # Into a custom folder name
-git clone git@github.com:DQBM-SIB/intro_git_github.git my-folder
+git clone git@github.com:DQBM-CCCZ/intro_git_github.git my-folder
 ```
 
 Clone includes the full history and sets up `origin` automatically.
@@ -240,9 +259,31 @@ See [Exercise 5](../exercises/exercise_5_push_pull.qmd)
 
 See [Exercise 6](../exercises/exercise_6_collaboration.qmd)
 
-1. Fork `DQBM-SIB/intro_git_github`
+1. Fork `DQBM-CCCZ/intro_git_github`
 2. Clone your fork
 3. `git checkout -b YOUR_FIRST_NAME`
 4. Add your section to `projects.md`
 5. `git push origin YOUR_FIRST_NAME`
 6. Open a Pull Request → reference your issue
+
+---
+
+## You're done! 🎉
+
+You've learned:
+
+- **Why** version control matters (Module 1)
+- **How** to use Git locally (Module 2)
+- **How** to work safely with branches (Module 3)
+- **How** to collaborate on GitHub (Module 4)
+
+You now have the skills to:
+
+✅ Version-control your analysis and code  
+✅ Try new approaches without breaking what works  
+✅ Collaborate with colleagues  
+✅ Contribute to open-source projects  
+
+**Next:** These skills apply to everything. Take them forward.
+
+**Questions?** 🙋

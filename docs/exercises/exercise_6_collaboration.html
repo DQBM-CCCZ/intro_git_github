@@ -383,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/DQBM-SIB/intro_git_github"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/DQBM-CCCZ/intro_git_github"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -444,12 +444,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="goal" class="level2">
 <h2 class="anchored" data-anchor-id="goal">Goal</h2>
-<p>Contribute to the course repository using the real open-source collaboration workflow.</p>
+<p>Contribute to the course repository using the real open-source collaboration workflow: Fork → Clone → Branch → PR.</p>
+<p>This is the professional way to contribute to projects you don’t directly own. It’s how GitHub works everywhere.</p>
 <hr>
 </section>
 <section id="the-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="the-workflow">The Workflow</h2>
-<pre><code>DQBM-SIB/intro_git_github  (original)
+<pre><code>DQBM-CCCZ/intro_git_github  (original)
         ↓  Fork on GitHub
 YOUR_USERNAME/intro_git_github  (your copy)
         ↓  Clone
@@ -457,13 +458,13 @@ Your local machine
         ↓  Branch → Edit → Commit → Push
 YOUR_USERNAME/intro_git_github  (your copy)
         ↓  Pull Request
-DQBM-SIB/intro_git_github  (original)</code></pre>
+DQBM-CCCZ/intro_git_github  (original)</code></pre>
 <hr>
 </section>
 <section id="part-a-fork" class="level2">
 <h2 class="anchored" data-anchor-id="part-a-fork">Part A — Fork</h2>
 <ol type="1">
-<li>Go to <code>https://github.com/DQBM-SIB/intro_git_github</code></li>
+<li>Go to <code>https://github.com/DQBM-CCCZ/intro_git_github</code></li>
 <li>Click <strong>Fork</strong> (top right) → select your account</li>
 <li>You now have <code>https://github.com/YOUR_USERNAME/intro_git_github</code></li>
 </ol>
@@ -503,7 +504,7 @@ DQBM-SIB/intro_git_github  (original)</code></pre>
 <ol type="1">
 <li>Go to <code>https://github.com/YOUR_USERNAME/intro_git_github</code></li>
 <li>Click <strong>Compare &amp; pull request</strong></li>
-<li>Base: <code>DQBM-SIB/intro_git_github</code> → <code>main</code></li>
+<li>Base: <code>DQBM-CCCZ/intro_git_github</code> → <code>main</code></li>
 <li>Title: <code>Added YOUR_NAME project description</code></li>
 <li>Description: <code>Closes #YOUR_ISSUE_NUMBER</code></li>
 <li>Click <strong>Create pull request</strong></li>
@@ -513,7 +514,7 @@ DQBM-SIB/intro_git_github  (original)</code></pre>
 <section id="part-f-after-all-prs-are-merged" class="level2">
 <h2 class="anchored" data-anchor-id="part-f-after-all-prs-are-merged">Part F — After all PRs are merged</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the original repo as upstream</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream git@github.com:DQBM-SIB/intro_git_github.git</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add upstream git@github.com:DQBM-CCCZ/intro_git_github.git</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get everyone's merged contributions</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch upstream</span>
@@ -540,13 +541,13 @@ DQBM-SIB/intro_git_github  (original)</code></pre>
 <div class="callout-body-container callout-body">
 <ul>
 <li><code>origin</code> → <strong>your fork</strong> (<code>YOUR_USERNAME/intro_git_github</code>) — where you push your own branches.</li>
-<li><code>upstream</code> → the <strong>original repo</strong> (<code>DQBM-SIB/intro_git_github</code>) — where everyone’s pull requests get merged.</li>
+<li><code>upstream</code> → the <strong>original repo</strong> (<code>DQBM-CCCZ/intro_git_github</code>) — where everyone’s pull requests get merged.</li>
 </ul>
 <p>This two-remote pattern is the standard way to contribute to a project you don’t have write access to: push to your fork, pull updates from upstream.</p>
 </div>
 </div>
 </div>
-<p><strong>Question:</strong> Could you have skipped forking and just cloned <code>DQBM-SIB/intro_git_github</code> directly?</p>
+<p><strong>Question:</strong> Could you have skipped forking and just cloned <code>DQBM-CCCZ/intro_git_github</code> directly?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">

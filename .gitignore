@@ -12,3 +12,4 @@ Thumbs.db
 *.Rhistory
 
 **/*.quarto_ipynb
+CLAUDE.md

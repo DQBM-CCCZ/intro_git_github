@@ -11,9 +11,11 @@ format: html
 
 Connect your local repository to GitHub and push your work online.
 
+You've learned how — now practice the SSH setup and push workflow.
+
 ---
 
-## Prerequisite
+## Prerequisite: SSH is working
 
 Test your SSH key:
 
@@ -22,7 +24,8 @@ ssh -T git@github.com
 # Expected: Hi YOUR_USERNAME! You've successfully authenticated.
 ```
 
-If this fails, see [Pre-course Setup](../qmd/precourse_setup.qmd).
+**If this fails:**
+See the troubleshooting table from Module 4 slide "If SSH connection fails..." for solutions. Common issues: private key not found, agent not running, or public key not uploaded to GitHub.
 
 ---
 

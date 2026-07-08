@@ -8,14 +8,21 @@ format:
     footer: "Introduction to Git & GitHub — SIB/UZH"
     theme: default
     highlight-style: github
-title-slide-attributes:
-  data-background-color: "#F05032"
+    title-slide-attributes:
+      data-background-color: "#F05032"
+---
+
+## Module 2: Let's build something
+
+You know *why* Git matters. Now time to actually *use* it.
+
+We'll build a realistic project — `experiment-tracker` — tracking one analysis from start to finish. Every Git concept you learn applies immediately.
+
 ---
 
 ## Getting started
 
-You know *why* Git matters now — time to actually use it. First, check it's
-installed and tell it who you are:
+First, check Git is installed and tell it who you are:
 
 ```bash
 git --version
@@ -43,6 +50,51 @@ branch    checkout  stash     status    tag       ...
 **We will focus on about 12 of them today.**
 
 The rest you can look up when you need them — `git help <command>`
+
+---
+
+## Common Git gotchas
+
+Before you dive in, three things that surprise beginners:
+
+. . .
+
+::: {.callout-warning}
+
+**Git tracks *files*, not folders**
+- Empty folders don't show up in Git
+- Workaround: put a `.gitkeep` file in empty folders you need
+
+**Never delete the `.git` folder**
+- It contains your entire history
+- If you accidentally delete it, all commits are lost
+- Backup important repos to GitHub as a safety net
+
+**`.gitignore` doesn't un-track files**
+- If a file was already committed, adding it to `.gitignore` won't remove it
+- First remove it: `git rm --cached filename`
+- Then add to `.gitignore`, then commit
+
+:::
+
+. . .
+
+::: {.callout-tip}
+When in doubt, `git status` and `git log` are your friends. They never lie.
+:::
+
+---
+
+## What you'll practice today
+
+Next, you'll build this workflow hands-on:
+
+1. `git init` — create a repository
+2. `git add` → `git commit` — save snapshots
+3. `git diff` — inspect changes
+4. `git log` — explore history
+
+Ready? Let's go.
 
 ---
 
@@ -77,6 +129,34 @@ Why a staging area? Imagine you fixed a bug **and** started an unrelated
 experiment in the same session. The staging area lets you commit the bug
 fix alone, with its own clear message — without dragging in the half-finished
 experiment. We'll see this as a diagram once you've done it by hand.
+
+---
+
+## When to commit: the one-unit rule
+
+Beginners ask: "How often should I commit?"
+
+. . .
+
+**One commit = one logical unit of work**
+
+**Good commits:**
+- "added sample metadata for 4 samples"
+- "fixed normalization bug in analysis script"
+- "documented methods section"
+- "refactored QC function for clarity"
+
+. . .
+
+**Avoid:**
+- "stuff I worked on today" (too vague)
+- "fixed bug and added feature and updated docs" (too many things)
+
+. . .
+
+::: {.callout-tip}
+**Rule of thumb:** If your commit message needs the word "and" in it, split it into two commits.
+:::
 
 ---
 
@@ -179,6 +259,50 @@ git log --oneline   # compact view
 
 ---
 
+## Writing good commit messages
+
+Your commit message is a **note to future-you** (or a labmate) explaining *why* you made this change.
+
+**Good format:**
+
+```
+imperative verb: what changed
+
+Optional longer explanation here if needed.
+Can reference an issue: "closes #42"
+```
+
+**Examples:**
+- `add qc step to analysis pipeline`
+- `fix alignment scoring bug in normalization`
+- `update readme with installation instructions`
+
+---
+
+## Commit message anti-patterns
+
+Avoid vague or multi-purpose messages:
+
+**❌ Bad examples:**
+- `"fixed stuff"`
+- `"work in progress"`
+- `"as requested"`
+- `"I changed the code again"`
+
+---
+
+## Pro tip: Reference issues in commits
+
+Link commits to GitHub issues automatically:
+
+```bash
+git commit -m "fix duplicate sample handling, closes #7"
+```
+
+This automatically closes issue #7 when you merge to main.
+
+---
+
 ## The staging area recap
 
 ![](../assets/images/staging-area-recap.png){width="85%" fig-align="center"}
@@ -245,13 +369,27 @@ For a long file, the side-by-side view is much faster to scan than reading
 
 ## Exercise 3 — Local Git Workflow
 
+You just learned the gotchas, the one-unit rule, and commit message best practices.
+
 See [Exercise 3](../exercises/exercise_3_local_git.qmd) for the full walkthrough.
 
 **Summary:**
 
 1. `mkdir experiment-tracker && cd experiment-tracker && git init`
 2. Create `samples.csv` with sample metadata, `git add`, `git commit`
-3. Create `analysis_log.md`, document a step, add, commit
+3. Create `analysis_log.md`, document steps with clear commit messages
 4. `git log --oneline` — see all your commits
 5. `git diff` before staging; `git diff --staged` after staging
-6. Compare first and last commit: `git diff HASH1 HASH2`
+6. Compare commits: `git diff HASH1 HASH2`
+
+**Key practice:** Write commit messages using the "one-unit rule" and imperative format from the previous slides.
+
+---
+
+## Ready for Module 3?
+
+You've mastered the local workflow: init → commit → log → diff.
+
+Your repository is on your machine only. Next: create branches to try new ideas safely, merge results back, and handle conflicts.
+
+**You now have the power to experiment without fear.** 🌳

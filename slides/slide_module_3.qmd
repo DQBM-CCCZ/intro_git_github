@@ -8,8 +8,16 @@ format:
     footer: "Introduction to Git & GitHub — SIB/UZH"
     theme: default
     highlight-style: github
-title-slide-attributes:
-  data-background-color: "#F05032"
+    title-slide-attributes:
+      data-background-color: "#F05032"
+---
+
+## Module 3: Branches & parallel work
+
+You've mastered the basic workflow: init → add → commit → log.
+
+Now the real power: try new ideas without breaking what works. That's what branches do.
+
 ---
 
 ## Why branches?
@@ -226,3 +234,13 @@ See [Exercise 4](../exercises/exercise_4_branching.qmd) for the full walkthrough
 4. Create a **conflict** by editing the same conclusion on two branches
 5. Resolve the conflict manually
 6. Create `raw_data/`, add `.gitignore`, verify files are ignored
+
+---
+
+## Ready for Module 4?
+
+You've mastered local workflows and branches. Everything so far is on your machine.
+
+Next: move to GitHub. Share your work online, collaborate with others, and learn the professional Pull Request workflow.
+
+**Your code is about to meet the world.** 🌐

@@ -9,14 +9,16 @@ format: html
 
 ## Goal
 
-Contribute to the course repository using the real open-source collaboration workflow.
+Contribute to the course repository using the real open-source collaboration workflow: Fork → Clone → Branch → PR.
+
+This is the professional way to contribute to projects you don't directly own. It's how GitHub works everywhere.
 
 ---
 
 ## The Workflow
 
 ```
-DQBM-SIB/intro_git_github  (original)
+DQBM-CCCZ/intro_git_github  (original)
         ↓  Fork on GitHub
 YOUR_USERNAME/intro_git_github  (your copy)
         ↓  Clone
@@ -24,14 +26,14 @@ Your local machine
         ↓  Branch → Edit → Commit → Push
 YOUR_USERNAME/intro_git_github  (your copy)
         ↓  Pull Request
-DQBM-SIB/intro_git_github  (original)
+DQBM-CCCZ/intro_git_github  (original)
 ```
 
 ---
 
 ## Part A — Fork
 
-1. Go to `https://github.com/DQBM-SIB/intro_git_github`
+1. Go to `https://github.com/DQBM-CCCZ/intro_git_github`
 2. Click **Fork** (top right) → select your account
 3. You now have `https://github.com/YOUR_USERNAME/intro_git_github`
 
@@ -90,7 +92,7 @@ On GitHub:
 
 1. Go to `https://github.com/YOUR_USERNAME/intro_git_github`
 2. Click **Compare & pull request**
-3. Base: `DQBM-SIB/intro_git_github` → `main`
+3. Base: `DQBM-CCCZ/intro_git_github` → `main`
 4. Title: `Added YOUR_NAME project description`
 5. Description: `Closes #YOUR_ISSUE_NUMBER`
 6. Click **Create pull request**
@@ -101,7 +103,7 @@ On GitHub:
 
 ```bash
 # Add the original repo as upstream
-git remote add upstream git@github.com:DQBM-SIB/intro_git_github.git
+git remote add upstream git@github.com:DQBM-CCCZ/intro_git_github.git
 
 # Get everyone's merged contributions
 git fetch upstream
@@ -123,7 +125,7 @@ What does each one point to?
 
 - `origin` → **your fork** (`YOUR_USERNAME/intro_git_github`) — where you
   push your own branches.
-- `upstream` → the **original repo** (`DQBM-SIB/intro_git_github`) — where
+- `upstream` → the **original repo** (`DQBM-CCCZ/intro_git_github`) — where
   everyone's pull requests get merged.
 
 This two-remote pattern is the standard way to contribute to a project you
@@ -131,7 +133,7 @@ don't have write access to: push to your fork, pull updates from upstream.
 :::
 
 **Question:** Could you have skipped forking and just cloned
-`DQBM-SIB/intro_git_github` directly?
+`DQBM-CCCZ/intro_git_github` directly?
 
 ::: {.callout-tip collapse="true"}
 ## Click to reveal the answer
