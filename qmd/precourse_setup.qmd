@@ -4,7 +4,6 @@ format: html
 ---
 
 Complete these steps **before the course day**. It will take about 20–30 minutes.
-If you run into problems, email [deepak.tanwar@uzh.ch](mailto:deepak.tanwar@uzh.ch).
 
 ---
 

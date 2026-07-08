@@ -72,6 +72,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -369,7 +372,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#teacher-author" id="toc-teacher-author" class="nav-link active" data-scroll-target="#teacher-author">Teacher &amp; Author</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link active" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#teacher-author" id="toc-teacher-author" class="nav-link" data-scroll-target="#teacher-author">Teacher &amp; Author</a></li>
   <li><a href="#about-this-course" id="toc-about-this-course" class="nav-link" data-scroll-target="#about-this-course">About This Course</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a>
   <ul class="collapse">
@@ -378,6 +382,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#module-3-branching-history" id="toc-module-3-branching-history" class="nav-link" data-scroll-target="#module-3-branching-history">Module 3 — Branching &amp; History</a></li>
   <li><a href="#module-4-github-collaboration" id="toc-module-4-github-collaboration" class="nav-link" data-scroll-target="#module-4-github-collaboration">Module 4 — GitHub Collaboration</a></li>
   </ul></li>
+  <li><a href="#course-roadmap" id="toc-course-roadmap" class="nav-link" data-scroll-target="#course-roadmap">Course Roadmap</a></li>
   <li><a href="#learning-experiences" id="toc-learning-experiences" class="nav-link" data-scroll-target="#learning-experiences">Learning Experiences</a></li>
   <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
   <li><a href="#copyright" id="toc-copyright" class="nav-link" data-scroll-target="#copyright">Copyright</a></li>
@@ -408,9 +413,29 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Welcome to the course website for <strong>Introduction to Git and GitHub</strong>, including project management.</p>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/krauthammer.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="150"></p>
+</figure>
+</div>
+<p>We thank <a href="https://krauthammerlab.ch/authors/michaelkrauthammer/">Prof.&nbsp;Michael Krauthammer</a> for supporting this course.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/cccz.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<p>Special thanks to <strong>CCCZ</strong> for providing coffee breaks.</p>
+</div>
+</div>
+</section>
 <section id="teacher-author" class="level2">
 <h2 class="anchored" data-anchor-id="teacher-author">Teacher &amp; Author</h2>
-<p>Deepak Tanwar <a href="https://orcid.org/0000-0001-8036-1989" target="_blank"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16"></a> Bioinformatics Specialist and Trainer Swiss Institute of Bioinformatics / University of Zurich <a href="mailto:deepak.tanwar@uzh.ch">deepak.tanwar@uzh.ch</a> · <a href="http://dktanwar.bsky.social/">Bluesky</a></p>
+<p>Deepak Tanwar <a href="https://orcid.org/0000-0001-8036-1989" target="_blank"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16"></a><br> Bioinformatics Specialist and Trainer<br> Swiss Institute of Bioinformatics / University of Zurich<br> <a href="mailto:deepak.tanwar@uzh.ch">deepak.tanwar@uzh.ch</a><br> <a href="http://dktanwar.bsky.social/">Bluesky</a></p>
 </section>
 <section id="about-this-course" class="level2">
 <h2 class="anchored" data-anchor-id="about-this-course">About This Course</h2>
@@ -459,6 +484,57 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
+<section id="course-roadmap" class="level2">
+<h2 class="anchored" data-anchor-id="course-roadmap">Course Roadmap</h2>
+<p>Here’s how everything fits together:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    A["🎓 Start: Welcome"] --&gt; B["Module 1: Concepts &amp; GitHub"]
+    
+    B --&gt; E1["📝 Exercise 1: GitHub Account"]
+    B --&gt; E2["📝 Exercise 2: Markdown"]
+    
+    E1 --&gt; C["Module 2: Local Git"]
+    E2 --&gt; C
+    
+    C --&gt; E3["📝 Exercise 3: Local Git"]
+    
+    E3 --&gt; D["Module 3: Branching &amp; History"]
+    
+    D --&gt; E4["📝 Exercise 4: Branching"]
+    
+    E4 --&gt; F["Module 4: GitHub Collaboration"]
+    
+    F --&gt; E5["📝 Exercise 5: Push &amp; Pull"]
+    F --&gt; E6["📝 Exercise 6: Collaboration"]
+    
+    E5 --&gt; G["🏁 Final Exercise"]
+    E6 --&gt; G
+    
+    G --&gt; H["✅ Course Complete"]
+    H --&gt; I["📋 Exam Optional"]
+    H --&gt; J["💬 Feedback"]
+    
+    style A fill:#e1f5ff
+    style B fill:#f3e5f5
+    style C fill:#e8f5e9
+    style D fill:#fff3e0
+    style F fill:#fce4ec
+    style G fill:#f1f8e9
+    style H fill:#e0f2f1
+    style I fill:#fff9c4
+    style J fill:#fff9c4
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
 <section id="learning-experiences" class="level2">
 <h2 class="anchored" data-anchor-id="learning-experiences">Learning Experiences</h2>
 <p>To reach these objectives we combine short concept explanations, live demos, and hands-on exercises. During exercises you are welcome to discuss with other participants. All exercise steps include expected commands and output so you can check your own progress.</p>
@@ -469,7 +545,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="copyright" class="level2">
 <h2 class="anchored" data-anchor-id="copyright">Copyright</h2>
-<p>Copyright 2025, Deepak Tanwar</p>
+<p>Copyright 2026, Deepak Tanwar</p>
 
 
 </section>

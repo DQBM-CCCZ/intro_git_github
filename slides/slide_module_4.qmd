@@ -24,7 +24,7 @@ First: connect securely. That's SSH.
 
 ---
 
-## SSH Authentication — setup & troubleshooting
+## SSH Authentication — setup
 
 SSH lets your machine authenticate to GitHub without passwords:
 
@@ -42,22 +42,24 @@ cat ~/.ssh/id_ed25519.pub
 ssh -T git@github.com
 ```
 
-. . .
-
 ::: {.callout-note}
 The private key never leaves your machine. GitHub only ever sees the public key — that's why it's safe to share the public key, and the private key is not.
 :::
 
 ---
 
-## If SSH connection fails...
+## SSH troubleshooting
 
 | Error | Likely cause | Solution |
 |-------|---|---|
 | `Permission denied` | Private key not found | Run `ssh-keygen` to create one |
 | `Connection refused` | Firewall blocking | Try HTTPS instead: `git config --global url."https://".insteadOf git://` |
 | `Agent refused operation` | SSH agent not running | `eval "$(ssh-agent -s)"` then `ssh-add ~/.ssh/id_ed25519` |
-| Public key not on GitHub | Key not uploaded | Copy output of `cat ~/.ssh/id_ed25519.pub`, paste in [github.com/settings/keys](https://github.com/settings/keys) |
+| Public key not on GitHub | Key not uploaded | Copy public key, paste in [github.com/settings/keys](https://github.com/settings/keys) |
+
+::: {.callout-tip}
+**If none of these work:** Try using HTTPS instead of SSH (`https://github.com/USERNAME/REPO.git`). HTTPS is simpler for first-time users and doesn't require SSH key setup.
+:::
 
 ---
 
@@ -114,12 +116,6 @@ git merge    # merge them into your branch
 
 **Run `git pull` at the start of every work session.**
 
-::: {.callout-tip}
-**VS Code equivalent:** the bottom-left status bar shows your branch name
-with up/down arrow counts (e.g. `main ↑2 ↓1`) — 2 commits to push, 1 to
-pull. Click the **sync icon** next to it to pull then push in one click.
-:::
-
 ---
 
 ## git clone
@@ -139,28 +135,99 @@ Clone includes the full history and sets up `origin` automatically.
 
 ## The full remote workflow
 
-Every command you've seen today, in the order you'll actually use them:
+Every command you'll actually use them, in order:
 
 ```bash
 git clone <url>           # 1. get the repo (first time only)
-# or: git pull            # 1. get latest (if you already have it)
-
 git checkout -b feature   # 2. work on a branch
-
 # make changes...
-
 git add --all             # 3. stage
 git commit -m "message"   # 4. commit
-git push origin feature   # 5. push branch to GitHub
-
+git push origin feature   # 5. push to GitHub
 # 6. open Pull Request on GitHub
-# 7. after merge:
-git checkout main
-git pull
+# 7. after merge: git checkout main && git pull
 ```
 
-Steps 6 and 7 mention things we haven't covered yet — Issues, Projects,
-and Pull Requests. That's the rest of this module.
+This is the complete workflow for collaborating on GitHub.
+
+---
+
+## Pull Request workflow
+
+Visual guide to the Fork → Branch → PR → Merge cycle:
+
+```{mermaid}
+graph LR
+    A["Your Fork<br/>on GitHub"] -->|git clone| B["Local Machine"]
+    B -->|git checkout -b feature| C["Feature Branch"]
+    C -->|make changes| D["Committed Changes"]
+    D -->|git push origin feature| E["Push to Fork"]
+    E -->|Create PR| F["Pull Request<br/>on Main Repo"]
+    F -->|Code Review| G{"Approved?"}
+    G -->|Yes| H["Merge to main"]
+    G -->|No| C
+    H -->|git pull| I["Update Your Local"]
+    
+    style A fill:#e3f2fd
+    style B fill:#f3e5f5
+    style C fill:#e8f5e9
+    style F fill:#fff3e0
+    style H fill:#c8e6c9
+    style I fill:#bbdefb
+```
+
+---
+
+## GitHub Issues workflow
+
+Track, assign, and close work:
+
+```{mermaid}
+graph TD
+    A["🆕 Create Issue<br/>Title + Description"] --> B["📋 Issue Backlog"]
+    B --> C["👤 Assign to yourself<br/>or teammate"]
+    C --> D["🔖 Add labels<br/>bug, feature, docs, etc"]
+    D --> E["🏗️ In Progress"]
+    E --> F["💻 Create branch<br/>git checkout -b fix-X"]
+    F --> G["✅ Commit work<br/>closes #issue-number"]
+    G --> H["🔀 Create PR"]
+    H --> I["✔️ Review & Merge"]
+    I --> J["🎯 Issue Auto-closes"]
+    
+    style A fill:#ffebee
+    style B fill:#fff9c4
+    style E fill:#fff3e0
+    style H fill:#e1f5fe
+    style J fill:#c8e6c9
+```
+
+---
+
+## Merge conflict resolution
+
+Step-by-step visual guide:
+
+```{mermaid}
+graph TD
+    A["Conflict: Two branches<br/>changed same lines"] --> B["❌ git merge fails"]
+    B --> C["📖 Open conflicted file"]
+    C --> D["See conflict markers:<br/><<<<<<< HEAD<br/>your changes<br/>=======<br/>their changes<br/>>>>>>>> branch-name"]
+    D --> E{"Decide: Keep<br/>yours, theirs,<br/>or both?"}
+    E -->|Keep yours| F["Delete their section"]
+    E -->|Keep theirs| G["Delete your section"]
+    E -->|Keep both| H["Keep both, remove markers"]
+    F --> I["Remove conflict markers<br/><<<<<<< ======= >>>>>>>"]
+    G --> I
+    H --> I
+    I --> J["git add resolved_file"]
+    J --> K["git commit -m 'resolved conflict'"]
+    K --> L["✅ Merge complete"]
+    
+    style A fill:#ffcdd2
+    style B fill:#ffcdd2
+    style D fill:#fff9c4
+    style L fill:#c8e6c9
+```
 
 ---
 
@@ -277,7 +344,9 @@ You've learned:
 - **How** to work safely with branches (Module 3)
 - **How** to collaborate on GitHub (Module 4)
 
-You now have the skills to:
+---
+
+## Your new skills ✅
 
 ✅ Version-control your analysis and code  
 ✅ Try new approaches without breaking what works  
@@ -285,5 +354,7 @@ You now have the skills to:
 ✅ Contribute to open-source projects  
 
 **Next:** These skills apply to everything. Take them forward.
+
+---
 
 **Questions?** 🙋

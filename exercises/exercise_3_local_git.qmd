@@ -187,10 +187,6 @@ If you run `git add` on a file, it "moves" out of the first diff and into
 the second.
 :::
 
-If you run `git add` on a file, it "moves" out of the first diff and into
-the second.
-:::
-
 ---
 
 ## Gotcha: empty folders won't show up

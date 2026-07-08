@@ -92,12 +92,16 @@ This is exactly the problem Git was built to solve.
 - Works **locally** — no internet needed
 - Free and open source
 
-. . .
+---
 
-**Git ≠ GitHub**
+## Git ≠ GitHub
 
-- **Git** = the tool running on your machine
-- **GitHub** = a website that hosts Git repositories online — we'll get there in Module 4
+These are often confused, but they're different tools:
+
+- **Git** = the version control tool running on your machine
+- **GitHub** = a website that hosts Git repositories online
+
+We'll use both today — Git is what you *use*, GitHub is where you *share*.
 
 ---
 
@@ -120,18 +124,31 @@ The filename never changes. The **history** does.
 ## "Why not just use Google Docs?"
 
 A fair question — for a single shared document, Google Docs works fine.
+
 Git earns its complexity when you have:
 
 - **Code and scripts**, not prose — line-by-line diffs that mean something
 - **Parallel experiments** — try a new analysis approach without breaking the working one (branches)
 - **Exact reproducibility** — re-run the *exact* code that produced Figure 2, six months later
+
+---
+
+## Why Git shines
+
+The final advantage:
+
 - **No internet required** — full history available offline, on your machine
 
-. . .
+Every other tool requires a server connection. Git works everywhere — on planes, in the field, during internet outages.
+
+---
+
+## Git vs Google Docs: Rule of thumb
 
 ::: {.callout-note}
-Rule of thumb: writing a manuscript together → Google Docs.
-Writing an analysis pipeline together → Git.
+**Collaborating on prose?** → Google Docs (faster, simpler)
+
+**Collaborating on code/analysis?** → Git (reproducible, historical, safe experiments)
 :::
 
 ---
@@ -166,54 +183,87 @@ Every clone is a full backup. Works offline. This is Git.
 
 ## Git is winning
 
-That "every copy is a full repo" idea isn't just theoretical — it's why Git
-overtook the central model in practice:
+![](../assets/images/git-vs-svn-trends.png){width="95%" fig-align="center"}
 
-![](../assets/images/git-vs-svn-trends.png){width="75%" fig-align="center"}
-
-GitHub built a free hosting platform on top of Git, with project management
-and automated testing built in.
-
-::: {.callout-tip}
-**Poll:** has anyone here already used GitHub to download someone else's
-code or data? You've been a Git user already — you just didn't know it.
-:::
+Git overtook SVN because every clone is a full backup — the distributed model won.
 
 ---
 
-## The 6 core concepts — your map for today
+## Why Git won
+
+With Git's distributed model:
+
+- Every copy is a full backup — no single point of failure
+- Everyone can work offline
+- Git is fast (no server communication needed)
+- Easy to merge work from many contributors
+
+---
+
+## GitHub: Building on Git
+
+GitHub built a free hosting platform on top of Git, adding:
+
+- Project management (Issues, Projects)
+- Automated testing (Actions)
+- Easy collaboration across teams
+- A social network for developers
+
+---
+
+## The 6 core concepts — part 1
 
 Git has hundreds of commands. You only need **6 ideas** to be effective:
 
 1. **Repository** — a folder Git is watching
 2. **Working directory** — your files, right now, as you edit them
 3. **Staging area** — a holding pen for what goes into the next snapshot
+
+These are the "places" where your code lives during development.
+
+---
+
+## The 6 core concepts — part 2
+
+The rest of the 6:
+
 4. **Commit** — a saved snapshot with a message
 5. **Branch** — an independent line of commits
 6. **Remote** — a copy of the repository living somewhere else (GitHub)
 
-. . .
+These are the "actions" you take with those places.
+
+---
+
+## Your navigation tool
 
 ::: {.callout-tip}
-Everything from here on is one of these 6 things, or a relationship between
-two of them. If you ever feel lost, ask: *"which of the 6 am I touching
-right now?"*
+Everything from here on is one of these 6 things, or a relationship between two of them. If you ever feel lost, ask: *"which of the 6 am I touching right now?"*
 :::
 
 ---
 
-## GitHub Terminologies
+## GitHub Terminologies — Core
 
-Now that you have the 6 concepts, here's the vocabulary GitHub specifically adds:
+Now that you have the 6 concepts, here's the vocabulary GitHub adds:
 
-| Term | Plain English |
+| Term | What it means |
 |------|--------------|
 | **Repository** | A folder tracked by Git |
 | **Commit** | A saved snapshot with a message |
 | **Branch** | A separate line of development |
-| **Fork** | Your own server-side copy of a repo |
-| **Pull Request** | A proposal to merge changes |
-| **Issue** | A task, bug report, or discussion |
+
+---
+
+## GitHub Terminologies — Collaboration
+
+Tools for working with others:
+
+| Term | What it means |
+|------|--------------|
+| **Fork** | Your own server-side copy of someone else's repo |
+| **Pull Request** | A proposal to merge your changes into the main repo |
+| **Issue** | A task, bug report, or discussion thread |
 | **Organization** | A shared account for teams |
 
 ---

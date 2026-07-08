@@ -99,5 +99,5 @@ when copy-pasting table rows.
 | `## text` | Heading 2 |
 | `**text**` | **bold** |
 | `- item` | bullet list |
-| `\| col \|` | table |
+| `| col |` | table column |
 | `[text](url)` | link |

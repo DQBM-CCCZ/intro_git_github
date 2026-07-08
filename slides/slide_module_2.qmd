@@ -128,11 +128,38 @@ Every change you make moves through three places, in order:
 Why a staging area? Imagine you fixed a bug **and** started an unrelated
 experiment in the same session. The staging area lets you commit the bug
 fix alone, with its own clear message — without dragging in the half-finished
-experiment. We'll see this as a diagram once you've done it by hand.
+experiment.
 
 ---
 
-## When to commit: the one-unit rule
+## The staging area: explained
+
+![](../assets/images/git-workflow-3stages.png){width="95%" fig-align="center"}
+
+**Three places where your code lives:**
+
+1. **Working Directory** — your files, as you're editing them
+2. **Staging Area** — you choose what goes into the next commit
+3. **Repository** — your permanent history, safe and backed up
+
+---
+
+## How staging works
+
+```
+You edit file.txt
+        ↓ (git add file.txt)
+File is now STAGED (ready to commit)
+        ↓ (git commit -m "message")
+File is now in REPOSITORY (permanent history)
+```
+
+**Key insight:** Between editing and committing, you can choose exactly
+what goes into each snapshot. This is the power of staging.
+
+---
+
+## The Git workflow: visual recap
 
 Beginners ask: "How often should I commit?"
 
@@ -221,18 +248,8 @@ git commit -m "added sample metadata for 4 samples"
 git status   # now: "nothing to commit, working tree clean"
 ```
 
-### VS Code (Source Control panel)
-
-1. Open the **Source Control** icon in the left sidebar (or `Ctrl+Shift+G`)
-2. Under "Changes," hover `samples.csv` → click **+** to stage it
-   (it moves up to "Staged Changes" — this IS `git add`)
-3. Type your commit message in the box at the top
-4. Click the **✓ Commit** button — this IS `git commit -m`
-
 ::: {.callout-tip}
-The CLI and the GUI do the exact same thing underneath. Use whichever helps
-you *see* what's happening — many people find staging easier to understand
-visually before they trust it from the terminal.
+The CLI does the same thing underneath. Use the terminal when you're comfortable, or any tool that feels natural.
 :::
 
 :::
@@ -305,9 +322,9 @@ This automatically closes issue #7 when you merge to main.
 
 ## The staging area recap
 
-![](../assets/images/staging-area-recap.png){width="85%" fig-align="center"}
+![](../assets/images/staging-area-recap.png){width="90%" fig-align="center"}
 
-You can inspect the staging area at any point with `git diff --staged`.
+The staging area is your **safety net**: you can see exactly what will go into your next commit before it's permanent.
 
 ---
 
@@ -353,16 +370,6 @@ git diff <hash1> <hash2>
 Terminal diffs use `+`/`-` prefixes per line — green `+` for added, red `-`
 for removed.
 
-### VS Code
-
-1. In the **Source Control** panel, click any modified file under "Changes"
-2. VS Code opens a **side-by-side diff view** automatically — old version on
-   the left, new on the right, changed lines highlighted in color
-3. Click a file under "Staged Changes" to see exactly what's about to be committed
-
-For a long file, the side-by-side view is much faster to scan than reading
-`+`/`-` lines in the terminal.
-
 :::
 
 ---
@@ -373,16 +380,23 @@ You just learned the gotchas, the one-unit rule, and commit message best practic
 
 See [Exercise 3](../exercises/exercise_3_local_git.qmd) for the full walkthrough.
 
-**Summary:**
+**Part 1: Setup & tracking**
 
 1. `mkdir experiment-tracker && cd experiment-tracker && git init`
 2. Create `samples.csv` with sample metadata, `git add`, `git commit`
 3. Create `analysis_log.md`, document steps with clear commit messages
+
+---
+
+## Exercise 3 continued
+
+**Part 2: Inspecting history**
+
 4. `git log --oneline` — see all your commits
 5. `git diff` before staging; `git diff --staged` after staging
 6. Compare commits: `git diff HASH1 HASH2`
 
-**Key practice:** Write commit messages using the "one-unit rule" and imperative format from the previous slides.
+**Key practice:** Write commit messages using the "one-unit rule" and imperative format.
 
 ---
 

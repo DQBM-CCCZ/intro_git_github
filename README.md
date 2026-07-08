@@ -87,31 +87,18 @@ Designed for researchers at the Swiss Institute of Bioinformatics / University o
 
 ---
 
-## Files in this Repository
+## Next Steps
 
-| File | Description |
-|------|-------------|
-| [setup.md](setup.md) | Pre-course setup (install git, GitHub account, SSH key) |
-| [final_exercise.md](final_exercise.md) | End-of-day final exercise |
-| [cheatsheet.md](cheatsheet.md) | Git command reference card |
-| [projects.md](projects.md) | Participant project descriptions |
-| [assets/git_github_lecture.pdf](assets/git_github_lecture.pdf) | Lecture slides |
-| [evaluation.pdf](evaluation.pdf) | Course evaluation form |
+Visit the course website: [https://dqbm-cccz.github.io/intro_git_github/](https://dqbm-cccz.github.io/intro_git_github/)
+
+Access slides, exercises, cheat sheets, and schedule there.
 
 ---
 
-## Participants
+## Acknowledgements
 
-| Name | Email | GitHub username | Project |
-|------|-------|-----------------|---------|
-| Morgane Hilaire | morgane.hilaire@uzh.ch | | Project 1 |
-| Almudena Sancha Cantero | mariadelaalmudena.sanchacantero@uzh.ch | | Project 1 |
-| Lukas Schwyter | lukas.schwyter@uzh.ch | SchLuk54 | Project 2 |
-| Markus Vogt | markusvogt1996@gmail.com | MarkusVogt96 | Project 1 |
-| Rebecca Mikic | Rebecca.mikic@uzh.ch | rebimasek | Project 2 |
-| Simon Marechal | Simon.marechal@uzh.ch | SimonMarech | Project 3 |
-| Takayuki Yasunaga | takayuki.yasunaga@uzh.ch | TakayukiYasunaga | Project 2 |
-| Somanath Jagannath | somanath.jagannath@uzh.ch | sjagannath123 | Project 3 |
-| Matthias Rath | matthias.rath@uzh.ch | | Project 3 |
-| Géraldine Liot | geraldine.liot@uzh.ch | gliot | Project 3 |
-| Sukrit Suresh | Sukrit.Suresh@uzh.ch | sukritsuresh | Project 1 |
+We thank [Prof. Michael Krauthammer](https://krauthammerlab.ch/authors/michaelkrauthammer/) for supporting this course.
+
+Special thanks to **CCCZ** for providing coffee breaks.
+
+![CCCZ Logo](assets/images/cccz.jpg){width="100px"}

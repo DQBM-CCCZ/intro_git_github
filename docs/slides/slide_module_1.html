@@ -293,13 +293,15 @@ Deepak Tanwar
 <li>Works <strong>locally</strong> — no internet needed</li>
 <li>Free and open source</li>
 </ul>
-<div class="fragment">
-<p><strong>Git ≠ GitHub</strong></p>
+</section>
+<section id="git-github" class="slide level2">
+<h2>Git ≠ GitHub</h2>
+<p>These are often confused, but they’re different tools:</p>
 <ul>
-<li><strong>Git</strong> = the tool running on your machine</li>
-<li><strong>GitHub</strong> = a website that hosts Git repositories online — we’ll get there in Module 4</li>
+<li><strong>Git</strong> = the version control tool running on your machine</li>
+<li><strong>GitHub</strong> = a website that hosts Git repositories online</li>
 </ul>
-</div>
+<p>We’ll use both today — Git is what you <em>use</em>, GitHub is where you <em>share</em>.</p>
 </section>
 <section id="version-control-the-better-way" class="slide level2">
 <h2>Version control — the better way</h2>
@@ -324,14 +326,24 @@ Deepak Tanwar
 </section>
 <section id="why-not-just-use-google-docs" class="slide level2">
 <h2>“Why not just use Google Docs?”</h2>
-<p>A fair question — for a single shared document, Google Docs works fine. Git earns its complexity when you have:</p>
+<p>A fair question — for a single shared document, Google Docs works fine.</p>
+<p>Git earns its complexity when you have:</p>
 <ul>
 <li><strong>Code and scripts</strong>, not prose — line-by-line diffs that mean something</li>
 <li><strong>Parallel experiments</strong> — try a new analysis approach without breaking the working one (branches)</li>
 <li><strong>Exact reproducibility</strong> — re-run the <em>exact</em> code that produced Figure 2, six months later</li>
+</ul>
+</section>
+<section id="why-git-shines" class="slide level2">
+<h2>Why Git shines</h2>
+<p>The final advantage:</p>
+<ul>
 <li><strong>No internet required</strong> — full history available offline, on your machine</li>
 </ul>
-<div class="fragment">
+<p>Every other tool requires a server connection. Git works everywhere — on planes, in the field, during internet outages.</p>
+</section>
+<section id="git-vs-google-docs-rule-of-thumb" class="slide level2">
+<h2>Git vs Google Docs: Rule of thumb</h2>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -341,8 +353,8 @@ Deepak Tanwar
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Rule of thumb: writing a manuscript together → Google Docs. Writing an analysis pipeline together → Git.</p>
-</div>
+<p><strong>Collaborating on prose?</strong> → Google Docs (faster, simpler)</p>
+<p><strong>Collaborating on code/analysis?</strong> → Git (reproducible, historical, safe experiments)</p>
 </div>
 </div>
 </div>
@@ -368,35 +380,51 @@ Deepak Tanwar
 </section>
 <section id="git-is-winning" class="slide level2">
 <h2>Git is winning</h2>
-<p>That “every copy is a full repo” idea isn’t just theoretical — it’s why Git overtook the central model in practice:</p>
 
-<img data-src="../assets/images/git-vs-svn-trends.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>GitHub built a free hosting platform on top of Git, with project management and automated testing built in.</p>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Poll:</strong> has anyone here already used GitHub to download someone else’s code or data? You’ve been a Git user already — you just didn’t know it.</p>
-</div>
-</div>
-</div>
+<img data-src="../assets/images/git-vs-svn-trends.png" class="quarto-figure quarto-figure-center r-stretch" style="width:95.0%"><p>Git overtook SVN because every clone is a full backup — the distributed model won.</p>
 </section>
-<section id="the-6-core-concepts-your-map-for-today" class="slide level2">
-<h2>The 6 core concepts — your map for today</h2>
+<section id="why-git-won" class="slide level2">
+<h2>Why Git won</h2>
+<p>With Git’s distributed model:</p>
+<ul>
+<li>Every copy is a full backup — no single point of failure</li>
+<li>Everyone can work offline</li>
+<li>Git is fast (no server communication needed)</li>
+<li>Easy to merge work from many contributors</li>
+</ul>
+</section>
+<section id="github-building-on-git" class="slide level2">
+<h2>GitHub: Building on Git</h2>
+<p>GitHub built a free hosting platform on top of Git, adding:</p>
+<ul>
+<li>Project management (Issues, Projects)</li>
+<li>Automated testing (Actions)</li>
+<li>Easy collaboration across teams</li>
+<li>A social network for developers</li>
+</ul>
+</section>
+<section id="the-6-core-concepts-part-1" class="slide level2">
+<h2>The 6 core concepts — part 1</h2>
 <p>Git has hundreds of commands. You only need <strong>6 ideas</strong> to be effective:</p>
 <ol type="1">
 <li><strong>Repository</strong> — a folder Git is watching</li>
 <li><strong>Working directory</strong> — your files, right now, as you edit them</li>
 <li><strong>Staging area</strong> — a holding pen for what goes into the next snapshot</li>
+</ol>
+<p>These are the “places” where your code lives during development.</p>
+</section>
+<section id="the-6-core-concepts-part-2" class="slide level2">
+<h2>The 6 core concepts — part 2</h2>
+<p>The rest of the 6:</p>
+<ol start="4" type="1">
 <li><strong>Commit</strong> — a saved snapshot with a message</li>
 <li><strong>Branch</strong> — an independent line of commits</li>
 <li><strong>Remote</strong> — a copy of the repository living somewhere else (GitHub)</li>
 </ol>
-<div class="fragment">
+<p>These are the “actions” you take with those places.</p>
+</section>
+<section id="your-navigation-tool" class="slide level2">
+<h2>Your navigation tool</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -410,16 +438,15 @@ Deepak Tanwar
 </div>
 </div>
 </div>
-</div>
 </section>
-<section id="github-terminologies" class="slide level2">
-<h2>GitHub Terminologies</h2>
-<p>Now that you have the 6 concepts, here’s the vocabulary GitHub specifically adds:</p>
+<section id="github-terminologies-core" class="slide level2">
+<h2>GitHub Terminologies — Core</h2>
+<p>Now that you have the 6 concepts, here’s the vocabulary GitHub adds:</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th>Term</th>
-<th>Plain English</th>
+<th>What it means</th>
 </tr>
 </thead>
 <tbody>
@@ -435,19 +462,37 @@ Deepak Tanwar
 <td><strong>Branch</strong></td>
 <td>A separate line of development</td>
 </tr>
-<tr class="even">
+</tbody>
+</table>
+</section>
+<section id="github-terminologies-collaboration" class="slide level2">
+<h2>GitHub Terminologies — Collaboration</h2>
+<p>Tools for working with others:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td><strong>Fork</strong></td>
-<td>Your own server-side copy of a repo</td>
-</tr>
-<tr class="odd">
-<td><strong>Pull Request</strong></td>
-<td>A proposal to merge changes</td>
+<td>Your own server-side copy of someone else’s repo</td>
 </tr>
 <tr class="even">
-<td><strong>Issue</strong></td>
-<td>A task, bug report, or discussion</td>
+<td><strong>Pull Request</strong></td>
+<td>A proposal to merge your changes into the main repo</td>
 </tr>
 <tr class="odd">
+<td><strong>Issue</strong></td>
+<td>A task, bug report, or discussion thread</td>
+</tr>
+<tr class="even">
 <td><strong>Organization</strong></td>
 <td>A shared account for teams</td>
 </tr>

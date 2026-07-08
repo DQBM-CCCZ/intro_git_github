@@ -235,7 +235,9 @@ Deepak Tanwar
 </div>
 </div>
 </div>
-<div class="fragment">
+</section>
+<section id="why-branches-continued" class="slide level2">
+<h2>Why branches? (continued)</h2>
 <p>In research: use a branch to try a new analysis approach. If it works → merge. If not → delete without any harm to <code>main</code>.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -250,7 +252,6 @@ Deepak Tanwar
 </div>
 </div>
 </div>
-</div>
 </section>
 <section id="reasons-to-branch" class="slide level2">
 <h2>5 reasons to branch</h2>
@@ -261,9 +262,11 @@ Deepak Tanwar
 <li><strong>Collaboration</strong> — you and a labmate work on the same project without colliding</li>
 <li><strong>Review</strong> — let a colleague review your changes before they reach <code>main</code></li>
 </ol>
-<div class="fragment">
-<p>Different reasons, same mechanism: branches are cheap, disposable, and safe.</p>
-</div>
+</section>
+<section id="why-branches-summary" class="slide level2">
+<h2>Why branches? (summary)</h2>
+<p>Different reasons, same mechanism: <strong>branches are cheap, disposable, and safe.</strong></p>
+<p>Use them liberally. Don’t be afraid to create one, experiment, and delete it if it doesn’t work out.</p>
 </section>
 <section id="git-branch-git-checkout" class="slide level2">
 <h2>git branch + git checkout</h2>
@@ -310,42 +313,18 @@ Treated samples show a 2-fold increase in expression.
 =======
 Treated samples show no significant change in expression.
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; try-new-normalization</code></pre>
-<div class="fragment">
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Resolve by hand</a></li><li><a href="#tabset-1-2">Resolve in VS Code</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
+</section>
+<section id="resolving-merge-conflicts" class="slide level2">
+<h2>Resolving merge conflicts</h2>
+<p>When you <code>git merge</code> and Git can’t automatically resolve, it stops and marks the conflicts.</p>
+<p><strong>How to resolve:</strong></p>
 <ol type="1">
-<li>Open the file</li>
+<li>Open the file with conflict markers</li>
 <li>Choose which version to keep (or combine them)</li>
 <li>Remove all <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers</li>
 <li><code>git add &lt;file&gt;</code> → <code>git commit</code></li>
 </ol>
-</div>
-<div id="tabset-1-2">
-<ol type="1">
-<li>VS Code highlights conflicted files in the Source Control panel</li>
-<li>Open the file — it shows <strong>“Current Change” / “Incoming Change”</strong> as colored blocks with clickable buttons above each one</li>
-<li>Click <strong>Accept Current</strong>, <strong>Accept Incoming</strong>, <strong>Accept Both</strong>, or edit the merged text directly — no markers to manually delete</li>
-<li>Save the file, then stage and commit as usual</li>
-</ol>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<p>For anything beyond a one-line conflict, the visual 3-way merge view is far less error-prone than manually deleting <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> markers by hand.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p>Done! The merge completes.</p>
 </section>
 <section id="exploring-git-history" class="slide level2">
 <h2>Exploring git history</h2>

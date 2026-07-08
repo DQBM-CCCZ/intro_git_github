@@ -19,8 +19,8 @@ collaboration.
 ::: {.callout-important}
 ## Exam window
 
-**Opens:** Tuesday, 8 July 2025, 17:00 (Europe/Zurich)
-**Closes:** Tuesday, 15 July 2025, 23:59 (Europe/Zurich)
+**Opens:** Wednesday, 8 July 2026, 17:00 (Europe/Zurich)
+**Closes:** Wednesday, 15 July 2026, 23:59 (Europe/Zurich)
 
 The exam link will only accept submissions during this window. You have
 **one attempt**. Make sure you're ready before you start.
@@ -55,6 +55,33 @@ The exam opens in a new tab. If you arrive before 8 July 17:00 or after
 15 July, Microsoft Forms will tell you the form is not currently accepting
 responses — this is expected.
 :::
+
+---
+
+## Course Feedback
+
+Your feedback helps us improve this course for future participants. Please take 2 minutes to share your thoughts:
+
+::: {.callout-important}
+## Feedback window
+
+**Opens:** Wednesday, 8 July 2026, 16:00 (Europe/Zurich)
+**Closes:** Wednesday, 15 July 2026, 17:00 (Europe/Zurich)
+
+The feedback form is optional and anonymous.
+:::
+
+<div style="text-align: center; margin: 2em 0;">
+<a href="https://forms.office.com/e/rEKqptMTMn" target="_blank" class="btn btn-lg" style="background-color: #4472C4; color: white; padding: 0.75em 2em; border-radius: 6px; text-decoration: none; font-weight: bold;">
+Give Feedback (Microsoft Forms)
+</a>
+</div>
+
+Or scan with your phone:
+
+<div style="text-align: center; margin: 1.5em 0;">
+![](../assets/images/evaluation_qr.png){width="220px"}
+</div>
 
 ---
 

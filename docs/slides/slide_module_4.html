@@ -217,8 +217,8 @@ Deepak Tanwar
 </ol>
 <p>First: connect securely. That’s SSH.</p>
 </section>
-<section id="ssh-authentication-setup-troubleshooting" class="slide level2">
-<h2>SSH Authentication — setup &amp; troubleshooting</h2>
+<section id="ssh-authentication-setup" class="slide level2">
+<h2>SSH Authentication — setup</h2>
 <p>SSH lets your machine authenticate to GitHub without passwords:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="co"># Check for existing key</span></span>
 <span id="cb1-2"><a></a><span class="fu">ls</span> <span class="at">-al</span> ~/.ssh</span>
@@ -231,7 +231,6 @@ Deepak Tanwar
 <span id="cb1-9"><a></a></span>
 <span id="cb1-10"><a></a><span class="co"># Test connection</span></span>
 <span id="cb1-11"><a></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -245,10 +244,9 @@ Deepak Tanwar
 </div>
 </div>
 </div>
-</div>
 </section>
-<section id="if-ssh-connection-fails" class="slide level2">
-<h2>If SSH connection fails…</h2>
+<section id="ssh-troubleshooting" class="slide level2">
+<h2>SSH troubleshooting</h2>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -276,10 +274,23 @@ Deepak Tanwar
 <tr class="even">
 <td>Public key not on GitHub</td>
 <td>Key not uploaded</td>
-<td>Copy output of <code>cat ~/.ssh/id_ed25519.pub</code>, paste in <a href="https://github.com/settings/keys">github.com/settings/keys</a></td>
+<td>Copy public key, paste in <a href="https://github.com/settings/keys">github.com/settings/keys</a></td>
 </tr>
 </tbody>
 </table>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>If none of these work:</strong> Try using HTTPS instead of SSH (<code>https://github.com/USERNAME/REPO.git</code>). HTTPS is simpler for first-time users and doesn’t require SSH key setup.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="connecting-local-to-remote" class="slide level2">
 <h2>Connecting local to remote</h2>
@@ -323,19 +334,6 @@ Deepak Tanwar
 <span id="cb5-2"><a></a><span class="fu">git</span> merge    <span class="co"># merge them into your branch</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <p><strong>Run <code>git pull</code> at the start of every work session.</strong></p>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>VS Code equivalent:</strong> the bottom-left status bar shows your branch name with up/down arrow counts (e.g.&nbsp;<code>main ↑2 ↓1</code>) — 2 commits to push, 1 to pull. Click the <strong>sync icon</strong> next to it to pull then push in one click.</p>
-</div>
-</div>
-</div>
 </div>
 </section>
 <section id="git-clone" class="slide level2">
@@ -349,23 +347,113 @@ Deepak Tanwar
 </section>
 <section id="the-full-remote-workflow" class="slide level2">
 <h2>The full remote workflow</h2>
-<p>Every command you’ve seen today, in the order you’ll actually use them:</p>
+<p>Every command you’ll actually use them, in order:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="fu">git</span> clone <span class="op">&lt;</span>url<span class="op">&gt;</span>           <span class="co"># 1. get the repo (first time only)</span></span>
-<span id="cb7-2"><a></a><span class="co"># or: git pull            # 1. get latest (if you already have it)</span></span>
-<span id="cb7-3"><a></a></span>
-<span id="cb7-4"><a></a><span class="fu">git</span> checkout <span class="at">-b</span> feature   <span class="co"># 2. work on a branch</span></span>
-<span id="cb7-5"><a></a></span>
-<span id="cb7-6"><a></a><span class="co"># make changes...</span></span>
-<span id="cb7-7"><a></a></span>
-<span id="cb7-8"><a></a><span class="fu">git</span> add <span class="at">--all</span>             <span class="co"># 3. stage</span></span>
-<span id="cb7-9"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"message"</span>   <span class="co"># 4. commit</span></span>
-<span id="cb7-10"><a></a><span class="fu">git</span> push origin feature   <span class="co"># 5. push branch to GitHub</span></span>
-<span id="cb7-11"><a></a></span>
-<span id="cb7-12"><a></a><span class="co"># 6. open Pull Request on GitHub</span></span>
-<span id="cb7-13"><a></a><span class="co"># 7. after merge:</span></span>
-<span id="cb7-14"><a></a><span class="fu">git</span> checkout main</span>
-<span id="cb7-15"><a></a><span class="fu">git</span> pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Steps 6 and 7 mention things we haven’t covered yet — Issues, Projects, and Pull Requests. That’s the rest of this module.</p>
+<span id="cb7-2"><a></a><span class="fu">git</span> checkout <span class="at">-b</span> feature   <span class="co"># 2. work on a branch</span></span>
+<span id="cb7-3"><a></a><span class="co"># make changes...</span></span>
+<span id="cb7-4"><a></a><span class="fu">git</span> add <span class="at">--all</span>             <span class="co"># 3. stage</span></span>
+<span id="cb7-5"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"message"</span>   <span class="co"># 4. commit</span></span>
+<span id="cb7-6"><a></a><span class="fu">git</span> push origin feature   <span class="co"># 5. push to GitHub</span></span>
+<span id="cb7-7"><a></a><span class="co"># 6. open Pull Request on GitHub</span></span>
+<span id="cb7-8"><a></a><span class="co"># 7. after merge: git checkout main &amp;&amp; git pull</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is the complete workflow for collaborating on GitHub.</p>
+</section>
+<section id="pull-request-workflow" class="slide level2">
+<h2>Pull Request workflow</h2>
+<p>Visual guide to the Fork → Branch → PR → Merge cycle:</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    A["Your Fork&lt;br/&gt;on GitHub"] --&gt;|git clone| B["Local Machine"]
+    B --&gt;|git checkout -b feature| C["Feature Branch"]
+    C --&gt;|make changes| D["Committed Changes"]
+    D --&gt;|git push origin feature| E["Push to Fork"]
+    E --&gt;|Create PR| F["Pull Request&lt;br/&gt;on Main Repo"]
+    F --&gt;|Code Review| G{"Approved?"}
+    G --&gt;|Yes| H["Merge to main"]
+    G --&gt;|No| C
+    H --&gt;|git pull| I["Update Your Local"]
+    
+    style A fill:#e3f2fd
+    style B fill:#f3e5f5
+    style C fill:#e8f5e9
+    style F fill:#fff3e0
+    style H fill:#c8e6c9
+    style I fill:#bbdefb
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="github-issues-workflow" class="slide level2">
+<h2>GitHub Issues workflow</h2>
+<p>Track, assign, and close work:</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    A["🆕 Create Issue&lt;br/&gt;Title + Description"] --&gt; B["📋 Issue Backlog"]
+    B --&gt; C["👤 Assign to yourself&lt;br/&gt;or teammate"]
+    C --&gt; D["🔖 Add labels&lt;br/&gt;bug, feature, docs, etc"]
+    D --&gt; E["🏗️ In Progress"]
+    E --&gt; F["💻 Create branch&lt;br/&gt;git checkout -b fix-X"]
+    F --&gt; G["✅ Commit work&lt;br/&gt;closes #issue-number"]
+    G --&gt; H["🔀 Create PR"]
+    H --&gt; I["✔️ Review &amp; Merge"]
+    I --&gt; J["🎯 Issue Auto-closes"]
+    
+    style A fill:#ffebee
+    style B fill:#fff9c4
+    style E fill:#fff3e0
+    style H fill:#e1f5fe
+    style J fill:#c8e6c9
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="merge-conflict-resolution" class="slide level2">
+<h2>Merge conflict resolution</h2>
+<p>Step-by-step visual guide:</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    A["Conflict: Two branches&lt;br/&gt;changed same lines"] --&gt; B["❌ git merge fails"]
+    B --&gt; C["📖 Open conflicted file"]
+    C --&gt; D["See conflict markers:&lt;br/&gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD&lt;br/&gt;your changes&lt;br/&gt;=======&lt;br/&gt;their changes&lt;br/&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-name"]
+    D --&gt; E{"Decide: Keep&lt;br/&gt;yours, theirs,&lt;br/&gt;or both?"}
+    E --&gt;|Keep yours| F["Delete their section"]
+    E --&gt;|Keep theirs| G["Delete your section"]
+    E --&gt;|Keep both| H["Keep both, remove markers"]
+    F --&gt; I["Remove conflict markers&lt;br/&gt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; ======= &gt;&gt;&gt;&gt;&gt;&gt;&gt;"]
+    G --&gt; I
+    H --&gt; I
+    I --&gt; J["git add resolved_file"]
+    J --&gt; K["git commit -m 'resolved conflict'"]
+    K --&gt; L["✅ Merge complete"]
+    
+    style A fill:#ffcdd2
+    style B fill:#ffcdd2
+    style D fill:#fff9c4
+    style L fill:#c8e6c9
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="github-issues" class="slide level2">
 <h2>GitHub Issues</h2>
@@ -494,12 +582,17 @@ Deepak Tanwar
 <li><strong>How</strong> to work safely with branches (Module 3)</li>
 <li><strong>How</strong> to collaborate on GitHub (Module 4)</li>
 </ul>
-<p>You now have the skills to:</p>
+</section>
+<section id="your-new-skills" class="slide level2">
+<h2>Your new skills ✅</h2>
 <p>✅ Version-control your analysis and code<br>
 ✅ Try new approaches without breaking what works<br>
 ✅ Collaborate with colleagues<br>
 ✅ Contribute to open-source projects</p>
 <p><strong>Next:</strong> These skills apply to everything. Take them forward.</p>
+</section>
+<section class="slide level2">
+
 <p><strong>Questions?</strong> 🙋</p>
 
 

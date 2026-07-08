@@ -291,11 +291,30 @@ branch    checkout  stash     status    tag       ...</code></pre>
 <p>Every change you make moves through three places, in order:</p>
 <p><strong>Working Directory</strong> → (<code>git add</code>) → <strong>Staging Area</strong> → (<code>git commit</code>) → <strong>Repository</strong></p>
 <div class="fragment">
-<p>Why a staging area? Imagine you fixed a bug <strong>and</strong> started an unrelated experiment in the same session. The staging area lets you commit the bug fix alone, with its own clear message — without dragging in the half-finished experiment. We’ll see this as a diagram once you’ve done it by hand.</p>
+<p>Why a staging area? Imagine you fixed a bug <strong>and</strong> started an unrelated experiment in the same session. The staging area lets you commit the bug fix alone, with its own clear message — without dragging in the half-finished experiment.</p>
 </div>
 </section>
-<section id="when-to-commit-the-one-unit-rule" class="slide level2">
-<h2>When to commit: the one-unit rule</h2>
+<section id="the-staging-area-explained" class="slide level2">
+<h2>The staging area: explained</h2>
+
+<img data-src="../assets/images/git-workflow-3stages.png" class="quarto-figure quarto-figure-center r-stretch" style="width:95.0%"><p><strong>Three places where your code lives:</strong></p>
+<ol type="1">
+<li><strong>Working Directory</strong> — your files, as you’re editing them</li>
+<li><strong>Staging Area</strong> — you choose what goes into the next commit</li>
+<li><strong>Repository</strong> — your permanent history, safe and backed up</li>
+</ol>
+</section>
+<section id="how-staging-works" class="slide level2">
+<h2>How staging works</h2>
+<pre><code>You edit file.txt
+        ↓ (git add file.txt)
+File is now STAGED (ready to commit)
+        ↓ (git commit -m "message")
+File is now in REPOSITORY (permanent history)</code></pre>
+<p><strong>Key insight:</strong> Between editing and committing, you can choose exactly what goes into each snapshot. This is the power of staging.</p>
+</section>
+<section id="the-git-workflow-visual-recap" class="slide level2">
+<h2>The Git workflow: visual recap</h2>
 <p>Beginners ask: “How often should I commit?”</p>
 <div class="fragment">
 <p><strong>One commit = one logical unit of work</strong></p>
@@ -323,7 +342,7 @@ branch    checkout  stash     status    tag       ...</code></pre>
 <section id="your-first-file-sample-metadata" class="slide level2">
 <h2>Your first file: sample metadata</h2>
 <p>Your repository exists but is empty. Let’s put something in the working directory — step 1 of the three stages:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">nano</span> samples.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="fu">nano</span> samples.csv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>sample_id,condition,replicate
 S01,control,1
 S02,control,2
@@ -334,7 +353,7 @@ S04,treated,2</code></pre>
 <section id="git-status" class="slide level2">
 <h2>git status</h2>
 <p>The file exists, but Git hasn’t been told to track it. Check what Git sees:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="fu">git</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="fu">git</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>On branch main
 
 No commits yet
@@ -347,26 +366,18 @@ Untracked files:
 <section id="git-add-git-commit" class="slide level2">
 <h2>git add → git commit</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Terminal</a></li><li><a href="#tabset-1-2">VS Code (Source Control panel)</a></li></ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Terminal</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="co"># Stage the file</span></span>
-<span id="cb8-2"><a></a><span class="fu">git</span> add samples.csv</span>
-<span id="cb8-3"><a></a></span>
-<span id="cb8-4"><a></a><span class="fu">git</span> status   <span class="co"># now it shows "Changes to be committed"</span></span>
-<span id="cb8-5"><a></a></span>
-<span id="cb8-6"><a></a><span class="co"># Commit</span></span>
-<span id="cb8-7"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"added sample metadata for 4 samples"</span></span>
-<span id="cb8-8"><a></a></span>
-<span id="cb8-9"><a></a><span class="fu">git</span> status   <span class="co"># now: "nothing to commit, working tree clean"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="tabset-1-2">
-<ol type="1">
-<li>Open the <strong>Source Control</strong> icon in the left sidebar (or <code>Ctrl+Shift+G</code>)</li>
-<li>Under “Changes,” hover <code>samples.csv</code> → click <strong>+</strong> to stage it (it moves up to “Staged Changes” — this IS <code>git add</code>)</li>
-<li>Type your commit message in the box at the top</li>
-<li>Click the <strong>✓ Commit</strong> button — this IS <code>git commit -m</code></li>
-</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="co"># Stage the file</span></span>
+<span id="cb9-2"><a></a><span class="fu">git</span> add samples.csv</span>
+<span id="cb9-3"><a></a></span>
+<span id="cb9-4"><a></a><span class="fu">git</span> status   <span class="co"># now it shows "Changes to be committed"</span></span>
+<span id="cb9-5"><a></a></span>
+<span id="cb9-6"><a></a><span class="co"># Commit</span></span>
+<span id="cb9-7"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"added sample metadata for 4 samples"</span></span>
+<span id="cb9-8"><a></a></span>
+<span id="cb9-9"><a></a><span class="fu">git</span> status   <span class="co"># now: "nothing to commit, working tree clean"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -376,7 +387,7 @@ Untracked files:
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>The CLI and the GUI do the exact same thing underneath. Use whichever helps you <em>see</em> what’s happening — many people find staging easier to understand visually before they trust it from the terminal.</p>
+<p>The CLI does the same thing underneath. Use the terminal when you’re comfortable, or any tool that feels natural.</p>
 </div>
 </div>
 </div>
@@ -386,13 +397,13 @@ Untracked files:
 </section>
 <section id="git-log" class="slide level2">
 <h2>git log</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="fu">git</span> log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="fu">git</span> log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>commit ac3eveta1234...
 Author: Deepak Tanwar &lt;deepak@uzh.ch&gt;
 Date:   Mon Jun 23 09:45:00 2025
 
     added sample metadata for 4 samples</code></pre>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="fu">git</span> log <span class="at">--oneline</span>   <span class="co"># compact view</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="fu">git</span> log <span class="at">--oneline</span>   <span class="co"># compact view</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="writing-good-commit-messages" class="slide level2">
 <h2>Writing good commit messages</h2>
@@ -412,13 +423,13 @@ Can reference an issue: "closes #42"</code></pre>
 <section id="pro-tip-reference-issues-in-commits" class="slide level2">
 <h2>Pro tip: Reference issues in commits</h2>
 <p>Link commits to GitHub issues automatically:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"fix duplicate sample handling, closes #7"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"fix duplicate sample handling, closes #7"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This automatically closes issue #7 when you merge to main.</p>
 </section>
 <section id="the-staging-area-recap" class="slide level2">
 <h2>The staging area recap</h2>
 
-<img data-src="../assets/images/staging-area-recap.png" class="quarto-figure quarto-figure-center r-stretch" style="width:85.0%"><p>You can inspect the staging area at any point with <code>git diff --staged</code>.</p>
+<img data-src="../assets/images/staging-area-recap.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"><p>The staging area is your <strong>safety net</strong>: you can see exactly what will go into your next commit before it’s permanent.</p>
 </section>
 <section id="head" class="slide level2">
 <h2>HEAD</h2>
@@ -444,29 +455,21 @@ Can reference an issue: "closes #42"</code></pre>
 <p>Diffing shows <strong>what changed</strong> between two states:</p>
 
 <img data-src="../assets/images/git-diff-diagram.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"><div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Terminal</a></li><li><a href="#tabset-2-2">VS Code</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Terminal</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="co"># Working directory vs staging area (unstaged changes)</span></span>
-<span id="cb14-2"><a></a><span class="fu">git</span> diff</span>
-<span id="cb14-3"><a></a></span>
-<span id="cb14-4"><a></a><span class="co"># Staging area vs last commit (what will be in next commit)</span></span>
-<span id="cb14-5"><a></a><span class="fu">git</span> diff <span class="at">--staged</span></span>
-<span id="cb14-6"><a></a></span>
-<span id="cb14-7"><a></a><span class="co"># Working directory vs last commit (everything changed)</span></span>
-<span id="cb14-8"><a></a><span class="fu">git</span> diff HEAD</span>
-<span id="cb14-9"><a></a></span>
-<span id="cb14-10"><a></a><span class="co"># Two specific commits</span></span>
-<span id="cb14-11"><a></a><span class="fu">git</span> diff <span class="op">&lt;</span>hash1<span class="op">&gt;</span> <span class="op">&lt;</span>hash2<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="co"># Working directory vs staging area (unstaged changes)</span></span>
+<span id="cb15-2"><a></a><span class="fu">git</span> diff</span>
+<span id="cb15-3"><a></a></span>
+<span id="cb15-4"><a></a><span class="co"># Staging area vs last commit (what will be in next commit)</span></span>
+<span id="cb15-5"><a></a><span class="fu">git</span> diff <span class="at">--staged</span></span>
+<span id="cb15-6"><a></a></span>
+<span id="cb15-7"><a></a><span class="co"># Working directory vs last commit (everything changed)</span></span>
+<span id="cb15-8"><a></a><span class="fu">git</span> diff HEAD</span>
+<span id="cb15-9"><a></a></span>
+<span id="cb15-10"><a></a><span class="co"># Two specific commits</span></span>
+<span id="cb15-11"><a></a><span class="fu">git</span> diff <span class="op">&lt;</span>hash1<span class="op">&gt;</span> <span class="op">&lt;</span>hash2<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Terminal diffs use <code>+</code>/<code>-</code> prefixes per line — green <code>+</code> for added, red <code>-</code> for removed.</p>
-</div>
-<div id="tabset-2-2">
-<ol type="1">
-<li>In the <strong>Source Control</strong> panel, click any modified file under “Changes”</li>
-<li>VS Code opens a <strong>side-by-side diff view</strong> automatically — old version on the left, new on the right, changed lines highlighted in color</li>
-<li>Click a file under “Staged Changes” to see exactly what’s about to be committed</li>
-</ol>
-<p>For a long file, the side-by-side view is much faster to scan than reading <code>+</code>/<code>-</code> lines in the terminal.</p>
 </div>
 </div>
 </div>
@@ -475,16 +478,22 @@ Can reference an issue: "closes #42"</code></pre>
 <h2>Exercise 3 — Local Git Workflow</h2>
 <p>You just learned the gotchas, the one-unit rule, and commit message best practices.</p>
 <p>See <a href="../exercises/exercise_3_local_git.html">Exercise 3</a> for the full walkthrough.</p>
-<p><strong>Summary:</strong></p>
+<p><strong>Part 1: Setup &amp; tracking</strong></p>
 <ol type="1">
 <li><code>mkdir experiment-tracker &amp;&amp; cd experiment-tracker &amp;&amp; git init</code></li>
 <li>Create <code>samples.csv</code> with sample metadata, <code>git add</code>, <code>git commit</code></li>
 <li>Create <code>analysis_log.md</code>, document steps with clear commit messages</li>
+</ol>
+</section>
+<section id="exercise-3-continued" class="slide level2">
+<h2>Exercise 3 continued</h2>
+<p><strong>Part 2: Inspecting history</strong></p>
+<ol start="4" type="1">
 <li><code>git log --oneline</code> — see all your commits</li>
 <li><code>git diff</code> before staging; <code>git diff --staged</code> after staging</li>
 <li>Compare commits: <code>git diff HASH1 HASH2</code></li>
 </ol>
-<p><strong>Key practice:</strong> Write commit messages using the “one-unit rule” and imperative format from the previous slides.</p>
+<p><strong>Key practice:</strong> Write commit messages using the “one-unit rule” and imperative format.</p>
 </section>
 <section id="ready-for-module-3" class="slide level2">
 <h2>Ready for Module 3?</h2>
