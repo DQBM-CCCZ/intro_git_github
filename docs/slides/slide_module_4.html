@@ -251,7 +251,7 @@ Deepak Tanwar
 <thead>
 <tr class="header">
 <th>Error</th>
-<th>Likely cause</th>
+<th>Cause</th>
 <th>Solution</th>
 </tr>
 </thead>
@@ -259,22 +259,22 @@ Deepak Tanwar
 <tr class="odd">
 <td><code>Permission denied</code></td>
 <td>Private key not found</td>
-<td>Run <code>ssh-keygen</code> to create one</td>
+<td>Run <code>ssh-keygen</code></td>
 </tr>
 <tr class="even">
 <td><code>Connection refused</code></td>
 <td>Firewall blocking</td>
-<td>Try HTTPS instead: <code>git config --global url."https://".insteadOf git://</code></td>
+<td>Use HTTPS instead</td>
 </tr>
 <tr class="odd">
 <td><code>Agent refused operation</code></td>
 <td>SSH agent not running</td>
-<td><code>eval "$(ssh-agent -s)"</code> then <code>ssh-add ~/.ssh/id_ed25519</code></td>
+<td><code>eval "$(ssh-agent -s)"</code></td>
 </tr>
 <tr class="even">
 <td>Public key not on GitHub</td>
 <td>Key not uploaded</td>
-<td>Copy public key, paste in <a href="https://github.com/settings/keys">github.com/settings/keys</a></td>
+<td>Paste in <a href="https://github.com/settings/keys">settings/keys</a></td>
 </tr>
 </tbody>
 </table>

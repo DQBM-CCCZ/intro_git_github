@@ -50,12 +50,12 @@ The private key never leaves your machine. GitHub only ever sees the public key 
 
 ## SSH troubleshooting
 
-| Error | Likely cause | Solution |
-|-------|---|---|
-| `Permission denied` | Private key not found | Run `ssh-keygen` to create one |
-| `Connection refused` | Firewall blocking | Try HTTPS instead: `git config --global url."https://".insteadOf git://` |
-| `Agent refused operation` | SSH agent not running | `eval "$(ssh-agent -s)"` then `ssh-add ~/.ssh/id_ed25519` |
-| Public key not on GitHub | Key not uploaded | Copy public key, paste in [github.com/settings/keys](https://github.com/settings/keys) |
+| Error | Cause | Solution |
+|-------|-------|----------|
+| `Permission denied` | Private key not found | Run `ssh-keygen` |
+| `Connection refused` | Firewall blocking | Use HTTPS instead |
+| `Agent refused operation` | SSH agent not running | `eval "$(ssh-agent -s)"` |
+| Public key not on GitHub | Key not uploaded | Paste in [settings/keys](https://github.com/settings/keys) |
 
 ---
 
