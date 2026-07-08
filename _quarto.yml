@@ -57,7 +57,7 @@ website:
         text: "Final Exam (ECTS)"
     right:
       - icon: github
-        href: https://github.com/DQBM-SIB/intro_git_github
+        href: https://github.com/DQBM-CCCZ/intro_git_github
 
   page-footer:
     left: "This course website is inspired by the [SIB course template](https://github.com/sib-swiss/course_website_template)."

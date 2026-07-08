@@ -383,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/DQBM-SIB/intro_git_github"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/DQBM-CCCZ/intro_git_github"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -405,7 +405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#goal" id="toc-goal" class="nav-link active" data-scroll-target="#goal">Goal</a></li>
-  <li><a href="#prerequisite" id="toc-prerequisite" class="nav-link" data-scroll-target="#prerequisite">Prerequisite</a></li>
+  <li><a href="#prerequisite-ssh-is-working" id="toc-prerequisite-ssh-is-working" class="nav-link" data-scroll-target="#prerequisite-ssh-is-working">Prerequisite: SSH is working</a></li>
   <li><a href="#part-a-create-the-github-repository" id="toc-part-a-create-the-github-repository" class="nav-link" data-scroll-target="#part-a-create-the-github-repository">Part A — Create the GitHub repository</a></li>
   <li><a href="#part-b-connect-and-push" id="toc-part-b-connect-and-push" class="nav-link" data-scroll-target="#part-b-connect-and-push">Part B — Connect and push</a></li>
   <li><a href="#part-c-verify-on-github" id="toc-part-c-verify-on-github" class="nav-link" data-scroll-target="#part-c-verify-on-github">Part C — Verify on GitHub</a></li>
@@ -444,14 +444,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="goal" class="level2">
 <h2 class="anchored" data-anchor-id="goal">Goal</h2>
 <p>Connect your local repository to GitHub and push your work online.</p>
+<p>You’ve learned how — now practice the SSH setup and push workflow.</p>
 <hr>
 </section>
-<section id="prerequisite" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisite">Prerequisite</h2>
+<section id="prerequisite-ssh-is-working" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisite-ssh-is-working">Prerequisite: SSH is working</h2>
 <p>Test your SSH key:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-T</span> git@github.com</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected: Hi YOUR_USERNAME! You've successfully authenticated.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If this fails, see <a href="../qmd/precourse_setup.html">Pre-course Setup</a>.</p>
+<p><strong>If this fails:</strong> See the troubleshooting table from Module 4 slide “If SSH connection fails…” for solutions. Common issues: private key not found, agent not running, or public key not uploaded to GitHub.</p>
 <hr>
 </section>
 <section id="part-a-create-the-github-repository" class="level2">

@@ -1,10 +1,24 @@
 [
   {
-    "objectID": "slides/slide_module_4.html#ssh-authentication",
-    "href": "slides/slide_module_4.html#ssh-authentication",
+    "objectID": "slides/slide_module_4.html#module-4-moving-to-github",
+    "href": "slides/slide_module_4.html#module-4-moving-to-github",
     "title": "Module 4: GitHub Collaboration",
-    "section": "SSH Authentication",
-    "text": "SSH Authentication\nEverything so far has lived only on your machine — concept 6 from this morning, remote, is what we’re missing. Before connecting to GitHub, it needs to know it’s really you. SSH lets your computer talk to GitHub without typing a password every time.\n\n\n\n\n\n\n\nNote\n\n\nThe private key never leaves your machine. GitHub only ever sees the public key — that’s why it’s safe to share, and the private key is not.\n\n\n\n# Check for existing key\nls -al ~/.ssh\n\n# Generate new key\nssh-keygen -t ed25519 -C \"your.email@uzh.ch\"\n\n# Copy public key → paste into github.com/settings/keys\ncat ~/.ssh/id_ed25519.pub\n\n# Test\nssh -T git@github.com"
+    "section": "Module 4: Moving to GitHub",
+    "text": "Module 4: Moving to GitHub\nYour local repository is powerful, but it’s only on your machine. GitHub brings three things:\n\nBackup — your history lives online\nCollaboration — multiple people can contribute\nPublic sharing — others can use your code\n\nFirst: connect securely. That’s SSH."
+  },
+  {
+    "objectID": "slides/slide_module_4.html#ssh-authentication-setup-troubleshooting",
+    "href": "slides/slide_module_4.html#ssh-authentication-setup-troubleshooting",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "SSH Authentication — setup & troubleshooting",
+    "text": "SSH Authentication — setup & troubleshooting\nSSH lets your machine authenticate to GitHub without passwords:\n# Check for existing key\nls -al ~/.ssh\n\n# Generate new key (if needed)\nssh-keygen -t ed25519 -C \"your.email@uzh.ch\"\n\n# Copy public key → paste into github.com/settings/keys\ncat ~/.ssh/id_ed25519.pub\n\n# Test connection\nssh -T git@github.com\n\n\n\n\n\n\n\nNote\n\n\nThe private key never leaves your machine. GitHub only ever sees the public key — that’s why it’s safe to share the public key, and the private key is not."
+  },
+  {
+    "objectID": "slides/slide_module_4.html#if-ssh-connection-fails",
+    "href": "slides/slide_module_4.html#if-ssh-connection-fails",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "If SSH connection fails…",
+    "text": "If SSH connection fails…\n\n\n\nError\nLikely cause\nSolution\n\n\n\n\nPermission denied\nPrivate key not found\nRun ssh-keygen to create one\n\n\nConnection refused\nFirewall blocking\nTry HTTPS instead: git config --global url.\"https://\".insteadOf git://\n\n\nAgent refused operation\nSSH agent not running\neval \"$(ssh-agent -s)\" then ssh-add ~/.ssh/id_ed25519\n\n\nPublic key not on GitHub\nKey not uploaded\nCopy output of cat ~/.ssh/id_ed25519.pub, paste in github.com/settings/keys"
   },
   {
     "objectID": "slides/slide_module_4.html#connecting-local-to-remote",
@@ -32,7 +46,7 @@
     "href": "slides/slide_module_4.html#git-clone",
     "title": "Module 4: GitHub Collaboration",
     "section": "git clone",
-    "text": "git clone\nCopy an entire repository to your machine:\ngit clone git@github.com:DQBM-SIB/intro_git_github.git\n\n# Into a custom folder name\ngit clone git@github.com:DQBM-SIB/intro_git_github.git my-folder\nClone includes the full history and sets up origin automatically."
+    "text": "git clone\nCopy an entire repository to your machine:\ngit clone git@github.com:DQBM-CCCZ/intro_git_github.git\n\n# Into a custom folder name\ngit clone git@github.com:DQBM-CCCZ/intro_git_github.git my-folder\nClone includes the full history and sets up origin automatically."
   },
   {
     "objectID": "slides/slide_module_4.html#the-full-remote-workflow",
@@ -81,14 +95,28 @@
     "href": "slides/slide_module_4.html#exercise-6-fork-pull-request",
     "title": "Module 4: GitHub Collaboration",
     "section": "Exercise 6 — Fork & Pull Request",
-    "text": "Exercise 6 — Fork & Pull Request\nSee Exercise 6\n\nFork DQBM-SIB/intro_git_github\nClone your fork\ngit checkout -b YOUR_FIRST_NAME\nAdd your section to projects.md\ngit push origin YOUR_FIRST_NAME\nOpen a Pull Request → reference your issue"
+    "text": "Exercise 6 — Fork & Pull Request\nSee Exercise 6\n\nFork DQBM-CCCZ/intro_git_github\nClone your fork\ngit checkout -b YOUR_FIRST_NAME\nAdd your section to projects.md\ngit push origin YOUR_FIRST_NAME\nOpen a Pull Request → reference your issue"
+  },
+  {
+    "objectID": "slides/slide_module_4.html#youre-done",
+    "href": "slides/slide_module_4.html#youre-done",
+    "title": "Module 4: GitHub Collaboration",
+    "section": "You’re done! 🎉",
+    "text": "You’re done! 🎉\nYou’ve learned:\n\nWhy version control matters (Module 1)\nHow to use Git locally (Module 2)\nHow to work safely with branches (Module 3)\nHow to collaborate on GitHub (Module 4)\n\nYou now have the skills to:\n✅ Version-control your analysis and code\n✅ Try new approaches without breaking what works\n✅ Collaborate with colleagues\n✅ Contribute to open-source projects\nNext: These skills apply to everything. Take them forward.\nQuestions? 🙋"
+  },
+  {
+    "objectID": "slides/slide_module_2.html#module-2-lets-build-something",
+    "href": "slides/slide_module_2.html#module-2-lets-build-something",
+    "title": "Module 2: Local Git",
+    "section": "Module 2: Let’s build something",
+    "text": "Module 2: Let’s build something\nYou know why Git matters. Now time to actually use it.\nWe’ll build a realistic project — experiment-tracker — tracking one analysis from start to finish. Every Git concept you learn applies immediately."
   },
   {
     "objectID": "slides/slide_module_2.html#getting-started",
     "href": "slides/slide_module_2.html#getting-started",
     "title": "Module 2: Local Git",
     "section": "Getting started",
-    "text": "Getting started\nYou know why Git matters now — time to actually use it. First, check it’s installed and tell it who you are:\ngit --version\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your.email@uzh.ch\"\nThese are embedded in every commit you make."
+    "text": "Getting started\nFirst, check Git is installed and tell it who you are:\ngit --version\n\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your.email@uzh.ch\"\nThese are embedded in every commit you make."
   },
   {
     "objectID": "slides/slide_module_2.html#there-are-many-git-commands",
@@ -96,6 +124,20 @@
     "title": "Module 2: Local Git",
     "section": "There are many git commands…",
     "text": "There are many git commands…\nBefore diving in, a reality check — Git is a big tool:\nadd       clone     commit    diff      fetch     init\nlog       merge     pull      push      remote    reset\nbranch    checkout  stash     status    tag       ...\n\nWe will focus on about 12 of them today.\nThe rest you can look up when you need them — git help &lt;command&gt;"
+  },
+  {
+    "objectID": "slides/slide_module_2.html#common-git-gotchas",
+    "href": "slides/slide_module_2.html#common-git-gotchas",
+    "title": "Module 2: Local Git",
+    "section": "Common Git gotchas",
+    "text": "Common Git gotchas\nBefore you dive in, three things that surprise beginners:\n\n\n\n\n\n\n\nWarning\n\n\nGit tracks files, not folders - Empty folders don’t show up in Git - Workaround: put a .gitkeep file in empty folders you need\nNever delete the .git folder - It contains your entire history - If you accidentally delete it, all commits are lost - Backup important repos to GitHub as a safety net\n.gitignore doesn’t un-track files - If a file was already committed, adding it to .gitignore won’t remove it - First remove it: git rm --cached filename - Then add to .gitignore, then commit\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nWhen in doubt, git status and git log are your friends. They never lie."
+  },
+  {
+    "objectID": "slides/slide_module_2.html#what-youll-practice-today",
+    "href": "slides/slide_module_2.html#what-youll-practice-today",
+    "title": "Module 2: Local Git",
+    "section": "What you’ll practice today",
+    "text": "What you’ll practice today\nNext, you’ll build this workflow hands-on:\n\ngit init — create a repository\ngit add → git commit — save snapshots\ngit diff — inspect changes\ngit log — explore history\n\nReady? Let’s go."
   },
   {
     "objectID": "slides/slide_module_2.html#a-running-example-tracking-an-experiment",
@@ -110,6 +152,13 @@
     "title": "Module 2: Local Git",
     "section": "Tracking changes — the three stages",
     "text": "Tracking changes — the three stages\nEvery change you make moves through three places, in order:\nWorking Directory → (git add) → Staging Area → (git commit) → Repository\n\nWhy a staging area? Imagine you fixed a bug and started an unrelated experiment in the same session. The staging area lets you commit the bug fix alone, with its own clear message — without dragging in the half-finished experiment. We’ll see this as a diagram once you’ve done it by hand."
+  },
+  {
+    "objectID": "slides/slide_module_2.html#when-to-commit-the-one-unit-rule",
+    "href": "slides/slide_module_2.html#when-to-commit-the-one-unit-rule",
+    "title": "Module 2: Local Git",
+    "section": "When to commit: the one-unit rule",
+    "text": "When to commit: the one-unit rule\nBeginners ask: “How often should I commit?”\n\nOne commit = one logical unit of work\nGood commits: - “added sample metadata for 4 samples” - “fixed normalization bug in analysis script” - “documented methods section” - “refactored QC function for clarity”\n\n\nAvoid: - “stuff I worked on today” (too vague) - “fixed bug and added feature and updated docs” (too many things)\n\n\n\n\n\n\n\n\nTip\n\n\nRule of thumb: If your commit message needs the word “and” in it, split it into two commits."
   },
   {
     "objectID": "slides/slide_module_2.html#your-first-file-sample-metadata",
@@ -140,6 +189,27 @@
     "text": "git log\ngit log\ncommit ac3eveta1234...\nAuthor: Deepak Tanwar &lt;deepak@uzh.ch&gt;\nDate:   Mon Jun 23 09:45:00 2025\n\n    added sample metadata for 4 samples\ngit log --oneline   # compact view"
   },
   {
+    "objectID": "slides/slide_module_2.html#writing-good-commit-messages",
+    "href": "slides/slide_module_2.html#writing-good-commit-messages",
+    "title": "Module 2: Local Git",
+    "section": "Writing good commit messages",
+    "text": "Writing good commit messages\nYour commit message is a note to future-you (or a labmate) explaining why you made this change.\nGood format:\nimperative verb: what changed\n\nOptional longer explanation here if needed.\nCan reference an issue: \"closes #42\"\nExamples: - add qc step to analysis pipeline - fix alignment scoring bug in normalization - update readme with installation instructions"
+  },
+  {
+    "objectID": "slides/slide_module_2.html#commit-message-anti-patterns",
+    "href": "slides/slide_module_2.html#commit-message-anti-patterns",
+    "title": "Module 2: Local Git",
+    "section": "Commit message anti-patterns",
+    "text": "Commit message anti-patterns\nAvoid vague or multi-purpose messages:\n❌ Bad examples: - \"fixed stuff\" - \"work in progress\" - \"as requested\" - \"I changed the code again\""
+  },
+  {
+    "objectID": "slides/slide_module_2.html#pro-tip-reference-issues-in-commits",
+    "href": "slides/slide_module_2.html#pro-tip-reference-issues-in-commits",
+    "title": "Module 2: Local Git",
+    "section": "Pro tip: Reference issues in commits",
+    "text": "Pro tip: Reference issues in commits\nLink commits to GitHub issues automatically:\ngit commit -m \"fix duplicate sample handling, closes #7\"\nThis automatically closes issue #7 when you merge to main."
+  },
+  {
     "objectID": "slides/slide_module_2.html#the-staging-area-recap",
     "href": "slides/slide_module_2.html#the-staging-area-recap",
     "title": "Module 2: Local Git",
@@ -165,21 +235,28 @@
     "href": "slides/slide_module_2.html#exercise-3-local-git-workflow",
     "title": "Module 2: Local Git",
     "section": "Exercise 3 — Local Git Workflow",
-    "text": "Exercise 3 — Local Git Workflow\nSee Exercise 3 for the full walkthrough.\nSummary:\n\nmkdir experiment-tracker && cd experiment-tracker && git init\nCreate samples.csv with sample metadata, git add, git commit\nCreate analysis_log.md, document a step, add, commit\ngit log --oneline — see all your commits\ngit diff before staging; git diff --staged after staging\nCompare first and last commit: git diff HASH1 HASH2"
+    "text": "Exercise 3 — Local Git Workflow\nYou just learned the gotchas, the one-unit rule, and commit message best practices.\nSee Exercise 3 for the full walkthrough.\nSummary:\n\nmkdir experiment-tracker && cd experiment-tracker && git init\nCreate samples.csv with sample metadata, git add, git commit\nCreate analysis_log.md, document steps with clear commit messages\ngit log --oneline — see all your commits\ngit diff before staging; git diff --staged after staging\nCompare commits: git diff HASH1 HASH2\n\nKey practice: Write commit messages using the “one-unit rule” and imperative format from the previous slides."
+  },
+  {
+    "objectID": "slides/slide_module_2.html#ready-for-module-3",
+    "href": "slides/slide_module_2.html#ready-for-module-3",
+    "title": "Module 2: Local Git",
+    "section": "Ready for Module 3?",
+    "text": "Ready for Module 3?\nYou’ve mastered the local workflow: init → commit → log → diff.\nYour repository is on your machine only. Next: create branches to try new ideas safely, merge results back, and handle conflicts.\nYou now have the power to experiment without fear. 🌳"
   },
   {
     "objectID": "qmd/schedule.html",
     "href": "qmd/schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Time\nModule\nTopics\nSlides\nExercise\n\n\n\n\n09:00–09:30\nWelcome\nIntroductions, why version control, course overview\n—\n—\n\n\n09:30–10:30\nModule 1: Concepts & GitHub\nVersion control problem, Git vs others, terminologies, GitHub account, Markdown\nSlides\nEx 1 · Ex 2\n\n\n10:30–10:45\nBreak\n\n\n\n\n\n10:45–12:00\nModule 2: Local Git\ninit, status, add, commit, log, staging area, diff, HEAD\nSlides\nEx 3\n\n\n12:00–13:00\nLunch\n\n\n\n\n\n13:00–14:30\nModule 3: Branching & History\nbranch, checkout, merge, merge conflicts, .gitignore, reset\nSlides\nEx 4\n\n\n14:30–14:45\nBreak\n\n\n\n\n\n14:45–16:00\nModule 4: GitHub Collaboration\nSSH setup, remote, push, pull, clone, Issues, Projects, Pull Requests\nSlides\nEx 5 · Ex 6\n\n\n16:00–16:45\nFinal Exercise\nFull workflow: local → branch → push → PR\n—\nFinal\n\n\n16:45–17:00\nWrap-up\nQ&A, cheat sheet, next steps, feedback\n—\n—"
+    "text": "Time\nModule\nTopics\nSlides\nExercise\n\n\n\n\n09:00–09:30\nWelcome\nIntroductions, why version control, course overview\n—\n—\n\n\n09:30–10:30\nModule 1: Concepts & GitHub\nVersion control problem, Git vs others, terminologies, GitHub account, Markdown\nSlides\nEx 1 · Ex 2\n\n\n10:30–10:45\nBreak\n\n\n\n\n\n10:45–12:00\nModule 2: Local Git\ninit, status, add, commit, log, staging area, diff, HEAD\nSlides\nEx 3\n\n\n12:00–12:30\nCoffee Break\n\n\n\n\n\n12:30–13:00\nLunch\n\n\n\n\n\n13:00–14:30\nModule 3: Branching & History\nbranch, checkout, merge, merge conflicts, .gitignore, reset\nSlides\nEx 4\n\n\n14:30–14:45\nBreak\n\n\n\n\n\n14:45–16:00\nModule 4: GitHub Collaboration\nSSH setup, remote, push, pull, clone, Issues, Projects, Pull Requests\nSlides\nEx 5 · Ex 6\n\n\n16:00–16:45\nFinal Exercise\nFull workflow: local → branch → push → PR\n—\nFinal\n\n\n16:45–17:00\nWrap-up\nQ&A, cheat sheet, next steps, feedback\n—\n—"
   },
   {
     "objectID": "qmd/schedule.html#course-day-schedule",
     "href": "qmd/schedule.html#course-day-schedule",
     "title": "Schedule",
     "section": "",
-    "text": "Time\nModule\nTopics\nSlides\nExercise\n\n\n\n\n09:00–09:30\nWelcome\nIntroductions, why version control, course overview\n—\n—\n\n\n09:30–10:30\nModule 1: Concepts & GitHub\nVersion control problem, Git vs others, terminologies, GitHub account, Markdown\nSlides\nEx 1 · Ex 2\n\n\n10:30–10:45\nBreak\n\n\n\n\n\n10:45–12:00\nModule 2: Local Git\ninit, status, add, commit, log, staging area, diff, HEAD\nSlides\nEx 3\n\n\n12:00–13:00\nLunch\n\n\n\n\n\n13:00–14:30\nModule 3: Branching & History\nbranch, checkout, merge, merge conflicts, .gitignore, reset\nSlides\nEx 4\n\n\n14:30–14:45\nBreak\n\n\n\n\n\n14:45–16:00\nModule 4: GitHub Collaboration\nSSH setup, remote, push, pull, clone, Issues, Projects, Pull Requests\nSlides\nEx 5 · Ex 6\n\n\n16:00–16:45\nFinal Exercise\nFull workflow: local → branch → push → PR\n—\nFinal\n\n\n16:45–17:00\nWrap-up\nQ&A, cheat sheet, next steps, feedback\n—\n—"
+    "text": "Time\nModule\nTopics\nSlides\nExercise\n\n\n\n\n09:00–09:30\nWelcome\nIntroductions, why version control, course overview\n—\n—\n\n\n09:30–10:30\nModule 1: Concepts & GitHub\nVersion control problem, Git vs others, terminologies, GitHub account, Markdown\nSlides\nEx 1 · Ex 2\n\n\n10:30–10:45\nBreak\n\n\n\n\n\n10:45–12:00\nModule 2: Local Git\ninit, status, add, commit, log, staging area, diff, HEAD\nSlides\nEx 3\n\n\n12:00–12:30\nCoffee Break\n\n\n\n\n\n12:30–13:00\nLunch\n\n\n\n\n\n13:00–14:30\nModule 3: Branching & History\nbranch, checkout, merge, merge conflicts, .gitignore, reset\nSlides\nEx 4\n\n\n14:30–14:45\nBreak\n\n\n\n\n\n14:45–16:00\nModule 4: GitHub Collaboration\nSSH setup, remote, push, pull, clone, Issues, Projects, Pull Requests\nSlides\nEx 5 · Ex 6\n\n\n16:00–16:45\nFinal Exercise\nFull workflow: local → branch → push → PR\n—\nFinal\n\n\n16:45–17:00\nWrap-up\nQ&A, cheat sheet, next steps, feedback\n—\n—"
   },
   {
     "objectID": "qmd/markdown_cheatsheet.html",
@@ -382,14 +459,14 @@
     "href": "exercises/final_exercise.html#part-1-plan-on-github-15-min",
     "title": "Final Exercise",
     "section": "Part 1 — Plan on GitHub (~15 min)",
-    "text": "Part 1 — Plan on GitHub (~15 min)\n\n1a. Create an Issue\n\nGo to https://github.com/DQBM-SIB/intro_git_github\nClick Issues → New issue\nTitle: YOUR_NAME — project description\nBody: list 3–5 things you plan to add\nAssign to yourself, add a label (e.g., documentation)\nSubmit — note your issue number (e.g., #22)\n\n\n\n1b. Add to the Project board\n\nOn the issue page, find Projects in the right sidebar\nAdd to the course project board → move it to In Progress"
+    "text": "Part 1 — Plan on GitHub (~15 min)\n\n1a. Create an Issue\n\nGo to https://github.com/DQBM-CCCZ/intro_git_github\nClick Issues → New issue\nTitle: YOUR_NAME — project description\nBody: list 3–5 things you plan to add\nAssign to yourself, add a label (e.g., documentation)\nSubmit — note your issue number (e.g., #22)\n\n\n\n1b. Add to the Project board\n\nOn the issue page, find Projects in the right sidebar\nAdd to the course project board → move it to In Progress"
   },
   {
     "objectID": "exercises/final_exercise.html#part-2-work-locally-15-min",
     "href": "exercises/final_exercise.html#part-2-work-locally-15-min",
     "title": "Final Exercise",
     "section": "Part 2 — Work locally (~15 min)",
-    "text": "Part 2 — Work locally (~15 min)\n\n2a. Clone the course repo\ncd ~/Downloads\ngit clone git@github.com:DQBM-SIB/intro_git_github.git course_repo\ncd course_repo\ngit log --oneline\n\n\n2b. Create a branch\ngit checkout -b YOUR_FIRST_NAME\n\n\n2c. Add your project description\nnano projects.md\n# Your Full Name\nYour project description here.\n\n\n2d. Commit with your issue number\ngit add projects.md\ngit commit -m \"added YOUR_NAME project description, closes #YOUR_ISSUE_NUMBER\""
+    "text": "Part 2 — Work locally (~15 min)\n\n2a. Clone the course repo\ncd ~/Downloads\ngit clone git@github.com:DQBM-CCCZ/intro_git_github.git course_repo\ncd course_repo\ngit log --oneline\n\n\n2b. Create a branch\ngit checkout -b YOUR_FIRST_NAME\n\n\n2c. Add your project description\nnano projects.md\n# Your Full Name\nYour project description here.\n\n\n2d. Commit with your issue number\ngit add projects.md\ngit commit -m \"added YOUR_NAME project description, closes #YOUR_ISSUE_NUMBER\""
   },
   {
     "objectID": "exercises/final_exercise.html#part-3-push-and-pull-request-10-min",
@@ -438,14 +515,14 @@
     "href": "exercises/exercise_5_push_pull.html#goal",
     "title": "Exercise 5 — Push Your Local Repo to GitHub",
     "section": "Goal",
-    "text": "Goal\nConnect your local repository to GitHub and push your work online."
+    "text": "Goal\nConnect your local repository to GitHub and push your work online.\nYou’ve learned how — now practice the SSH setup and push workflow."
   },
   {
-    "objectID": "exercises/exercise_5_push_pull.html#prerequisite",
-    "href": "exercises/exercise_5_push_pull.html#prerequisite",
+    "objectID": "exercises/exercise_5_push_pull.html#prerequisite-ssh-is-working",
+    "href": "exercises/exercise_5_push_pull.html#prerequisite-ssh-is-working",
     "title": "Exercise 5 — Push Your Local Repo to GitHub",
-    "section": "Prerequisite",
-    "text": "Prerequisite\nTest your SSH key:\nssh -T git@github.com\n# Expected: Hi YOUR_USERNAME! You've successfully authenticated.\nIf this fails, see Pre-course Setup."
+    "section": "Prerequisite: SSH is working",
+    "text": "Prerequisite: SSH is working\nTest your SSH key:\nssh -T git@github.com\n# Expected: Hi YOUR_USERNAME! You've successfully authenticated.\nIf this fails: See the troubleshooting table from Module 4 slide “If SSH connection fails…” for solutions. Common issues: private key not found, agent not running, or public key not uploaded to GitHub."
   },
   {
     "objectID": "exercises/exercise_5_push_pull.html#part-a-create-the-github-repository",
@@ -508,7 +585,7 @@
     "href": "exercises/exercise_3_local_git.html#goal",
     "title": "Exercise 3 — Local Git Workflow",
     "section": "Goal",
-    "text": "Goal\nBuild a small, realistic project — experiment-tracker — and practice the core local Git workflow: init → add → commit → log → diff.\nThis is the running example we will keep extending for the rest of the day."
+    "text": "Goal\nBuild a small, realistic project — experiment-tracker — and practice the core local Git workflow: init → add → commit → log → diff.\nThis is the running example we will keep extending for the rest of the day.\nAs you work: Practice the one-unit rule for commits and use clear, imperative commit messages from the slides (e.g., “add QC step” not “stuff done”)."
   },
   {
     "objectID": "exercises/exercise_3_local_git.html#part-a-create-the-repository",
@@ -543,14 +620,14 @@
     "href": "exercises/exercise_3_local_git.html#check-your-understanding",
     "title": "Exercise 3 — Local Git Workflow",
     "section": "Check your understanding",
-    "text": "Check your understanding\nQuestion: You ran git diff before staging and saw nothing printed, even though you definitely edited analysis_log.md. What did you forget?\n\n\n\n\n\n\nTipClick to reveal the answer\n\n\n\n\n\nYou probably forgot to save the file in nano before running git diff — Git can only see what’s actually written to disk. (Or, less likely, you already ran git add for that change, which would move it from git diff into git diff --staged instead.)\n\n\n\nQuestion: What is the difference between git diff and git diff --staged?\n\n\n\n\n\n\nTipClick to reveal the answer\n\n\n\n\n\n\ngit diff → compares your working directory to the staging area (what you’ve changed but not yet staged).\ngit diff --staged → compares the staging area to the last commit (what will actually go into your next commit).\n\nIf you run git add on a file, it “moves” out of the first diff and into the second."
+    "text": "Check your understanding\nQuestion: You ran git diff before staging and saw nothing printed, even though you definitely edited analysis_log.md. What did you forget?\n\n\n\n\n\n\nTipClick to reveal the answer\n\n\n\n\n\nYou probably forgot to save the file in nano before running git diff — Git can only see what’s actually written to disk. (Or, less likely, you already ran git add for that change, which would move it from git diff into git diff --staged instead.)\n\n\n\nQuestion: What is the difference between git diff and git diff --staged?\n\n\n\n\n\n\nTipClick to reveal the answer\n\n\n\n\n\n\ngit diff → compares your working directory to the staging area (what you’ve changed but not yet staged).\ngit diff --staged → compares the staging area to the last commit (what will actually go into your next commit).\n\nIf you run git add on a file, it “moves” out of the first diff and into the second.\n\n\n\nIf you run git add on a file, it “moves” out of the first diff and into the second. :::"
   },
   {
-    "objectID": "exercises/exercise_3_local_git.html#what-you-learned",
-    "href": "exercises/exercise_3_local_git.html#what-you-learned",
+    "objectID": "exercises/exercise_3_local_git.html#gotcha-empty-folders-wont-show-up",
+    "href": "exercises/exercise_3_local_git.html#gotcha-empty-folders-wont-show-up",
     "title": "Exercise 3 — Local Git Workflow",
-    "section": "What you learned",
-    "text": "What you learned\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit init\nCreate a repository\n\n\ngit status\nSee what has changed\n\n\ngit add &lt;file&gt;\nStage a file\n\n\ngit commit -m \"msg\"\nSave a snapshot\n\n\ngit log --oneline\nView history\n\n\ngit diff\nSee unstaged changes\n\n\ngit diff --staged\nSee staged changes"
+    "section": "Gotcha: empty folders won’t show up",
+    "text": "Gotcha: empty folders won’t show up\nIf you create an empty folder and commit, Git will ignore it. This sometimes surprises people. If you need an empty folder (e.g., for output files), create an empty .gitkeep file inside:\nmkdir output\ntouch output/.gitkeep\ngit add output/.gitkeep\ngit commit -m \"add output directory\"\nThis is a harmless trick — .gitkeep has no special meaning to Git. It’s just a placeholder file.\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit init\nCreate a repository\n\n\ngit status\nSee what has changed\n\n\ngit add &lt;file&gt;\nStage a file\n\n\ngit commit -m \"msg\"\nSave a snapshot\n\n\ngit log --oneline\nView history\n\n\ngit diff\nSee unstaged changes\n\n\ngit diff --staged\nSee staged changes"
   },
   {
     "objectID": "exercises/exercise_1_github_account.html",
@@ -571,7 +648,7 @@
     "href": "exercises/exercise_1_github_account.html#steps",
     "title": "Exercise 1 — GitHub Account & First Repository",
     "section": "Steps",
-    "text": "Steps\n\nGitHub Account\n\nGo to https://github.com and sign up for a free account\nChoose a professional username — you will share this publicly\nVerify your email address\n\n\n\nExplore GitHub\n\nGo to your profile page: https://github.com/YOUR_USERNAME\nFind the DQBM-SIB organization — check if you are already a member\n\n\n\nCreate a Repository\n\nClick the + icon (top right) → New repository\nName it exactly your GitHub username (e.g., dktanwar)\nSet it to Public\nCheck Add a README file\nClick Create repository\n\n\n\nVerify\n\nGo to https://github.com/YOUR_USERNAME/YOUR_USERNAME\nYou should see your new repository with a README file\nTake a screenshot — we will compare it after Exercise 2"
+    "text": "Steps\n\nGitHub Account\n\nGo to https://github.com and sign up for a free account\nChoose a professional username — you will share this publicly\nVerify your email address\n\n\n\nExplore GitHub\n\nGo to your profile page: https://github.com/YOUR_USERNAME\nFind the DQBM-CCCZ organization — check if you are already a member\n\n\n\nCreate a Repository\n\nClick the + icon (top right) → New repository\nName it exactly your GitHub username (e.g., dktanwar)\nSet it to Public\nCheck Add a README file\nClick Create repository\n\n\n\nVerify\n\nGo to https://github.com/YOUR_USERNAME/YOUR_USERNAME\nYou should see your new repository with a README file\nTake a screenshot — we will compare it after Exercise 2"
   },
   {
     "objectID": "exercises/exercise_1_github_account.html#check-your-understanding",
@@ -625,63 +702,63 @@
   {
     "objectID": "exercises/exercise_4_branching.html",
     "href": "exercises/exercise_4_branching.html",
-    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "title": "Exercise 4 — Branching & Merge Conflicts",
     "section": "",
     "text": "Module 3 | ~40 minutes"
   },
   {
     "objectID": "exercises/exercise_4_branching.html#goal",
     "href": "exercises/exercise_4_branching.html#goal",
-    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "title": "Exercise 4 — Branching & Merge Conflicts",
     "section": "Goal",
-    "text": "Goal\nTry an alternative analysis approach on a branch, merge it back, resolve a realistic merge conflict, and exclude raw data files from tracking.\nContinues the experiment-tracker project from Exercise 3."
+    "text": "Goal\nWork safely on an experiment branch, merge results back to main, and practice resolving a realistic merge conflict.\nYou learned why branches are powerful — now experience it hands-on. Continues the experiment-tracker from Exercise 3."
   },
   {
     "objectID": "exercises/exercise_4_branching.html#part-a-create-a-branch-for-a-new-approach",
     "href": "exercises/exercise_4_branching.html#part-a-create-a-branch-for-a-new-approach",
-    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "title": "Exercise 4 — Branching & Merge Conflicts",
     "section": "Part A — Create a branch for a new approach",
     "text": "Part A — Create a branch for a new approach\ncd ~/Downloads/experiment-tracker\n\ngit branch                              # which branch are you on?\ngit checkout -b try-new-normalization   # create and switch\ngit branch                              # confirm"
   },
   {
     "objectID": "exercises/exercise_4_branching.html#part-b-make-changes-on-the-branch",
     "href": "exercises/exercise_4_branching.html#part-b-make-changes-on-the-branch",
-    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "title": "Exercise 4 — Branching & Merge Conflicts",
     "section": "Part B — Make changes on the branch",
     "text": "Part B — Make changes on the branch\nnano analysis_log.md\nAppend:\n## Step 2b — Alternative: quantile normalization\nTried quantile normalization instead of log2. Compare results before merging.\ngit add analysis_log.md\ngit commit -m \"tried quantile normalization instead of log2\"\ngit log --oneline"
   },
   {
     "objectID": "exercises/exercise_4_branching.html#part-c-merge-back-to-main",
     "href": "exercises/exercise_4_branching.html#part-c-merge-back-to-main",
-    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "title": "Exercise 4 — Branching & Merge Conflicts",
     "section": "Part C — Merge back to main",
     "text": "Part C — Merge back to main\ngit checkout main\ncat analysis_log.md      # the quantile normalization note is NOT here\n\ngit merge try-new-normalization\ncat analysis_log.md      # now it IS here\n\ngit log --oneline\ngit branch -d try-new-normalization    # clean up"
   },
   {
     "objectID": "exercises/exercise_4_branching.html#part-d-simulate-a-merge-conflict",
     "href": "exercises/exercise_4_branching.html#part-d-simulate-a-merge-conflict",
-    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "title": "Exercise 4 — Branching & Merge Conflicts",
     "section": "Part D — Simulate a merge conflict",
     "text": "Part D — Simulate a merge conflict\ngit checkout -b draft-conclusion\nnano results_summary.md\nWrite:\n# Results Summary\nTreated samples show a 2-fold increase in expression compared to control.\ngit add results_summary.md\ngit commit -m \"drafted conclusion: 2-fold increase\"\n\ngit checkout main\nnano results_summary.md\nWrite a different conclusion on main:\n# Results Summary\nTreated samples show no significant change in expression compared to control.\ngit add results_summary.md\ngit commit -m \"drafted conclusion: no significant change\"\n\ngit merge draft-conclusion    # CONFLICT\nOpen the file and find the conflict markers:\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nTreated samples show no significant change in expression compared to control.\n=======\nTreated samples show a 2-fold increase in expression compared to control.\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; draft-conclusion\nEdit to keep the conclusion you actually want (or merge both into one sentence noting the discrepancy needs investigation). Remove all marker lines, then:\ngit add results_summary.md\ngit commit -m \"resolved conflicting conclusions, flagged for re-analysis\""
   },
   {
     "objectID": "exercises/exercise_4_branching.html#check-your-understanding",
     "href": "exercises/exercise_4_branching.html#check-your-understanding",
-    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "title": "Exercise 4 — Branching & Merge Conflicts",
     "section": "Check your understanding",
     "text": "Check your understanding\nQuestion: Why did git merge try-new-normalization in Part C succeed silently, but git merge draft-conclusion in Part D stopped with a conflict?\n\n\n\n\n\n\nTipClick to reveal the answer\n\n\n\n\n\nIn Part C, only the try-new-normalization branch had changed analysis_log.md — main hadn’t touched that file since they diverged, so Git could apply the change cleanly (a “fast-forward” or trivial merge).\nIn Part D, both branches edited the exact same line of results_summary.md after diverging. Git has no way to know which version is “right,” so it pauses the merge and asks you to decide.\n\n\n\nQuestion: While results_summary.md still has conflict markers in it, what does git status say?\n\n\n\n\n\n\nTipClick to reveal the answer\n\n\n\n\n\nOn branch main\nYou have unmerged paths.\n  (fix conflicts and run \"git commit\")\n\nUnmerged paths:\n  (use \"git add &lt;file&gt;...\" to mark resolution)\n        both modified:   results_summary.md\nGit refuses to let you commit until you resolve and git add the file — this is a safety net so a half-finished conflict can never accidentally become a permanent commit."
   },
   {
     "objectID": "exercises/exercise_4_branching.html#part-e-.gitignore-for-raw-data",
     "href": "exercises/exercise_4_branching.html#part-e-.gitignore-for-raw-data",
-    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "title": "Exercise 4 — Branching & Merge Conflicts",
     "section": "Part E — .gitignore for raw data",
-    "text": "Part E — .gitignore for raw data\nmkdir raw_data\ntouch raw_data/run1.fastq raw_data/run2.fastq raw_data/instrument.log\ngit status     # git sees all these files\nCreate .gitignore:\nnano .gitignore\nraw_data/\n*.log\ngit status     # ignored files no longer appear\ngit add .gitignore\ngit commit -m \"added gitignore for raw instrument data\""
+    "text": "Part E — .gitignore for raw data\nmkdir raw_data\ntouch raw_data/run1.fastq raw_data/run2.fastq raw_data/instrument.log\ngit status     # git sees all these files\nCreate .gitignore:\nnano .gitignore\nraw_data/\n*.log\ngit status     # ignored files no longer appear\ngit add .gitignore\ngit commit -m \"add gitignore for raw instrument data\"\n\n\n\n\n\n\nWarning\n\n\n\nRemember from the gotchas: If you had already committed raw_data/run1.fastq, adding it to .gitignore won’t remove it from history. You’d first run:\ngit rm --cached raw_data/run1.fastq\ngit commit -m \"remove raw data from tracking\"\nThen add to .gitignore so it won’t happen again."
   },
   {
     "objectID": "exercises/exercise_4_branching.html#what-you-learned",
     "href": "exercises/exercise_4_branching.html#what-you-learned",
-    "title": "Exercise 4 — Branching, Merging & .gitignore",
+    "title": "Exercise 4 — Branching & Merge Conflicts",
     "section": "What you learned",
     "text": "What you learned\n\n\n\nCommand\nWhat it does\n\n\n\n\ngit branch\nList branches\n\n\ngit checkout -b &lt;name&gt;\nCreate and switch\n\n\ngit merge &lt;branch&gt;\nMerge into current branch\n\n\nresolve + git add + git commit\nFix a conflict\n\n\n.gitignore\nExclude files from tracking\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhy this matters for real work: raw sequencing files, large datasets, and instrument logs don’t belong in Git history — they’re huge and usually already backed up elsewhere. .gitignore keeps your repository focused on code, scripts, and small text files that benefit from version control."
   },
@@ -697,21 +774,21 @@
     "href": "exercises/exercise_6_collaboration.html#goal",
     "title": "Exercise 6 — Fork, Branch & Pull Request",
     "section": "Goal",
-    "text": "Goal\nContribute to the course repository using the real open-source collaboration workflow."
+    "text": "Goal\nContribute to the course repository using the real open-source collaboration workflow: Fork → Clone → Branch → PR.\nThis is the professional way to contribute to projects you don’t directly own. It’s how GitHub works everywhere."
   },
   {
     "objectID": "exercises/exercise_6_collaboration.html#the-workflow",
     "href": "exercises/exercise_6_collaboration.html#the-workflow",
     "title": "Exercise 6 — Fork, Branch & Pull Request",
     "section": "The Workflow",
-    "text": "The Workflow\nDQBM-SIB/intro_git_github  (original)\n        ↓  Fork on GitHub\nYOUR_USERNAME/intro_git_github  (your copy)\n        ↓  Clone\nYour local machine\n        ↓  Branch → Edit → Commit → Push\nYOUR_USERNAME/intro_git_github  (your copy)\n        ↓  Pull Request\nDQBM-SIB/intro_git_github  (original)"
+    "text": "The Workflow\nDQBM-CCCZ/intro_git_github  (original)\n        ↓  Fork on GitHub\nYOUR_USERNAME/intro_git_github  (your copy)\n        ↓  Clone\nYour local machine\n        ↓  Branch → Edit → Commit → Push\nYOUR_USERNAME/intro_git_github  (your copy)\n        ↓  Pull Request\nDQBM-CCCZ/intro_git_github  (original)"
   },
   {
     "objectID": "exercises/exercise_6_collaboration.html#part-a-fork",
     "href": "exercises/exercise_6_collaboration.html#part-a-fork",
     "title": "Exercise 6 — Fork, Branch & Pull Request",
     "section": "Part A — Fork",
-    "text": "Part A — Fork\n\nGo to https://github.com/DQBM-SIB/intro_git_github\nClick Fork (top right) → select your account\nYou now have https://github.com/YOUR_USERNAME/intro_git_github"
+    "text": "Part A — Fork\n\nGo to https://github.com/DQBM-CCCZ/intro_git_github\nClick Fork (top right) → select your account\nYou now have https://github.com/YOUR_USERNAME/intro_git_github"
   },
   {
     "objectID": "exercises/exercise_6_collaboration.html#part-b-clone-your-fork",
@@ -739,21 +816,21 @@
     "href": "exercises/exercise_6_collaboration.html#part-e-push-and-open-a-pull-request",
     "title": "Exercise 6 — Fork, Branch & Pull Request",
     "section": "Part E — Push and open a Pull Request",
-    "text": "Part E — Push and open a Pull Request\ngit push origin YOUR_FIRST_NAME\nOn GitHub:\n\nGo to https://github.com/YOUR_USERNAME/intro_git_github\nClick Compare & pull request\nBase: DQBM-SIB/intro_git_github → main\nTitle: Added YOUR_NAME project description\nDescription: Closes #YOUR_ISSUE_NUMBER\nClick Create pull request"
+    "text": "Part E — Push and open a Pull Request\ngit push origin YOUR_FIRST_NAME\nOn GitHub:\n\nGo to https://github.com/YOUR_USERNAME/intro_git_github\nClick Compare & pull request\nBase: DQBM-CCCZ/intro_git_github → main\nTitle: Added YOUR_NAME project description\nDescription: Closes #YOUR_ISSUE_NUMBER\nClick Create pull request"
   },
   {
     "objectID": "exercises/exercise_6_collaboration.html#part-f-after-all-prs-are-merged",
     "href": "exercises/exercise_6_collaboration.html#part-f-after-all-prs-are-merged",
     "title": "Exercise 6 — Fork, Branch & Pull Request",
     "section": "Part F — After all PRs are merged",
-    "text": "Part F — After all PRs are merged\n# Add the original repo as upstream\ngit remote add upstream git@github.com:DQBM-SIB/intro_git_github.git\n\n# Get everyone's merged contributions\ngit fetch upstream\ngit checkout main\ngit merge upstream/main\n\ngit log --oneline    # see all contributions in one place"
+    "text": "Part F — After all PRs are merged\n# Add the original repo as upstream\ngit remote add upstream git@github.com:DQBM-CCCZ/intro_git_github.git\n\n# Get everyone's merged contributions\ngit fetch upstream\ngit checkout main\ngit merge upstream/main\n\ngit log --oneline    # see all contributions in one place"
   },
   {
     "objectID": "exercises/exercise_6_collaboration.html#check-your-understanding",
     "href": "exercises/exercise_6_collaboration.html#check-your-understanding",
     "title": "Exercise 6 — Fork, Branch & Pull Request",
     "section": "Check your understanding",
-    "text": "Check your understanding\nQuestion: You have both origin and upstream remotes configured now. What does each one point to?\n\n\n\n\n\n\nTipClick to reveal the answer\n\n\n\n\n\n\norigin → your fork (YOUR_USERNAME/intro_git_github) — where you push your own branches.\nupstream → the original repo (DQBM-SIB/intro_git_github) — where everyone’s pull requests get merged.\n\nThis two-remote pattern is the standard way to contribute to a project you don’t have write access to: push to your fork, pull updates from upstream.\n\n\n\nQuestion: Could you have skipped forking and just cloned DQBM-SIB/intro_git_github directly?\n\n\n\n\n\n\nTipClick to reveal the answer\n\n\n\n\n\nYou could clone it, but you wouldn’t be able to git push your branch to it — you don’t have write permission on someone else’s repository. Forking creates your own writable copy on GitHub first, so git push origin YOUR_BRANCH has somewhere to go. This is exactly how open-source contribution works on every public GitHub project."
+    "text": "Check your understanding\nQuestion: You have both origin and upstream remotes configured now. What does each one point to?\n\n\n\n\n\n\nTipClick to reveal the answer\n\n\n\n\n\n\norigin → your fork (YOUR_USERNAME/intro_git_github) — where you push your own branches.\nupstream → the original repo (DQBM-CCCZ/intro_git_github) — where everyone’s pull requests get merged.\n\nThis two-remote pattern is the standard way to contribute to a project you don’t have write access to: push to your fork, pull updates from upstream.\n\n\n\nQuestion: Could you have skipped forking and just cloned DQBM-CCCZ/intro_git_github directly?\n\n\n\n\n\n\nTipClick to reveal the answer\n\n\n\n\n\nYou could clone it, but you wouldn’t be able to git push your branch to it — you don’t have write permission on someone else’s repository. Forking creates your own writable copy on GitHub first, so git push origin YOUR_BRANCH has somewhere to go. This is exactly how open-source contribution works on every public GitHub project."
   },
   {
     "objectID": "exercises/exercise_6_collaboration.html#what-you-learned",
@@ -1005,7 +1082,7 @@
     "href": "slides/slide_module_1.html#types-of-version-control",
     "title": "Module 1: Concepts & GitHub",
     "section": "Types of Version Control",
-    "text": "Types of Version Control\nGit is one kind of version control system — here’s how it compares to the alternatives.\n\nLocalCentral (e.g. SVN)Distributed (Git)\n\n\n\n\n\n\n\nNo collaboration possible — if your laptop dies, so does the history.\n\n\n\n\n\n\n\nOne single point of failure. No internet → no work.\n\n\n\n\n\n\n\nEvery clone is a full backup. Works offline. This is Git."
+    "text": "Types of Version Control\nGit is one kind of version control system — here’s how it compares to the alternatives.\nLocal VCS\n\nNo collaboration possible — if your laptop dies, so does the history."
   },
   {
     "objectID": "slides/slide_module_1.html#git-is-winning",
@@ -1054,7 +1131,7 @@
     "href": "slides/slide_module_1.html#exercise-1",
     "title": "Module 1: Concepts & GitHub",
     "section": "Exercise 1",
-    "text": "Exercise 1\n\nCreate a GitHub account at github.com\nChoose a professional username\nCheck if you belong to the DQBM-SIB organization\nCreate a new public repository named after your username\nGo to https://github.com/YOUR_USERNAME\nTake a screenshot"
+    "text": "Exercise 1\n\nCreate a GitHub account at github.com\nChoose a professional username\nCheck if you belong to the DQBM-CCCZ organization\nCreate a new public repository named after your username\nGo to https://github.com/YOUR_USERNAME\nTake a screenshot"
   },
   {
     "objectID": "slides/slide_module_1.html#exercise-2",
@@ -1062,6 +1139,20 @@
     "title": "Module 1: Concepts & GitHub",
     "section": "Exercise 2",
     "text": "Exercise 2\n\nOpen the README.md file in your repository\nWrite your introduction using Markdown:\n\nName as # Heading 1\nSections: About Me, Research Project, Affiliation, Education\nEducation as a table with university and year columns\n\nCommit with message: added introduction and education table\nCompare your profile to the screenshot from Exercise 1"
+  },
+  {
+    "objectID": "slides/slide_module_1.html#ready-for-module-2",
+    "href": "slides/slide_module_1.html#ready-for-module-2",
+    "title": "Module 1: Concepts & GitHub",
+    "section": "Ready for Module 2?",
+    "text": "Ready for Module 2?\nYou now understand why Git exists and the core vocabulary.\nNext: you’ll actually use Git on your machine. We’ll build a realistic project step-by-step: init → add → commit → log → diff.\nCome back ready to type some commands. ⌨️"
+  },
+  {
+    "objectID": "slides/slide_module_3.html#module-3-branches-parallel-work",
+    "href": "slides/slide_module_3.html#module-3-branches-parallel-work",
+    "title": "Module 3: Branching & History",
+    "section": "Module 3: Branches & parallel work",
+    "text": "Module 3: Branches & parallel work\nYou’ve mastered the basic workflow: init → add → commit → log.\nNow the real power: try new ideas without breaking what works. That’s what branches do."
   },
   {
     "objectID": "slides/slide_module_3.html#why-branches",
@@ -1132,5 +1223,12 @@
     "title": "Module 3: Branching & History",
     "section": "Exercise 4 — Branching & Merge Conflicts",
     "text": "Exercise 4 — Branching & Merge Conflicts\nSee Exercise 4 for the full walkthrough.\nSummary:\n\ngit checkout -b try-new-normalization\nEdit analysis_log.md and results_summary.md, add, commit\ngit checkout main → git merge try-new-normalization\nCreate a conflict by editing the same conclusion on two branches\nResolve the conflict manually\nCreate raw_data/, add .gitignore, verify files are ignored"
+  },
+  {
+    "objectID": "slides/slide_module_3.html#ready-for-module-4",
+    "href": "slides/slide_module_3.html#ready-for-module-4",
+    "title": "Module 3: Branching & History",
+    "section": "Ready for Module 4?",
+    "text": "Ready for Module 4?\nYou’ve mastered local workflows and branches. Everything so far is on your machine.\nNext: move to GitHub. Share your work online, collaborate with others, and learn the professional Pull Request workflow.\nYour code is about to meet the world. 🌐"
   }
 ]

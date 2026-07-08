@@ -383,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/DQBM-SIB/intro_git_github"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/DQBM-CCCZ/intro_git_github"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -410,7 +410,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#part-c-more-commits-documenting-analysis-steps" id="toc-part-c-more-commits-documenting-analysis-steps" class="nav-link" data-scroll-target="#part-c-more-commits-documenting-analysis-steps">Part C — More commits: documenting analysis steps</a></li>
   <li><a href="#part-d-inspect-changes-with-diff" id="toc-part-d-inspect-changes-with-diff" class="nav-link" data-scroll-target="#part-d-inspect-changes-with-diff">Part D — Inspect changes with diff</a></li>
   <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
-  <li><a href="#what-you-learned" id="toc-what-you-learned" class="nav-link" data-scroll-target="#what-you-learned">What you learned</a></li>
+  <li><a href="#gotcha-empty-folders-wont-show-up" id="toc-gotcha-empty-folders-wont-show-up" class="nav-link" data-scroll-target="#gotcha-empty-folders-wont-show-up">Gotcha: empty folders won’t show up</a></li>
   </ul>
 </nav>
     </div>
@@ -443,6 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="goal">Goal</h2>
 <p>Build a small, realistic project — <code>experiment-tracker</code> — and practice the core local Git workflow: <code>init</code> → <code>add</code> → <code>commit</code> → <code>log</code> → <code>diff</code>.</p>
 <p>This is the running example we will keep extending for the rest of the day.</p>
+<p><strong>As you work:</strong> Practice the <strong>one-unit rule</strong> for commits and use <strong>clear, imperative commit messages</strong> from the slides (e.g., “add QC step” not “stuff done”).</p>
 <hr>
 </section>
 <section id="part-a-create-the-repository" class="level2">
@@ -594,10 +595,17 @@ Changes to be committed:
 </div>
 </div>
 </div>
+<p>If you run <code>git add</code> on a file, it “moves” out of the first diff and into the second. :::</p>
 <hr>
 </section>
-<section id="what-you-learned" class="level2">
-<h2 class="anchored" data-anchor-id="what-you-learned">What you learned</h2>
+<section id="gotcha-empty-folders-wont-show-up" class="level2">
+<h2 class="anchored" data-anchor-id="gotcha-empty-folders-wont-show-up">Gotcha: empty folders won’t show up</h2>
+<p>If you create an empty folder and commit, Git will ignore it. This sometimes surprises people. If you need an empty folder (e.g., for output files), create an empty <code>.gitkeep</code> file inside:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> output</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> output/.gitkeep</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add output/.gitkeep</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"add output directory"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is a harmless trick — <code>.gitkeep</code> has no special meaning to Git. It’s just a placeholder file.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">

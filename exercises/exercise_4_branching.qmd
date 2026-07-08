@@ -1,5 +1,5 @@
 ---
-title: "Exercise 4 — Branching, Merging & .gitignore"
+title: "Exercise 4 — Branching & Merge Conflicts"
 format: html
 ---
 
@@ -9,10 +9,10 @@ format: html
 
 ## Goal
 
-Try an alternative analysis approach on a branch, merge it back, resolve a
-realistic merge conflict, and exclude raw data files from tracking.
+Work safely on an experiment branch, merge results back to `main`, and practice
+resolving a realistic merge conflict.
 
-Continues the `experiment-tracker` project from Exercise 3.
+You learned why branches are powerful — now experience it hands-on. Continues the `experiment-tracker` from Exercise 3.
 
 ---
 
@@ -182,8 +182,19 @@ raw_data/
 ```bash
 git status     # ignored files no longer appear
 git add .gitignore
-git commit -m "added gitignore for raw instrument data"
+git commit -m "add gitignore for raw instrument data"
 ```
+
+::: {.callout-warning}
+**Remember from the gotchas:** If you had already committed `raw_data/run1.fastq`, adding it to `.gitignore` won't remove it from history. You'd first run:
+
+```bash
+git rm --cached raw_data/run1.fastq
+git commit -m "remove raw data from tracking"
+```
+
+Then add to `.gitignore` so it won't happen again.
+:::
 
 ---
 

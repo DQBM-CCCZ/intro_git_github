@@ -14,6 +14,8 @@ local Git workflow: `init` → `add` → `commit` → `log` → `diff`.
 
 This is the running example we will keep extending for the rest of the day.
 
+**As you work:** Practice the **one-unit rule** for commits and use **clear, imperative commit messages** from the slides (e.g., "add QC step" not "stuff done").
+
 ---
 
 ## Part A — Create the repository
@@ -185,9 +187,25 @@ If you run `git add` on a file, it "moves" out of the first diff and into
 the second.
 :::
 
+If you run `git add` on a file, it "moves" out of the first diff and into
+the second.
+:::
+
 ---
 
-## What you learned
+## Gotcha: empty folders won't show up
+
+If you create an empty folder and commit, Git will ignore it. This sometimes surprises people.
+If you need an empty folder (e.g., for output files), create an empty `.gitkeep` file inside:
+
+```bash
+mkdir output
+touch output/.gitkeep
+git add output/.gitkeep
+git commit -m "add output directory"
+```
+
+This is a harmless trick — `.gitkeep` has no special meaning to Git. It's just a placeholder file.
 
 | Command | What it does |
 |---------|-------------|

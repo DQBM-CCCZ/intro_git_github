@@ -204,9 +204,14 @@ Deepak Tanwar
 </div>
 
 </section>
+<section id="module-2-lets-build-something" class="slide level2">
+<h2>Module 2: Let’s build something</h2>
+<p>You know <em>why</em> Git matters. Now time to actually <em>use</em> it.</p>
+<p>We’ll build a realistic project — <code>experiment-tracker</code> — tracking one analysis from start to finish. Every Git concept you learn applies immediately.</p>
+</section>
 <section id="getting-started" class="slide level2">
 <h2>Getting started</h2>
-<p>You know <em>why</em> Git matters now — time to actually use it. First, check it’s installed and tell it who you are:</p>
+<p>First, check Git is installed and tell it who you are:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="fu">git</span> <span class="at">--version</span></span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
@@ -224,6 +229,53 @@ branch    checkout  stash     status    tag       ...</code></pre>
 <p>The rest you can look up when you need them — <code>git help &lt;command&gt;</code></p>
 </div>
 </section>
+<section id="common-git-gotchas" class="slide level2">
+<h2>Common Git gotchas</h2>
+<p>Before you dive in, three things that surprise beginners:</p>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Git tracks <em>files</em>, not folders</strong> - Empty folders don’t show up in Git - Workaround: put a <code>.gitkeep</code> file in empty folders you need</p>
+<p><strong>Never delete the <code>.git</code> folder</strong> - It contains your entire history - If you accidentally delete it, all commits are lost - Backup important repos to GitHub as a safety net</p>
+<p><strong><code>.gitignore</code> doesn’t un-track files</strong> - If a file was already committed, adding it to <code>.gitignore</code> won’t remove it - First remove it: <code>git rm --cached filename</code> - Then add to <code>.gitignore</code>, then commit</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>When in doubt, <code>git status</code> and <code>git log</code> are your friends. They never lie.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-youll-practice-today" class="slide level2">
+<h2>What you’ll practice today</h2>
+<p>Next, you’ll build this workflow hands-on:</p>
+<ol type="1">
+<li><code>git init</code> — create a repository</li>
+<li><code>git add</code> → <code>git commit</code> — save snapshots</li>
+<li><code>git diff</code> — inspect changes</li>
+<li><code>git log</code> — explore history</li>
+</ol>
+<p>Ready? Let’s go.</p>
+</section>
 <section id="a-running-example-tracking-an-experiment" class="slide level2">
 <h2>A running example: tracking an experiment</h2>
 <p>Let’s make those 12 commands concrete. Throughout today we will build one realistic project — <code>experiment-tracker</code> — the kind of folder you might keep next to a real experiment: sample metadata, analysis notes, and a results summary. No programming language required.</p>
@@ -240,6 +292,32 @@ branch    checkout  stash     status    tag       ...</code></pre>
 <p><strong>Working Directory</strong> → (<code>git add</code>) → <strong>Staging Area</strong> → (<code>git commit</code>) → <strong>Repository</strong></p>
 <div class="fragment">
 <p>Why a staging area? Imagine you fixed a bug <strong>and</strong> started an unrelated experiment in the same session. The staging area lets you commit the bug fix alone, with its own clear message — without dragging in the half-finished experiment. We’ll see this as a diagram once you’ve done it by hand.</p>
+</div>
+</section>
+<section id="when-to-commit-the-one-unit-rule" class="slide level2">
+<h2>When to commit: the one-unit rule</h2>
+<p>Beginners ask: “How often should I commit?”</p>
+<div class="fragment">
+<p><strong>One commit = one logical unit of work</strong></p>
+<p><strong>Good commits:</strong> - “added sample metadata for 4 samples” - “fixed normalization bug in analysis script” - “documented methods section” - “refactored QC function for clarity”</p>
+</div>
+<div class="fragment">
+<p><strong>Avoid:</strong> - “stuff I worked on today” (too vague) - “fixed bug and added feature and updated docs” (too many things)</p>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Rule of thumb:</strong> If your commit message needs the word “and” in it, split it into two commits.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="your-first-file-sample-metadata" class="slide level2">
@@ -316,6 +394,27 @@ Date:   Mon Jun 23 09:45:00 2025
     added sample metadata for 4 samples</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="fu">git</span> log <span class="at">--oneline</span>   <span class="co"># compact view</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
+<section id="writing-good-commit-messages" class="slide level2">
+<h2>Writing good commit messages</h2>
+<p>Your commit message is a <strong>note to future-you</strong> (or a labmate) explaining <em>why</em> you made this change.</p>
+<p><strong>Good format:</strong></p>
+<pre><code>imperative verb: what changed
+
+Optional longer explanation here if needed.
+Can reference an issue: "closes #42"</code></pre>
+<p><strong>Examples:</strong> - <code>add qc step to analysis pipeline</code> - <code>fix alignment scoring bug in normalization</code> - <code>update readme with installation instructions</code></p>
+</section>
+<section id="commit-message-anti-patterns" class="slide level2">
+<h2>Commit message anti-patterns</h2>
+<p>Avoid vague or multi-purpose messages:</p>
+<p><strong>❌ Bad examples:</strong> - <code>"fixed stuff"</code> - <code>"work in progress"</code> - <code>"as requested"</code> - <code>"I changed the code again"</code></p>
+</section>
+<section id="pro-tip-reference-issues-in-commits" class="slide level2">
+<h2>Pro tip: Reference issues in commits</h2>
+<p>Link commits to GitHub issues automatically:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"fix duplicate sample handling, closes #7"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This automatically closes issue #7 when you merge to main.</p>
+</section>
 <section id="the-staging-area-recap" class="slide level2">
 <h2>The staging area recap</h2>
 
@@ -348,17 +447,17 @@ Date:   Mon Jun 23 09:45:00 2025
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Terminal</a></li><li><a href="#tabset-2-2">VS Code</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="co"># Working directory vs staging area (unstaged changes)</span></span>
-<span id="cb12-2"><a></a><span class="fu">git</span> diff</span>
-<span id="cb12-3"><a></a></span>
-<span id="cb12-4"><a></a><span class="co"># Staging area vs last commit (what will be in next commit)</span></span>
-<span id="cb12-5"><a></a><span class="fu">git</span> diff <span class="at">--staged</span></span>
-<span id="cb12-6"><a></a></span>
-<span id="cb12-7"><a></a><span class="co"># Working directory vs last commit (everything changed)</span></span>
-<span id="cb12-8"><a></a><span class="fu">git</span> diff HEAD</span>
-<span id="cb12-9"><a></a></span>
-<span id="cb12-10"><a></a><span class="co"># Two specific commits</span></span>
-<span id="cb12-11"><a></a><span class="fu">git</span> diff <span class="op">&lt;</span>hash1<span class="op">&gt;</span> <span class="op">&lt;</span>hash2<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="co"># Working directory vs staging area (unstaged changes)</span></span>
+<span id="cb14-2"><a></a><span class="fu">git</span> diff</span>
+<span id="cb14-3"><a></a></span>
+<span id="cb14-4"><a></a><span class="co"># Staging area vs last commit (what will be in next commit)</span></span>
+<span id="cb14-5"><a></a><span class="fu">git</span> diff <span class="at">--staged</span></span>
+<span id="cb14-6"><a></a></span>
+<span id="cb14-7"><a></a><span class="co"># Working directory vs last commit (everything changed)</span></span>
+<span id="cb14-8"><a></a><span class="fu">git</span> diff HEAD</span>
+<span id="cb14-9"><a></a></span>
+<span id="cb14-10"><a></a><span class="co"># Two specific commits</span></span>
+<span id="cb14-11"><a></a><span class="fu">git</span> diff <span class="op">&lt;</span>hash1<span class="op">&gt;</span> <span class="op">&lt;</span>hash2<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Terminal diffs use <code>+</code>/<code>-</code> prefixes per line — green <code>+</code> for added, red <code>-</code> for removed.</p>
 </div>
 <div id="tabset-2-2">
@@ -374,16 +473,24 @@ Date:   Mon Jun 23 09:45:00 2025
 </section>
 <section id="exercise-3-local-git-workflow" class="slide level2">
 <h2>Exercise 3 — Local Git Workflow</h2>
+<p>You just learned the gotchas, the one-unit rule, and commit message best practices.</p>
 <p>See <a href="../exercises/exercise_3_local_git.html">Exercise 3</a> for the full walkthrough.</p>
 <p><strong>Summary:</strong></p>
 <ol type="1">
 <li><code>mkdir experiment-tracker &amp;&amp; cd experiment-tracker &amp;&amp; git init</code></li>
 <li>Create <code>samples.csv</code> with sample metadata, <code>git add</code>, <code>git commit</code></li>
-<li>Create <code>analysis_log.md</code>, document a step, add, commit</li>
+<li>Create <code>analysis_log.md</code>, document steps with clear commit messages</li>
 <li><code>git log --oneline</code> — see all your commits</li>
 <li><code>git diff</code> before staging; <code>git diff --staged</code> after staging</li>
-<li>Compare first and last commit: <code>git diff HASH1 HASH2</code></li>
+<li>Compare commits: <code>git diff HASH1 HASH2</code></li>
 </ol>
+<p><strong>Key practice:</strong> Write commit messages using the “one-unit rule” and imperative format from the previous slides.</p>
+</section>
+<section id="ready-for-module-3" class="slide level2">
+<h2>Ready for Module 3?</h2>
+<p>You’ve mastered the local workflow: init → commit → log → diff.</p>
+<p>Your repository is on your machine only. Next: create branches to try new ideas safely, merge results back, and handle conflicts.</p>
+<p><strong>You now have the power to experiment without fear.</strong> 🌳</p>
 
 
 </section>

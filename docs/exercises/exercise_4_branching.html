@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exercise 4 — Branching, Merging &amp; .gitignore – Introduction to Git &amp; GitHub</title>
+<title>Exercise 4 — Branching &amp; Merge Conflicts – Introduction to Git &amp; GitHub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -383,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/DQBM-SIB/intro_git_github"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/DQBM-CCCZ/intro_git_github"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -421,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exercise 4 — Branching, Merging &amp; .gitignore</h1>
+<h1 class="title">Exercise 4 — Branching &amp; Merge Conflicts</h1>
 </div>
 
 
@@ -442,8 +442,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="goal" class="level2">
 <h2 class="anchored" data-anchor-id="goal">Goal</h2>
-<p>Try an alternative analysis approach on a branch, merge it back, resolve a realistic merge conflict, and exclude raw data files from tracking.</p>
-<p>Continues the <code>experiment-tracker</code> project from Exercise 3.</p>
+<p>Work safely on an experiment branch, merge results back to <code>main</code>, and practice resolving a realistic merge conflict.</p>
+<p>You learned why branches are powerful — now experience it hands-on. Continues the <code>experiment-tracker</code> from Exercise 3.</p>
 <hr>
 </section>
 <section id="part-a-create-a-branch-for-a-new-approach" class="level2">
@@ -565,7 +565,23 @@ Unmerged paths:
 *.log</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status     <span class="co"># ignored files no longer appear</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .gitignore</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"added gitignore for raw instrument data"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"add gitignore for raw instrument data"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Remember from the gotchas:</strong> If you had already committed <code>raw_data/run1.fastq</code>, adding it to <code>.gitignore</code> won’t remove it from history. You’d first run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cached</span> raw_data/run1.fastq</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"remove raw data from tracking"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then add to <code>.gitignore</code> so it won’t happen again.</p>
+</div>
+</div>
 <hr>
 </section>
 <section id="what-you-learned" class="level2">
