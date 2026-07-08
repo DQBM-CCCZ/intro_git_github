@@ -12,7 +12,7 @@ format: html
 | Time | Module | Topics | Slides | Exercise |
 |------|--------|--------|--------|----------|
 | 09:00–10:30 | [Module 1: Concepts & GitHub](../slides/slide_module_1.qmd) | Welcome, introductions, version control problem, Git vs others, terminologies, GitHub account, Markdown | [Slides](../slides/slide_module_1.qmd) | [Ex 1](../exercises/exercise_1_github_account.qmd) · [Ex 2](../exercises/exercise_2_markdown.qmd) |
-| 10:30–11:00 | *Coffee Break* | | | |
+| 10:30–11:15 | *Coffee Break* | | | |
 | 11:00–12:30 | [Module 2: Local Git](../slides/slide_module_2.qmd) | `init`, `status`, `add`, `commit`, `log`, staging area, `diff`, HEAD | [Slides](../slides/slide_module_2.qmd) | [Ex 3](../exercises/exercise_3_local_git.qmd) |
 | 12:30–13:30 | *Lunch* | | | |
 | 13:30–15:00 | [Module 3: Branching & History](../slides/slide_module_3.qmd) | `branch`, `checkout`, `merge`, merge conflicts, `.gitignore`, `reset` | [Slides](../slides/slide_module_3.qmd) | [Ex 4](../exercises/exercise_4_branching.qmd) |
