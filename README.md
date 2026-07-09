@@ -1,7 +1,7 @@
 # Introduction to `git` and GitHub
 
 A hands-on 1-day course covering version control with Git and collaboration on GitHub.
-Designed for researchers at the Swiss Institute of Bioinformatics / University of Zurich.
+Designed for researchers at the University of Zurich / Comprehensive Cancer Center Zurich (CCCZ), University Hospital Zurich.
 
 ## Acknowledgements
 
