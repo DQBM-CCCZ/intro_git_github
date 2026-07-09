@@ -1,36 +1,23 @@
 # Course Certificates
 
-This folder contains certificate templates for the "Introduction to Git & GitHub" course.
+This folder contains HTML-based certificate templates for course participants.
 
-## Files
+## Available Certificates
 
-- **certificate_participation.qmd** - Participation certificate (for all attendees)
-- **certificate_ects.qmd** - ECTS certificate (for exam passers only, 0.25 ECTS)
+- **certificate-participation.html** — Standard certificate of attendance
+- **certificate-ects.html** — Certificate with 0.25 ECTS recommendation (for exam takers)
 
-## Usage
+## How to Use
 
-### Generate to PDF
-
-Replace `[PARTICIPANT NAME]` in the template with the actual name and render to PDF:
-
-```bash
-# For participation certificate
-quarto render certificate_participation.qmd --to pdf
-
-# For ECTS certificate
-quarto render certificate_ects.qmd --to pdf
-```
-
-### Customize
-
-Edit the `.qmd` file before rendering:
-- Replace `[PARTICIPANT NAME]` with participant's full name
-- Adjust date if needed
-- Customize as required
+1. Open the desired certificate HTML file in a web browser
+2. Fill in the participant name and date in the input fields
+3. Print to PDF:
+   - **Chrome/Edge:** File → Print → Save as PDF
+   - **Firefox:** File → Print → Print to File (PDF)
+   - **Safari:** File → Print → PDF (dropdown) → Save as PDF
 
 ## Notes
 
-- Certificates are issued by **CCCZ, UZH, and USZ**
-- Instructor: Deepak Tanwar (Swiss Institute of Bioinformatics)
-- Participation certificate is for all course attendees
-- ECTS certificate is only for participants who pass the final exam
+- Certificates are issued by **CCCZ (Comprehensive Cancer Center Zurich)** and **USZ (University Hospital Zurich)**
+- ECTS recommendations (0.25) are for participants who successfully complete the course exam
+- These certificates are **not part of the public website** — they remain in the assets folder for internal use only
