@@ -9,8 +9,8 @@ Welcome to the course website for **Introduction to Git and GitHub**, including 
 
 | | |
 |---|---|
-| ![](assets/images/krauthammer.jpg){width="150px"} | ![](assets/images/cccz.jpg){width="150px"} |
-| We thank [Prof. Michael Krauthammer](https://krauthammerlab.ch/authors/michaelkrauthammer/) for supporting this course. | Special thanks to **CCCZ** — Dr. Maja Zenz and Ms Silke Uflacker — for providing coffee breaks. |
+| ![](assets/images/krauthammer.jpg){width="150px"} | ![](assets/images/cccz.jpg){width="350px"} |
+| We thank [Prof. Michael Krauthammer](https://krauthammerlab.ch/authors/michaelkrauthammer/) for supporting this course. | Special thanks to **CCCZ** — Dr. Maja Zenz and Ms. Silke Uflacker — for providing coffee breaks. |
 
 ## Teacher & Author
 

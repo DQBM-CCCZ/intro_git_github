@@ -3,6 +3,13 @@ title: "Exercise 1 — GitHub Account & First Repository"
 format: html
 ---
 
+```{r}
+#| echo: false
+#| eval: false
+# Hidden chunk to ensure yaml package is available for project
+library(yaml)
+```
+
 **Module 1 | ~20 minutes**
 
 ---

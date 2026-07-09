@@ -3,6 +3,15 @@
 A hands-on 1-day course covering version control with Git and collaboration on GitHub.
 Designed for researchers at the Swiss Institute of Bioinformatics / University of Zurich.
 
+## Acknowledgements
+
+| | |
+|---|---|
+| ![](assets/images/krauthammer.jpg){width="150px"} | ![](assets/images/cccz.jpg){width="350px"} |
+| We thank [Prof. Michael Krauthammer](https://krauthammerlab.ch/authors/michaelkrauthammer/) for supporting this course. | Special thanks to **CCCZ** — Dr. Maja Zenz and Ms. Silke Uflacker — for providing coffee breaks. |
+
+---
+
 **Instructor:** Deepak Tanwar — [deepak.tanwar@uzh.ch](mailto:deepak.tanwar@uzh.ch)
 
 ---
@@ -87,18 +96,6 @@ Designed for researchers at the Swiss Institute of Bioinformatics / University o
 
 ---
 
-## Next Steps
-
 Visit the course website: [https://dqbm-cccz.github.io/intro_git_github/](https://dqbm-cccz.github.io/intro_git_github/)
 
 Access slides, exercises, cheat sheets, and schedule there.
-
----
-
-## Acknowledgements
-
-We thank [Prof. Michael Krauthammer](https://krauthammerlab.ch/authors/michaelkrauthammer/) for supporting this course.
-
-Special thanks to **CCCZ** — Dr. Maja Zenz and Ms Silke Uflacker — for providing coffee breaks.
-
-![CCCZ Logo](assets/images/cccz.jpg){width="100px"}
