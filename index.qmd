@@ -16,7 +16,7 @@ Welcome to the course website for **Introduction to Git and GitHub**, including 
 
 Deepak Tanwar <a href="https://orcid.org/0000-0001-8036-1989" target="_blank"><img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a><br>
 Bioinformatics Specialist and Trainer<br>
-Swiss Institute of Bioinformatics / University of Zurich / Comprehensive Cancer Center Zurich (CCCZ), University Hospital Zurich<br>
+Swiss Institute of Bioinformatics<br>
 [deepak.tanwar@uzh.ch](mailto:deepak.tanwar@uzh.ch)<br>
 [Bluesky](http://dktanwar.bsky.social/)
 
