@@ -18,11 +18,11 @@
         }
         
         .certificate {
-            width: 210mm;
-            height: 297mm;
+            width: 297mm;
+            height: 210mm;
             margin: 20px auto;
             background: white;
-            padding: 40px;
+            padding: 30px 40px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             position: relative;
             display: flex;
@@ -177,6 +177,14 @@
             margin-top: 10px;
         }
         
+        .acknowledgement {
+            text-align: center;
+            font-size: 9px;
+            color: #999;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+        
         @media print {
             body {
                 background: none;
@@ -189,7 +197,7 @@
                 height: 100%;
                 margin: 0;
                 box-shadow: none;
-                padding: 40mm 25mm;
+                padding: 25mm 40mm;
                 page-break-after: always;
             }
         }
@@ -249,6 +257,10 @@
                     Zurich, <input type="text" placeholder="[Date]" style="width: 80px; border-bottom: 1px solid #999;">
                 </div>
             </div>
+        </div>
+        
+        <div class="acknowledgement">
+            This course is supported by Prof. Michael Krauthammer
         </div>
     </div>
 </body>
