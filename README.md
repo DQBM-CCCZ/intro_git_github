@@ -24,7 +24,7 @@ Designed for researchers at the Swiss Institute of Bioinformatics / University o
 |------|---------|---------|-----------|
 | 09:00–09:30 | Welcome | Introductions, why version control, course overview | — |
 | 09:30–10:30 | **Module 1: Concepts & GitHub** | Version control problem, Git vs others, terminologies, GitHub account, Markdown | Ex 1, Ex 2 |
-| 10:30–10:45 | *Break* | | |
+| 10:30–11:00 | *Break* | | |
 | 10:45–12:00 | **Module 2: Local Git** | `init`, `status`, `add`, `commit`, `log`, staging area, `diff`, HEAD | Ex 3 |
 | 12:00–13:00 | *Lunch* | | |
 | 13:00–14:30 | **Module 3: Branching & History** | `branch`, `checkout`, `merge`, merge conflicts, `git log --oneline`, `.gitignore`, `reset` | Ex 4 |
