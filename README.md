@@ -7,7 +7,7 @@ Designed for researchers at the Swiss Institute of Bioinformatics / University o
 
 | | |
 |---|---|
-| ![](assets/images/krauthammer.jpg){width="150px"} | ![](assets/images/cccz.jpg){width="350px"} |
+| <img src="assets/images/krauthammer.jpg" width="150"> | <img src="assets/images/cccz.jpg" width="350"> |
 | We thank [Prof. Michael Krauthammer](https://krauthammerlab.ch/authors/michaelkrauthammer/) for supporting this course. | Special thanks to **CCCZ** — Dr. Maja Zenz and Ms. Silke Uflacker — for providing coffee breaks. |
 
 ---
