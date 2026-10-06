@@ -267,6 +267,10 @@
         }
         
         @media print {
+            @page {
+                margin: 0;
+            }
+            
             body {
                 background: none;
                 padding: 0;
@@ -279,6 +283,7 @@
                 margin: 0;
                 box-shadow: none;
                 padding: 25mm 40mm;
+                box-sizing: border-box;
             }
         }
         
