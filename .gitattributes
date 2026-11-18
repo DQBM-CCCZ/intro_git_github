@@ -1,0 +1,1 @@
+assets/certificates/*.pdf diff=git-crypt filter=git-crypt
