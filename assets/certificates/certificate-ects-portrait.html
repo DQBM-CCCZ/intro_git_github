@@ -34,7 +34,7 @@
         .header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-end;
             border-bottom: 1px solid #ddd;
             padding-bottom: 15px;
             margin-bottom: 25px;
@@ -50,7 +50,7 @@
         }
         
         .logo {
-            width: 160px;
+            width: 200px;
             height: auto;
             flex-shrink: 0;
         }
@@ -78,7 +78,7 @@
         }
         
         .logos-right img {
-            height: 100px;
+            height: 80px;
             width: auto;
             flex-shrink: 0;
         }
@@ -103,7 +103,7 @@
         
         .subtitle {
             font-size: 10pt;
-            color: #666;
+            color: #000;
             text-transform: uppercase;
             letter-spacing: 1pt;
             margin-bottom: 10pt;
@@ -111,7 +111,7 @@
         
         .name-label {
             font-size: 10pt;
-            color: #666;
+            color: #000;
             margin-bottom: 3pt;
         }
         
@@ -215,7 +215,7 @@
         
         .ects-note {
             font-size: 9pt;
-            color: #666;
+            color: #000;
             line-height: 1.4;
             margin-top: 6pt;
         }
@@ -237,7 +237,16 @@
         .signature-line {
             border-top: 1px solid #333;
             width: 150pt;
-            margin: 40pt auto 4pt;
+            margin: 0 auto 4pt;
+        }
+        
+        .signature-image {
+            width: 160px;
+            height: auto;
+            margin: 0 auto 4pt;
+            transform: rotate(10deg);
+            display: block;
+            background: transparent;
         }
         
         .signature-title {
@@ -255,13 +264,13 @@
         .date-location {
             text-align: center;
             font-size: 10pt;
-            color: #666;
+            color: #000;
         }
         
         .footer-note {
             text-align: center;
             font-size: 9pt;
-            color: #666;
+            color: #003366;
             margin-top: 10pt;
             line-height: 1.4;
             font-weight: normal;
@@ -310,7 +319,7 @@
                 <img src="cccz.jpg" alt="CCCZ Logo" class="logo">
             </div>
             <div class="logos-right">
-                <img src="eth-uzh-logo-pos-en.png" alt="ETH Zurich & UZH Logo">
+                <img src="uzh-logo.png" alt="UZH Logo">
             </div>
         </div>
         
@@ -324,7 +333,7 @@
             <div class="course-preamble">
                 has successfully completed the course and passed the examination<br>
                 <span class="course-title">Introduction to Git and GitHub</span><br>
-                <span style="font-size: 9pt; color: #999;">July 8, 2026</span>
+                <span style="font-size: 9pt; color: #000;">July 8, 2026</span>
             </div>
             
             <div class="course-details">
@@ -345,33 +354,29 @@
             <div class="ects-text">
                 <strong>ECTS Recommendation</strong><br>
                 <span style="font-size: 16px; color: #003366; font-weight: 600;">0.25 ECTS</span><br>
-                <span style="font-size: 10px; color: #666; margin-top: 8px; display: block; line-height: 1.5;">
+                <span style="font-size: 10px; color: #000; margin-top: 8px; display: block; line-height: 1.5;">
                     Based on 8 hours of contact instruction and examination.<br>
                     Credit recognition is at the discretion of the participant's home institution or graduate school.
                 </span>
             </div>
         </div>
             
-            <div style="margin: 8px auto; font-size: 11px; color: #666; text-align: center;">
+            <div style="margin: 8px auto; font-size: 11px; color: #000; text-align: center;">
                 The participant successfully passed the examination administered at the end of the course.
             </div>
         </div>
         
         <div class="footer">
             <div class="signature-block">
+                <img src="Signature_DKT.png" alt="Signature" class="signature-image">
                 <div class="signature-line"></div>
                 <div class="signature-title">Dr. Deepak Kumar Tanwar</div>
                 <div class="signature-name">Course Instructor</div>
             </div>
             <div class="signature-block">
-                <div class="signature-line"></div>
-                <div class="signature-name" style="font-weight: 600;">Cancer Biology PhD Program</div>
-                <div class="signature-name">Life Science Zurich Graduate School</div>
-            </div>
-            <div class="signature-block">
                 <div class="date-location">
                     Zurich<br>
-                    <span style="font-size: 10px; color: #666;">Date of issue: 15 July 2026</span>
+                    <span style="font-size: 10px; color: #000;">Date of issue: 8 October 2026</span>
                 </div>
             </div>
         </div>
